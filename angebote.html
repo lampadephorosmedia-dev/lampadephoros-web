@@ -3,166 +3,132 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadēphóros – Angebote</title>
+  <title>Angebote • Lampadēphóros</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="wrap">
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-card">
 
-    <header class="hero">
+        <div class="hero-top">
+          <a class="brand" href="start-de.html" aria-label="Lampadēphóros – Start">
+            <div class="brand-badge">
+              <img src="logo.png" alt="Lampadēphóros Logo">
+            </div>
+            <div class="brand-text">
+              <div class="brand-name">Lampadēphóros</div>
+              <div class="brand-sub">Der Fackelträger</div>
+            </div>
+          </a>
 
-      <!-- Sprachwahl -->
-      <div class="lang" aria-label="Sprachauswahl">
-        <details>
-          <summary>DE ▾</summary>
-          <div class="lang-menu" role="menu" aria-label="Sprachen">
-            <a href="start-de.html" role="menuitem">Deutsch <span>DE</span></a>
-            <a href="start-fr.html" role="menuitem">Français <span>FR</span></a>
-            <a href="start-en.html" role="menuitem">English <span>EN</span></a>
-            <a href="start-pt.html" role="menuitem">Português <span>PT</span></a>
-            <a href="start-it.html" role="menuitem">Italiano <span>IT</span></a>
+          <div class="lang">
+            <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
+              DE <span aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" role="menu" aria-label="Sprache wählen">
+              <a role="menuitem" href="angebote.html" aria-current="page">DE</a>
+              <a role="menuitem" href="angebote-fr.html">FR</a>
+            </div>
           </div>
-        </details>
-      </div>
-
-      <div class="brand">
-        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
-        <div class="brand-meta">
-          <div class="badge">Lampadēphóros</div>
-          <div class="mini">Der Fackelträger</div>
         </div>
-      </div>
 
-      <h1>Angebote</h1>
-      <p class="sub">
-        Pilgerreisen, Workshops, Vorträge und besondere Tage.
-        Hier stehen konkrete Termine – und alles, was in Planung ist.
+        <h1>Angebote</h1>
+        <p class="lead">
+          Pilgerreisen, Workshops, Vorträge und besondere Tage. Hier stehen konkrete Termine – und alles, was in Planung ist.
+        </p>
+
+        <nav class="nav" aria-label="Navigation">
+          <a href="start-de.html">Start</a>
+          <a href="about.html">Über uns</a>
+          <a href="filme.html">Filme &amp; Kapitel</a>
+          <a href="impulse.html">Impulse</a>
+          <a href="filme.html#werkstatt">Werkstatt</a>
+          <a class="active" href="angebote.html" aria-current="page">Angebote</a>
+          <a href="shop.html">Shop</a>
+          <a href="links.html">Hier findest du uns</a>
+        </nav>
+
+        <p class="note">
+          Interesse? Schreib uns:
+          <a class="mail" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+        </p>
+
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Einkehrtag 2026 (15–25 Jahre)</h2>
+
+      <p class="line"><strong>Von:</strong> Freitag, 13. Februar 2026 – 19:00 Uhr</p>
+      <p class="line"><strong>Bis:</strong> Samstag, 14. Februar 2026 – 17:00 Uhr</p>
+
+      <p class="line">
+        Start mit der heiligen Messe in der Pfarrkirche in Gilsdorf, danach gemeinsame Fahrt (private Autos) nach Medernach.
       </p>
 
-      <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-de.html">Start</a>
-        <a class="btn" href="about.html">Über uns</a>
-        <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
-        <a class="btn" href="impulse.html">Impulse</a>
-        <a class="btn" href="start.html">Werkstatt</a>
-        <a class="btn primary" href="angebote.html">Angebote</a>
-        <a class="btn" href="shop.html">Shop</a>
-        <a class="btn" href="links.html">Hier findest du uns</a>
-      </nav>
+      <p class="line">
+        <strong>Ort:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br>
+        33, rue de Larochette, L-7661 Medernach
+      </p>
 
-      <div class="note">
-        Interesse? Schreib uns:
-        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      <p class="line"><strong>Übernachtung:</strong></p>
+      <p class="line">Einzelzimmer: 35 €</p>
+      <p class="line">Doppelzimmer: 30 €</p>
+      <p class="small">(Unkosten inklusive)</p>
+
+      <p class="line">
+        <strong>Anmeldung:</strong> <a class="mail" href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a><br>
+        <span class="small">Betreff/Vermerk: <em>GJCG Name Vorname</em></span>
+      </p>
+
+      <p class="line">
+        <strong>Infos:</strong> <a class="mail" href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a> oder Tel. +352 80 49 67
+      </p>
+
+      <p class="line">
+        <strong>Anmeldeschluss:</strong> spätestens am 27. Januar 2026
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="einkehrtag-2026.pdf" target="_blank" rel="noopener">Flyer (PDF) öffnen</a>
+        <a class="btn" href="einkehrtag-2026.pdf" download>PDF herunterladen</a>
       </div>
-    </header>
-
-    <section class="grid" aria-label="Angebotsübersicht">
-
-      <!-- KONKRETES ANGEBOT -->
-      <article class="card" style="grid-column: span 3;">
-        <h2>Einkehrtag 2026 (15–25 Jahre)</h2>
-
-        <p>
-          <strong>Von:</strong> Freitag, 13. Februar 2026 – 19:00 Uhr<br />
-          <strong>Bis:</strong> Samstag, 14. Februar 2026 – 17:00 Uhr
-        </p>
-
-        <p>
-          Start mit der heiligen Messe in der Pfarrkirche in Gilsdorf,
-          danach gemeinsame Fahrt (private Autos) nach Medernach.
-        </p>
-
-        <p>
-          <strong>Ort:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />
-          33, rue de Larochette, L-7661 Medernach
-        </p>
-
-        <p>
-          <strong>Übernachtung:</strong><br />
-          Einzelzimmer: 35 €<br />
-          Doppelzimmer: 30 €<br />
-          <span style="color: var(--muted); font-size: 13px;">(Unkosten inklusive)</span>
-        </p>
-
-        <p>
-          <strong>Anmeldung:</strong>
-          <a href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a><br />
-          <span style="color: var(--muted); font-size: 13px;">
-            Betreff/Vermerk: <em>GJCG Name Vorname</em>
-          </span><br /><br />
-
-          <strong>Infos:</strong>
-          <a href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a>
-          oder Tel. <a href="tel:+352804967">+352 80 49 67</a>
-        </p>
-
-        <p style="margin:0; color: var(--muted); font-size: 13px;">
-          <strong>Anmeldeschluss:</strong> spätestens am 27. Januar 2026
-        </p>
-
-        <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <a class="btn primary" href="einkehrtag-2026.pdf" target="_blank" rel="noopener">Flyer (PDF) öffnen</a>
-          <a class="btn" href="einkehrtag-2026.pdf" download>PDF herunterladen</a>
-        </div>
-      </article>
-
-      <!-- WEITERE ANGEBOTE -->
-      <article class="card">
-        <h2>Pilgerreisen</h2>
-        <p>
-          Wege, die innerlich und äußerlich bewegen – mit Ruhe, Stille und klaren Zeiten.
-        </p>
-        <p style="margin:0; color: var(--muted); font-size: 13px;">Status: in Vorbereitung</p>
-      </article>
-
-      <article class="card">
-        <h2>Workshops</h2>
-        <p>
-          Praktisch &amp; geistlich: Symbolik, Stimme/Voiceover, Rhythmus, Schnitt – Tiefe in Form bringen.
-        </p>
-        <p style="margin:0; color: var(--muted); font-size: 13px;">Status: in Vorbereitung</p>
-      </article>
-
-      <article class="card">
-        <h2>Vorträge</h2>
-        <p>
-          Themenabende für Gruppen &amp; Gemeinden – klar, ruhig, ohne Show.
-        </p>
-        <p style="margin:0; color: var(--muted); font-size: 13px;">Status: in Vorbereitung</p>
-      </article>
-
-      <article class="card">
-        <h2>Busreisen</h2>
-        <p>
-          Tagesfahrten zu besonderen Orten und Tagen (z. B. „Tage der Freude“).
-        </p>
-        <p style="margin:0; color: var(--muted); font-size: 13px;">Status: in Vorbereitung</p>
-      </article>
-
-      <article class="card">
-        <h2>Tage der Freude</h2>
-        <p>
-          Ein Tag, der nicht hetzt: Begegnung, Freude, Gebet, Musik, gemeinsame Zeit.
-        </p>
-        <p style="margin:0; color: var(--muted); font-size: 13px;">Status: in Vorbereitung</p>
-      </article>
-
-      <article class="card">
-        <h2>Shop / Merch</h2>
-        <p>
-          T-Shirts, Tassen &amp; mehr – mit Logo. (Wir starten klein, aber sauber.)
-        </p>
-        <a href="shop.html">Zum Shop →</a>
-      </article>
-
     </section>
-
-    <footer class="footer">
-      © Lampadēphóros • Kontakt:
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-    </footer>
-
   </main>
+
+  <footer class="footer">
+    © Lampadēphóros • Kontakt:
+    <a class="mail" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.querySelector(".lang-btn");
+      const menu = document.querySelector(".lang-menu");
+      if (!btn || !menu) return;
+
+      const close = () => {
+        menu.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      };
+
+      btn.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) close();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") close();
+      });
+    })();
+  </script>
 </body>
 </html>
