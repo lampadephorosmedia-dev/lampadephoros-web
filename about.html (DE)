@@ -1,4 +1,3 @@
-<!-- about.html (DE) -->
 <!doctype html>
 <html lang="de">
 <head>
@@ -7,21 +6,22 @@
   <title>Lampadēphóros – Über uns</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body>
   <main class="wrap">
 
     <header class="hero">
 
+      <!-- Sprachwahl oben rechts -->
       <div class="lang" aria-label="Sprachauswahl">
         <details>
-          <summary>Sprache: DE ▾</summary>
+          <summary>DE ▾</summary>
           <div class="lang-menu" role="menu" aria-label="Sprachen">
-            <a href="about.html" role="menuitem">Deutsch <span>DE</span></a>
-            <a href="about-fr.html" role="menuitem">Français <span>FR</span></a>
-            <a href="about-en.html" role="menuitem">English <span>EN</span></a>
-            <a href="about-pt.html" role="menuitem">Português <span>PT</span></a>
-            <a href="about-it.html" role="menuitem">Italiano <span>IT</span></a>
+            <a href="start-de.html" role="menuitem">Deutsch <span>DE</span></a>
+            <a href="start-fr.html" role="menuitem">Français <span>FR</span></a>
+            <a href="start-en.html" role="menuitem">English <span>EN</span></a>
+            <a href="start-pt.html" role="menuitem">Português <span>PT</span></a>
+            <a href="start-it.html" role="menuitem">Italiano <span>IT</span></a>
           </div>
         </details>
       </div>
@@ -35,74 +35,84 @@
       </div>
 
       <h1>Über uns</h1>
-
       <p class="sub">
-        Wer wir sind, warum es uns gibt – und wohin wir gehen.
+        Lampadēphóros bedeutet „Fackelträger“: nicht laut, nicht grell – sondern Licht,
+        das Orientierung gibt. Ein Weg aus Licht, Wasser, Herz und Stille.
       </p>
 
-      <nav class="nav" aria-label="Hauptnavigation">
-        <a class="btn" href="index.html">← Start</a>
+      <nav class="nav" aria-label="Navigation">
+        <a class="btn" href="start-de.html">Start</a>
+        <a class="btn primary" href="about.html">Über uns</a>
         <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
         <a class="btn" href="impulse.html">Impulse</a>
-        <a class="btn" href="werkstatt.html">Werkstatt</a>
+        <a class="btn" href="start.html">Werkstatt</a>
         <a class="btn" href="angebote.html">Angebote</a>
         <a class="btn" href="shop.html">Shop</a>
-        <a class="btn" href="links.html">Hier findest du uns ▾</a>
+        <a class="btn" href="links.html">Hier findest du uns</a>
       </nav>
 
       <div class="note">Kein Spam. Kein Drama. Nur Werk.</div>
-
     </header>
 
-    <section class="grid" aria-label="Vorstellung">
+    <section class="grid" aria-label="Über uns Inhalte">
 
       <article class="card">
         <h2>Wer ist Lampadēphóros?</h2>
         <p>
-          Lampadēphóros bedeutet „Fackelträger“. Wir stehen für Inhalte, die nicht schreien müssen,
-          um zu leuchten: ruhig, klar, tief – ohne Angst.
+          Lampadēphóros ist ein kreatives Medienprojekt mit geistlicher Tiefe.
+          Wir erzählen Geschichten, bauen Bilder, ordnen Gedanken – und suchen
+          nach dem, was wirklich trägt.
+        </p>
+        <p style="margin: 0; color: var(--muted); font-size: 13px;">
+          Kurz: ein Ort für Menschen, die Licht wollen – ohne Lärm.
         </p>
       </article>
 
       <article class="card">
         <h2>Warum gibt es uns?</h2>
         <p>
-          Weil viele Menschen nach Sinn suchen – aber keine Lust mehr haben auf Lärm, Streit und Oberflächlichkeit.
-          Wir wollen einen Raum schaffen, in dem man atmen kann.
+          Weil viele nach Sinn suchen – und oft nur Krach finden.
+          Wir glauben: Stille ist nicht leer. Stille ist ein Raum.
+          Und in diesem Raum kann Wahrheit wieder hörbar werden.
         </p>
       </article>
 
       <article class="card">
         <h2>Unser Ziel</h2>
         <p>
-          Licht weitergeben: durch Filme, Kapitel, Impulse und Werkstatt-Einblicke – und später auch durch Angebote
-          wie Pilgerreisen, Workshops und Vorträge.
-        </p>
-      </article>
-
-      <article class="card">
-        <h2>Wie wir arbeiten</h2>
-        <p>
-          Wir bauen Schritt für Schritt. Erst Fundament, dann Ausbau: klare Struktur, saubere Reihenfolgen,
-          starke Bildsprache und Texte, die tragen.
+          Sichtbarkeit ohne Lärm. Tiefe ohne Angst.
+          Wir möchten Inhalte schaffen, die erden, aufrichten
+          und das Herz wach machen – Schritt für Schritt.
         </p>
       </article>
 
       <article class="card">
         <h2>Wofür wir stehen</h2>
         <p>
-          Stille statt Krawall. Tiefe statt Pose. Wahrheit statt Effekt. Schönheit, die nicht manipuliert,
-          sondern öffnet.
+          Klarheit statt Clickbait. Würde statt Drama.
+          Schönheit statt Zynismus. Treue statt Trend.
+        </p>
+        <p style="margin: 0; color: var(--muted); font-size: 13px;">
+          Wir bauen langsam – aber echt.
         </p>
       </article>
 
       <article class="card">
-        <h2>Mitmachen / Kontakt</h2>
+        <h2>Was du hier findest</h2>
         <p>
-          Du willst kooperieren, eine Idee teilen oder ein Angebot anfragen?
-          Schreib uns – wir melden uns.
+          Filme &amp; Kapitel, Impulse, Werkstatt-Einblicke, Angebote
+          (z. B. Pilgerreisen, Workshops, Vorträge) – und später auch einen Shop.
         </p>
-        <a href="mailto:lampadephoros.media@gmail.com">Kontakt per E-Mail →</a>
+        <a href="start-de.html">Zur Übersicht →</a>
+      </article>
+
+      <article class="card">
+        <h2>Mach den ersten Schritt</h2>
+        <p>
+          Wenn du neu hier bist: Starte ruhig. Ein Film. Ein Impuls.
+          Ein kleiner Schritt – aber bewusst.
+        </p>
+        <a href="filme.html">Zu Filme &amp; Kapitel →</a>
       </article>
 
     </section>
@@ -113,6 +123,5 @@
     </footer>
 
   </main>
-
 </body>
 </html>
