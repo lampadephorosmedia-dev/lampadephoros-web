@@ -1,0 +1,117 @@
+<!-- about-fr.html (FR) -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadēphóros – À propos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="wrap">
+
+    <header class="hero">
+
+      <div class="lang" aria-label="Choix de langue">
+        <details>
+          <summary>Langue : FR ▾</summary>
+          <div class="lang-menu" role="menu" aria-label="Langues">
+            <a href="about.html" role="menuitem">Deutsch <span>DE</span></a>
+            <a href="about-fr.html" role="menuitem">Français <span>FR</span></a>
+            <a href="about-en.html" role="menuitem">English <span>EN</span></a>
+            <a href="about-pt.html" role="menuitem">Português <span>PT</span></a>
+            <a href="about-it.html" role="menuitem">Italiano <span>IT</span></a>
+          </div>
+        </details>
+      </div>
+
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">Le Porte-Flambeau</div>
+        </div>
+      </div>
+
+      <h1>À propos</h1>
+
+      <p class="sub">
+        Qui nous sommes, pourquoi nous existons – et où nous allons.
+      </p>
+
+      <nav class="nav" aria-label="Navigation">
+        <a class="btn" href="index-fr.html">← Accueil</a>
+        <a class="btn" href="filme.html">Films</a>
+        <a class="btn" href="impulse.html">Impulsions</a>
+        <a class="btn" href="werkstatt.html">Atelier</a>
+        <a class="btn" href="angebote.html">Offres</a>
+        <a class="btn" href="shop.html">Boutique</a>
+        <a class="btn" href="links-fr.html">Où nous trouver ▾</a>
+      </nav>
+
+      <div class="note">Pas de spam. Pas de drame. Juste l’essentiel.</div>
+
+    </header>
+
+    <section class="grid" aria-label="Présentation">
+
+      <article class="card">
+        <h2>Qui est Lampadēphóros ?</h2>
+        <p>
+          Lampadēphóros signifie « porte-flambeau ». Nous créons des contenus qui n’ont pas besoin de crier
+          pour éclairer : calmes, clairs, profonds – sans peur.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Pourquoi existons-nous ?</h2>
+        <p>
+          Parce que beaucoup cherchent du sens – mais ne veulent plus de bruit, de conflits et de superficialité.
+          Nous voulons offrir un espace où l’on peut respirer.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Notre objectif</h2>
+        <p>
+          Transmettre la lumière : par des films, chapitres, impulsions et coulisses – et plus tard aussi par des
+          pèlerinages, ateliers et conférences.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Notre manière de travailler</h2>
+        <p>
+          Pas à pas. D’abord les fondations, ensuite l’expansion : structure claire, ordre logique,
+          image forte et textes qui portent.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Nos valeurs</h2>
+        <p>
+          Le silence plutôt que le vacarme. La profondeur plutôt que la pose. La vérité plutôt que l’effet.
+          Une beauté qui ouvre, sans manipuler.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Participer / Contact</h2>
+        <p>
+          Collaboration, idée, demande d’offre ? Écris-nous — on te répond.
+        </p>
+        <a href="mailto:lampadephoros.media@gmail.com">Contact par e-mail →</a>
+      </article>
+
+    </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contact :
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
+  </main>
+
+</body>
+</html>
