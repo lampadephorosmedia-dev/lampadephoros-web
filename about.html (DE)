@@ -1,0 +1,118 @@
+<!-- about.html (DE) -->
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadēphóros – Über uns</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="wrap">
+
+    <header class="hero">
+
+      <div class="lang" aria-label="Sprachauswahl">
+        <details>
+          <summary>Sprache: DE ▾</summary>
+          <div class="lang-menu" role="menu" aria-label="Sprachen">
+            <a href="about.html" role="menuitem">Deutsch <span>DE</span></a>
+            <a href="about-fr.html" role="menuitem">Français <span>FR</span></a>
+            <a href="about-en.html" role="menuitem">English <span>EN</span></a>
+            <a href="about-pt.html" role="menuitem">Português <span>PT</span></a>
+            <a href="about-it.html" role="menuitem">Italiano <span>IT</span></a>
+          </div>
+        </details>
+      </div>
+
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">Der Fackelträger</div>
+        </div>
+      </div>
+
+      <h1>Über uns</h1>
+
+      <p class="sub">
+        Wer wir sind, warum es uns gibt – und wohin wir gehen.
+      </p>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a class="btn" href="index.html">← Start</a>
+        <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
+        <a class="btn" href="impulse.html">Impulse</a>
+        <a class="btn" href="werkstatt.html">Werkstatt</a>
+        <a class="btn" href="angebote.html">Angebote</a>
+        <a class="btn" href="shop.html">Shop</a>
+        <a class="btn" href="links.html">Hier findest du uns ▾</a>
+      </nav>
+
+      <div class="note">Kein Spam. Kein Drama. Nur Werk.</div>
+
+    </header>
+
+    <section class="grid" aria-label="Vorstellung">
+
+      <article class="card">
+        <h2>Wer ist Lampadēphóros?</h2>
+        <p>
+          Lampadēphóros bedeutet „Fackelträger“. Wir stehen für Inhalte, die nicht schreien müssen,
+          um zu leuchten: ruhig, klar, tief – ohne Angst.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Warum gibt es uns?</h2>
+        <p>
+          Weil viele Menschen nach Sinn suchen – aber keine Lust mehr haben auf Lärm, Streit und Oberflächlichkeit.
+          Wir wollen einen Raum schaffen, in dem man atmen kann.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Unser Ziel</h2>
+        <p>
+          Licht weitergeben: durch Filme, Kapitel, Impulse und Werkstatt-Einblicke – und später auch durch Angebote
+          wie Pilgerreisen, Workshops und Vorträge.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Wie wir arbeiten</h2>
+        <p>
+          Wir bauen Schritt für Schritt. Erst Fundament, dann Ausbau: klare Struktur, saubere Reihenfolgen,
+          starke Bildsprache und Texte, die tragen.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Wofür wir stehen</h2>
+        <p>
+          Stille statt Krawall. Tiefe statt Pose. Wahrheit statt Effekt. Schönheit, die nicht manipuliert,
+          sondern öffnet.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Mitmachen / Kontakt</h2>
+        <p>
+          Du willst kooperieren, eine Idee teilen oder ein Angebot anfragen?
+          Schreib uns – wir melden uns.
+        </p>
+        <a href="mailto:lampadephoros.media@gmail.com">Kontakt per E-Mail →</a>
+      </article>
+
+    </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Kontakt:
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
+  </main>
+
+</body>
+</html>
