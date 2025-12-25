@@ -3,98 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadēphóros – Offres</title>
+  <title>Offres • Lampadēphóros</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="wrap">
-
-    <header class="hero">
-
-      <div class="lang" aria-label="Choix de la langue">
-        <details>
-          <summary>FR ▾</summary>
-          <div class="lang-menu" role="menu" aria-label="Langues">
-            <a href="angebote.html" role="menuitem">Deutsch <span>DE</span></a>
-            <a href="angebote-fr.html" role="menuitem">Français <span>FR</span></a>
-            <a href="angebote-en.html" role="menuitem">English <span>EN</span></a>
-            <a href="angebote-pt.html" role="menuitem">Português <span>PT</span></a>
-            <a href="angebote-it.html" role="menuitem">Italiano <span>IT</span></a>
+  <!-- Header / Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <a class="brand" href="start-fr.html" aria-label="Lampadēphóros – Accueil">
+          <img class="brand-logo" src="logo.png" alt="Lampadēphóros logo" />
+          <div class="brand-text">
+            <div class="brand-name">Lampadēphóros</div>
+            <div class="brand-sub">Le Porte-Flambeau</div>
           </div>
-        </details>
-      </div>
+        </a>
 
-      <div class="brand">
-        <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
-        <div class="brand-meta">
-          <div class="badge">Lampadēphóros</div>
-          <div class="mini">Le Porte-Flambeau</div>
+        <!-- Language switch (links can exist already / future-proof) -->
+        <div class="lang">
+          <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
+            FR <span aria-hidden="true">▾</span>
+          </button>
+          <div class="lang-menu" role="menu">
+            <a role="menuitem" href="angebote.html">DE</a>
+            <a role="menuitem" href="angebote-en.html">EN</a>
+            <a role="menuitem" href="angebote-fr.html" aria-current="page">FR</a>
+            <a role="menuitem" href="angebote-it.html">IT</a>
+            <a role="menuitem" href="angebote-pt.html">PT</a>
+          </div>
         </div>
       </div>
 
-      <h1>Offres</h1>
-      <p class="sub">
-        Pèlerinages, ateliers, conférences et journées spéciales.
-        Ici : les dates concrètes – et tout ce qui est en préparation.
+      <h1 class="hero-title">Offres</h1>
+      <p class="hero-subtitle">
+        Pèlerinages, ateliers, conférences et journées spéciales. Ici : les dates concrètes – et tout ce qui est en préparation.
       </p>
 
-      <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-fr.html">Start</a>
-        <a class="btn" href="about.html">À propos</a>
-        <a class="btn" href="filme.html">Films &amp; chapitres</a>
-        <a class="btn" href="impulse.html">Impulsions</a>
-        <a class="btn" href="start.html">Atelier</a>
-        <a class="btn primary" href="angebote-fr.html">Offres</a>
-        <a class="btn" href="shop.html">Boutique</a>
-        <a class="btn" href="links.html">Nous trouver</a>
+      <nav class="nav">
+        <a class="nav-btn" href="start-fr.html">Start</a>
+        <a class="nav-btn" href="about-fr.html">À propos</a>
+        <a class="nav-btn" href="filme.html">Films &amp; chapitres</a>
+        <a class="nav-btn" href="impulse.html">Impulsions</a>
+        <a class="nav-btn" href="filme.html#atelier">Atelier</a>
+        <a class="nav-btn active" href="angebote-fr.html" aria-current="page">Offres</a>
+        <a class="nav-btn" href="shop.html">Boutique</a>
+        <a class="nav-btn" href="links-fr.html">Nous trouver</a>
       </nav>
 
-      <div class="note">
-        Intéressé(e) ? Écris-nous :
-        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-      </div>
-    </header>
+      <p class="hero-note">
+        Intéressé(e) ? Écris-nous : <a class="mail" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      </p>
+    </div>
+  </header>
 
-    <section class="grid" aria-label="Aperçu des offres">
+  <!-- Main -->
+  <main class="container">
+    <!-- Card like DE page -->
+    <section class="panel">
+      <h2 class="panel-title">Journée de récollection 2026</h2>
+      <p class="panel-text">
+        Flyer officiel : toutes les informations (programme, horaires, lieu, inscription).
+      </p>
 
-      <article class="card" style="grid-column: span 3;">
-        <h2>Journée de récollection 2026</h2>
-        <p>
-          Flyer officiel : toutes les informations (programme, horaires, lieu, inscription).
-        </p>
-
-        <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <a class="btn primary" href="recollection-2026.pdf" target="_blank" rel="noopener">Ouvrir le flyer (PDF)</a>
-          <a class="btn" href="recollection-2026.pdf" download>Télécharger le PDF</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h2>Pèlerinages</h2>
-        <p>En préparation.</p>
-        <p style="margin:0; color: var(--muted); font-size: 13px;">Statut : à venir</p>
-      </article>
-
-      <article class="card">
-        <h2>Ateliers</h2>
-        <p>En préparation.</p>
-        <p style="margin:0; color: var(--muted); font-size: 13px;">Statut : à venir</p>
-      </article>
-
-      <article class="card">
-        <h2>Conférences</h2>
-        <p>En préparation.</p>
-        <p style="margin:0; color: var(--muted); font-size: 13px;">Statut : à venir</p>
-      </article>
-
-    </section>
-
-    <footer class="footer">
-      © Lampadēphóros • Contact :
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-    </footer>
-
-  </main>
-</body>
-</html>
+      <div class="panel-actions">
+        <a class="btn btn-primary" href="recollection-2026.pdf" target=
