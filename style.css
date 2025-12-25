@@ -1,56 +1,75 @@
 :root{
   --bg:#0b0b0e;
+  --panel:#14141a;
+  --line:#242430;
   --fg:#f2f2f4;
   --muted:#b9b9c2;
-  --card:#14141a;
-  --line:#242430;
   --accent:#f7d27a;
 }
 
+/* Base */
 *{box-sizing:border-box}
-
+html,body{height:100%}
 body{
   margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:radial-gradient(80% 60% at 50% 0%, #1a1a22 0%, var(--bg) 60%);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;
   color:var(--fg);
   line-height:1.55;
+  background:
+    radial-gradient(90% 70% at 40% 0%, #161625 0%, var(--bg) 60%),
+    var(--bg);
 }
 
 a{color:var(--accent); text-decoration:none}
 a:hover{text-decoration:underline}
 
-.wrap{max-width:980px; margin:0 auto; padding:24px}
-
-/* HERO with background image */
-.hero{
-  padding-top:56px;
-  padding-bottom:40px;
-  border-radius:24px;
-background:
- linear-gradient(180deg, rgba(11,11,14,.22), rgba(11,11,14,.40)),
-  url('hero.jpg');
-
-  background-size:cover;
-  background-position:center;
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:24px;
 }
 
-/* Logo image */
+/* HERO */
+.hero{
+  border-radius:24px;
+  padding:140px 28px 44px; /* <- höherer Top-Padding = Title “unter der Sonne” */
+  background:
+    /* stärker links abdunkeln (Text), rechts heller (Bild) */
+    linear-gradient(90deg,
+      rgba(11,11,14,.78) 0%,
+      rgba(11,11,14,.42) 55%,
+      rgba(11,11,14,.16) 100%
+    ),
+    /* sanfter Shade von oben */
+    linear-gradient(180deg, rgba(11,11,14,.12) 0%, rgba(11,11,14,.24) 100%),
+    url("hero.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  /* <- Position so, dass die Sonne “über” dem Titel liegt (bei deinem Foto meistens links) */
+  background-position: 22% 58%;
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+}
+
+/* Logo + Name in einer Zeile */
 .logo{
-  width:72px;
-  height:72px;
-  object-fit:contain;
-  display:block;
-  border-radius:50%;
+  width:44px;
+  height:44px;
+  display:inline-block;
+  vertical-align:middle;
+  border-radius:999px;
   border:1px solid var(--line);
-  background:rgba(0,0,0,.35);
-  padding:8px;
-  margin:0 0 10px 0;
+  background:rgba(0,0,0,.25);
+  padding:6px;
+  object-fit:contain;
+  margin:0 10px 0 0;
 }
 
 .badge{
-  display:inline-block;
-  padding:6px 10px;
+  display:inline-flex;
+  vertical-align:middle;
+  align-items:center;
+  gap:8px;
+  padding:7px 12px;
   border:1px solid var(--line);
   border-radius:999px;
   color:var(--muted);
@@ -58,64 +77,98 @@ background:
   background:rgba(0,0,0,.25);
 }
 
-h1{font-size:44px; margin:14px 0 10px}
+/* Title / Sub */
+h1{
+  margin:14px 0 10px;
+  font-size:52px;
+  letter-spacing:-0.5px;
+  text-shadow: 0 2px 18px rgba(0,0,0,.55);
+}
 
 .sub{
-  color:var(--muted);
-  max-width:700px;
-  font-size:18px;
+  margin:0 0 14px;
+  max-width:720px;
+  color:rgba(242,242,244,.90);
+  text-shadow: 0 2px 16px rgba(0,0,0,.50);
 }
 
 .cta{
   display:flex;
   gap:12px;
-  margin:18px 0 8px;
   flex-wrap:wrap;
+  margin:18px 0 8px;
 }
 
 .btn{
   display:inline-block;
-  padding:12px 16px;
+  padding:12px 18px;
   border-radius:14px;
+  font-weight:700;
   background:var(--accent);
   color:#14141a;
-  font-weight:650;
+  border:1px solid rgba(0,0,0,.08);
 }
+.btn:hover{filter:brightness(1.03); text-decoration:none}
 
 .btn.ghost{
-  background:transparent;
+  background:rgba(0,0,0,.18);
   color:var(--fg);
   border:1px solid var(--line);
 }
+.btn.ghost:hover{background:rgba(0,0,0,.26); text-decoration:none}
 
-.note{color:var(--muted); font-size:13px; margin-top:10px}
+.note{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:13px;
+}
 
+/* GRID / CARDS */
 .grid{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:14px;
-  padding-bottom:40px;
+  padding:18px 0 44px;
 }
 
 .card{
-  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
   border:1px solid var(--line);
   border-radius:20px;
   padding:18px;
   min-height:160px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);
 }
 
 .card h2{margin:0 0 8px; font-size:18px}
 .card p{margin:0 0 10px; color:var(--muted)}
 
+/* FOOTER */
 .footer{
   border-top:1px solid var(--line);
   color:var(--muted);
   font-size:13px;
+  padding:18px 0;
 }
 
-/* Mobile */
-@media (max-width: 860px){
-  h1{font-size:34px}
+/* Small pages helpers (falls du sie nutzt) */
+.page{
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.30);
+}
+.page h1{font-size:38px; margin-top:0}
+.page h2{font-size:20px}
+
+/* Responsive */
+@media (max-width:860px){
+  .hero{
+    padding:120px 18px 36px;
+    background-position: 26% 55%;
+  }
+  h1{font-size:36px}
   .grid{grid-template-columns:1fr}
+  .logo{width:40px; height:40px}
 }
