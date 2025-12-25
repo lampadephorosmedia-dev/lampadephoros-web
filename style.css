@@ -9,14 +9,13 @@
 }
 
 *{box-sizing:border-box}
-
 html,body{height:100%}
+
 body{
   margin:0;
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   color:var(--fg);
   line-height:1.55;
-
   background:
     radial-gradient(900px 520px at 30% 0%, rgba(255,255,255,.08), transparent 55%),
     radial-gradient(900px 520px at 70% 100%, rgba(255,255,255,.06), transparent 55%),
@@ -35,65 +34,68 @@ a:hover{text-decoration:underline}
 /* HERO */
 .hero{
   border-radius:28px;
-  padding:170px 28px 52px; /* -> Titel tiefer = “unter der Sonne” */
+  padding:190px 28px 52px; /* Titel deutlich tiefer -> “unter der Sonne” */
   overflow:hidden;
   box-shadow:0 22px 70px var(--shadow);
   border:1px solid rgba(255,255,255,.08);
 
+  /* Helleres, aber weiterhin lesbares Overlay */
   background:
-    /* HELLERES Overlay, damit Foto leuchtet + Text lesbar bleibt */
-    linear-gradient(180deg, rgba(10,12,16,.12), rgba(10,12,16,.52)),
-    linear-gradient(90deg, rgba(10,12,16,.55), rgba(10,12,16,.10) 55%, rgba(10,12,16,.25)),
+    linear-gradient(180deg, rgba(10,12,16,.10), rgba(10,12,16,.48)),
+    linear-gradient(90deg, rgba(10,12,16,.52), rgba(10,12,16,.10) 58%, rgba(10,12,16,.22)),
     url("hero.jpg");
   background-size:cover;
-  background-position: 18% 62%; /* -> Sonne “über” dem Titel */
+
+  /* Sonne “über” dem Titel platzieren */
+  background-position: 10% 56%;
 }
 
-/* Brand line: Logo links neben Badge */
-.logo{
-  width:40px;
-  height:40px;
-  display:inline-flex;
+/* Logo + Name (Badge) auf EINE Linie, Logo direkt links vor dem Namen */
+.hero > .logo,
+.hero > .badge{
+  display:inline-block;
   vertical-align:middle;
+}
+
+.logo{
+  width:44px;
+  height:44px;
   object-fit:contain;
 
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
-  background:rgba(0,0,0,.25);
+  background:rgba(0,0,0,.22);
   padding:6px;
 
-  transform:translateY(-1px);
-  margin-right:10px;
+  margin:0 10px 0 0; /* direkter Abstand zum Namen */
 }
 
 .badge{
-  display:inline-flex;
-  vertical-align:middle;
-  align-items:center;
-
   padding:7px 12px;
   border:1px solid rgba(255,255,255,.16);
   border-radius:999px;
-  background:rgba(0,0,0,.22);
+  background:rgba(0,0,0,.20);
 
   color:var(--muted);
   font-size:13px;
   letter-spacing:.2px;
   line-height:1;
-  transform:translateY(-1px);
+  margin:0; /* kein komischer Abstand */
 }
 
+/* Titel */
 h1{
   margin:14px 0 10px;
   font-size:clamp(34px, 4.4vw, 52px);
   line-height:1.06;
   letter-spacing:-.6px;
+  text-shadow:0 8px 28px rgba(0,0,0,.45);
 }
 
 .sub{
   margin:0 0 14px;
   max-width:720px;
-  color:rgba(255,255,255,.80);
+  color:rgba(255,255,255,.82);
   text-shadow:0 2px 14px rgba(0,0,0,.35);
 }
 
@@ -108,7 +110,6 @@ h1{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
 
   padding:12px 18px;
   border-radius:14px;
@@ -124,7 +125,7 @@ h1{
 .btn:hover{filter:brightness(1.02); text-decoration:none}
 
 .btn.ghost{
-  background:rgba(0,0,0,.22);
+  background:rgba(0,0,0,.20);
   color:var(--fg);
   border:1px solid rgba(255,255,255,.16);
   box-shadow:none;
@@ -175,9 +176,7 @@ h1{
   color:var(--muted);
 }
 
-.card a{
-  font-weight:700;
-}
+.card a{font-weight:700}
 
 .footer{
   border-top:1px solid rgba(255,255,255,.10);
@@ -189,6 +188,9 @@ h1{
 /* RESPONSIVE */
 @media (max-width: 860px){
   .wrap{padding:18px}
-  .hero{padding:150px 20px 44px; background-position: 20% 60%;}
+  .hero{
+    padding:170px 20px 44px;
+    background-position: 12% 56%;
+  }
   .grid{grid-template-columns:1fr; padding-bottom:26px}
 }
