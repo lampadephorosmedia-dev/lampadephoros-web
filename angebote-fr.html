@@ -5,66 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Offres • Lampadēphóros</title>
   <link rel="stylesheet" href="style.css" />
-</head>
 
-<body>
-  <!-- Header / Hero -->
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-top">
-        <a class="brand" href="start-fr.html" aria-label="Lampadēphóros – Accueil">
-          <img class="brand-logo" src="logo.png" alt="Lampadēphóros logo" />
-          <div class="brand-text">
-            <div class="brand-name">Lampadēphóros</div>
-            <div class="brand-sub">Le Porte-Flambeau</div>
-          </div>
-        </a>
+  <!-- Safety net: makes THIS page look like your DE layout even if classnames differ -->
+  <style>
+    :root{
+      --bg:#0b0c0f;
+      --card: rgba(10,12,16,.72);
+      --card2: rgba(10,12,16,.55);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --gold: #f3c96b;
+      --gold2:#d3a646;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --r: 22px;
+    }
 
-        <!-- Language switch (links can exist already / future-proof) -->
-        <div class="lang">
-          <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
-            FR <span aria-hidden="true">▾</span>
-          </button>
-          <div class="lang-menu" role="menu">
-            <a role="menuitem" href="angebote.html">DE</a>
-            <a role="menuitem" href="angebote-en.html">EN</a>
-            <a role="menuitem" href="angebote-fr.html" aria-current="page">FR</a>
-            <a role="menuitem" href="angebote-it.html">IT</a>
-            <a role="menuitem" href="angebote-pt.html">PT</a>
-          </div>
-        </div>
-      </div>
+    body{ background: var(--bg); color: var(--text); }
 
-      <h1 class="hero-title">Offres</h1>
-      <p class="hero-subtitle">
-        Pèlerinages, ateliers, conférences et journées spéciales. Ici : les dates concrètes – et tout ce qui est en préparation.
-      </p>
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.78)),
+        url("hero.jpg") center/cover no-repeat;
+      transform: scale(1.02);
+      filter: saturate(1.05) contrast(1.02);
+    }
+    .hero-inner{
+      position: relative;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 18px;
+    }
+    .hero-box{
+      background: rgba(8,10,14,.55);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 28px;
+      padding: 22px 22px 18px;
+      box-shadow: var(--shadow);
+    }
 
-      <nav class="nav">
-        <a class="nav-btn" href="start-fr.html">Start</a>
-        <a class="nav-btn" href="about-fr.html">À propos</a>
-        <a class="nav-btn" href="filme.html">Films &amp; chapitres</a>
-        <a class="nav-btn" href="impulse.html">Impulsions</a>
-        <a class="nav-btn" href="filme.html#atelier">Atelier</a>
-        <a class="nav-btn active" href="angebote-fr.html" aria-current="page">Offres</a>
-        <a class="nav-btn" href="shop.html">Boutique</a>
-        <a class="nav-btn" href="links-fr.html">Nous trouver</a>
-      </nav>
+    .hero-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+    }
 
-      <p class="hero-note">
-        Intéressé(e) ? Écris-nous : <a class="mail" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-      </p>
-    </div>
-  </header>
-
-  <!-- Main -->
-  <main class="container">
-    <!-- Card like DE page -->
-    <section class="panel">
-      <h2 class="panel-title">Journée de récollection 2026</h2>
-      <p class="panel-text">
-        Flyer officiel : toutes les informations (programme, horaires, lieu, inscription).
-      </p>
-
-      <div class="panel-actions">
-        <a class="btn btn-primary" href="recollection-2026.pdf" target=
+    /* BRAND */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      text-decoration:none;
+      color: inherit;
+      min-width: 0;
+    }
+    .brand-badge{
+      width: 62px;
+      height: 62px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      flex: 0 0 auto;
+    }
+    .brand-badge img{
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      display:block;
+    }
+    .brand-text{
+      display:flex;
+      flex-direction:colu
