@@ -1,0 +1,117 @@
+<!-- about-pt.html (PT) -->
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadēphóros – Sobre nós</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="wrap">
+
+    <header class="hero">
+
+      <div class="lang" aria-label="Seletor de idioma">
+        <details>
+          <summary>Idioma: PT ▾</summary>
+          <div class="lang-menu" role="menu" aria-label="Idiomas">
+            <a href="about.html" role="menuitem">Deutsch <span>DE</span></a>
+            <a href="about-fr.html" role="menuitem">Français <span>FR</span></a>
+            <a href="about-en.html" role="menuitem">English <span>EN</span></a>
+            <a href="about-pt.html" role="menuitem">Português <span>PT</span></a>
+            <a href="about-it.html" role="menuitem">Italiano <span>IT</span></a>
+          </div>
+        </details>
+      </div>
+
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">O Portador da Tocha</div>
+        </div>
+      </div>
+
+      <h1>Sobre nós</h1>
+
+      <p class="sub">
+        Quem somos, por que existimos – e para onde vamos.
+      </p>
+
+      <nav class="nav" aria-label="Navegação">
+        <a class="btn" href="index-pt.html">← Início</a>
+        <a class="btn" href="filme.html">Filmes</a>
+        <a class="btn" href="impulse.html">Impulsos</a>
+        <a class="btn" href="werkstatt.html">Oficina</a>
+        <a class="btn" href="angebote.html">Ofertas</a>
+        <a class="btn" href="shop.html">Loja</a>
+        <a class="btn" href="links-pt.html">Encontre-nos ▾</a>
+      </nav>
+
+      <div class="note">Sem spam. Sem drama. Só o essencial.</div>
+
+    </header>
+
+    <section class="grid" aria-label="Apresentação">
+
+      <article class="card">
+        <h2>O que é Lampadēphóros?</h2>
+        <p>
+          Lampadēphóros significa “portador da tocha”. Criamos conteúdo que não precisa gritar
+          para brilhar: calmo, claro, profundo — sem medo.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Por que existimos?</h2>
+        <p>
+          Porque muitos procuram sentido — mas estão cansados de barulho, conflitos e superficialidade.
+          Queremos construir um espaço onde dá para respirar.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Nosso objetivo</h2>
+        <p>
+          Levar luz adiante: por filmes, capítulos, impulsos e bastidores —
+          e mais tarde também por peregrinações, workshops e palestras.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Como trabalhamos</h2>
+        <p>
+          Passo a passo. Primeiro o fundamento, depois a expansão: estrutura limpa, ordem lógica,
+          visuais fortes e palavras que sustentam.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Nossos valores</h2>
+        <p>
+          Silêncio em vez de barulho. Profundidade em vez de pose. Verdade em vez de efeito.
+          Beleza que abre, não manipula.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Participar / Contato</h2>
+        <p>
+          Quer colaborar, partilhar uma ideia ou perguntar sobre uma oferta? Escreva — respondemos.
+        </p>
+        <a href="mailto:lampadephoros.media@gmail.com">E-mail →</a>
+      </article>
+
+    </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contato:
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
+  </main>
+
+</body>
+</html>
