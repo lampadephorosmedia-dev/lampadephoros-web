@@ -17,7 +17,6 @@
     a{ color: inherit; }
 
     :root{
-      --card: rgba(10,12,16,.72);
       --stroke: rgba(255,255,255,.10);
       --muted: rgba(255,255,255,.70);
       --gold: #f3c96b;
@@ -208,10 +207,26 @@
       line-height: 1.55 !important;
     }
 
+    /* Info list like DE */
+    .info-line{
+      margin: 6px 0 !important;
+      color: rgba(255,255,255,.86) !important;
+      line-height: 1.55 !important;
+    }
+    .info-line strong{
+      color: rgba(255,255,255,.92) !important;
+    }
+    .info-small{
+      margin-top: 8px !important;
+      color: rgba(255,255,255,.70) !important;
+      font-size: 13px !important;
+    }
+
     .actions{
       display:flex !important;
       gap: 12px !important;
       flex-wrap:wrap !important;
+      margin-top: 14px !important;
     }
     .btn{
       display:inline-flex !important;
@@ -303,9 +318,39 @@
   </header>
 
   <main class="container">
+
     <section class="panel">
-      <h2>Journée de récollection 2026</h2>
-      <p>Flyer officiel : toutes les informations (programme, horaires, lieu, inscription).</p>
+      <h2>Journée de récollection 2026 (15–25 ans)</h2>
+
+      <p class="info-line"><strong>Du :</strong> Vendredi 13 février 2026 – 19h00</p>
+      <p class="info-line"><strong>Au :</strong> Samedi 14 février 2026 – 17h00</p>
+
+      <p class="info-line">
+        Début par la Sainte Messe à l’église paroissiale de Gilsdorf, puis départ ensemble (voitures privées) vers Medernach.
+      </p>
+
+      <p class="info-line">
+        <strong>Lieu :</strong> Centre Arendt-Fixmer – LES ÉTANGS<br>
+        33, rue de Larochette, L-7661 Medernach
+      </p>
+
+      <p class="info-line"><strong>Hébergement :</strong></p>
+      <p class="info-line">Chambre individuelle : 35 €</p>
+      <p class="info-line">Chambre double : 30 €</p>
+      <p class="info-small">(Frais inclus)</p>
+
+      <p class="info-line">
+        <strong>Inscription :</strong> <a class="mail" href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a><br>
+        <span class="info-small">Objet / mention : <em>GJCG Nom Prénom</em></span>
+      </p>
+
+      <p class="info-line">
+        <strong>Infos :</strong> <a class="mail" href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a> ou Tél. +352 80 49 67
+      </p>
+
+      <p class="info-line">
+        <strong>Clôture des inscriptions :</strong> au plus tard le 27 janvier 2026
+      </p>
 
       <div class="actions">
         <a class="btn btn-primary" href="recollection-2026.pdf" target="_blank" rel="noopener">
@@ -321,6 +366,7 @@
       <h2>En préparation</h2>
       <p>D’autres propositions arrivent bientôt (dates, lieux, inscriptions).</p>
     </section>
+
   </main>
 
   <footer class="footer">
