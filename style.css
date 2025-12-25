@@ -1,22 +1,25 @@
 :root{
   --bg:#0b0b0e;
-  --panel:#14141a;
-  --line:#242430;
-  --fg:#f2f2f4;
-  --muted:#b9b9c2;
+  --fg:#f4f5f7;
+  --muted:#b4bac4;
+  --line:rgba(255,255,255,.12);
+  --card:rgba(20,22,28,.72);
   --accent:#f7d27a;
+  --shadow:rgba(0,0,0,.55);
 }
 
-/* Base */
 *{box-sizing:border-box}
+
 html,body{height:100%}
 body{
   margin:0;
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   color:var(--fg);
   line-height:1.55;
+
   background:
-    radial-gradient(90% 70% at 40% 0%, #161625 0%, var(--bg) 60%),
+    radial-gradient(900px 520px at 30% 0%, rgba(255,255,255,.08), transparent 55%),
+    radial-gradient(900px 520px at 70% 100%, rgba(255,255,255,.06), transparent 55%),
     var(--bg);
 }
 
@@ -31,144 +34,161 @@ a:hover{text-decoration:underline}
 
 /* HERO */
 .hero{
-  border-radius:24px;
-  padding:140px 28px 44px; /* <- höherer Top-Padding = Title “unter der Sonne” */
+  border-radius:28px;
+  padding:170px 28px 52px; /* -> Titel tiefer = “unter der Sonne” */
+  overflow:hidden;
+  box-shadow:0 22px 70px var(--shadow);
+  border:1px solid rgba(255,255,255,.08);
+
   background:
-    /* stärker links abdunkeln (Text), rechts heller (Bild) */
-    linear-gradient(90deg,
-      rgba(11,11,14,.78) 0%,
-      rgba(11,11,14,.42) 55%,
-      rgba(11,11,14,.16) 100%
-    ),
-    /* sanfter Shade von oben */
-    linear-gradient(180deg, rgba(11,11,14,.12) 0%, rgba(11,11,14,.24) 100%),
+    /* HELLERES Overlay, damit Foto leuchtet + Text lesbar bleibt */
+    linear-gradient(180deg, rgba(10,12,16,.12), rgba(10,12,16,.52)),
+    linear-gradient(90deg, rgba(10,12,16,.55), rgba(10,12,16,.10) 55%, rgba(10,12,16,.25)),
     url("hero.jpg");
   background-size:cover;
-  background-repeat:no-repeat;
-  /* <- Position so, dass die Sonne “über” dem Titel liegt (bei deinem Foto meistens links) */
-  background-position: 22% 58%;
-  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+  background-position: 18% 62%; /* -> Sonne “über” dem Titel */
 }
 
-/* Logo + Name in einer Zeile */
+/* Brand line: Logo links neben Badge */
 .logo{
-  width:44px;
-  height:44px;
-  display:inline-block;
+  width:40px;
+  height:40px;
+  display:inline-flex;
   vertical-align:middle;
+  object-fit:contain;
+
   border-radius:999px;
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.18);
   background:rgba(0,0,0,.25);
   padding:6px;
-  object-fit:contain;
-  margin:0 10px 0 0;
+
+  transform:translateY(-1px);
+  margin-right:10px;
 }
 
 .badge{
   display:inline-flex;
   vertical-align:middle;
   align-items:center;
-  gap:8px;
+
   padding:7px 12px;
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.16);
   border-radius:999px;
+  background:rgba(0,0,0,.22);
+
   color:var(--muted);
   font-size:13px;
-  background:rgba(0,0,0,.25);
+  letter-spacing:.2px;
+  line-height:1;
+  transform:translateY(-1px);
 }
 
-/* Title / Sub */
 h1{
   margin:14px 0 10px;
-  font-size:52px;
-  letter-spacing:-0.5px;
-  text-shadow: 0 2px 18px rgba(0,0,0,.55);
+  font-size:clamp(34px, 4.4vw, 52px);
+  line-height:1.06;
+  letter-spacing:-.6px;
 }
 
 .sub{
   margin:0 0 14px;
   max-width:720px;
-  color:rgba(242,242,244,.90);
-  text-shadow: 0 2px 16px rgba(0,0,0,.50);
+  color:rgba(255,255,255,.80);
+  text-shadow:0 2px 14px rgba(0,0,0,.35);
 }
 
 .cta{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin:18px 0 8px;
+  margin:16px 0 8px;
 }
 
 .btn{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
   padding:12px 18px;
   border-radius:14px;
   font-weight:700;
+  border:1px solid rgba(255,255,255,.10);
+  cursor:pointer;
+
   background:var(--accent);
-  color:#14141a;
-  border:1px solid rgba(0,0,0,.08);
+  color:#14151a;
+  box-shadow:0 10px 26px rgba(0,0,0,.25);
 }
-.btn:hover{filter:brightness(1.03); text-decoration:none}
+
+.btn:hover{filter:brightness(1.02); text-decoration:none}
 
 .btn.ghost{
-  background:rgba(0,0,0,.18);
+  background:rgba(0,0,0,.22);
   color:var(--fg);
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:none;
 }
-.btn.ghost:hover{background:rgba(0,0,0,.26); text-decoration:none}
 
 .note{
-  margin-top:10px;
+  margin:10px 0 0;
   color:var(--muted);
   font-size:13px;
 }
 
-/* GRID / CARDS */
+/* GRID + CARDS */
 .grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(3, 1fr);
   gap:14px;
-  padding:18px 0 44px;
+  padding:18px 0 34px;
 }
 
 .card{
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border:1px solid var(--line);
-  border-radius:20px;
+  min-height:170px;
   padding:18px;
-  min-height:160px;
-  box-shadow: 0 18px 45px rgba(0,0,0,.35);
+  border-radius:22px;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
+    var(--card);
+  border:1px solid rgba(255,255,255,.10);
+
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  transition:transform .18s ease, border-color .18s ease, filter .18s ease;
 }
 
-.card h2{margin:0 0 8px; font-size:18px}
-.card p{margin:0 0 10px; color:var(--muted)}
+.card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.16);
+  filter:brightness(1.03);
+}
 
-/* FOOTER */
+.card h2{
+  margin:0 0 8px;
+  font-size:18px;
+  letter-spacing:-.2px;
+}
+
+.card p{
+  margin:0 0 12px;
+  color:var(--muted);
+}
+
+.card a{
+  font-weight:700;
+}
+
 .footer{
-  border-top:1px solid var(--line);
+  border-top:1px solid rgba(255,255,255,.10);
   color:var(--muted);
   font-size:13px;
-  padding:18px 0;
+  padding:18px 0 10px;
 }
 
-/* Small pages helpers (falls du sie nutzt) */
-.page{
-  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:18px;
-  box-shadow: 0 18px 45px rgba(0,0,0,.30);
-}
-.page h1{font-size:38px; margin-top:0}
-.page h2{font-size:20px}
-
-/* Responsive */
-@media (max-width:860px){
-  .hero{
-    padding:120px 18px 36px;
-    background-position: 26% 55%;
-  }
-  h1{font-size:36px}
-  .grid{grid-template-columns:1fr}
-  .logo{width:40px; height:40px}
+/* RESPONSIVE */
+@media (max-width: 860px){
+  .wrap{padding:18px}
+  .hero{padding:150px 20px 44px; background-position: 20% 60%;}
+  .grid{grid-template-columns:1fr; padding-bottom:26px}
 }
