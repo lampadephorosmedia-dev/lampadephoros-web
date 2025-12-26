@@ -1,0 +1,116 @@
+<!-- FILE: werkstatt.html (DE) -->
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadēphóros – Werkstatt</title>
+  <meta name="description" content="Werkstatt: Ein Blick hinter die Kulissen – Entscheidungen, Rhythmus, Übergänge." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrap hero">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
+      <div class="brand-text">
+        <div class="badge">Lampadēphóros</div>
+        <div class="kicker">Der Fackelträger</div>
+      </div>
+    </div>
+
+    <h1>Werkstatt</h1>
+    <p class="sub">
+      Ein Blick hinter die Kulissen: Entscheidungen, Rhythmus, Übergänge – und warum wir langsam, aber sauber bauen.
+    </p>
+
+    <div class="cta">
+      <a class="btn" href="start-de.html">Start</a>
+
+      <a class="btn ghost" href="about.html">Über uns</a>
+      <a class="btn ghost" href="filme.html">Filme &amp; Kapitel</a>
+      <a class="btn ghost" href="impulse.html">Impulse</a>
+      <a class="btn ghost active" href="werkstatt.html">Werkstatt</a>
+      <a class="btn ghost" href="angebote.html">Angebote</a>
+      <a class="btn ghost" href="shop.html">Shop</a>
+
+      <div class="dropdown">
+        <button class="btn ghost" type="button">Hier findest du uns ▾</button>
+        <div class="menu">
+          <a href="links.html">Links &amp; Plattformen</a>
+          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">Kein Spam. Kein Drama. Nur Werk.</p>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">So arbeiten wir</h2>
+    <p class="section-sub">
+      Keine Hektik, kein Clickbait – dafür klare Schritte, konsistente Qualität und ein ruhiger Stil.
+    </p>
+
+    <section class="grid">
+      <article class="card featured">
+        <h3>Prinzip</h3>
+        <p>
+          Wir bauen Inhalte, die tragen: sichtbar, aber nicht laut. Schön, aber nicht manipulativ.
+          Langsam genug, um wahr zu bleiben.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Rhythmus</h3>
+        <p>
+          Kurze Zyklen. Saubere Iterationen. Wenn etwas sitzt, wird es eingefroren – dann erst geht’s weiter.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Qualität</h3>
+        <p>
+          Konsistenz schlägt Perfektion: Licht, Schnitt, Ton und Sprache sollen zusammenpassen – ohne Chaos.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Transparenz</h3>
+        <p>
+          Entscheidungen werden erklärt: Was ist Symbol, was ist Story, was ist Gebet – und was ist einfach Gestaltung?
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Werkzeuge</h3>
+        <p>
+          KI nur als Werkzeug: Bild, Video, Schnitt – alles dient der Aussage, nicht umgekehrt.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Nächste Schritte</h3>
+        <p>
+          Werkstatt wächst mit: neue Kapitel, neue Hinweise, neue Learnings – aber immer im gleichen Stil.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© Lampadéphóros • Kontakt: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // Dropdown "Hier findest du uns"
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      btn.addEventListener("click", () => d.classList.toggle("open"));
+      document.addEventListener("click", (e) => {
+        if (!d.contains(e.target)) d.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>
