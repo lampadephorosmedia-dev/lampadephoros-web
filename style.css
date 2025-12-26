@@ -1,134 +1,260 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Offres • Lampadēphóros</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+:root{
+  --bg:#0b0b0e;
+  --fg:#f2f2f4;
+  --muted:#b9b9c2;
+  --line:#242430;
 
-<body>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-card">
+  --card:#14141a;
+  --card2:#101016;
 
-        <div class="hero-top">
-          <a class="brand" href="start-fr.html" aria-label="Lampadēphóros – Accueil">
-            <div class="brand-badge">
-              <img src="logo.png" alt="Logo Lampadēphóros">
-            </div>
-            <div class="brand-text">
-              <div class="brand-name">Lampadēphóros</div>
-              <div class="brand-sub">Le Porte-Flambeau</div>
-            </div>
-          </a>
+  --accent:#f7d27a;
+  --accent2:#d1a74a;
 
-          <div class="lang">
-            <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
-              FR <span aria-hidden="true">▾</span>
-            </button>
-            <div class="lang-menu" role="menu" aria-label="Choix de langue">
-              <a role="menuitem" href="angebote.html">DE</a>
-              <a role="menuitem" href="angebote-fr.html" aria-current="page">FR</a>
-            </div>
-          </div>
-        </div>
+  --shadow: 0 18px 40px rgba(0,0,0,.55);
+  --radius: 26px;
+}
 
-        <h1>Offres</h1>
-        <p class="lead">
-          Pèlerinages, ateliers, conférences et journées spéciales. Ici : les dates concrètes – et tout ce qui est en préparation.
-        </p>
+*{ box-sizing:border-box; }
 
-        <nav class="nav" aria-label="Navigation">
-          <a href="start-fr.html">Start</a>
-          <a href="about-fr.html">À propos</a>
-          <a href="filme.html">Films &amp; chapitres</a>
-          <a href="impulse.html">Impulsions</a>
-          <a href="filme.html#atelier">Atelier</a>
-          <a class="active" href="angebote-fr.html" aria-current="page">Offres</a>
-          <a href="shop.html">Boutique</a>
-          <a href="links-fr.html">Nous trouver</a>
-        </nav>
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--fg);
+  background:
+    radial-gradient(1200px 700px at 50% 10%, #171720 0%, var(--bg) 55%),
+    radial-gradient(900px 500px at 20% 20%, rgba(247,210,122,.08), transparent 55%),
+    radial-gradient(900px 500px at 80% 20%, rgba(209,167,74,.06), transparent 55%);
+  line-height:1.55;
+}
 
-        <p class="note">
-          Intéressé(e) ? Écris-nous :
-          <a class="mail" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-        </p>
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
 
-      </div>
-    </div>
-  </header>
+.wrap{
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 26px 22px 38px;
+}
 
-  <main class="container">
-    <section class="card">
-      <h2>Journée de récollection 2026 (15–25 ans)</h2>
+/* HERO */
+.hero{
+  position: relative;
+  border-radius: var(--radius);
+  overflow:hidden;
+  padding: 26px 26px 22px;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.62)),
+    url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,.05);
+}
 
-      <p class="line"><strong>Du :</strong> Vendredi 13 février 2026 – 19h00</p>
-      <p class="line"><strong>Au :</strong> Samedi 14 février 2026 – 17h00</p>
+/* Language switcher (top right) */
+.lang{
+  position:absolute;
+  top:16px;
+  right:16px;
+  z-index:5;
+}
 
-      <p class="line">
-        Début par la Sainte Messe à l’église paroissiale de Gilsdorf, puis départ ensemble (voitures privées) vers Medernach.
-      </p>
+.lang details{
+  position: relative;
+}
 
-      <p class="line">
-        <strong>Lieu :</strong> Centre Arendt-Fixmer – LES ÉTANGS<br>
-        33, rue de Larochette, L-7661 Medernach
-      </p>
+.lang summary{
+  list-style:none;
+  cursor:pointer;
+  user-select:none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(10,10,14,.45);
+  color: var(--fg);
+  font-weight: 650;
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+}
 
-      <p class="line"><strong>Hébergement :</strong></p>
-      <p class="line">Chambre individuelle : 35 €</p>
-      <p class="line">Chambre double : 30 €</p>
-      <p class="small">(Frais inclus)</p>
+.lang summary::-webkit-details-marker{ display:none; }
 
-      <p class="line">
-        <strong>Inscription :</strong> <a class="mail" href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a><br>
-        <span class="small">Objet / mention : <em>GJCG Nom Prénom</em></span>
-      </p>
+.lang-menu{
+  position:absolute;
+  right:0;
+  margin-top:10px;
+  min-width: 210px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(12,12,16,.92);
+  box-shadow: 0 18px 40px rgba(0,0,0,.65);
+  overflow:hidden;
+}
 
-      <p class="line">
-        <strong>Infos :</strong> <a class="mail" href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a> ou Tél. +352 80 49 67
-      </p>
+.lang-menu a{
+  display:flex;
+  justify-content:space-between;
+  gap: 16px;
+  padding: 12px 12px;
+  color: var(--fg);
+  text-decoration:none;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
 
-      <p class="line">
-        <strong>Clôture des inscriptions :</strong> au plus tard le 27 janvier 2026
-      </p>
+.lang-menu a span{
+  color: var(--muted);
+  font-size: 12px;
+}
 
-      <div class="actions">
-        <a class="btn primary" href="recollection-2026.pdf" target="_blank" rel="noopener">Ouvrir le flyer (PDF)</a>
-        <a class="btn" href="recollection-2026.pdf" download>Télécharger le PDF</a>
-      </div>
-    </section>
-  </main>
+.lang-menu a:hover{
+  background: rgba(247,210,122,.10);
+}
 
-  <footer class="footer">
-    © Lampadēphóros • Contact :
-    <a class="mail" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-  </footer>
+.lang-menu a:last-child{ border-bottom:none; }
 
-  <script>
-    (function () {
-      const btn = document.querySelector(".lang-btn");
-      const menu = document.querySelector(".lang-menu");
-      if (!btn || !menu) return;
+/* Brand row */
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
 
-      const close = () => {
-        menu.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-      };
+.logo{
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 10px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.45);
+}
 
-      btn.addEventListener("click", () => {
-        const isOpen = menu.classList.toggle("open");
-        btn.setAttribute("aria-expanded", String(isOpen));
-      });
+.brand-meta{ display:flex; flex-direction:column; gap:6px; }
 
-      document.addEventListener("click", (e) => {
-        if (!menu.contains(e.target) && !btn.contains(e.target)) close();
-      });
+.badge{
+  display:inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(10,10,14,.40);
+  color: var(--muted);
+  font-size: 13px;
+  width: fit-content;
+  backdrop-filter: blur(8px);
+}
 
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") close();
-      });
-    })();
-  </script>
-</body>
-</html>
+.mini{
+  color: rgba(255,255,255,.75);
+  font-size: 14px;
+}
+
+/* Hero type */
+h1{
+  margin: 8px 0 10px;
+  font-size: 56px;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  text-shadow: 0 10px 35px rgba(0,0,0,.55);
+}
+
+.sub{
+  margin: 0 0 16px;
+  max-width: 760px;
+  color: rgba(255,255,255,.86);
+  text-shadow: 0 10px 30px rgba(0,0,0,.55);
+}
+
+/* Nav buttons */
+.nav{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 14px 0 8px;
+}
+
+.btn{
+  display:inline-block;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(12,12,16,.40);
+  color: var(--fg);
+  font-weight: 650;
+  font-size: 14px;
+  text-decoration:none;
+  backdrop-filter: blur(8px);
+}
+
+.btn:hover{
+  background: rgba(255,255,255,.06);
+  text-decoration:none;
+}
+
+.btn.primary{
+  background: var(--accent);
+  color: #14141a;
+  border-color: rgba(0,0,0,.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+
+.btn.primary:hover{ background: #ffd98a; }
+
+.note{
+  margin-top: 10px;
+  color: rgba(255,255,255,.72);
+  font-size: 13px;
+}
+
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.card{
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.10);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: 0 16px 35px rgba(0,0,0,.50);
+  min-height: 168px;
+}
+
+.card h2{
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.card p{
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.footer{
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.75);
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  h1{ font-size: 44px; }
+  .grid{ grid-template-columns: 1fr; }
+  .logo{ width: 92px; height: 92px; }
+}
+
+@media (max-width: 560px){
+  .hero{ padding: 18px 16px 16px; }
+  h1{ font-size: 36px; }
+  .logo{ width: 84px; height: 84px; }
+  .lang summary{ padding: 9px 10px; }
+}
