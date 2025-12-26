@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadéphóros – Offers</title>
+  <meta name="description" content="Offers by Lampadéphóros: recollection day, pilgrimages, workshops, talks, and more." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrap hero">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Lampadéphóros Logo" />
+      <div class="brand-text">
+        <div class="badge">Lampadéphóros</div>
+        <div class="kicker">The Torchbearer</div>
+      </div>
+    </div>
+
+    <h1>The Torchbearer</h1>
+    <p class="sub">
+      Visibility without noise. Depth without fear. A path of light, water, heart, and silence.
+    </p>
+
+    <div class="cta">
+      <a class="btn" href="index-en.html">Start here</a>
+
+      <a class="btn ghost" href="about-en.html">About</a>
+      <a class="btn ghost" href="filme.html">Films &amp; chapters</a>
+      <a class="btn ghost" href="impulse.html">Impulses</a>
+      <a class="btn ghost" href="start-en.html">Workshop</a>
+      <a class="btn ghost active" href="angebote-en.html">Offers</a>
+      <a class="btn ghost" href="shop.html">Shop</a>
+
+      <div class="dropdown">
+        <button class="btn ghost" type="button">Find us ▾</button>
+        <div class="menu">
+          <a href="links-en.html">Links &amp; platforms</a>
+          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">No spam. No drama. Just the work.</p>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">Offers</h2>
+    <p class="section-sub">
+      Here you’ll find concrete dates — and everything currently in preparation.
+    </p>
+
+    <section class="grid">
+      <!-- Concrete offer -->
+      <article class="card featured">
+        <h3>Recollection Day 2026 (ages 15–25)</h3>
+        <p>
+          <strong>From:</strong> Friday, February 13, 2026 – 7:00 pm<br />
+          <strong>To:</strong> Saturday, February 14, 2026 – 5:00 pm
+        </p>
+
+        <p>
+          We begin with Holy Mass in the parish church in Gilsdorf, then depart together (private cars) to Medernach.
+        </p>
+
+        <p>
+          <strong>Location:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />
+          33, rue de Larochette, L-7661 Medernach
+        </p>
+
+        <p>
+          <strong>Accommodation:</strong> single room €35 / double room €30<br />
+          (Costs included)
+        </p>
+
+        <p>
+          <strong>Registration:</strong> <a href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a><br />
+          Subject / note: <em>GJCG Last name First name</em><br />
+          <strong>Info:</strong> <a href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a> or Tel. <a href="tel:+352804967">+352 80 49 67</a>
+        </p>
+
+        <p class="deadline">
+          <strong>Registration deadline:</strong> no later than January 27, 2026
+        </p>
+
+        <div class="card-actions">
+          <a class="btn" href="recollection-2026.pdf" target="_blank" rel="noopener">Open flyer (PDF)</a>
+          <a class="btn ghost" href="recollection-2026.pdf" download>Download PDF</a>
+        </div>
+      </article>
+
+      <!-- In preparation -->
+      <article class="card">
+        <h3>Pilgrimages</h3>
+        <p>
+          Planned pilgrim routes and spiritual journeys — clear preparation, calm rhythm, and depth.
+        </p>
+        <p class="muted">Status: in preparation</p>
+      </article>
+
+      <article class="card">
+        <h3>Workshops &amp; talks</h3>
+        <p>
+          Concrete topics, practical tools, real encounter — for faith, daily life, and inner order.
+        </p>
+        <p class="muted">Status: in preparation</p>
+      </article>
+
+      <article class="card">
+        <h3>Bus trips (special days)</h3>
+        <p>
+          Day trips for special occasions — e.g., “days of joy” and other spiritual events.
+        </p>
+        <p class="muted">Status: in preparation</p>
+      </article>
+
+      <article class="card">
+        <h3>Merch / Shop</h3>
+        <p>
+          T-shirts, mugs &amp; more — with logo. (We start small, but clean.)
+        </p>
+        <a class="link" href="shop.html">Go to shop →</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© Lampadéphóros • Contact: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // simple dropdown toggle (mobile-friendly)
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      const menu = d.querySelector(".menu");
+      btn.addEventListener("click", () => d.classList.toggle("open"));
+      document.addEventListener("click", (e) => {
+        if (!d.contains(e.target)) d.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>
