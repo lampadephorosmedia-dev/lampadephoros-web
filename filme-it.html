@@ -65,7 +65,7 @@
       </article>
     </section>
 
-    <!-- Film pubblicati (embed YouTube) -->
+    <!-- Film pubblicati (YouTube embeds / fallback per restrizione d'età) -->
     <section class="grid" aria-label="Film pubblicati">
       <article class="card">
         <h2>Film pubblicati</h2>
@@ -99,15 +99,20 @@
 
       <article class="card">
         <div class="video-embed">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/-4WyAvKxI7A"
-            title="Le due sorgenti – Dall’Eden alla Croce"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+          <a class="thumb" href="https://www.youtube.com/watch?v=-4WyAvKxI7A" target="_blank" rel="noopener"
+             aria-label="Guarda su YouTube: Le due sorgenti – Dall’Eden alla Croce">
+            <img class="thumb-img"
+                 src="https://i.ytimg.com/vi/-4WyAvKxI7A/maxresdefault.jpg"
+                 onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/-4WyAvKxI7A/hqdefault.jpg';"
+                 alt="Miniatura: Le due sorgenti – Dall’Eden alla Croce">
+            <span class="play-badge">▶</span>
+          </a>
         </div>
+
+        <p class="muted" style="margin-top:10px;">
+          ⚠️ Questo film ha una restrizione d’età su YouTube e quindi non può essere incorporato qui.
+          Aprilo direttamente su YouTube.
+        </p>
 
         <div class="video-meta">
           <div class="title">Le due sorgenti – Dall’Eden alla Croce</div>
