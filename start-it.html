@@ -11,17 +11,14 @@
 
 <body>
   <header class="wrap hero" style="position:relative;">
-    <!-- Langue : emballé en .cta pour que ton CSS dropdown s'applique -->
-    <div class="cta" style="position:absolute; top:18px; right:18px; z-index:50;">
-      <div class="dropdown">
-        <button class="btn ghost" type="button">FR ▾</button>
-        <div class="menu">
-          <a href="start-de.html">Deutsch</a>
-          <a href="start-fr.html">Français</a>
-          <a href="start-en.html">English</a>
-          <a href="start-it.html">Italiano</a>
-          <a href="start-pt.html">Português</a>
-        </div>
+    <div class="dropdown" style="position:absolute; top:18px; right:18px; z-index:50;">
+      <button class="btn ghost" type="button">FR ▾</button>
+      <div class="menu" hidden>
+        <a href="start-de.html">Deutsch</a>
+        <a href="start-fr.html">Français</a>
+        <a href="start-en.html">English</a>
+        <a href="start-it.html">Italiano</a>
+        <a href="start-pt.html">Português</a>
       </div>
     </div>
 
@@ -48,7 +45,7 @@
 
       <div class="dropdown">
         <button class="btn ghost" type="button">Nous trouver ▾</button>
-        <div class="menu">
+        <div class="menu" hidden>
           <a href="links-fr.html">Liens &amp; plateformes</a>
           <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
         </div>
@@ -103,13 +100,30 @@
   </footer>
 
   <script>
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => {
-        if (!d.contains(e.target)) d.classList.remove("open");
+    (function () {
+      const dropdowns = Array.from(document.querySelectorAll(".dropdown"));
+      function closeAll() {
+        dropdowns.forEach(d => {
+          d.classList.remove("open");
+          const m = d.querySelector(".menu");
+          if (m) m.hidden = true;
+        });
+      }
+      dropdowns.forEach(d => {
+        const btn = d.querySelector("button");
+        const menu = d.querySelector(".menu");
+        if (!btn || !menu) return;
+        menu.hidden = true;
+        btn.addEventListener("click", (e) => {
+          e.preventDefault(); e.stopPropagation();
+          const willOpen = menu.hidden;
+          closeAll();
+          if (willOpen) { d.classList.add("open"); menu.hidden = false; }
+        });
       });
-    });
+      document.addEventListener("click", () => closeAll());
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(); });
+    })();
   </script>
 </body>
 </html>
