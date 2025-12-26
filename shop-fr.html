@@ -1,70 +1,71 @@
+<!-- FILE: shop-fr.html (FR) -->
 <!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – Boutique</title>
-  <meta name="description" content="Merch dès le départ : t-shirts, tasses et plus — avec logo." />
+  <title>Lampadēphóros – Boutique</title>
+  <meta name="description" content="Boutique Lampadēphóros : merchandising (t-shirts, tasses, etc.) — en préparation." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="wrap hero">
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
-      <div class="brand-text">
-        <div class="badge">Lampadéphóros</div>
-        <div class="kicker">Le Porte-Flambeau</div>
-      </div>
-    </div>
+  <main class="wrap">
 
-    <h1>Boutique</h1>
-    <p class="sub">Merch dès le départ : t-shirts, tasses &amp; plus — avec logo.</p>
-
-    <div class="cta">
-      <a class="btn" href="index-fr.html">Commencer</a>
-
-      <a class="btn ghost" href="about-fr.html">À propos</a>
-      <a class="btn ghost" href="filme-fr.html">Films &amp; chapitres</a>
-      <a class="btn ghost" href="impulse-fr.html">Impulsions</a>
-      <a class="btn ghost" href="start-fr.html">Atelier</a>
-      <a class="btn ghost" href="angebote-fr.html">Offres</a>
-      <a class="btn ghost active" href="shop-fr.html">Boutique</a>
-
-      <div class="dropdown">
-        <button class="btn ghost" type="button">Nous trouver ▾</button>
-        <div class="menu">
-          <a href="links-fr.html">Liens &amp; plateformes</a>
-          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+    <header class="hero">
+      <!-- Brand -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">Le Porte-Flambeau</div>
         </div>
       </div>
-    </div>
 
-    <p class="note">Pas de spam. Pas de drama. Juste l’œuvre.</p>
-  </header>
+      <h1>Boutique</h1>
+      <p class="sub">Merch dès le départ : simple, propre, et cohérent avec le projet.</p>
 
-  <main class="wrap">
-    <h2 class="section-title">Boutique</h2>
-    <p class="section-sub">Cette section est en préparation. On démarre petit, mais proprement.</p>
+      <!-- Navigation (FR) — pas de choix de langue ici (uniquement sur start-*.html) -->
+      <nav class="nav" aria-label="Navigation">
+        <a class="btn" href="start-fr.html">Commencer</a>
+        <a class="btn" href="about-fr.html">À propos</a>
+        <a class="btn" href="filme-fr.html">Films &amp; chapitres</a>
+        <a class="btn" href="impulse-fr.html">Impulsions</a>
+        <a class="btn" href="werkstatt.html">Atelier</a>
+        <a class="btn" href="angebote-fr.html">Offres</a>
+        <a class="btn primary" href="shop-fr.html">Boutique</a>
+        <a class="btn" href="links-fr.html">Nous trouver</a>
+      </nav>
 
-    <section class="grid">
-      <article class="card featured">
-        <h3>Bientôt</h3>
-        <p class="muted">Statut : en préparation</p>
+      <div class="note">Pas de spam. Pas de drama. Juste l’œuvre.</div>
+    </header>
+
+    <section class="grid" aria-label="Boutique – contenu">
+      <article class="card">
+        <h2>En préparation</h2>
+        <p>
+          La boutique arrive bientôt. On commence petit, mais propre :
+          design clair, qualité correcte, logistique simple.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Ce qui viendra</h2>
+        <p>T-shirts, tasses, stickers, et quelques objets sobres — avec le logo Lampadēphóros.</p>
+      </article>
+
+      <article class="card">
+        <h2>Info / contact</h2>
+        <p>Si tu veux être prévenu quand le shop ouvre, écris-nous.</p>
+        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com →</a>
       </article>
     </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contact :
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
   </main>
-
-  <footer class="wrap footer">
-    <p>© Lampadéphóros • Contact : <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => { if (!d.contains(e.target)) d.classList.remove("open"); });
-    });
-  </script>
 </body>
 </html>
