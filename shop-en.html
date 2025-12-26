@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadéphóros – Shop</title>
+  <meta name="description" content="Merch from day one: t-shirts, mugs, and more — with logo." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrap hero">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Lampadéphóros Logo" />
+      <div class="brand-text">
+        <div class="badge">Lampadéphóros</div>
+        <div class="kicker">The Torchbearer</div>
+      </div>
+    </div>
+
+    <h1>Shop</h1>
+    <p class="sub">Merch from day one: t-shirts, mugs &amp; more — with logo.</p>
+
+    <div class="cta">
+      <a class="btn" href="index-en.html">Start here</a>
+
+      <a class="btn ghost" href="about-en.html">About</a>
+      <a class="btn ghost" href="filme-en.html">Films &amp; chapters</a>
+      <a class="btn ghost" href="impulse-en.html">Impulses</a>
+      <a class="btn ghost" href="start-en.html">Workshop</a>
+      <a class="btn ghost" href="angebote-en.html">Offers</a>
+      <a class="btn ghost active" href="shop-en.html">Shop</a>
+
+      <div class="dropdown">
+        <button class="btn ghost" type="button">Find us ▾</button>
+        <div class="menu">
+          <a href="links-en.html">Links &amp; platforms</a>
+          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">No spam. No drama. Just the work.</p>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">Shop</h2>
+    <p class="section-sub">This section is being prepared. We start small, but clean.</p>
+
+    <section class="grid">
+      <article class="card featured">
+        <h3>Coming soon</h3>
+        <p class="muted">Status: in preparation</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© Lampadéphóros • Contact: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      btn.addEventListener("click", () => d.classList.toggle("open"));
+      document.addEventListener("click", (e) => { if (!d.contains(e.target)) d.classList.remove("open"); });
+    });
+  </script>
+</body>
+</html>
