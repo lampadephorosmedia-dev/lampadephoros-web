@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadéphóros – Sobre nós</title>
+  <meta name="description" content="Quem somos, o que construímos e porquê: Lampadéphóros – O Portador da Tocha." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrap hero">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
+      <div class="brand-text">
+        <div class="badge">Lampadéphóros</div>
+        <div class="kicker">O Portador da Tocha</div>
+      </div>
+    </div>
+
+    <h1>Sobre nós</h1>
+    <p class="sub">Quem somos, o que construímos e porquê.</p>
+
+    <div class="cta">
+      <a class="btn" href="index-pt.html">Início</a>
+
+      <a class="btn ghost active" href="about-pt.html">Sobre nós</a>
+      <a class="btn ghost" href="filme-pt.html">Filmes &amp; capítulos</a>
+      <a class="btn ghost" href="impulse-pt.html">Impulsos</a>
+      <a class="btn ghost" href="start-pt.html">Oficina</a>
+      <a class="btn ghost" href="angebote-pt.html">Ofertas</a>
+      <a class="btn ghost" href="shop-pt.html">Loja</a>
+
+      <div class="dropdown">
+        <button class="btn ghost" type="button">Onde nos encontras ▾</button>
+        <div class="menu">
+          <a href="links-pt.html">Links &amp; plataformas</a>
+          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">Sem spam. Sem drama. Só a obra.</p>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">Lampadéphóros</h2>
+    <p class="section-sub">
+      Um projeto simples e profundo: visibilidade sem barulho, profundidade sem medo.
+    </p>
+
+    <section class="grid">
+      <article class="card featured">
+        <h3>O que é</h3>
+        <p>
+          Lampadéphóros significa “portador da tocha”. É uma oficina media criativa e espiritual:
+          filmes, impulsos e ofertas concretas — construída com cuidado, passo a passo.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Símbolos</h3>
+        <p>Luz • Água • Coração • Silêncio — uma linguagem compreensível em todas as culturas.</p>
+      </article>
+
+      <article class="card">
+        <h3>Como trabalhamos</h3>
+        <p>Estrutura limpa, tom honesto, sem manipulação. Pequenos passos, verdadeira substância.</p>
+      </article>
+
+      <article class="card">
+        <h3>Próximos passos</h3>
+        <p>Expandimos filmes &amp; capítulos, publicamos impulsos e adicionamos ofertas à medida que existirem datas.</p>
+        <a class="link" href="start-pt.html">Ver a oficina →</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© Lampadéphóros • Contacto: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      btn.addEventListener("click", () => d.classList.toggle("open"));
+      document.addEventListener("click", (e) => {
+        if (!d.contains(e.target)) d.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>
