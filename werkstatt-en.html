@@ -1,0 +1,116 @@
+<!-- FILE: werkstatt-en.html (EN) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadēphóros – Workshop</title>
+  <meta name="description" content="Workshop: a look behind the scenes — decisions, rhythm, transitions." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrap hero">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
+      <div class="brand-text">
+        <div class="badge">Lampadēphóros</div>
+        <div class="kicker">The Torchbearer</div>
+      </div>
+    </div>
+
+    <h1>Workshop</h1>
+    <p class="sub">
+      Behind the scenes: decisions, rhythm, transitions — and why we build slowly, but cleanly.
+    </p>
+
+    <div class="cta">
+      <a class="btn" href="start-en.html">Start</a>
+
+      <a class="btn ghost" href="about-en.html">About</a>
+      <a class="btn ghost" href="filme-en.html">Films &amp; chapters</a>
+      <a class="btn ghost" href="impulse-en.html">Insights</a>
+      <a class="btn ghost active" href="werkstatt-en.html">Workshop</a>
+      <a class="btn ghost" href="angebote-en.html">Offers</a>
+      <a class="btn ghost" href="shop-en.html">Shop</a>
+
+      <div class="dropdown">
+        <button class="btn ghost" type="button">Find us ▾</button>
+        <div class="menu">
+          <a href="links-en.html">Links &amp; platforms</a>
+          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">No spam. No drama. Just work.</p>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">How we work</h2>
+    <p class="section-sub">
+      No rush, no clickbait — just clear steps, consistent quality, and a calm style.
+    </p>
+
+    <section class="grid">
+      <article class="card featured">
+        <h3>Principle</h3>
+        <p>
+          We create content that carries weight: visible, but not loud. Beautiful, not manipulative.
+          Slow enough to stay true.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Rhythm</h3>
+        <p>
+          Short cycles. Clean iterations. When something is right, we freeze it — then we move forward.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Quality</h3>
+        <p>
+          Consistency beats perfection: light, edit, sound, and language should match — without chaos.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Transparency</h3>
+        <p>
+          We explain choices: what is symbol, what is story, what is prayer — and what is simply design.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Tools</h3>
+        <p>
+          AI as a tool: image, video, editing — everything serves the message, not the other way around.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Next steps</h3>
+        <p>
+          The workshop grows with the project: new chapters, new notes — always in the same style.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© Lampadēphóros • Contact: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // Dropdown "Find us"
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      btn.addEventListener("click", () => d.classList.toggle("open"));
+      document.addEventListener("click", (e) => {
+        if (!d.contains(e.target)) d.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>
