@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadéphóros – Filmes</title>
+  <meta name="description" content="Filmes e capítulos: obras principais, capítulos e excertos — bem organizados." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrap hero">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
+      <div class="brand-text">
+        <div class="badge">Lampadéphóros</div>
+        <div class="kicker">O Portador da Tocha</div>
+      </div>
+    </div>
+
+    <h1>Filmes</h1>
+    <p class="sub">Obras principais, capítulos e excertos — bem organizados.</p>
+
+    <div class="cta">
+      <a class="btn" href="index-pt.html">Começar</a>
+
+      <a class="btn ghost" href="about-pt.html">Sobre nós</a>
+      <a class="btn ghost active" href="filme-pt.html">Filmes &amp; capítulos</a>
+      <a class="btn ghost" href="impulse-pt.html">Impulsos</a>
+      <a class="btn ghost" href="start-pt.html">Oficina</a>
+      <a class="btn ghost" href="angebote-pt.html">Ofertas</a>
+      <a class="btn ghost" href="shop-pt.html">Loja</a>
+
+      <div class="dropdown">
+        <button class="btn ghost" type="button">Onde nos encontras ▾</button>
+        <div class="menu">
+          <a href="links-pt.html">Links &amp; plataformas</a>
+          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">Sem spam. Sem drama. Só a obra.</p>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">Filmes</h2>
+    <p class="section-sub">Esta secção está em preparação. Em breve encontrarás aqui obras, capítulos e excertos.</p>
+
+    <section class="grid">
+      <article class="card featured">
+        <h3>Em breve</h3>
+        <p class="muted">Estado: em preparação</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© Lampadéphóros • Contacto: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      btn.addEventListener("click", () => d.classList.toggle("open"));
+      document.addEventListener("click", (e) => { if (!d.contains(e.target)) d.classList.remove("open"); });
+    });
+  </script>
+</body>
+</html>
