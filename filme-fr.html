@@ -65,7 +65,7 @@
       </article>
     </section>
 
-    <!-- Films publiés (intégrations YouTube) -->
+    <!-- Films publiés (YouTube embeds / fallback si restriction d’âge) -->
     <section class="grid" aria-label="Films publiés">
       <article class="card">
         <h2>Films publiés</h2>
@@ -99,15 +99,20 @@
 
       <article class="card">
         <div class="video-embed">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/-4WyAvKxI7A"
-            title="Les deux sources – D’Éden à la Croix"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+          <a class="thumb" href="https://www.youtube.com/watch?v=-4WyAvKxI7A" target="_blank" rel="noopener"
+             aria-label="Voir sur YouTube : Les deux sources – D’Éden à la Croix">
+            <img class="thumb-img"
+                 src="https://i.ytimg.com/vi/-4WyAvKxI7A/maxresdefault.jpg"
+                 onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/-4WyAvKxI7A/hqdefault.jpg';"
+                 alt="Miniature : Les deux sources – D’Éden à la Croix">
+            <span class="play-badge">▶</span>
+          </a>
         </div>
+
+        <p class="muted" style="margin-top:10px;">
+          ⚠️ Ce film est soumis à une restriction d’âge sur YouTube ; il ne peut donc pas être intégré ici.
+          Ouvre-le directement sur YouTube.
+        </p>
 
         <div class="video-meta">
           <div class="title">Les deux sources – D’Éden à la Croix</div>
