@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadéphóros – Proposte</title>
+  <meta name="description" content="Proposte di Lampadéphóros: giornata di ritiro, pellegrinaggi, workshop, conferenze e altro." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="wrap hero">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
+      <div class="brand-text">
+        <div class="badge">Lampadéphóros</div>
+        <div class="kicker">Il Portatore della Torcia</div>
+      </div>
+    </div>
+
+    <h1>Il Portatore della Torcia</h1>
+    <p class="sub">
+      Visibilità senza rumore. Profondità senza paura. Un cammino di luce, acqua, cuore e silenzio.
+    </p>
+
+    <div class="cta">
+      <a class="btn" href="index-it.html">Inizia qui</a>
+
+      <a class="btn ghost" href="about-it.html">Chi siamo</a>
+      <a class="btn ghost" href="filme.html">Film &amp; capitoli</a>
+      <a class="btn ghost" href="impulse.html">Impulsi</a>
+      <a class="btn ghost" href="start-it.html">Laboratorio</a>
+      <a class="btn ghost active" href="angebote-it.html">Proposte</a>
+      <a class="btn ghost" href="shop.html">Shop</a>
+
+      <div class="dropdown">
+        <button class="btn ghost" type="button">Dove trovarci ▾</button>
+        <div class="menu">
+          <a href="links-it.html">Link &amp; piattaforme</a>
+          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">Niente spam. Niente drama. Solo opera.</p>
+  </header>
+
+  <main class="wrap">
+    <h2 class="section-title">Proposte</h2>
+    <p class="section-sub">
+      Qui trovi date concrete — e tutto ciò che è attualmente in preparazione.
+    </p>
+
+    <section class="grid">
+      <!-- Offerta concreta -->
+      <article class="card featured">
+        <h3>Giornata di ritiro 2026 (15–25 anni)</h3>
+        <p>
+          <strong>Da:</strong> Venerdì 13 febbraio 2026 – 19:00<br />
+          <strong>A:</strong> Sabato 14 febbraio 2026 – 17:00
+        </p>
+
+        <p>
+          Inizio con la Santa Messa nella chiesa parrocchiale di Gilsdorf, poi partenza insieme (auto private) verso Medernach.
+        </p>
+
+        <p>
+          <strong>Luogo:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />
+          33, rue de Larochette, L-7661 Medernach
+        </p>
+
+        <p>
+          <strong>Pernottamento:</strong> camera singola 35 € / camera doppia 30 €<br />
+          (Costi inclusi)
+        </p>
+
+        <p>
+          <strong>Iscrizione:</strong> <a href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a><br />
+          Oggetto / nota: <em>GJCG Cognome Nome</em><br />
+          <strong>Info:</strong> <a href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a> oppure Tel. <a href="tel:+352804967">+352 80 49 67</a>
+        </p>
+
+        <p class="deadline">
+          <strong>Scadenza iscrizioni:</strong> entro e non oltre il 27 gennaio 2026
+        </p>
+
+        <div class="card-actions">
+          <a class="btn" href="recollection-2026.pdf" target="_blank" rel="noopener">Apri volantino (PDF)</a>
+          <a class="btn ghost" href="recollection-2026.pdf" download>Scarica PDF</a>
+        </div>
+      </article>
+
+      <!-- In preparazione -->
+      <article class="card">
+        <h3>Pellegrinaggi</h3>
+        <p>
+          Percorsi di pellegrinaggio e viaggi spirituali — preparazione chiara, ritmo calmo e profondità.
+        </p>
+        <p class="muted">Stato: in preparazione</p>
+      </article>
+
+      <article class="card">
+        <h3>Workshop &amp; conferenze</h3>
+        <p>
+          Temi concreti, strumenti pratici, incontro reale — per fede, vita quotidiana e ordine interiore.
+        </p>
+        <p class="muted">Stato: in preparazione</p>
+      </article>
+
+      <article class="card">
+        <h3>Viaggi in bus (giornate speciali)</h3>
+        <p>
+          Gite di un giorno per occasioni speciali — ad es. “giornate della gioia” e altri eventi spirituali.
+        </p>
+        <p class="muted">Stato: in preparazione</p>
+      </article>
+
+      <article class="card">
+        <h3>Merch / Shop</h3>
+        <p>
+          T-shirt, tazze &amp; altro — con logo. (Partiamo in piccolo, ma in modo pulito.)
+        </p>
+        <a class="link" href="shop.html">Vai allo shop →</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>© Lampadéphóros • Contatto: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // simple dropdown toggle (mobile-friendly)
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      const menu = d.querySelector(".menu");
+      btn.addEventListener("click", () => d.classList.toggle("open"));
+      document.addEventListener("click", (e) => {
+        if (!d.contains(e.target)) d.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>
