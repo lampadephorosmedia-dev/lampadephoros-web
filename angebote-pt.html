@@ -18,20 +18,20 @@
       </div>
     </div>
 
-    <h1>O Portador da Tocha</h1>
+    <h1>Ofertas</h1>
     <p class="sub">
-      Visibilidade sem barulho. Profundidade sem medo. Um caminho de luz, água, coração e silêncio.
+      Peregrinações, workshops, palestras e dias especiais. Aqui: datas concretas e o que está em preparação.
     </p>
 
     <div class="cta">
       <a class="btn" href="index-pt.html">Começar</a>
 
       <a class="btn ghost" href="about-pt.html">Sobre nós</a>
-      <a class="btn ghost" href="filme.html">Filmes &amp; capítulos</a>
-      <a class="btn ghost" href="impulse.html">Impulsos</a>
+      <a class="btn ghost" href="filme-pt.html">Filmes &amp; capítulos</a>
+      <a class="btn ghost" href="impulse-pt.html">Impulsos</a>
       <a class="btn ghost" href="start-pt.html">Oficina</a>
       <a class="btn ghost active" href="angebote-pt.html">Ofertas</a>
-      <a class="btn ghost" href="shop.html">Loja</a>
+      <a class="btn ghost" href="shop-pt.html">Loja</a>
 
       <div class="dropdown">
         <button class="btn ghost" type="button">Onde nos encontras ▾</button>
@@ -52,7 +52,6 @@
     </p>
 
     <section class="grid">
-      <!-- Oferta concreta -->
       <article class="card featured">
         <h3>Dia de recolhimento 2026 (15–25 anos)</h3>
         <p>
@@ -90,7 +89,6 @@
         </div>
       </article>
 
-      <!-- Em preparação -->
       <article class="card">
         <h3>Peregrinações</h3>
         <p>
@@ -110,7 +108,7 @@
       <article class="card">
         <h3>Viagens de autocarro (dias especiais)</h3>
         <p>
-          Excursões de um dia para ocasiões especiais — por ex. “dias de alegria” e outros eventos espirituais.
+          Excursões de um dia para ocasiões especiais — e outros eventos espirituais.
         </p>
         <p class="muted">Estado: em preparação</p>
       </article>
@@ -120,7 +118,7 @@
         <p>
           T-shirts, canecas &amp; mais — com logo. (Começamos pequeno, mas bem feito.)
         </p>
-        <a class="link" href="shop.html">Ir à loja →</a>
+        <a class="link" href="shop-pt.html">Ir à loja →</a>
       </article>
     </section>
   </main>
@@ -130,10 +128,8 @@
   </footer>
 
   <script>
-    // simple dropdown toggle (mobile-friendly)
     document.querySelectorAll(".dropdown").forEach(d => {
       const btn = d.querySelector("button");
-      const menu = d.querySelector(".menu");
       btn.addEventListener("click", () => d.classList.toggle("open"));
       document.addEventListener("click", (e) => {
         if (!d.contains(e.target)) d.classList.remove("open");
