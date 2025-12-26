@@ -65,7 +65,7 @@
       </article>
     </section>
 
-    <!-- Published films (YouTube embeds) -->
+    <!-- Published films (YouTube embeds / fallback for age restriction) -->
     <section class="grid" aria-label="Published films">
       <article class="card">
         <h2>Published films</h2>
@@ -99,15 +99,20 @@
 
       <article class="card">
         <div class="video-embed">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/-4WyAvKxI7A"
-            title="The Two Springs – From Eden to the Cross"
-            loading="lazy"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+          <a class="thumb" href="https://www.youtube.com/watch?v=-4WyAvKxI7A" target="_blank" rel="noopener"
+             aria-label="Watch on YouTube: The Two Springs – From Eden to the Cross">
+            <img class="thumb-img"
+                 src="https://i.ytimg.com/vi/-4WyAvKxI7A/maxresdefault.jpg"
+                 onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/-4WyAvKxI7A/hqdefault.jpg';"
+                 alt="Thumbnail: The Two Springs – From Eden to the Cross">
+            <span class="play-badge">▶</span>
+          </a>
         </div>
+
+        <p class="muted" style="margin-top:10px;">
+          ⚠️ This film is age-restricted on YouTube, so it can’t be embedded here.
+          Please open it directly on YouTube.
+        </p>
 
         <div class="video-meta">
           <div class="title">The Two Springs – From Eden to the Cross</div>
