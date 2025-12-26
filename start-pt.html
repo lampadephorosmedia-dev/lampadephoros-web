@@ -1,29 +1,33 @@
-<!-- FILE: start-pt.html -->
+<!-- FILE: start-pt.html (PT) -->
 <!doctype html>
 <html lang="pt">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – Começar</title>
+  <title>Lampadéphóros – Start</title>
   <meta name="description" content="O Portador da Tocha: visibilidade sem barulho. Profundidade sem medo. Um caminho de luz, água, coração e silêncio." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header class="wrap hero" style="position:relative;">
-    <div class="dropdown" style="position:absolute; top:18px; right:18px; z-index:50;">
-      <button class="btn ghost" type="button">PT ▾</button>
-      <div class="menu" hidden>
-        <a href="start-de.html">Deutsch</a>
-        <a href="start-fr.html">Français</a>
-        <a href="start-en.html">English</a>
-        <a href="start-it.html">Italiano</a>
-        <a href="start-pt.html">Português</a>
-      </div>
+
+    <!-- Language switch (top-right) - DETAILS/SUMMARY wie index -->
+    <div class="lang" aria-label="Seleção de idioma" style="position:absolute; top:18px; right:18px; z-index:50;">
+      <details>
+        <summary>Idioma: PT ▾</summary>
+        <div class="lang-menu" role="menu" aria-label="Idiomas">
+          <a href="start-de.html" role="menuitem">Deutsch <span>DE</span></a>
+          <a href="start-fr.html" role="menuitem">Français <span>FR</span></a>
+          <a href="start-en.html" role="menuitem">English <span>EN</span></a>
+          <a href="start-pt.html" role="menuitem">Português <span>PT</span></a>
+          <a href="start-it.html" role="menuitem">Italiano <span>IT</span></a>
+        </div>
+      </details>
     </div>
 
     <div class="brand">
-      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
+      <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
       <div class="brand-text">
         <div class="badge">Lampadéphóros</div>
         <div class="kicker">O Portador da Tocha</div>
@@ -39,20 +43,20 @@
       <a class="btn ghost" href="about-pt.html">Sobre nós</a>
       <a class="btn ghost" href="filme.html">Filmes &amp; capítulos</a>
       <a class="btn ghost" href="impulse.html">Impulsos</a>
-      <a class="btn ghost" href="start.html">Oficina</a>
-      <a class="btn ghost" href="angebote-fr.html">Ofertas</a>
+      <a class="btn ghost" href="werkstatt.html">Oficina</a>
+      <a class="btn ghost" href="angebote-pt.html">Ofertas</a>
       <a class="btn ghost" href="shop.html">Loja</a>
 
       <div class="dropdown">
         <button class="btn ghost" type="button">Onde nos encontras ▾</button>
-        <div class="menu" hidden>
+        <div class="menu">
           <a href="links-pt.html">Links &amp; plataformas</a>
           <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
         </div>
       </div>
     </div>
 
-    <p class="note">Sem spam. Sem drama. Só a obra.</p>
+    <p class="note">Sem spam. Sem drama. Só obra.</p>
   </header>
 
   <main class="wrap">
@@ -65,26 +69,26 @@
 
       <article class="card">
         <h3>Filmes</h3>
-        <p>Obras principais, capítulos, excertos — bem organizados.</p>
+        <p>Obras principais, capítulos, cortes curtos — bem organizados.</p>
         <a class="link" href="filme.html">Ver →</a>
       </article>
 
       <article class="card">
         <h3>Impulsos</h3>
-        <p>Textos curtos, excertos, orações, leitura de símbolos.</p>
+        <p>Textos curtos, excertos de voiceover, orações, símbolos.</p>
         <a class="link" href="impulse.html">Ir →</a>
       </article>
 
       <article class="card">
         <h3>Oficina</h3>
         <p>Nos bastidores: decisões, ritmo, transições.</p>
-        <a class="link" href="start.html">Ver →</a>
+        <a class="link" href="werkstatt.html">Ver →</a>
       </article>
 
       <article class="card">
         <h3>Ofertas</h3>
-        <p>Datas e ofertas concretas. (Atualmente disponível em francês.)</p>
-        <a class="link" href="angebote-fr.html">Ver ofertas →</a>
+        <p>Peregrinações, workshops, palestras e dias especiais.</p>
+        <a class="link" href="angebote-pt.html">Ver ofertas →</a>
       </article>
 
       <article class="card">
@@ -100,30 +104,18 @@
   </footer>
 
   <script>
-    (function () {
-      const dropdowns = Array.from(document.querySelectorAll(".dropdown"));
-      function closeAll() {
-        dropdowns.forEach(d => {
-          d.classList.remove("open");
-          const m = d.querySelector(".menu");
-          if (m) m.hidden = true;
-        });
-      }
-      dropdowns.forEach(d => {
-        const btn = d.querySelector("button");
-        const menu = d.querySelector(".menu");
-        if (!btn || !menu) return;
-        menu.hidden = true;
-        btn.addEventListener("click", (e) => {
-          e.preventDefault(); e.stopPropagation();
-          const willOpen = menu.hidden;
-          closeAll();
-          if (willOpen) { d.classList.add("open"); menu.hidden = false; }
-        });
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      const menu = d.querySelector(".menu");
+      if (!btn || !menu) return;
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        d.classList.toggle("open");
       });
-      document.addEventListener("click", () => closeAll());
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(); });
-    })();
+      document.addEventListener("click", (e) => {
+        if (!d.contains(e.target)) d.classList.remove("open");
+      });
+    });
   </script>
 </body>
 </html>
