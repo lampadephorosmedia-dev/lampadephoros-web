@@ -1,91 +1,70 @@
+<!-- FILE: links-pt.html (PT) -->
 <!doctype html>
 <html lang="pt">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – Links</title>
-  <meta name="description" content="Plataformas e links: onde encontrar Lampadéphóros e recursos associados." />
+  <title>Lampadēphóros – Links</title>
+  <meta name="description" content="Links e plataformas: onde encontrar Lampadēphóros (YouTube, contacto, recursos)." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="wrap hero">
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
-      <div class="brand-text">
-        <div class="badge">Lampadéphóros</div>
-        <div class="kicker">O Portador da Tocha</div>
-      </div>
-    </div>
+  <main class="wrap">
 
-    <h1>Links &amp; plataformas</h1>
-    <p class="sub">Tudo num só lugar.</p>
-
-    <div class="cta">
-      <a class="btn" href="index-pt.html">Início</a>
-
-      <a class="btn ghost" href="about-pt.html">Sobre nós</a>
-      <a class="btn ghost" href="filme-pt.html">Filmes &amp; capítulos</a>
-      <a class="btn ghost" href="impulse-pt.html">Impulsos</a>
-      <a class="btn ghost" href="start-pt.html">Oficina</a>
-      <a class="btn ghost" href="angebote-pt.html">Ofertas</a>
-      <a class="btn ghost" href="shop-pt.html">Loja</a>
-
-      <div class="dropdown">
-        <button class="btn ghost active" type="button">Onde nos encontras ▾</button>
-        <div class="menu">
-          <a href="links-pt.html">Links &amp; plataformas</a>
-          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+    <header class="hero">
+      <!-- Brand -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">O Portador da Tocha</div>
         </div>
       </div>
-    </div>
 
-    <p class="note">Sem spam. Sem drama. Só a obra.</p>
-  </header>
+      <h1>Onde nos encontras</h1>
+      <p class="sub">Links, plataformas e pontos de entrada — simples e claros.</p>
 
-  <main class="wrap">
-    <h2 class="section-title">Onde nos encontras</h2>
-    <p class="section-sub">Links diretos para plataformas e contacto.</p>
+      <!-- NAV (sem escolha de língua aqui — só em start-*.html) -->
+      <nav class="nav" aria-label="Navegação">
+        <a class="btn" href="start-pt.html">Começar</a>
+        <a class="btn" href="about-pt.html">Sobre nós</a>
+        <a class="btn" href="filme-pt.html">Filmes &amp; capítulos</a>
+        <a class="btn" href="impulse-pt.html">Impulsos</a>
+        <a class="btn" href="werkstatt.html">Oficina</a>
+        <a class="btn" href="angebote-pt.html">Ofertas</a>
+        <a class="btn" href="shop-pt.html">Loja</a>
+        <a class="btn primary" href="links-pt.html">Onde nos encontras</a>
+      </nav>
 
-    <section class="grid">
-      <article class="card featured">
-        <h3>YouTube</h3>
-        <p>O nosso canal principal.</p>
-        <a class="link" href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">Abrir no YouTube →</a>
+      <div class="note">Sem spam. Sem drama. Só obra.</div>
+    </header>
+
+    <section class="grid" aria-label="Links">
+      <article class="card">
+        <h2>YouTube</h2>
+        <p>Canal principal: filmes, capítulos e excertos.</p>
+        <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">Abrir YouTube →</a>
       </article>
 
       <article class="card">
-        <h3>Contacto</h3>
-        <p>Escreve-nos diretamente.</p>
-        <a class="link" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com →</a>
+        <h2>Contacto</h2>
+        <p>Perguntas, colaboração ou informações.</p>
+        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com →</a>
       </article>
 
       <article class="card">
-        <h3>Ofertas (PDF)</h3>
-        <p>Folheto / dia de recolhimento.</p>
-        <a class="link" href="recollection-2026.pdf" target="_blank" rel="noopener">Abrir PDF →</a>
-      </article>
-
-      <article class="card">
-        <h3>Oficina</h3>
-        <p>Estrutura e bastidores.</p>
-        <a class="link" href="start-pt.html">Ir à oficina →</a>
+        <h2>Recursos</h2>
+        <p>Esta área será ampliada com o tempo (links, PDFs, anúncios).</p>
+        <p style="opacity:.8">Estado: em preparação</p>
       </article>
     </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contacto:
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
   </main>
-
-  <footer class="wrap footer">
-    <p>© Lampadéphóros • Contacto: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => {
-        if (!d.contains(e.target)) d.classList.remove("open");
-      });
-    });
-  </script>
 </body>
 </html>
