@@ -1,70 +1,76 @@
+<!-- FILE: impulse-it.html (IT) -->
 <!doctype html>
 <html lang="it">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – Impulsi</title>
-  <meta name="description" content="Testi brevi, estratti di voiceover, preghiere, lettura dei simboli." />
+  <title>Lampadēphóros – Impulsi</title>
+  <meta name="description" content="Impulsi: testi brevi, estratti di voiceover, preghiere e simboli — senza rumore." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="wrap hero">
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
-      <div class="brand-text">
-        <div class="badge">Lampadéphóros</div>
-        <div class="kicker">Il Portatore della Torcia</div>
-      </div>
-    </div>
+  <main class="wrap">
 
-    <h1>Impulsi</h1>
-    <p class="sub">Testi brevi, estratti di voiceover, preghiere, lettura dei simboli.</p>
-
-    <div class="cta">
-      <a class="btn" href="index-it.html">Inizia qui</a>
-
-      <a class="btn ghost" href="about-it.html">Chi siamo</a>
-      <a class="btn ghost" href="filme-it.html">Film &amp; capitoli</a>
-      <a class="btn ghost active" href="impulse-it.html">Impulsi</a>
-      <a class="btn ghost" href="start-it.html">Laboratorio</a>
-      <a class="btn ghost" href="angebote-it.html">Proposte</a>
-      <a class="btn ghost" href="shop-it.html">Shop</a>
-
-      <div class="dropdown">
-        <button class="btn ghost" type="button">Dove trovarci ▾</button>
-        <div class="menu">
-          <a href="links-it.html">Link &amp; piattaforme</a>
-          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+    <header class="hero">
+      <!-- Brand -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">Il Portatore della Torcia</div>
         </div>
       </div>
-    </div>
 
-    <p class="note">Niente spam. Niente drama. Solo opera.</p>
-  </header>
+      <h1>Impulsi</h1>
+      <p class="sub">Testi brevi, estratti di voiceover, preghiere e lettura dei simboli — con calma.</p>
 
-  <main class="wrap">
-    <h2 class="section-title">Impulsi</h2>
-    <p class="section-sub">Questa sezione è in preparazione. Presto troverai testi, estratti, preghiere e simboli.</p>
+      <!-- NAV (nessuna scelta lingua qui — solo in start-*.html) -->
+      <nav class="nav" aria-label="Navigazione">
+        <a class="btn" href="start-it.html">Inizia</a>
+        <a class="btn" href="about-it.html">Chi siamo</a>
+        <a class="btn" href="filme-it.html">Film &amp; capitoli</a>
+        <a class="btn primary" href="impulse-it.html">Impulsi</a>
+        <a class="btn" href="werkstatt.html">Laboratorio</a>
+        <a class="btn" href="angebote-it.html">Proposte</a>
+        <a class="btn" href="shop-it.html">Shop</a>
+        <a class="btn" href="links-it.html">Dove trovarci</a>
+      </nav>
 
-    <section class="grid">
-      <article class="card featured">
-        <h3>In arrivo</h3>
-        <p class="muted">Stato: in preparazione</p>
+      <div class="note">Niente spam. Niente drama. Solo opera.</div>
+    </header>
+
+    <section class="grid" aria-label="Impulsi – contenuto">
+      <article class="card">
+        <h2>In preparazione</h2>
+        <p>
+          Questa sezione arriva presto. Qui troverai impulsi brevi:
+          luce, acqua, cuore, silenzio — e frammenti di testi di voiceover.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Cosa riceverai</h2>
+        <p>
+          Piccole riflessioni, preghiere semplici e lettura dei simboli —
+          per tornare al centro, senza pressione.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Seguire la costruzione</h2>
+        <p>
+          Decisioni, ritmo e transizioni sono documentati nel laboratorio.
+        </p>
+        <a href="werkstatt.html">Vedi il laboratorio →</a>
       </article>
     </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contatto:
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
   </main>
-
-  <footer class="wrap footer">
-    <p>© Lampadéphóros • Contatto: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => { if (!d.contains(e.target)) d.classList.remove("open"); });
-    });
-  </script>
 </body>
 </html>
