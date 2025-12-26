@@ -3,91 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – À propos</title>
-  <meta name="description" content="Qui nous sommes, ce que nous construisons et pourquoi : Lampadéphóros – Le Porte-Flambeau." />
+  <title>Lampadēphóros – À propos</title>
+  <meta name="description" content="Qui nous sommes, ce que nous construisons et pourquoi : Lampadēphóros – Le Porte-Flambeau." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="wrap hero">
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
-      <div class="brand-text">
-        <div class="badge">Lampadéphóros</div>
-        <div class="kicker">Le Porte-Flambeau</div>
-      </div>
-    </div>
+  <main class="wrap">
 
-    <h1>À propos</h1>
-    <p class="sub">Qui nous sommes, ce que nous construisons et pourquoi.</p>
+    <header class="hero">
 
-    <div class="cta">
-      <a class="btn" href="start-fr.html">Accueil</a>
-
-      <a class="btn ghost active" href="about-fr.html">À propos</a>
-      <a class="btn ghost" href="filme-fr.html">Films &amp; chapitres</a>
-      <a class="btn ghost" href="impulse-fr.html">Impulsions</a>
-      <a class="btn ghost" href="werkstatt-fr.html">Atelier</a>
-      <a class="btn ghost" href="angebote-fr.html">Offres</a>
-      <a class="btn ghost" href="shop-fr.html">Boutique</a>
-
-      <div class="dropdown">
-        <button class="btn ghost" type="button">Nous trouver ▾</button>
-        <div class="menu">
-          <a href="links-fr.html">Liens &amp; plateformes</a>
-          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+      <!-- Marque -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">Le Porte-Flambeau</div>
         </div>
       </div>
-    </div>
 
-    <p class="note">Pas de spam. Pas de drama. Juste l’œuvre.</p>
-  </header>
+      <h1>À propos</h1>
+      <p class="sub">Qui nous sommes, ce que nous construisons et pourquoi.</p>
 
-  <main class="wrap">
-    <h2 class="section-title">Lampadéphóros</h2>
-    <p class="section-sub">
-      Un projet simple et profond : visibilité sans bruit, profondeur sans peur.
-    </p>
+      <!-- Navigation (FR) — pas de choix de langue ici (uniquement sur start-*.html) -->
+      <nav class="nav" aria-label="Navigation">
+        <a class="btn" href="start-fr.html">Commencer</a>
+        <a class="btn primary" href="about-fr.html">À propos</a>
+        <a class="btn" href="filme-fr.html">Films &amp; chapitres</a>
+        <a class="btn" href="impulse-fr.html">Impulsions</a>
+        <a class="btn" href="werkstatt.html">Atelier</a>
+        <a class="btn" href="angebote-fr.html">Offres</a>
+        <a class="btn" href="shop-fr.html">Boutique</a>
+        <a class="btn" href="links-fr.html">Nous trouver</a>
+      </nav>
 
-    <section class="grid">
-      <article class="card featured">
-        <h3>Ce que c’est</h3>
+      <div class="note">Pas de spam. Pas de drama. Juste l’œuvre.</div>
+    </header>
+
+    <section class="grid" aria-label="À propos — contenu">
+      <article class="card">
+        <h2>Ce que c’est</h2>
         <p>
-          Lampadéphóros signifie « porte-flambeau ». C’est un atelier média créatif et spirituel :
+          Lampadēphóros signifie « porte-flambeau ». C’est un atelier média créatif et spirituel :
           films, impulsions et offres concrètes — construit avec soin, pas à pas.
         </p>
       </article>
 
       <article class="card">
-        <h3>Symboles</h3>
+        <h2>Symboles</h2>
         <p>Lumière • Eau • Cœur • Silence — un langage qui reste compréhensible à travers les cultures.</p>
       </article>
 
       <article class="card">
-        <h3>Notre style</h3>
+        <h2>Notre style</h2>
         <p>Structure claire, ton honnête, sans manipulation. Petits pas, vraie substance.</p>
       </article>
 
       <article class="card">
-        <h3>Prochaines étapes</h3>
+        <h2>Prochaines étapes</h2>
         <p>Développer les films &amp; chapitres, publier des impulsions, ajouter des offres au fur et à mesure.</p>
-        <a class="link" href="werkstatt-fr.html">Voir l’atelier →</a>
+        <a href="werkstatt.html">Voir l’atelier →</a>
       </article>
     </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contact :
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
   </main>
-
-  <footer class="wrap footer">
-    <p>© Lampadéphóros • Contact : <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => {
-        if (!d.contains(e.target)) d.classList.remove("open");
-      });
-    });
-  </script>
 </body>
 </html>
