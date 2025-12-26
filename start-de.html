@@ -1,105 +1,117 @@
+<!-- =========================
+     FILE: start-de.html
+     ========================= -->
 <!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – Start (DE)</title>
+  <title>Lampadéphóros – Start</title>
+  <meta name="description" content="Der Fackelträger: Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Ein Weg aus Licht, Wasser, Herz und Stille." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="wrap">
-
-    <!-- Language switch (top right) -->
-    <div class="lang">
-      <details class="lang-details">
-        <summary>Sprache: Deutsch</summary>
-        <div class="lang-menu">
-          <a href="start-de.html">Deutsch</a>
-          <a href="start-fr.html">Français</a>
-          <a href="start-en.html">English</a>
-          <a href="start-pt.html">Português</a>
-          <a href="start-it.html">Italiano</a>
-        </div>
-      </details>
+  <header class="wrap hero" style="position:relative;">
+    <!-- Sprachwahl (NUR auf Startseiten) -->
+    <div class="dropdown" style="position:absolute; top:18px; right:18px; z-index:50;">
+      <button class="btn ghost" type="button">DE ▾</button>
+      <div class="menu">
+        <a href="start-de.html">Deutsch</a>
+        <a href="start-fr.html">Français</a>
+        <a href="start-en.html">English</a>
+        <a href="start-it.html">Italiano</a>
+        <a href="start-pt.html">Português</a>
+      </div>
     </div>
 
-    <!-- HERO -->
-    <header class="hero">
-      <div class="brand-row">
-        <img class="logo" src="logo.png" alt="Lampadéphóros Logo" />
-        <div class="brand-meta">
-          <div class="badge">Lampadéphóros</div>
-          <div class="mini">Der Fackelträger</div>
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="Lampadéphóros Logo" />
+      <div class="brand-text">
+        <div class="badge">Lampadéphóros</div>
+        <div class="kicker">Der Fackelträger</div>
+      </div>
+    </div>
+
+    <h1>Der Fackelträger</h1>
+    <p class="sub">
+      Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Ein Weg aus Licht, Wasser, Herz und Stille.
+    </p>
+
+    <div class="cta">
+      <a class="btn active" href="start-de.html">Beginne hier</a>
+
+      <a class="btn ghost" href="about.html">Über uns</a>
+      <a class="btn ghost" href="filme.html">Filme &amp; Kapitel</a>
+      <a class="btn ghost" href="impulse.html">Impulse</a>
+      <a class="btn ghost" href="start.html">Werkstatt</a>
+      <a class="btn ghost" href="angebote.html">Angebote</a>
+      <a class="btn ghost" href="shop.html">Shop</a>
+
+      <div class="dropdown">
+        <button class="btn ghost" type="button">Hier findest du uns ▾</button>
+        <div class="menu">
+          <a href="links.html">Links &amp; Plattformen</a>
+          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
         </div>
       </div>
+    </div>
 
-      <h1>Der Fackelträger</h1>
+    <p class="note">Kein Spam. Kein Drama. Nur Werk.</p>
+  </header>
 
-      <p class="sub">
-        Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Ein Weg aus Licht, Wasser, Herz und Stille.
-      </p>
-
-      <nav>
-        <a class="btn primary" href="index.html">Beginne hier</a>
-        <a class="btn" href="about.html">Über uns</a>
-        <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
-        <a class="btn" href="impulse.html">Impulse</a>
-        <a class="btn" href="start.html">Werkstatt</a>
-        <a class="btn" href="angebote.html">Angebote</a>
-        <a class="btn" href="shop.html">Shop</a>
-        <a class="btn" href="links.html">Hier findest du uns</a>
-      </nav>
-
-      <div class="note">
-        Tipp: Wähle oben rechts deine Sprache – oder starte direkt mit „Beginne hier“.
-      </div>
-    </header>
-
-    <!-- CARDS -->
+  <main class="wrap">
     <section class="grid">
       <article class="card">
-        <h2>Über uns</h2>
+        <h3>Über uns</h3>
         <p>Wer wir sind, warum es uns gibt – und wohin wir gehen.</p>
-        <p><a href="about.html">Zur Vorstellung →</a></p>
+        <a class="link" href="about.html">Zur Vorstellung →</a>
       </article>
 
       <article class="card">
-        <h2>Filme</h2>
+        <h3>Filme</h3>
         <p>Hauptwerke, Kapitel, kurze Schnitte – sauber sortiert.</p>
-        <p><a href="filme.html">Zur Übersicht →</a></p>
+        <a class="link" href="filme.html">Zur Übersicht →</a>
       </article>
 
       <article class="card">
-        <h2>Impulse</h2>
+        <h3>Impulse</h3>
         <p>Kurze Texte, Voiceover-Auszüge, Gebete, Symbol-Deutung.</p>
-        <p><a href="impulse.html">Zu den Impulsen →</a></p>
+        <a class="link" href="impulse.html">Zu den Impulsen →</a>
       </article>
 
       <article class="card">
-        <h2>Werkstatt</h2>
+        <h3>Werkstatt</h3>
         <p>Ein Blick hinter die Kulissen: Entscheidungen, Rhythmus, Übergänge.</p>
-        <p><a href="start.html">Zur Werkstatt →</a></p>
+        <a class="link" href="start.html">Zur Werkstatt →</a>
       </article>
 
       <article class="card">
-        <h2>Angebote</h2>
+        <h3>Angebote</h3>
         <p>Pilgerreisen, Workshops, Vorträge und Busreisen zu besonderen Tagen.</p>
-        <p><a href="angebote.html">Zu den Angeboten →</a></p>
+        <a class="link" href="angebote.html">Zu den Angeboten →</a>
       </article>
 
       <article class="card">
-        <h2>Shop</h2>
+        <h3>Shop</h3>
         <p>Merch von Anfang an: T-Shirts, Tassen &amp; mehr – mit Logo.</p>
-        <p><a href="shop.html">Zum Shop →</a></p>
+        <a class="link" href="shop.html">Zum Shop →</a>
       </article>
     </section>
-
-    <footer class="footer">
-      © Lampadéphóros • Kontakt:
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-    </footer>
-
   </main>
+
+  <footer class="wrap footer">
+    <p>© Lampadéphóros • Kontakt: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".dropdown").forEach(d => {
+      const btn = d.querySelector("button");
+      btn.addEventListener("click", () => d.classList.toggle("open"));
+      document.addEventListener("click", (e) => {
+        if (!d.contains(e.target)) d.classList.remove("open");
+      });
+    });
+  </script>
 </body>
 </html>
