@@ -1,70 +1,76 @@
+<!-- FILE: impulse-en.html (EN) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – Impulses</title>
-  <meta name="description" content="Short texts, voice-over excerpts, prayers, and symbol reading." />
+  <title>Lampadēphóros – Impulses</title>
+  <meta name="description" content="Impulses: short texts, voice-over excerpts, prayers, and symbols — without noise." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="wrap hero">
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Lampadéphóros Logo" />
-      <div class="brand-text">
-        <div class="badge">Lampadéphóros</div>
-        <div class="kicker">The Torchbearer</div>
-      </div>
-    </div>
+  <main class="wrap">
 
-    <h1>Impulses</h1>
-    <p class="sub">Short texts, voice-over excerpts, prayers, and symbol reading.</p>
-
-    <div class="cta">
-      <a class="btn" href="index-en.html">Start here</a>
-
-      <a class="btn ghost" href="about-en.html">About</a>
-      <a class="btn ghost" href="filme-en.html">Films &amp; chapters</a>
-      <a class="btn ghost active" href="impulse-en.html">Impulses</a>
-      <a class="btn ghost" href="start-en.html">Workshop</a>
-      <a class="btn ghost" href="angebote-en.html">Offers</a>
-      <a class="btn ghost" href="shop-en.html">Shop</a>
-
-      <div class="dropdown">
-        <button class="btn ghost" type="button">Find us ▾</button>
-        <div class="menu">
-          <a href="links-en.html">Links &amp; platforms</a>
-          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+    <header class="hero">
+      <!-- Brand -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">The Torchbearer</div>
         </div>
       </div>
-    </div>
 
-    <p class="note">No spam. No drama. Just the work.</p>
-  </header>
+      <h1>Impulses</h1>
+      <p class="sub">Short texts, voice-over excerpts, prayers, and symbol-reading — quietly.</p>
 
-  <main class="wrap">
-    <h2 class="section-title">Impulses</h2>
-    <p class="section-sub">This section is being prepared. Soon you’ll find texts, excerpts, prayers, and symbol reflections here.</p>
+      <!-- NAV (no language switch here — only on start-*.html) -->
+      <nav class="nav" aria-label="Navigation">
+        <a class="btn" href="start-en.html">Start</a>
+        <a class="btn" href="about-en.html">About</a>
+        <a class="btn" href="filme-en.html">Films &amp; chapters</a>
+        <a class="btn primary" href="impulse-en.html">Impulses</a>
+        <a class="btn" href="werkstatt.html">Workshop</a>
+        <a class="btn" href="angebote-en.html">Offers</a>
+        <a class="btn" href="shop-en.html">Shop</a>
+        <a class="btn" href="links-en.html">Find us</a>
+      </nav>
 
-    <section class="grid">
-      <article class="card featured">
-        <h3>Coming soon</h3>
-        <p class="muted">Status: in preparation</p>
+      <div class="note">No spam. No drama. Just the work.</div>
+    </header>
+
+    <section class="grid" aria-label="Impulses – content">
+      <article class="card">
+        <h2>In progress</h2>
+        <p>
+          This section is coming soon. You’ll find brief impulses here:
+          light, water, heart, silence — and fragments of voice-over text.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>What you’ll receive</h2>
+        <p>
+          Short reflections, simple prayers, and symbol-reading — to return to the center,
+          without pressure.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Follow the build</h2>
+        <p>
+          Decisions, rhythm, and transitions are documented in the workshop.
+        </p>
+        <a href="werkstatt.html">See the workshop →</a>
       </article>
     </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contact:
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
   </main>
-
-  <footer class="wrap footer">
-    <p>© Lampadéphóros • Contact: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => { if (!d.contains(e.target)) d.classList.remove("open"); });
-    });
-  </script>
 </body>
 </html>
