@@ -1,93 +1,97 @@
+<!-- FILE: about-en.html (EN) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – About</title>
-  <meta name="description" content="Who we are, what we build, and why: Lampadéphóros – The Torchbearer." />
+  <title>Lampadēphóros – About</title>
+  <meta name="description" content="Who we are, what we build, and why: Lampadēphóros – The Torchbearer." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="wrap hero">
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Lampadéphóros Logo" />
-      <div class="brand-text">
-        <div class="badge">Lampadéphóros</div>
-        <div class="kicker">The Torchbearer</div>
-      </div>
-    </div>
+  <main class="wrap">
 
-    <h1>About</h1>
-    <p class="sub">Who we are, what we build, and why.</p>
-
-    <div class="cta">
-      <a class="btn" href="index-en.html">Home</a>
-
-      <a class="btn ghost active" href="about-en.html">About</a>
-      <a class="btn ghost" href="filme-en.html">Films &amp; chapters</a>
-      <a class="btn ghost" href="impulse-en.html">Impulses</a>
-      <a class="btn ghost" href="start-en.html">Workshop</a>
-      <a class="btn ghost" href="angebote-en.html">Offers</a>
-      <a class="btn ghost" href="shop-en.html">Shop</a>
-
-      <div class="dropdown">
-        <button class="btn ghost" type="button">Find us ▾</button>
-        <div class="menu">
-          <a href="links-en.html">Links &amp; platforms</a>
-          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+    <header class="hero">
+      <!-- Brand -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">The Torchbearer</div>
         </div>
       </div>
-    </div>
 
-    <p class="note">No spam. No drama. Just the work.</p>
-  </header>
+      <h1>About</h1>
+      <p class="sub">Who we are, what we’re building, and why.</p>
 
-  <main class="wrap">
-    <h2 class="section-title">Lampadéphóros</h2>
-    <p class="section-sub">
-      A quiet project for clarity: visibility without noise, depth without fear.
-    </p>
+      <!-- NAV (no language switch here — only on start-*.html) -->
+      <nav class="nav" aria-label="Navigation">
+        <a class="btn" href="start-en.html">Start</a>
+        <a class="btn primary" href="about-en.html">About</a>
+        <a class="btn" href="filme-en.html">Films &amp; chapters</a>
+        <a class="btn" href="impulse-en.html">Impulses</a>
+        <a class="btn" href="werkstatt.html">Workshop</a>
+        <a class="btn" href="angebote-en.html">Offers</a>
+        <a class="btn" href="shop-en.html">Shop</a>
+        <a class="btn" href="links-en.html">Find us</a>
+      </nav>
 
-    <section class="grid">
-      <article class="card featured">
-        <h3>What this is</h3>
+      <div class="note">No spam. No drama. Just the work.</div>
+    </header>
+
+    <section class="grid" aria-label="About – content">
+      <article class="card">
+        <h2>What it is</h2>
         <p>
-          Lampadéphóros means “torchbearer”. This is a creative and spiritual media workshop:
-          films, short impulses, and concrete offers — built carefully, step by step.
+          Lampadēphóros means “torchbearer”. It’s a creative and spiritual media workshop:
+          films, impulses, and concrete offers — built carefully, step by step.
         </p>
       </article>
 
       <article class="card">
-        <h3>Core symbols</h3>
-        <p>Light • Water • Heart • Silence — a language that stays understandable across cultures.</p>
+        <h2>Why</h2>
+        <p>
+          Because many people are searching for meaning — and mostly find noise.
+          We believe silence isn’t empty: it’s space.
+        </p>
       </article>
 
       <article class="card">
-        <h3>How we work</h3>
-        <p>Clean structure, honest tone, no manipulation. Small steps, real substance.</p>
+        <h2>Our aim</h2>
+        <p>
+          Visibility without noise. Depth without fear.
+          Content that steadies, recenters, and gently brings light.
+        </p>
       </article>
 
       <article class="card">
-        <h3>Next steps</h3>
-        <p>We expand films &amp; chapters, publish impulses, and add offers as dates become concrete.</p>
-        <a class="link" href="start-en.html">See the workshop →</a>
+        <h2>Symbols</h2>
+        <p>
+          Light • Water • Heart • Silence — a simple language that stays understandable across cultures.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Next steps</h2>
+        <p>
+          Build out films &amp; chapters, publish impulses, and add offers as they become ready.
+        </p>
+        <a href="werkstatt.html">See the workshop →</a>
+      </article>
+
+      <article class="card">
+        <h2>Contact</h2>
+        <p>Questions, collaboration, or info.</p>
+        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com →</a>
       </article>
     </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contact:
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
   </main>
-
-  <footer class="wrap footer">
-    <p>© Lampadéphóros • Contact: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => {
-        if (!d.contains(e.target)) d.classList.remove("open");
-      });
-    });
-  </script>
 </body>
 </html>
