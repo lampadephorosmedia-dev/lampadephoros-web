@@ -1,165 +1,134 @@
-/* =========================================================
-   Lampadēphóros – Global Styles (Clean Base)
-   Replace whole style.css with this file.
-   ========================================================= */
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offres • Lampadēphóros</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-:root{
-  --bg: #0b0c0f;
-  --text: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.70);
-  --muted2: rgba(255,255,255,.55);
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-card">
 
-  --gold: #f3c96b;
-  --goldText: #1b1407;
+        <div class="hero-top">
+          <a class="brand" href="start-fr.html" aria-label="Lampadēphóros – Accueil">
+            <div class="brand-badge">
+              <img src="logo.png" alt="Logo Lampadēphóros">
+            </div>
+            <div class="brand-text">
+              <div class="brand-name">Lampadēphóros</div>
+              <div class="brand-sub">Le Porte-Flambeau</div>
+            </div>
+          </a>
 
-  --stroke: rgba(255,255,255,.10);
-  --stroke2: rgba(255,255,255,.14);
+          <div class="lang">
+            <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
+              FR <span aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" role="menu" aria-label="Choix de langue">
+              <a role="menuitem" href="angebote.html">DE</a>
+              <a role="menuitem" href="angebote-fr.html" aria-current="page">FR</a>
+            </div>
+          </div>
+        </div>
 
-  --glass: rgba(8,10,14,.55);
-  --cardTop: rgba(10,12,16,.80);
-  --cardBot: rgba(10,12,16,.62);
-  --cardTop2: rgba(10,12,16,.55);
-  --cardBot2: rgba(10,12,16,.45);
+        <h1>Offres</h1>
+        <p class="lead">
+          Pèlerinages, ateliers, conférences et journées spéciales. Ici : les dates concrètes – et tout ce qui est en préparation.
+        </p>
 
-  --shadow: 0 20px 60px rgba(0,0,0,.45);
-  --r-lg: 28px;
-  --r: 22px;
-  --r-sm: 14px;
+        <nav class="nav" aria-label="Navigation">
+          <a href="start-fr.html">Start</a>
+          <a href="about-fr.html">À propos</a>
+          <a href="filme.html">Films &amp; chapitres</a>
+          <a href="impulse.html">Impulsions</a>
+          <a href="filme.html#atelier">Atelier</a>
+          <a class="active" href="angebote-fr.html" aria-current="page">Offres</a>
+          <a href="shop.html">Boutique</a>
+          <a href="links-fr.html">Nous trouver</a>
+        </nav>
 
-  --max: 1120px;
-}
+        <p class="note">
+          Intéressé(e) ? Écris-nous :
+          <a class="mail" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+        </p>
 
-*{ box-sizing: border-box; }
-html, body{ margin:0; padding:0; }
-body{
-  background: var(--bg);
-  color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.45;
-}
+      </div>
+    </div>
+  </header>
 
-img{ max-width:100%; display:block; }
+  <main class="container">
+    <section class="card">
+      <h2>Journée de récollection 2026 (15–25 ans)</h2>
 
-a{ color: inherit; text-decoration: none; }
-a:hover{ text-decoration: underline; }
+      <p class="line"><strong>Du :</strong> Vendredi 13 février 2026 – 19h00</p>
+      <p class="line"><strong>Au :</strong> Samedi 14 février 2026 – 17h00</p>
 
-.container{
-  max-width: var(--max);
-  margin: 18px auto 44px;
-  padding: 0 18px;
-}
+      <p class="line">
+        Début par la Sainte Messe à l’église paroissiale de Gilsdorf, puis départ ensemble (voitures privées) vers Medernach.
+      </p>
 
-/* =========================
-   HERO / HEADER
-   ========================= */
-.hero{
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  padding: 18px 16px 14px;
-}
+      <p class="line">
+        <strong>Lieu :</strong> Centre Arendt-Fixmer – LES ÉTANGS<br>
+        33, rue de Larochette, L-7661 Medernach
+      </p>
 
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.80)),
-    url("hero.jpg") center/cover no-repeat;
-  z-index: 0;
-}
+      <p class="line"><strong>Hébergement :</strong></p>
+      <p class="line">Chambre individuelle : 35 €</p>
+      <p class="line">Chambre double : 30 €</p>
+      <p class="small">(Frais inclus)</p>
 
-.hero-inner{
-  position: relative;
-  z-index: 2;
-  max-width: var(--max);
-  margin: 0 auto;
-}
+      <p class="line">
+        <strong>Inscription :</strong> <a class="mail" href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a><br>
+        <span class="small">Objet / mention : <em>GJCG Nom Prénom</em></span>
+      </p>
 
-.hero-card{
-  background: var(--glass);
-  border: 1px solid var(--stroke);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow);
-  padding: 22px 22px 18px;
-  backdrop-filter: blur(10px);
-}
+      <p class="line">
+        <strong>Infos :</strong> <a class="mail" href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a> ou Tél. +352 80 49 67
+      </p>
 
-.hero-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 14px;
-}
+      <p class="line">
+        <strong>Clôture des inscriptions :</strong> au plus tard le 27 janvier 2026
+      </p>
 
-/* Brand */
-.brand{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  min-width: 0;
-  text-decoration: none;
-}
+      <div class="actions">
+        <a class="btn primary" href="recollection-2026.pdf" target="_blank" rel="noopener">Ouvrir le flyer (PDF)</a>
+        <a class="btn" href="recollection-2026.pdf" download>Télécharger le PDF</a>
+      </div>
+    </section>
+  </main>
 
-.brand-badge{
-  width: 62px;
-  height: 62px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow: 0 10px 25px rgba(0,0,0,.35);
-  flex: 0 0 auto;
-}
-.brand-badge img{
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-}
+  <footer class="footer">
+    © Lampadēphóros • Contact :
+    <a class="mail" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+  </footer>
 
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  gap: 2px;
-  min-width: 0;
-}
-.brand-name{
-  font-size: 14px;
-  opacity:.80;
-  letter-spacing:.2px;
-}
-.brand-sub{
-  font-size: 13px;
-  opacity:.95;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  <script>
+    (function () {
+      const btn = document.querySelector(".lang-btn");
+      const menu = document.querySelector(".lang-menu");
+      if (!btn || !menu) return;
 
-/* Title + Lead */
-.hero h1{
-  margin: 18px 0 8px;
-  font-size: clamp(42px, 5vw, 64px);
-  line-height: 1.05;
-  letter-spacing: -0.8px;
-}
-.lead{
-  margin: 0 0 14px;
-  max-width: 920px;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.5;
-}
+      const close = () => {
+        menu.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      };
 
-/* Nav pills */
-.nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap: 10px;
-  margin: 10px 0 8px;
-}
-.nav a{
-  display:inline-flex;
-  align-items:c
+      btn.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) close();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") close();
+      });
+    })();
+  </script>
+</body>
+</html>
