@@ -1,70 +1,75 @@
+<!-- FILE: filme-fr.html (FR) -->
 <!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadéphóros – Films</title>
+  <title>Lampadēphóros – Films</title>
   <meta name="description" content="Films et chapitres : œuvres principales, chapitres et extraits — bien rangés." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <header class="wrap hero">
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Logo Lampadéphóros" />
-      <div class="brand-text">
-        <div class="badge">Lampadéphóros</div>
-        <div class="kicker">Le Porte-Flambeau</div>
-      </div>
-    </div>
+  <main class="wrap">
 
-    <h1>Films</h1>
-    <p class="sub">Œuvres principales, chapitres et extraits — bien rangés.</p>
-
-    <div class="cta">
-      <a class="btn" href="index-fr.html">Commencer</a>
-
-      <a class="btn ghost" href="about-fr.html">À propos</a>
-      <a class="btn ghost active" href="filme-fr.html">Films &amp; chapitres</a>
-      <a class="btn ghost" href="impulse-fr.html">Impulsions</a>
-      <a class="btn ghost" href="start-fr.html">Atelier</a>
-      <a class="btn ghost" href="angebote-fr.html">Offres</a>
-      <a class="btn ghost" href="shop-fr.html">Boutique</a>
-
-      <div class="dropdown">
-        <button class="btn ghost" type="button">Nous trouver ▾</button>
-        <div class="menu">
-          <a href="links-fr.html">Liens &amp; plateformes</a>
-          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
+    <header class="hero">
+      <!-- Brand -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">Le Porte-Flambeau</div>
         </div>
       </div>
-    </div>
 
-    <p class="note">Pas de spam. Pas de drama. Juste l’œuvre.</p>
-  </header>
+      <h1>Films</h1>
+      <p class="sub">Œuvres principales, chapitres et extraits — bien rangés.</p>
 
-  <main class="wrap">
-    <h2 class="section-title">Films</h2>
-    <p class="section-sub">Cette section est en préparation. Bientôt, tu trouveras ici les œuvres, chapitres et extraits.</p>
+      <!-- Navigation (FR) — pas de choix de langue ici (uniquement sur start-*.html) -->
+      <nav class="nav" aria-label="Navigation">
+        <a class="btn" href="start-fr.html">Commencer</a>
+        <a class="btn" href="about-fr.html">À propos</a>
+        <a class="btn primary" href="filme-fr.html">Films &amp; chapitres</a>
+        <a class="btn" href="impulse-fr.html">Impulsions</a>
+        <a class="btn" href="werkstatt.html">Atelier</a>
+        <a class="btn" href="angebote-fr.html">Offres</a>
+        <a class="btn" href="shop-fr.html">Boutique</a>
+        <a class="btn" href="links-fr.html">Nous trouver</a>
+      </nav>
 
-    <section class="grid">
-      <article class="card featured">
-        <h3>Bientôt</h3>
-        <p class="muted">Statut : en préparation</p>
+      <div class="note">Pas de spam. Pas de drama. Juste l’œuvre.</div>
+    </header>
+
+    <section class="grid" aria-label="Films – contenu">
+      <article class="card">
+        <h2>En préparation</h2>
+        <p>
+          Cette section est en cours de construction. Bientôt, tu trouveras ici les œuvres,
+          chapitres et extraits — proprement classés.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Ce que tu verras ici</h2>
+        <p>
+          Œuvres principales, chapitres, versions courtes, et liens vers les plateformes.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Suivre le projet</h2>
+        <p>
+          Si tu veux suivre l’avancement, passe par l’atelier : décisions, rythme, transitions.
+        </p>
+        <a href="werkstatt.html">Voir l’atelier →</a>
       </article>
     </section>
+
+    <footer class="footer">
+      © Lampadēphóros • Contact :
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
   </main>
-
-  <footer class="wrap footer">
-    <p>© Lampadéphóros • Contact : <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
-  </footer>
-
-  <script>
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => { if (!d.contains(e.target)) d.classList.remove("open"); });
-    });
-  </script>
 </body>
 </html>
