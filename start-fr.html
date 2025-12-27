@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lampadēphóros – Accueil</title>
-  <meta name="description" content="Le porteur de flambeau : visibilité sans bruit. Profondeur sans peur. Un chemin de lumière, d’eau, de cœur et de silence." />
+  <meta name="description" content="Le Porte-Flambeau : visibilité sans bruit. Profondeur sans peur. Un chemin de lumière, d’eau, de cœur et de silence." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -13,8 +13,7 @@
   <main class="wrap">
 
     <header class="hero">
-
-      <div class="lang" aria-label="Choix de la langue">
+      <div class="lang" aria-label="Choix de langue">
         <details>
           <summary>FR ▾</summary>
           <div class="lang-menu" role="menu" aria-label="Langues">
@@ -31,11 +30,11 @@
         <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">Le porteur de flambeau</div>
+          <div class="mini">Le Porte-Flambeau</div>
         </div>
       </div>
 
-      <h1>Le porteur de flambeau</h1>
+      <h1>Le Porte-Flambeau</h1>
       <p class="sub">Visibilité sans bruit. Profondeur sans peur. Un chemin de lumière, d’eau, de cœur et de silence.</p>
 
       <nav class="nav" aria-label="Navigation">
@@ -55,19 +54,19 @@
     <section class="grid" aria-label="Aperçu">
       <article class="card">
         <h2>À propos</h2>
-        <p>Qui nous sommes, pourquoi nous existons — et où nous allons.</p>
+        <p>Qui nous sommes, pourquoi nous existons – et où nous allons.</p>
         <a href="about-fr.html">Découvrir →</a>
       </article>
 
       <article class="card">
         <h2>Films</h2>
-        <p>Œuvres principales, chapitres, extraits — bien organisés.</p>
+        <p>Œuvres principales, chapitres, extraits – bien organisé.</p>
         <a href="filme-fr.html">Voir →</a>
       </article>
 
       <article class="card">
         <h2>Impulsions</h2>
-        <p>Textes courts, extraits voix off, prières, symboles.</p>
+        <p>Textes courts, extraits voix, prières, symboles.</p>
         <a href="impulse-fr.html">Lire →</a>
       </article>
 
@@ -79,52 +78,59 @@
 
       <article class="card">
         <h2>Offres</h2>
-        <p>Pèlerinages, workshops, conférences et voyages.</p>
-        <a href="angebote-fr.html">Voir →</a>
+        <p>Pèlerinages, ateliers, conférences et voyages en bus.</p>
+        <a href="angebote-fr.html">Voir les offres →</a>
       </article>
 
       <article class="card">
         <h2>Boutique</h2>
-        <p>Merch dès le début : t-shirts, mugs &amp; plus — avec logo.</p>
-        <a href="shop-fr.html">Ouvrir →</a>
+        <p>Merch dès le début : T-shirts, tasses &amp; plus – avec logo.</p>
+        <a href="shop-fr.html">Aller à la boutique →</a>
       </article>
     </section>
 
-    <div class="counter" aria-label="Compteur de visiteurs">
-      <div class="counter-pill">
-        Visiteurs <span id="count-lang" class="num">—</span>
-        <span class="dot">•</span>
-        Total <span id="count-total" class="num">—</span>
-      </div>
-    </div>
-
     <footer class="footer">
-      © Lampadēphóros • Contact :
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      <div class="visitor-pill" aria-label="Compteur de visites">
+        <span class="label">Visiteurs</span>
+        <span id="countPage" class="count">—</span>
+        <span class="sep">•</span>
+        <span class="label">Total</span>
+        <span id="countTotal" class="count">—</span>
+      </div>
+
+      <div class="footer-line">
+        © Lampadēphóros • Contact :
+        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      </div>
     </footer>
 
   </main>
 
   <script>
-  (() => {
+  (async () => {
     const NS = "lampadephoros_web";
-    const LANG_KEY  = "start_fr";
-    const TOTAL_KEY = "start_total";
+    const PAGE = "start_fr";
+    const TOTAL = "start_total";
 
-    const langEl  = document.getElementById("count-lang");
-    const totalEl = document.getElementById("count-total");
+    const urlPage = `https://api.counterapi.dev/v1/${NS}/${PAGE}/up`;
+    const urlTotal = `https://api.counterapi.dev/v1/${NS}/${TOTAL}/up`;
 
-    const hit = (key) =>
-      fetch(`https://api.countapi.xyz/hit/${NS}/${key}`, { cache: "no-store" })
-        .then(r => r.json());
+    const [pageData, totalData] = await Promise.all([
+      fetch(urlPage, { cache: "no-store" }).then(r => r.json()),
+      fetch(urlTotal, { cache: "no-store" }).then(r => r.json())
+    ]);
 
-    Promise.all([hit(LANG_KEY), hit(TOTAL_KEY)])
-      .then(([lang, total]) => {
-        if (langEl && typeof lang.value !== "undefined") langEl.textContent = lang.value;
-        if (totalEl && typeof total.value !== "undefined") totalEl.textContent = total.value;
-      })
-      .catch(() => {});
-  })();
+    const pickCount = (obj) =>
+      (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? obj.data?.count)) ?? "—";
+
+    document.getElementById("countPage").textContent = pickCount(pageData);
+    document.getElementById("countTotal").textContent = pickCount(totalData);
+  })().catch(() => {
+    const a = document.getElementById("countPage");
+    const b = document.getElementById("countTotal");
+    if (a) a.textContent = "—";
+    if (b) b.textContent = "—";
+  });
   </script>
 </body>
 </html>
