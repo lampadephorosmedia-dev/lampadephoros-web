@@ -329,3 +329,28 @@ h1{
   color: #fff;
   text-shadow: 0 8px 22px rgba(0,0,0,.6);
 }
+
+/* Besucherzähler (Startseite) – unten mittig */
+.visitor-counter{
+  display:flex;
+  justify-content:center;
+  margin-top: 18px;
+}
+
+.visitor-counter .pill{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(12,12,16,.40);
+  color: rgba(255,255,255,.86);
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+}
+
+.visitor-counter .pill strong{
+  color: var(--accent);
+  font-weight: 800;
+}
