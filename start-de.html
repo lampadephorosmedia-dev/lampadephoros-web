@@ -94,26 +94,11 @@
     </section>
 
     <!-- Besucherzähler (unten mittig) -->
-    <div class="visitor-counter" aria-label="Seitenbesucher Zähler">
-      <div class="pill">
-        <span class="muted">Besucher:</span>
-        <strong id="visit-count">…</strong>
+    <div class="visitor-wrap" aria-label="Besucherzähler">
+      <div class="visitor-pill" title="Wenn hier — steht, blockiert meist ein Adblock/Privacy-Schutz den Zähler.">
+        Besucher:&nbsp;<span data-visitor-count>—</span>
       </div>
     </div>
-
-    <script>
-      (function () {
-        const el = document.getElementById('visit-count');
-        // Einfacher, anonymer Counter (Hit pro Seitenaufruf)
-        fetch('https://api.countapi.xyz/hit/lampadephoros-web/start-de')
-          .then(r => r.json())
-          .then(d => {
-            const v = (typeof d.value === 'number') ? d.value : null;
-            el.textContent = (v !== null) ? v.toLocaleString('de-DE') : '—';
-          })
-          .catch(() => { el.textContent = '—'; });
-      })();
-    </script>
 
     <footer class="footer">
       © Lampadēphóros • Kontakt:
@@ -121,5 +106,30 @@
     </footer>
 
   </main>
+
+  <!-- Counter Script -->
+  <script>
+    (async () => {
+      const el = document.querySelector('[data-visitor-count]');
+      if (!el) return;
+
+      // Einfacher globaler Counter für die Startseite (alle Sprachen zusammen)
+      // Namespace & Key müssen klein/sauber sein (nur a-z 0-9 _ -).
+      const endpoint = 'https://api.countapi.xyz/hit/lampadephoros_web/start';
+
+      try {
+        const res = await fetch(endpoint, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+
+        // hübsch formatieren
+        el.textContent = Number(data.value).toLocaleString('de-DE');
+      } catch (err) {
+        console.warn('Visitor counter failed:', err);
+        el.textContent = '—';
+        el.parentElement.title = 'Zähler konnte nicht geladen werden (Adblock/Privacy/CORS).';
+      }
+    })();
+  </script>
 </body>
 </html>
