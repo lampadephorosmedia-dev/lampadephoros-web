@@ -40,7 +40,7 @@
       <h1>Der Fackelträger</h1>
       <p class="sub">Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Ein Weg aus Licht, Wasser, Herz und Stille.</p>
 
-      <!-- Navigation DE (nur DE-Dateien hier) -->
+      <!-- Navigation DE -->
       <nav class="nav" aria-label="Navigation">
         <a class="btn primary" href="start-de.html">Beginne hier</a>
         <a class="btn" href="about.html">Über uns</a>
@@ -93,45 +93,49 @@
       </article>
     </section>
 
-    <!-- Besucherzähler (DE + Gesamt über alle Start-Sprachen) -->
-    <div class="counter" aria-label="Besucherzähler">
-      <div class="counter-pill">
-        Besucher <span id="count-lang" class="num">—</span>
-        <span class="dot">•</span>
-        Gesamt <span id="count-total" class="num">—</span>
-      </div>
-    </div>
-
     <footer class="footer">
-      © Lampadēphóros • Kontakt:
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      <div class="visitor-pill" aria-label="Besucherzähler">
+        <span class="label">Besucher</span>
+        <span id="countPage" class="count">—</span>
+        <span class="sep">•</span>
+        <span class="label">Gesamt</span>
+        <span id="countTotal" class="count">—</span>
+      </div>
+
+      <div class="footer-line">
+        © Lampadēphóros • Kontakt:
+        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      </div>
     </footer>
 
   </main>
 
   <script>
-  (() => {
-    // CountAPI (simple, no account). Endpoint format: /hit/{namespace}/{key}
+  (async () => {
     const NS = "lampadephoros_web";
-    const LANG_KEY  = "start_de";
-    const TOTAL_KEY = "start_total";
+    const PAGE = "start_de";
+    const TOTAL = "start_total";
 
-    const langEl  = document.getElementById("count-lang");
-    const totalEl = document.getElementById("count-total");
+    const urlPage = `https://api.counterapi.dev/v1/${NS}/${PAGE}/up`;
+    const urlTotal = `https://api.counterapi.dev/v1/${NS}/${TOTAL}/up`;
 
-    const hit = (key) =>
-      fetch(`https://api.countapi.xyz/hit/${NS}/${key}`, { cache: "no-store" })
-        .then(r => r.json());
+    const [pageData, totalData] = await Promise.all([
+      fetch(urlPage, { cache: "no-store" }).then(r => r.json()),
+      fetch(urlTotal, { cache: "no-store" }).then(r => r.json())
+    ]);
 
-    Promise.all([hit(LANG_KEY), hit(TOTAL_KEY)])
-      .then(([lang, total]) => {
-        if (langEl && typeof lang.value !== "undefined") langEl.textContent = lang.value;
-        if (totalEl && typeof total.value !== "undefined") totalEl.textContent = total.value;
-      })
-      .catch(() => {
-        // bleibt bei —
-      });
-  })();
+    const pickCount = (obj) =>
+      (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? obj.data?.count)) ?? "—";
+
+    document.getElementById("countPage").textContent = pickCount(pageData);
+    document.getElementById("countTotal").textContent = pickCount(totalData);
+  })().catch(() => {
+    // Wenn API mal kurz zickt, Seite bleibt trotzdem clean:
+    const a = document.getElementById("countPage");
+    const b = document.getElementById("countTotal");
+    if (a) a.textContent = "—";
+    if (b) b.textContent = "—";
+  });
   </script>
 </body>
 </html>
