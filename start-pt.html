@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lampadēphóros – Início</title>
-  <meta name="description" content="O Portador da Tocha: visibilidade sem barulho. Profundidade sem medo. Um caminho de luz, água, coração e silêncio." />
+  <meta name="description" content="O portador da tocha: visibilidade sem barulho. Profundidade sem medo. Um caminho de luz, água, coração e silêncio." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,7 +14,6 @@
 
     <header class="hero">
 
-      <!-- Idioma (APENAS em start-*.html) -->
       <div class="lang" aria-label="Seleção de idioma">
         <details>
           <summary>PT ▾</summary>
@@ -28,38 +27,36 @@
         </details>
       </div>
 
-      <!-- Marca -->
       <div class="brand">
         <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">O Portador da Tocha</div>
+          <div class="mini">O portador da tocha</div>
         </div>
       </div>
 
-      <h1>O Portador da Tocha</h1>
+      <h1>O portador da tocha</h1>
       <p class="sub">Visibilidade sem barulho. Profundidade sem medo. Um caminho de luz, água, coração e silêncio.</p>
 
-      <!-- Navegação PT -->
       <nav class="nav" aria-label="Navegação">
-        <a class="btn primary" href="start-pt.html">Começar</a>
-        <a class="btn" href="about-pt.html">Sobre nós</a>
+        <a class="btn primary" href="start-pt.html">Começar aqui</a>
+        <a class="btn" href="about-pt.html">Sobre</a>
         <a class="btn" href="filme-pt.html">Filmes &amp; capítulos</a>
-        <a class="btn" href="impulse-pt.html">Impulsos</a>
+        <a class="btn" href="impulse-pt.html">Reflexões</a>
         <a class="btn" href="werkstatt-pt.html">Oficina</a>
         <a class="btn" href="angebote-pt.html">Ofertas</a>
         <a class="btn" href="shop-pt.html">Loja</a>
-        <a class="btn" href="links-pt.html">Onde nos encontras ▾</a>
+        <a class="btn" href="links-pt.html">Onde nos encontrar ▾</a>
       </nav>
 
-      <div class="note">Sem spam. Sem drama. Só obra.</div>
+      <div class="note">Sem spam. Sem drama. Só trabalho.</div>
     </header>
 
     <section class="grid" aria-label="Visão geral">
       <article class="card">
-        <h2>Sobre nós</h2>
+        <h2>Sobre</h2>
         <p>Quem somos, por que existimos — e para onde vamos.</p>
-        <a href="about-pt.html">Conhecer →</a>
+        <a href="about-pt.html">Ler →</a>
       </article>
 
       <article class="card">
@@ -69,35 +66,65 @@
       </article>
 
       <article class="card">
-        <h2>Impulsos</h2>
-        <p>Textos curtos, excertos de voz off, orações, leitura de símbolos.</p>
-        <a href="impulse-pt.html">Ir →</a>
+        <h2>Reflexões</h2>
+        <p>Textos curtos, trechos de voz, orações, símbolos.</p>
+        <a href="impulse-pt.html">Abrir →</a>
       </article>
 
       <article class="card">
         <h2>Oficina</h2>
-        <p>Nos bastidores: estrutura, ritmo, transições.</p>
-        <a href="werkstatt-pt.html">Ver a oficina →</a>
+        <p>Por trás das cenas: estrutura, ritmo, transições.</p>
+        <a href="werkstatt-pt.html">Entrar →</a>
       </article>
 
       <article class="card">
         <h2>Ofertas</h2>
-        <p>Peregrinações, workshops, palestras e dias especiais.</p>
-        <a href="angebote-pt.html">Ver ofertas →</a>
+        <p>Peregrinações, workshops, palestras e viagens.</p>
+        <a href="angebote-pt.html">Ver →</a>
       </article>
 
       <article class="card">
         <h2>Loja</h2>
-        <p>Merch desde o início: t-shirts, canecas &amp; mais — com logo.</p>
-        <a href="shop-pt.html">Ir à loja →</a>
+        <p>Merch desde o início: camisetas, canecas &amp; mais — com logo.</p>
+        <a href="shop-pt.html">Ir →</a>
       </article>
     </section>
 
+    <div class="counter" aria-label="Contador de visitantes">
+      <div class="counter-pill">
+        Visitantes <span id="count-lang" class="num">—</span>
+        <span class="dot">•</span>
+        Total <span id="count-total" class="num">—</span>
+      </div>
+    </div>
+
     <footer class="footer">
-      © Lampadēphóros • Contacto:
+      © Lampadēphóros • Contato:
       <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
     </footer>
 
   </main>
+
+  <script>
+  (() => {
+    const NS = "lampadephoros_web";
+    const LANG_KEY  = "start_pt";
+    const TOTAL_KEY = "start_total";
+
+    const langEl  = document.getElementById("count-lang");
+    const totalEl = document.getElementById("count-total");
+
+    const hit = (key) =>
+      fetch(`https://api.countapi.xyz/hit/${NS}/${key}`, { cache: "no-store" })
+        .then(r => r.json());
+
+    Promise.all([hit(LANG_KEY), hit(TOTAL_KEY)])
+      .then(([lang, total]) => {
+        if (langEl && typeof lang.value !== "undefined") langEl.textContent = lang.value;
+        if (totalEl && typeof total.value !== "undefined") totalEl.textContent = total.value;
+      })
+      .catch(() => {});
+  })();
+  </script>
 </body>
 </html>
