@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lampadēphóros – Start</title>
-  <meta name="description" content="The Torchbearer: visibility without noise. Depth without fear. A path of light, water, heart, and silence." />
+  <meta name="description" content="The torchbearer: visibility without noise. Depth without fear. A path of light, water, heart, and silence." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,8 +14,7 @@
 
     <header class="hero">
 
-      <!-- Language (ONLY on start-*.html) -->
-      <div class="lang" aria-label="Language selection">
+      <div class="lang" aria-label="Language selector">
         <details>
           <summary>EN ▾</summary>
           <div class="lang-menu" role="menu" aria-label="Languages">
@@ -28,9 +27,8 @@
         </details>
       </div>
 
-      <!-- Brand -->
       <div class="brand">
-        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
+        <img class="logo" src="logo.png" alt="Lampadēphóros logo" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
           <div class="mini">The Torchbearer</div>
@@ -40,58 +38,65 @@
       <h1>The Torchbearer</h1>
       <p class="sub">Visibility without noise. Depth without fear. A path of light, water, heart, and silence.</p>
 
-      <!-- Navigation EN (EN links here) -->
       <nav class="nav" aria-label="Navigation">
         <a class="btn primary" href="start-en.html">Start here</a>
         <a class="btn" href="about-en.html">About</a>
         <a class="btn" href="filme-en.html">Films &amp; chapters</a>
-        <a class="btn" href="impulse-en.html">Impulses</a>
+        <a class="btn" href="impulse-en.html">Reflections</a>
         <a class="btn" href="werkstatt-en.html">Workshop</a>
         <a class="btn" href="angebote-en.html">Offers</a>
         <a class="btn" href="shop-en.html">Shop</a>
         <a class="btn" href="links-en.html">Find us ▾</a>
       </nav>
 
-      <div class="note">No spam. No drama. Just the work.</div>
+      <div class="note">No spam. No drama. Just work.</div>
     </header>
 
     <section class="grid" aria-label="Overview">
       <article class="card">
         <h2>About</h2>
         <p>Who we are, why we exist — and where we’re going.</p>
-        <a href="about-en.html">Learn more →</a>
+        <a href="about-en.html">Read →</a>
       </article>
 
       <article class="card">
         <h2>Films</h2>
-        <p>Main works, chapters, short cuts — clearly organized.</p>
+        <p>Main works, chapters, short cuts — neatly organized.</p>
         <a href="filme-en.html">Browse →</a>
       </article>
 
       <article class="card">
-        <h2>Impulses</h2>
-        <p>Short texts, voiceover excerpts, prayers, symbol reading.</p>
-        <a href="impulse-en.html">Go →</a>
+        <h2>Reflections</h2>
+        <p>Short texts, voiceover excerpts, prayers, symbol notes.</p>
+        <a href="impulse-en.html">Open →</a>
       </article>
 
       <article class="card">
         <h2>Workshop</h2>
-        <p>A look behind the scenes: structure, rhythm, transitions.</p>
-        <a href="werkstatt-en.html">Go to workshop →</a>
+        <p>Behind the scenes: structure, rhythm, transitions.</p>
+        <a href="werkstatt-en.html">Enter →</a>
       </article>
 
       <article class="card">
         <h2>Offers</h2>
-        <p>Pilgrimages, workshops, talks, and special days.</p>
-        <a href="angebote-en.html">See offers →</a>
+        <p>Pilgrimages, workshops, talks and special trips.</p>
+        <a href="angebote-en.html">See →</a>
       </article>
 
       <article class="card">
         <h2>Shop</h2>
         <p>Merch from day one: shirts, mugs &amp; more — with logo.</p>
-        <a href="shop-en.html">Go to shop →</a>
+        <a href="shop-en.html">Go →</a>
       </article>
     </section>
+
+    <div class="counter" aria-label="Visitor counter">
+      <div class="counter-pill">
+        Visitors <span id="count-lang" class="num">—</span>
+        <span class="dot">•</span>
+        Total <span id="count-total" class="num">—</span>
+      </div>
+    </div>
 
     <footer class="footer">
       © Lampadēphóros • Contact:
@@ -99,5 +104,27 @@
     </footer>
 
   </main>
+
+  <script>
+  (() => {
+    const NS = "lampadephoros_web";
+    const LANG_KEY  = "start_en";
+    const TOTAL_KEY = "start_total";
+
+    const langEl  = document.getElementById("count-lang");
+    const totalEl = document.getElementById("count-total");
+
+    const hit = (key) =>
+      fetch(`https://api.countapi.xyz/hit/${NS}/${key}`, { cache: "no-store" })
+        .then(r => r.json());
+
+    Promise.all([hit(LANG_KEY), hit(TOTAL_KEY)])
+      .then(([lang, total]) => {
+        if (langEl && typeof lang.value !== "undefined") langEl.textContent = lang.value;
+        if (totalEl && typeof total.value !== "undefined") totalEl.textContent = total.value;
+      })
+      .catch(() => {});
+  })();
+  </script>
 </body>
 </html>
