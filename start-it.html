@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadēphóros – Inizio</title>
-  <meta name="description" content="Il Portatore della Torcia: visibilità senza rumore. Profondità senza paura. Un cammino di luce, acqua, cuore e silenzio." />
+  <title>Lampadēphóros – Start</title>
+  <meta name="description" content="Il portatore di fiaccola: visibilità senza rumore. Profondità senza paura. Un cammino di luce, acqua, cuore e silenzio." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,8 +14,7 @@
 
     <header class="hero">
 
-      <!-- Lingua (SOLO su start-*.html) -->
-      <div class="lang" aria-label="Selezione lingua">
+      <div class="lang" aria-label="Selettore lingua">
         <details>
           <summary>IT ▾</summary>
           <div class="lang-menu" role="menu" aria-label="Lingue">
@@ -28,31 +27,29 @@
         </details>
       </div>
 
-      <!-- Brand -->
       <div class="brand">
         <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">Il Portatore della Torcia</div>
+          <div class="mini">Il portatore di fiaccola</div>
         </div>
       </div>
 
-      <h1>Il Portatore della Torcia</h1>
+      <h1>Il portatore di fiaccola</h1>
       <p class="sub">Visibilità senza rumore. Profondità senza paura. Un cammino di luce, acqua, cuore e silenzio.</p>
 
-      <!-- Navigazione IT -->
       <nav class="nav" aria-label="Navigazione">
-        <a class="btn primary" href="start-it.html">Inizia</a>
+        <a class="btn primary" href="start-it.html">Inizia qui</a>
         <a class="btn" href="about-it.html">Chi siamo</a>
         <a class="btn" href="filme-it.html">Film &amp; capitoli</a>
-        <a class="btn" href="impulse-it.html">Impulsi</a>
-        <a class="btn" href="werkstatt-it.html">Laboratorio</a>
-        <a class="btn" href="angebote-it.html">Proposte</a>
+        <a class="btn" href="impulse-it.html">Spunti</a>
+        <a class="btn" href="werkstatt-it.html">Officina</a>
+        <a class="btn" href="angebote-it.html">Offerte</a>
         <a class="btn" href="shop-it.html">Shop</a>
         <a class="btn" href="links-it.html">Dove trovarci ▾</a>
       </nav>
 
-      <div class="note">Niente spam. Niente drama. Solo opera.</div>
+      <div class="note">Niente spam. Niente drama. Solo lavoro.</div>
     </header>
 
     <section class="grid" aria-label="Panoramica">
@@ -64,34 +61,42 @@
 
       <article class="card">
         <h2>Film</h2>
-        <p>Opere principali, capitoli, estratti — ben organizzati.</p>
-        <a href="filme-it.html">Sfoglia →</a>
+        <p>Opere principali, capitoli, clip — tutto ordinato.</p>
+        <a href="filme-it.html">Vai →</a>
       </article>
 
       <article class="card">
-        <h2>Impulsi</h2>
-        <p>Testi brevi, estratti di voiceover, preghiere, lettura dei simboli.</p>
-        <a href="impulse-it.html">Vai →</a>
+        <h2>Spunti</h2>
+        <p>Testi brevi, estratti, preghiere, simboli.</p>
+        <a href="impulse-it.html">Apri →</a>
       </article>
 
       <article class="card">
-        <h2>Laboratorio</h2>
+        <h2>Officina</h2>
         <p>Dietro le quinte: struttura, ritmo, transizioni.</p>
-        <a href="werkstatt-it.html">Vai al laboratorio →</a>
+        <a href="werkstatt-it.html">Entra →</a>
       </article>
 
       <article class="card">
-        <h2>Proposte</h2>
-        <p>Pellegrinaggi, workshop, conferenze e giornate speciali.</p>
-        <a href="angebote-it.html">Vedi proposte →</a>
+        <h2>Offerte</h2>
+        <p>Pellegrinaggi, workshop, conferenze e viaggi.</p>
+        <a href="angebote-it.html">Vedi →</a>
       </article>
 
       <article class="card">
         <h2>Shop</h2>
-        <p>Merch fin dall’inizio: t-shirt, tazze &amp; altro — con logo.</p>
-        <a href="shop-it.html">Vai allo shop →</a>
+        <p>Merch fin dall’inizio: magliette, tazze &amp; altro — con logo.</p>
+        <a href="shop-it.html">Apri →</a>
       </article>
     </section>
+
+    <div class="counter" aria-label="Contatore visitatori">
+      <div class="counter-pill">
+        Visitatori <span id="count-lang" class="num">—</span>
+        <span class="dot">•</span>
+        Totale <span id="count-total" class="num">—</span>
+      </div>
+    </div>
 
     <footer class="footer">
       © Lampadēphóros • Contatto:
@@ -99,5 +104,27 @@
     </footer>
 
   </main>
+
+  <script>
+  (() => {
+    const NS = "lampadephoros_web";
+    const LANG_KEY  = "start_it";
+    const TOTAL_KEY = "start_total";
+
+    const langEl  = document.getElementById("count-lang");
+    const totalEl = document.getElementById("count-total");
+
+    const hit = (key) =>
+      fetch(`https://api.countapi.xyz/hit/${NS}/${key}`, { cache: "no-store" })
+        .then(r => r.json());
+
+    Promise.all([hit(LANG_KEY), hit(TOTAL_KEY)])
+      .then(([lang, total]) => {
+        if (langEl && typeof lang.value !== "undefined") langEl.textContent = lang.value;
+        if (totalEl && typeof total.value !== "undefined") totalEl.textContent = total.value;
+      })
+      .catch(() => {});
+  })();
+  </script>
 </body>
 </html>
