@@ -93,13 +93,13 @@
       </article>
     </section>
 
-    <!-- Visitor counters (pro Sprache + Gesamt) -->
-    <div class="visit-wrap" aria-label="Besucherzähler">
-      <span class="visit-label">Besucher</span>
-      <span class="visit-num" id="vc-page">—</span>
-      <span class="visit-sep">•</span>
-      <span class="visit-label">Gesamt</span>
-      <span class="visit-num" id="vc-total">—</span>
+    <!-- Besucherzähler (DE + Gesamt über alle Start-Sprachen) -->
+    <div class="counter" aria-label="Besucherzähler">
+      <div class="counter-pill">
+        Besucher <span id="count-lang" class="num">—</span>
+        <span class="dot">•</span>
+        Gesamt <span id="count-total" class="num">—</span>
+      </div>
     </div>
 
     <footer class="footer">
@@ -109,65 +109,29 @@
 
   </main>
 
-  <!-- GoatCounter tracking (zählt die Aufrufe) -->
-  <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-
-  <!-- Anzeige: pro Seite (Sprache) + TOTAL -->
   <script>
-    (function () {
-      function setText(id, value) {
-        var el = document.getElementById(id);
-        if (el) el.textContent = value;
-      }
+  (() => {
+    // CountAPI (simple, no account). Endpoint format: /hit/{namespace}/{key}
+    const NS = "lampadephoros_web";
+    const LANG_KEY  = "start_de";
+    const TOTAL_KEY = "start_total";
 
-      function fetchJSON(url) {
-        return fetch(url, { cache: "no-store" }).then(function (r) {
-          if (!r.ok) throw new Error("HTTP " + r.status);
-          return r.json();
-        });
-      }
+    const langEl  = document.getElementById("count-lang");
+    const totalEl = document.getElementById("count-total");
 
-      function run() {
-        try {
-          // exakter Pfad wie GoatCounter ihn speichert (wichtig!)
-          var path = (window.goatcounter && window.goatcounter.get_data)
-            ? window.goatcounter.get_data()['p']
-            : location.pathname;
+    const hit = (key) =>
+      fetch(`https://api.countapi.xyz/hit/${NS}/${key}`, { cache: "no-store" })
+        .then(r => r.json());
 
-          // Page (Sprache)
-          var pageUrl = "https://YOURCODE.goatcounter.com/counter/" + encodeURIComponent(path) + ".json";
-          // Total (alles)
-          var totalUrl = "https://YOURCODE.goatcounter.com/counter/TOTAL.json";
-
-          Promise.all([fetchJSON(pageUrl), fetchJSON(totalUrl)])
-            .then(function (res) {
-              setText("vc-page", res[0].count || "0");
-              setText("vc-total", res[1].count || "0");
-            })
-            .catch(function () {
-              // fallback: nicht nerven, nur Strich lassen
-              setText("vc-page", "—");
-              setText("vc-total", "—");
-            });
-        } catch (e) {
-          setText("vc-page", "—");
-          setText("vc-total", "—");
-        }
-      }
-
-      // warten bis count.js geladen ist
-      var t = setInterval(function () {
-        if (window.goatcounter && window.goatcounter.get_data) {
-          clearInterval(t);
-          run();
-        }
-      }, 120);
-
-      // falls count.js langsam ist: trotzdem nach 2s versuchen
-      setTimeout(function () {
-        try { run(); } catch (e) {}
-      }, 2000);
-    })();
+    Promise.all([hit(LANG_KEY), hit(TOTAL_KEY)])
+      .then(([lang, total]) => {
+        if (langEl && typeof lang.value !== "undefined") langEl.textContent = lang.value;
+        if (totalEl && typeof total.value !== "undefined") totalEl.textContent = total.value;
+      })
+      .catch(() => {
+        // bleibt bei —
+      });
+  })();
   </script>
 </body>
 </html>
