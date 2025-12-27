@@ -1,3 +1,4 @@
+/* FILE: style.css */
 :root{
   --bg:#0b0b0e;
   --fg:#f2f2f4;
@@ -330,35 +331,37 @@ h1{
   text-shadow: 0 8px 22px rgba(0,0,0,.6);
 }
 
-/* ===========================
-   Visitor counters (yellow)
-   =========================== */
-.visit-wrap{
-  margin: 18px auto 0;
-  width: fit-content;
-  display: flex;
-  align-items: center;
+/* =========================
+   Besucherzähler (Gelb)
+   ========================= */
+.counter{
+  margin-top: 18px;
+  display:flex;
+  justify-content:center;
+}
+
+.counter-pill{
+  display:inline-flex;
+  align-items:center;
   gap: 10px;
   padding: 10px 14px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(12,12,16,.35);
+  box-shadow: 0 14px 30px rgba(0,0,0,.45);
   backdrop-filter: blur(8px);
-  box-shadow: 0 12px 26px rgba(0,0,0,.40);
-}
-
-.visit-label{
-  color: rgba(255,255,255,.78);
   font-size: 13px;
+  color: rgba(255,255,255,.78);
 }
 
-.visit-num{
-  color: var(--accent);     /* GELB */
+.counter-pill .num{
+  color: var(--accent);
   font-weight: 800;
-  font-size: 14px;
-  letter-spacing: .02em;
+  background: transparent;
+  padding: 0;
+  margin: 0;
 }
 
-.visit-sep{
-  color: rgba(255,255,255,.28);
+.counter-pill .dot{
+  color: rgba(255,255,255,.35);
 }
