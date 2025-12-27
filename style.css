@@ -330,27 +330,28 @@ h1{
   text-shadow: 0 8px 22px rgba(0,0,0,.6);
 }
 
-/* Besucherzähler (Startseite) – unten mittig */
-.visitor-counter{
+/* Besucherzähler (unten mittig) */
+.visitor-wrap{
   display:flex;
   justify-content:center;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
-.visitor-counter .pill{
+.visitor-pill{
   display:inline-flex;
   align-items:center;
-  gap: 10px;
-  padding: 10px 14px;
+  gap: 8px;
+  padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(12,12,16,.40);
-  color: rgba(255,255,255,.86);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(12,12,16,.55);
+  color: rgba(255,255,255,.78);
   font-size: 13px;
   backdrop-filter: blur(8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
 }
 
-.visitor-counter .pill strong{
+.visitor-pill [data-visitor-count]{
   color: var(--accent);
-  font-weight: 800;
+  font-weight: 750;
 }
