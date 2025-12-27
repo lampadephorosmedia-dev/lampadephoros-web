@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadēphóros – Départ</title>
-  <meta name="description" content="Le Porte-Flambeau : visibilité sans bruit. Profondeur sans peur. Un chemin de lumière, d’eau, de cœur et de silence." />
+  <title>Lampadēphóros – Accueil</title>
+  <meta name="description" content="Le porteur de flambeau : visibilité sans bruit. Profondeur sans peur. Un chemin de lumière, d’eau, de cœur et de silence." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,8 +14,7 @@
 
     <header class="hero">
 
-      <!-- Langue (UNIQUEMENT sur start-*.html) -->
-      <div class="lang" aria-label="Choix de langue">
+      <div class="lang" aria-label="Choix de la langue">
         <details>
           <summary>FR ▾</summary>
           <div class="lang-menu" role="menu" aria-label="Langues">
@@ -28,21 +27,19 @@
         </details>
       </div>
 
-      <!-- Marque -->
       <div class="brand">
         <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">Le Porte-Flambeau</div>
+          <div class="mini">Le porteur de flambeau</div>
         </div>
       </div>
 
-      <h1>Le Porte-Flambeau</h1>
+      <h1>Le porteur de flambeau</h1>
       <p class="sub">Visibilité sans bruit. Profondeur sans peur. Un chemin de lumière, d’eau, de cœur et de silence.</p>
 
-      <!-- Navigation FR (liens FR ici) -->
       <nav class="nav" aria-label="Navigation">
-        <a class="btn primary" href="start-fr.html">Commencer</a>
+        <a class="btn primary" href="start-fr.html">Commencer ici</a>
         <a class="btn" href="about-fr.html">À propos</a>
         <a class="btn" href="filme-fr.html">Films &amp; chapitres</a>
         <a class="btn" href="impulse-fr.html">Impulsions</a>
@@ -52,7 +49,7 @@
         <a class="btn" href="links-fr.html">Nous trouver ▾</a>
       </nav>
 
-      <div class="note">Pas de spam. Pas de drama. Juste l’œuvre.</div>
+      <div class="note">Pas de spam. Pas de drama. Juste du travail.</div>
     </header>
 
     <section class="grid" aria-label="Aperçu">
@@ -64,34 +61,42 @@
 
       <article class="card">
         <h2>Films</h2>
-        <p>Œuvres principales, chapitres, extraits — bien rangés.</p>
+        <p>Œuvres principales, chapitres, extraits — bien organisés.</p>
         <a href="filme-fr.html">Voir →</a>
       </article>
 
       <article class="card">
         <h2>Impulsions</h2>
-        <p>Textes courts, extraits de voix off, prières, lecture des symboles.</p>
-        <a href="impulse-fr.html">Aller →</a>
+        <p>Textes courts, extraits voix off, prières, symboles.</p>
+        <a href="impulse-fr.html">Lire →</a>
       </article>
 
       <article class="card">
         <h2>Atelier</h2>
         <p>Dans les coulisses : structure, rythme, transitions.</p>
-        <a href="werkstatt-fr.html">Voir l’atelier →</a>
+        <a href="werkstatt-fr.html">Entrer →</a>
       </article>
 
       <article class="card">
         <h2>Offres</h2>
-        <p>Pèlerinages, ateliers, conférences et journées spéciales.</p>
-        <a href="angebote-fr.html">Voir les offres →</a>
+        <p>Pèlerinages, workshops, conférences et voyages.</p>
+        <a href="angebote-fr.html">Voir →</a>
       </article>
 
       <article class="card">
         <h2>Boutique</h2>
-        <p>Merch dès le départ : t-shirts, tasses &amp; plus — avec logo.</p>
-        <a href="shop-fr.html">Aller à la boutique →</a>
+        <p>Merch dès le début : t-shirts, mugs &amp; plus — avec logo.</p>
+        <a href="shop-fr.html">Ouvrir →</a>
       </article>
     </section>
+
+    <div class="counter" aria-label="Compteur de visiteurs">
+      <div class="counter-pill">
+        Visiteurs <span id="count-lang" class="num">—</span>
+        <span class="dot">•</span>
+        Total <span id="count-total" class="num">—</span>
+      </div>
+    </div>
 
     <footer class="footer">
       © Lampadēphóros • Contact :
@@ -99,5 +104,27 @@
     </footer>
 
   </main>
+
+  <script>
+  (() => {
+    const NS = "lampadephoros_web";
+    const LANG_KEY  = "start_fr";
+    const TOTAL_KEY = "start_total";
+
+    const langEl  = document.getElementById("count-lang");
+    const totalEl = document.getElementById("count-total");
+
+    const hit = (key) =>
+      fetch(`https://api.countapi.xyz/hit/${NS}/${key}`, { cache: "no-store" })
+        .then(r => r.json());
+
+    Promise.all([hit(LANG_KEY), hit(TOTAL_KEY)])
+      .then(([lang, total]) => {
+        if (langEl && typeof lang.value !== "undefined") langEl.textContent = lang.value;
+        if (totalEl && typeof total.value !== "undefined") totalEl.textContent = total.value;
+      })
+      .catch(() => {});
+  })();
+  </script>
 </body>
 </html>
