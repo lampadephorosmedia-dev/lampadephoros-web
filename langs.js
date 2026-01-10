@@ -1,43 +1,222 @@
-/* FILE: langs.js */
-window.LANGS = [
-  // Core
-  { code: "de",  label: "DE",  name: "Deutsch",              start: "start-de.html",  dir: "ltr" },
-  { code: "fr",  label: "FR",  name: "Français",             start: "start-fr.html",  dir: "ltr" },
-  { code: "en",  label: "EN",  name: "English",              start: "start-en.html",  dir: "ltr" },
-  { code: "pt",  label: "PT",  name: "Português",            start: "start-pt.html",  dir: "ltr" },
-  { code: "it",  label: "IT",  name: "Italiano",             start: "start-it.html",  dir: "ltr" },
+<!-- FILE: start.html -->
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadēphóros – Start</title>
+  <meta name="description" content="Lampadēphóros – Der Fackelträger. Multilinguale Startseite." />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  // Europe add-ons
-  { code: "es",  label: "ES",  name: "Español",              start: "start-es.html",  dir: "ltr" },
-  { code: "pl",  label: "PL",  name: "Polski",               start: "start-pl.html",  dir: "ltr" },
-  { code: "ru",  label: "RU",  name: "Русский",              start: "start-ru.html",  dir: "ltr" },
-  { code: "nl",  label: "NL",  name: "Nederlands",           start: "start-nl.html",  dir: "ltr" },
-  { code: "ro",  label: "RO",  name: "Română",               start: "start-ro.html",  dir: "ltr" },
-  { code: "uk",  label: "UK",  name: "Українська",           start: "start-uk.html",  dir: "ltr" },
+<body>
+  <main class="wrap">
 
-  // Balkans
-  { code: "hr",  label: "HR",  name: "Hrvatski",             start: "start-hr.html",  dir: "ltr" },
-  { code: "bs",  label: "BS",  name: "Bosanski",             start: "start-bs.html",  dir: "ltr" },
-  { code: "sr",  label: "SR",  name: "Srpski",               start: "start-sr.html",  dir: "ltr" },
+    <header class="hero">
 
-  // Middle East / RTL
-  { code: "ar",  label: "AR",  name: "العربية",              start: "start-ar.html",  dir: "rtl" },
-  { code: "ur",  label: "UR",  name: "اردو",                 start: "start-ur.html",  dir: "rtl" },
-  { code: "fa",  label: "FA",  name: "فارسی",                start: "start-fa.html",  dir: "rtl" },
-  { code: "tr",  label: "TR",  name: "Türkçe",               start: "start-tr.html",  dir: "ltr" },
+      <!-- Sprache (automatisch) -->
+      <div class="lang" aria-label="Sprachauswahl" data-current="de"></div>
 
-  // Asia big reach
-  { code: "zh",  label: "ZH",  name: "中文",                  start: "start-zh.html",  dir: "ltr" },
-  { code: "hi",  label: "HI",  name: "हिन्दी",               start: "start-hi.html",  dir: "ltr" },
-  { code: "bn",  label: "BN",  name: "বাংলা",                start: "start-bn.html",  dir: "ltr" },
-  { code: "id",  label: "ID",  name: "Bahasa Indonesia",     start: "start-id.html",  dir: "ltr" },
-  { code: "fil", label: "FIL", name: "Filipino",             start: "start-fil.html", dir: "ltr" },
-  { code: "ja",  label: "JA",  name: "日本語",                start: "start-ja.html",  dir: "ltr" },
-  { code: "ko",  label: "KO",  name: "한국어",                start: "start-ko.html",  dir: "ltr" },
-  { code: "vi",  label: "VI",  name: "Tiếng Việt",           start: "start-vi.html",  dir: "ltr" },
+      <!-- Brand -->
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">Der Fackelträger</div>
+        </div>
+      </div>
 
-  // Singapore + Kurdish
-  { code: "ms",  label: "MS",  name: "Bahasa Melayu",        start: "start-ms.html",  dir: "ltr" },
-  { code: "ta",  label: "TA",  name: "தமிழ்",                start: "start-ta.html",  dir: "ltr" },
-  { code: "ku",  label: "KU",  name: "Kurdî (Kurmancî)",     start: "start-ku.html",  dir: "ltr" }
-];
+      <h1 id="heroTitle">Lampadēphóros</h1>
+      <p class="sub" id="heroSub"></p>
+
+      <nav class="nav" aria-label="Navigation">
+        <a class="btn primary" id="navStart" href="start.html?lang=de"></a>
+        <a class="btn" id="navAbout" href="about.html"></a>
+        <a class="btn" id="navFilms" href="filme.html"></a>
+        <a class="btn" id="navImpulses" href="impulse.html"></a>
+        <a class="btn" id="navWorkshop" href="werkstatt.html"></a>
+        <a class="btn" id="navOffers" href="angebote.html"></a>
+        <a class="btn" id="navShop" href="shop.html"></a>
+        <a class="btn" id="navLinks" href="links.html"></a>
+      </nav>
+
+      <div class="note" id="noteLine"></div>
+    </header>
+
+    <section class="grid" aria-label="Übersicht">
+      <article class="card">
+        <h2 id="cAboutH"></h2>
+        <p id="cAboutP"></p>
+        <a id="cAboutA" href="about.html"></a>
+      </article>
+
+      <article class="card">
+        <h2 id="cFilmsH"></h2>
+        <p id="cFilmsP"></p>
+        <a id="cFilmsA" href="filme.html"></a>
+      </article>
+
+      <article class="card">
+        <h2 id="cImpH"></h2>
+        <p id="cImpP"></p>
+        <a id="cImpA" href="impulse.html"></a>
+      </article>
+
+      <article class="card">
+        <h2 id="cWorkH"></h2>
+        <p id="cWorkP"></p>
+        <a id="cWorkA" href="werkstatt.html"></a>
+      </article>
+
+      <article class="card">
+        <h2 id="cOffersH"></h2>
+        <p id="cOffersP"></p>
+        <a id="cOffersA" href="angebote.html"></a>
+      </article>
+
+      <article class="card">
+        <h2 id="cShopH"></h2>
+        <p id="cShopP"></p>
+        <a id="cShopA" href="shop.html"></a>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div class="visitor-pill" aria-label="Besucherzähler">
+        <span class="label" id="vVisitors"></span>
+        <span id="countPage" class="count">—</span>
+        <span class="sep">•</span>
+        <span class="label" id="vTotal"></span>
+        <span id="countTotal" class="count">—</span>
+      </div>
+
+      <div class="footer-line">
+        © Lampadēphóros • <span id="fContact"></span>
+        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- libs -->
+  <script src="langs.js"></script>
+  <script src="start-i18n.js"></script>
+  <script src="lang-menu.js"></script>
+
+  <!-- hydrate + counter -->
+  <script>
+  (function () {
+    const qs = new URLSearchParams(location.search);
+    const urlLang = (qs.get("lang") || "").toLowerCase();
+
+    // supported set (must match langs.js)
+    const supported = new Set((window.LANGS || []).map(x => x.code));
+
+    const browserPrefs = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || "de"];
+
+    const base = (tag) => String(tag || "").toLowerCase().split("-")[0];
+
+    let lang = "de";
+
+    // 1) url param
+    if (supported.has(urlLang)) {
+      lang = urlLang;
+    } else {
+      // 2) saved
+      const saved = (localStorage.getItem("lamp_lang") || "").toLowerCase();
+      if (supported.has(saved)) {
+        lang = saved;
+      } else {
+        // 3) browser
+        for (const t of browserPrefs) {
+          const b = base(t);
+          if (supported.has(b)) { lang = b; break; }
+        }
+      }
+    }
+
+    // Persist
+    try { localStorage.setItem("lamp_lang", lang); } catch(e){}
+
+    // Set current
+    const holder = document.querySelector(".lang[data-current]");
+    if (holder) holder.setAttribute("data-current", lang);
+
+    // Apply dir (rtl/ltr)
+    const curObj = (window.LANGS || []).find(x => x.code === lang);
+    const dir = curObj?.dir || "ltr";
+    document.documentElement.setAttribute("dir", dir);
+    document.documentElement.setAttribute("lang", lang);
+
+    // Render language menu
+    if (typeof window.renderLangMenu === "function") window.renderLangMenu();
+
+    // Texts
+    const dictAll = window.START_I18N || {};
+    const dict = dictAll[lang] || dictAll["de"] || {};
+
+    document.getElementById("heroTitle").textContent = dict.title || "Lampadēphóros";
+    document.getElementById("heroSub").textContent = dict.sub || "";
+    document.getElementById("noteLine").textContent = dict.note || "";
+
+    const nav = dict.nav || {};
+    document.getElementById("navStart").textContent = nav.start || "Start";
+    document.getElementById("navAbout").textContent = nav.about || "About";
+    document.getElementById("navFilms").textContent = nav.films || "Films";
+    document.getElementById("navImpulses").textContent = nav.impulses || "Impulses";
+    document.getElementById("navWorkshop").textContent = nav.workshop || "Workshop";
+    document.getElementById("navOffers").textContent = nav.offers || "Offers";
+    document.getElementById("navShop").textContent = nav.shop || "Shop";
+    document.getElementById("navLinks").textContent = nav.links || "Links";
+
+    // keep Start link in same language
+    document.getElementById("navStart").setAttribute("href", `start.html?lang=${encodeURIComponent(lang)}`);
+
+    const c = dict.cards || {};
+    const setCard = (key, hId, pId, aId) => {
+      document.getElementById(hId).textContent = c[key]?.h || "";
+      document.getElementById(pId).textContent = c[key]?.p || "";
+      document.getElementById(aId).textContent = c[key]?.a || "";
+    };
+    setCard("about",    "cAboutH",  "cAboutP",  "cAboutA");
+    setCard("films",    "cFilmsH",  "cFilmsP",  "cFilmsA");
+    setCard("impulses", "cImpH",    "cImpP",    "cImpA");
+    setCard("workshop", "cWorkH",   "cWorkP",   "cWorkA");
+    setCard("offers",   "cOffersH", "cOffersP", "cOffersA");
+    setCard("shop",     "cShopH",   "cShopP",   "cShopA");
+
+    const f = dict.footer || {};
+    document.getElementById("fContact").textContent = f.contact || "Kontakt:";
+    document.getElementById("vVisitors").textContent = f.visitors || "Besucher";
+    document.getElementById("vTotal").textContent = f.total || "Gesamt";
+
+    // Counter
+    (async () => {
+      const NS = "lampadephoros_web";
+      const PAGE = `start_${lang}`;
+      const TOTAL = "start_total";
+
+      const urlPage  = `https://api.counterapi.dev/v1/${NS}/${PAGE}/up`;
+      const urlTotal = `https://api.counterapi.dev/v1/${NS}/${TOTAL}/up`;
+
+      const [pageData, totalData] = await Promise.all([
+        fetch(urlPage,  { cache: "no-store" }).then(r => r.json()),
+        fetch(urlTotal, { cache: "no-store" }).then(r => r.json())
+      ]);
+
+      const pick = (obj) => (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? obj.data?.count)) ?? "—";
+      document.getElementById("countPage").textContent  = pick(pageData);
+      document.getElementById("countTotal").textContent = pick(totalData);
+    })().catch(() => {
+      const a = document.getElementById("countPage");
+      const b = document.getElementById("countTotal");
+      if (a) a.textContent = "—";
+      if (b) b.textContent = "—";
+    });
+
+  })();
+  </script>
+</body>
+</html>
