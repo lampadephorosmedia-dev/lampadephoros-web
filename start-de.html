@@ -24,6 +24,14 @@
             <a href="start-en.html" role="menuitem">English <span>EN</span></a>
             <a href="start-pt.html" role="menuitem">Português <span>PT</span></a>
             <a href="start-it.html" role="menuitem">Italiano <span>IT</span></a>
+
+            <a href="start-es.html" role="menuitem">Español <span>ES</span></a>
+            <a href="start-pl.html" role="menuitem">Polski <span>PL</span></a>
+            <a href="start-ru.html" role="menuitem">Русский <span>RU</span></a>
+
+            <a href="start-hr.html" role="menuitem">Hrvatski <span>HR</span></a>
+            <a href="start-bs.html" role="menuitem">Bosanski <span>BS</span></a>
+            <a href="start-sr.html" role="menuitem">Srpski <span>SR</span></a>
           </div>
         </details>
       </div>
@@ -130,7 +138,6 @@
     document.getElementById("countPage").textContent = pickCount(pageData);
     document.getElementById("countTotal").textContent = pickCount(totalData);
   })().catch(() => {
-    // Wenn API mal kurz zickt, Seite bleibt trotzdem clean:
     const a = document.getElementById("countPage");
     const b = document.getElementById("countTotal");
     if (a) a.textContent = "—";
