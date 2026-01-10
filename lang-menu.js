@@ -7,8 +7,8 @@
   const current = holder.getAttribute("data-current") || "de";
   const curObj = langs.find(l => l.code === current) || langs[0];
 
-  // Optional: dir setzen, wenn du willst (für RTL-Seiten)
-  // document.documentElement.setAttribute("dir", curObj.dir || "ltr");
+  // Set document direction for RTL languages (ar/ur/fa)
+  if (curObj?.dir) document.documentElement.setAttribute("dir", curObj.dir);
 
   const items = langs.map(l => {
     const active = l.code === current;
@@ -18,7 +18,7 @@
   holder.innerHTML = `
     <details>
       <summary>${(curObj.label || current).toUpperCase()} ▾</summary>
-      <div class="lang-menu" role="menu" aria-label="Sprachen">
+      <div class="lang-menu" role="menu" aria-label="Languages">
         ${items}
       </div>
     </details>
