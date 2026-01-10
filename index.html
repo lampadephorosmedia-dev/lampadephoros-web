@@ -5,73 +5,107 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lampadēphóros</title>
-  <meta name="description" content="Lampadēphóros – Der Fackelträger. Wähle deine Sprache." />
+  <meta name="description" content="Lampadēphóros – Der Fackelträger. Startseite mit automatischer Sprachwahl." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <main class="wrap">
-
-    <header class="hero">
-      <div class="brand">
-        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
-        <div class="brand-meta">
-          <div class="badge">Lampadēphóros</div>
-          <div class="mini">Der Fackelträger</div>
-        </div>
-      </div>
-
-      <h1>Willkommen</h1>
-      <p class="sub">Wähle deine Sprache.</p>
-
-      <div class="note">Kein Spam. Kein Drama. Nur Werk.</div>
-    </header>
-
-    <section class="grid" aria-label="Sprachauswahl">
-      <article class="card">
-        <h2>Sprachen</h2>
-        <p class="muted" style="margin-top:8px;">
-          Du kannst jederzeit im Menü die Sprache wechseln.
-        </p>
-
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;">
-          <!-- bestehende -->
-          <a class="btn primary" href="start-de.html">Deutsch (DE)</a>
-          <a class="btn" href="start-fr.html">Français (FR)</a>
-          <a class="btn" href="start-en.html">English (EN)</a>
-          <a class="btn" href="start-pt.html">Português (PT)</a>
-          <a class="btn" href="start-it.html">Italiano (IT)</a>
-
-          <!-- neue -->
-          <a class="btn" href="start-es.html">Español (ES)</a>
-          <a class="btn" href="start-pl.html">Polski (PL)</a>
-          <a class="btn" href="start-ru.html">Русский (RU)</a>
-
-          <!-- Balkan -->
-          <a class="btn" href="start-hr.html">Hrvatski (HR)</a>
-          <a class="btn" href="start-bs.html">Bosanski (BS)</a>
-          <a class="btn" href="start-sr.html">Srpski (SR)</a>
-        </div>
-
-        <p class="muted" style="margin-top:14px;">
-          Hinweis: Srpski ist hier in lateinischer Schrift. Kyrillisch können wir später als Extra-Version hinzufügen.
-        </p>
-      </article>
-
-      <article class="card">
-        <h2>Tipp</h2>
-        <p>
-          Wenn du die Seite neu besuchst, kannst du direkt in deiner Sprache starten –
-          speichere dir einfach den Start-Link (z. B. <span class="muted">start-en.html</span>).
-        </p>
-      </article>
-    </section>
-
-    <footer class="footer">
-      © Lampadēphóros • Kontakt:
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-    </footer>
-
+  <main class="wrap" style="padding:24px;">
+    <p>Weiterleitung… <a id="fallbackLink" href="start-de.html">Start</a>.</p>
   </main>
+
+  <script>
+  (function () {
+    // Default (Fallback)
+    const DEFAULT = "start-de.html";
+
+    // Map browser language -> start page
+    // (We match BOTH exact and "startsWith" via normalized base code)
+    const map = {
+      // existing
+      "de": "start-de.html",
+      "fr": "start-fr.html",
+      "en": "start-en.html",
+      "pt": "start-pt.html",
+      "it": "start-it.html",
+
+      // already planned / added earlier
+      "es": "start-es.html",
+      "pl": "start-pl.html",
+      "ru": "start-ru.html",
+      "hr": "start-hr.html",
+      "bs": "start-bs.html",
+      "sr": "start-sr.html",
+
+      // new additions you want now
+      "ku": "start-ku.html",
+      "ms": "start-ms.html",
+      "ta": "start-ta.html",
+      "fa": "start-fa.html",
+
+      // optional later (already prepared to just "exist")
+      "ar": "start-ar.html",
+      "ur": "start-ur.html",
+      "tr": "start-tr.html",
+      "zh": "start-zh.html",
+      "hi": "start-hi.html",
+      "bn": "start-bn.html",
+      "id": "start-id.html",
+      "fil": "start-fil.html",
+      "ja": "start-ja.html",
+      "ko": "start-ko.html",
+      "vi": "start-vi.html",
+      "nl": "start-nl.html",
+      "ro": "start-ro.html",
+      "uk": "start-uk.html"
+    };
+
+    // Get preferred languages (ordered)
+    const prefs = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || "de"];
+
+    // Normalize to base language, e.g. "fr-CH" -> "fr"
+    const toBase = (tag) => (String(tag || "").toLowerCase().split("-")[0] || "");
+
+    // Choose target
+    let target = DEFAULT;
+
+    for (const langTag of prefs) {
+      const base = toBase(langTag);
+
+      if (map[langTag]) { // exact match (rare)
+        target = map[langTag];
+        break;
+      }
+      if (map[base]) { // base match (common)
+        target = map[base];
+        break;
+      }
+
+      // Special-case Chinese variants -> simplified page (if you use start-zh.html)
+      if (base === "zh") {
+        target = map["zh"] || DEFAULT;
+        break;
+      }
+    }
+
+    // Update fallback link for users with JS blocked
+    const a = document.getElementById("fallbackLink");
+    if (a) a.href = target;
+
+    // Redirect
+    window.location.replace(target);
+  })();
+  </script>
+
+  <noscript>
+    <p style="padding:24px;">
+      JavaScript ist deaktiviert. Bitte öffne den Start manuell:
+      <a href="start-de.html">Deutsch</a> ·
+      <a href="start-fr.html">Français</a> ·
+      <a href="start-en.html">English</a>
+    </p>
+  </noscript>
 </body>
 </html>
