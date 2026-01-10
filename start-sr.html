@@ -1,0 +1,145 @@
+<!-- FILE: start-sr.html (SR - Latin) -->
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lampadēphóros – Početak</title>
+  <meta name="description" content="Nosilac baklje: vidljivost bez buke. Dubina bez straha. Put svetla, vode, srca i tišine." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="wrap">
+
+    <header class="hero">
+
+      <div class="lang" aria-label="Izbor jezika">
+        <details>
+          <summary>SR ▾</summary>
+          <div class="lang-menu" role="menu" aria-label="Jezici">
+            <a href="start-de.html" role="menuitem">Deutsch <span>DE</span></a>
+            <a href="start-fr.html" role="menuitem">Français <span>FR</span></a>
+            <a href="start-en.html" role="menuitem">English <span>EN</span></a>
+            <a href="start-pt.html" role="menuitem">Português <span>PT</span></a>
+            <a href="start-it.html" role="menuitem">Italiano <span>IT</span></a>
+
+            <a href="start-es.html" role="menuitem">Español <span>ES</span></a>
+            <a href="start-pl.html" role="menuitem">Polski <span>PL</span></a>
+            <a href="start-ru.html" role="menuitem">Русский <span>RU</span></a>
+
+            <a href="start-hr.html" role="menuitem">Hrvatski <span>HR</span></a>
+            <a href="start-bs.html" role="menuitem">Bosanski <span>BS</span></a>
+            <a href="start-sr.html" role="menuitem">Srpski <span>SR</span></a>
+          </div>
+        </details>
+      </div>
+
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="Lampadēphóros logo" />
+        <div class="brand-meta">
+          <div class="badge">Lampadēphóros</div>
+          <div class="mini">Nosilac baklje</div>
+        </div>
+      </div>
+
+      <h1>Nosilac baklje</h1>
+      <p class="sub">Vidljivost bez buke. Dubina bez straha. Put svetla, vode, srca i tišine.</p>
+
+      <nav class="nav" aria-label="Navigacija">
+        <a class="btn primary" href="start-sr.html">Počni ovde</a>
+        <a class="btn" href="about-sr.html">O nama</a>
+        <a class="btn" href="filme-sr.html">Filmovi i poglavlja</a>
+        <a class="btn" href="impulse-sr.html">Impulsi</a>
+        <a class="btn" href="werkstatt-sr.html">Radionica</a>
+        <a class="btn" href="angebote-sr.html">Ponude</a>
+        <a class="btn" href="shop-sr.html">Prodavnica</a>
+        <a class="btn" href="links-sr.html">Gde nas naći ▾</a>
+      </nav>
+
+      <div class="note">Bez spama. Bez drame. Samo delo.</div>
+    </header>
+
+    <section class="grid" aria-label="Pregled">
+      <article class="card">
+        <h2>O nama</h2>
+        <p>Ko smo, zašto postojimo i kuda idemo.</p>
+        <a href="about-sr.html">Upoznaj nas →</a>
+      </article>
+
+      <article class="card">
+        <h2>Filmovi</h2>
+        <p>Glavna dela, poglavlja, kratke verzije — jasno složeno.</p>
+        <a href="filme-sr.html">Pregled →</a>
+      </article>
+
+      <article class="card">
+        <h2>Impulsi</h2>
+        <p>Kratki tekstovi, odlomci voice-overa, molitve, tumačenje simbola.</p>
+        <a href="impulse-sr.html">Na impulse →</a>
+      </article>
+
+      <article class="card">
+        <h2>Radionica</h2>
+        <p>Pogled iza kulisa: struktura, ritam, prelazi.</p>
+        <a href="werkstatt-sr.html">U radionicu →</a>
+      </article>
+
+      <article class="card">
+        <h2>Ponude</h2>
+        <p>Hodočašća, radionice, predavanja i autobuska putovanja za posebne dane.</p>
+        <a href="angebote-sr.html">Pogledaj ponude →</a>
+      </article>
+
+      <article class="card">
+        <h2>Prodavnica</h2>
+        <p>Merch od početka: majice, šolje i još — sa logom.</p>
+        <a href="shop-sr.html">U prodavnicu →</a>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div class="visitor-pill" aria-label="Brojač poseta">
+        <span class="label">Posetioci</span>
+        <span id="countPage" class="count">—</span>
+        <span class="sep">•</span>
+        <span class="label">Ukupno</span>
+        <span id="countTotal" class="count">—</span>
+      </div>
+
+      <div class="footer-line">
+        © Lampadēphóros • Kontakt:
+        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+  (async () => {
+    const NS = "lampadephoros_web";
+    const PAGE = "start_sr";
+    const TOTAL = "start_total";
+
+    const urlPage = `https://api.counterapi.dev/v1/${NS}/${PAGE}/up`;
+    const urlTotal = `https://api.counterapi.dev/v1/${NS}/${TOTAL}/up`;
+
+    const [pageData, totalData] = await Promise.all([
+      fetch(urlPage, { cache: "no-store" }).then(r => r.json()),
+      fetch(urlTotal, { cache: "no-store" }).then(r => r.json())
+    ]);
+
+    const pickCount = (obj) =>
+      (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? obj.data?.count)) ?? "—";
+
+    document.getElementById("countPage").textContent = pickCount(pageData);
+    document.getElementById("countTotal").textContent = pickCount(totalData);
+  })().catch(() => {
+    const a = document.getElementById("countPage");
+    const b = document.getElementById("countTotal");
+    if (a) a.textContent = "—";
+    if (b) b.textContent = "—";
+  });
+  </script>
+</body>
+</html>
