@@ -13,7 +13,6 @@
   <main class="wrap">
 
     <header class="hero">
-
       <!-- Sprache (automatisch) -->
       <div class="lang" aria-label="Sprachauswahl" data-current="de"></div>
 
@@ -98,18 +97,15 @@
 
   </main>
 
-  <!-- libs -->
   <script src="langs.js"></script>
   <script src="start-i18n.js"></script>
   <script src="lang-menu.js"></script>
 
-  <!-- hydrate + counter -->
   <script>
   (function () {
     const qs = new URLSearchParams(location.search);
     const urlLang = (qs.get("lang") || "").toLowerCase();
 
-    // supported set (must match langs.js)
     const supported = new Set((window.LANGS || []).map(x => x.code));
 
     const browserPrefs = (navigator.languages && navigator.languages.length)
@@ -120,7 +116,7 @@
 
     let lang = "de";
 
-    // 1) url param
+    // 1) URL
     if (supported.has(urlLang)) {
       lang = urlLang;
     } else {
@@ -137,23 +133,23 @@
       }
     }
 
-    // Persist
+    // persist
     try { localStorage.setItem("lamp_lang", lang); } catch(e){}
 
-    // Set current
-    const holder = document.querySelector(".lang[data-current]");
-    if (holder) holder.setAttribute("data-current", lang);
-
-    // Apply dir (rtl/ltr)
+    // document direction
     const curObj = (window.LANGS || []).find(x => x.code === lang);
     const dir = curObj?.dir || "ltr";
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", lang);
 
-    // Render language menu
+    // set current
+    const holder = document.querySelector(".lang[data-current]");
+    if (holder) holder.setAttribute("data-current", lang);
+
+    // render menu
     if (typeof window.renderLangMenu === "function") window.renderLangMenu();
 
-    // Texts
+    // texts
     const dictAll = window.START_I18N || {};
     const dict = dictAll[lang] || dictAll["de"] || {};
 
@@ -171,7 +167,6 @@
     document.getElementById("navShop").textContent = nav.shop || "Shop";
     document.getElementById("navLinks").textContent = nav.links || "Links";
 
-    // keep Start link in same language
     document.getElementById("navStart").setAttribute("href", `start.html?lang=${encodeURIComponent(lang)}`);
 
     const c = dict.cards || {};
@@ -192,7 +187,7 @@
     document.getElementById("vVisitors").textContent = f.visitors || "Besucher";
     document.getElementById("vTotal").textContent = f.total || "Gesamt";
 
-    // Counter
+    // counter
     (async () => {
       const NS = "lampadephoros_web";
       const PAGE = `start_${lang}`;
@@ -215,7 +210,6 @@
       if (a) a.textContent = "—";
       if (b) b.textContent = "—";
     });
-
   })();
   </script>
 </body>
