@@ -1,4 +1,4 @@
-<!-- FILE: filme.html (FINAL) -->
+<!-- FILE: filme.html (FINAL / GitHub Pages FIX + 29 Languages + Video texts translated) -->
 <!doctype html>
 <html lang="de" dir="ltr">
 <head>
@@ -25,12 +25,11 @@
       <h1 id="h1">Filme</h1>
       <p class="sub" id="sub">Hauptwerke, Kapitel und kurze Schnitte – sauber sortiert.</p>
 
-      <!-- NAV -->
+      <!-- NAV (GitHub Pages: use real .html files, no clean routes) -->
       <nav class="nav" aria-label="Navigation">
-        <!-- Clean routes -->
-        <a class="btn" id="navStart" href="/start">Start</a>
+        <a class="btn" id="navStart" href="start.html">Start</a>
         <a class="btn" id="navAbout" href="about.html">Über uns</a>
-        <a class="btn primary" id="navFilms" href="/filme">Filme &amp; Kapitel</a>
+        <a class="btn primary" id="navFilms" href="filme.html">Filme &amp; Kapitel</a>
         <a class="btn" id="navImpulse" href="impulse.html">Impulse</a>
         <a class="btn" id="navWorkshop" href="werkstatt.html">Werkstatt</a>
         <a class="btn" id="navOffers" href="angebote.html">Angebote</a>
@@ -95,13 +94,15 @@
     const base = (x) => norm(x).split("-")[0];
 
     const getLang = (supported) => {
+      // 1) query param
       const p = base(new URLSearchParams(location.search).get("lang"));
       if (p && supported.has(p)) return p;
 
+      // 2) localStorage (new)
       const storedNew = base(localStorage.getItem(STORAGE_KEY));
       if (storedNew && supported.has(storedNew)) return storedNew;
 
-      // legacy read (optional)
+      // 3) localStorage (legacy)
       const storedOld = base(localStorage.getItem("lp_lang"));
       if (storedOld && supported.has(storedOld)) return storedOld;
 
@@ -131,14 +132,15 @@
       try {
         const u = new URL(href, location.origin);
         u.searchParams.set("lang", lang);
-        return u.pathname + "?" + u.searchParams.toString();
+        // keep relative paths (GitHub Pages friendly)
+        return u.pathname.replace(/^\//, "") + "?" + u.searchParams.toString();
       } catch {
         const sep = href.includes("?") ? "&" : "?";
         return `${href}${sep}lang=${encodeURIComponent(lang)}`;
       }
     };
 
-    // --------- Translations (DE fallback only in code logic) ----------
+    // --------- UI Translations (29 languages) ----------
     const T = {
       de: {
         htmlLang: "de", dir: "ltr",
@@ -394,7 +396,7 @@
         c2t:"Šta će biti ovde",
         c2p:"Celi filmovi, poglavlja, shortovi i linkovi ka platformama gde se sve objavljuje.",
         c3t:"Iza kulisa",
-        c3p:"Odluke, ritam i prelaze dokumentujemo u radionici.",
+        c3p:"Biryar, ritam i prelaze dokumentujemo u radionici.",
         c3a:"U radionicu →",
         pubT:"Objavljeni filmovi",
         pubP:"Gledaj ovde — ili otvori na YouTubeu.",
@@ -551,10 +553,10 @@
       hi: {
         htmlLang:"hi", dir:"ltr",
         pageTitle:"Lampadēphóros – फ़िल्में",
-        metaDescription:"फ़िल्में और अध्याय: मुख्य कृतियाँ, अध्याय और छोटे संस्करण — सुव्यवस्थित。",
+        metaDescription:"फ़िल्में और अध्याय: मुख्य कृतियाँ, अध्याय और छोटे संस्करण — सुव्यवस्थित।",
         brandMini:"मशालवाहक",
         h1:"फ़िल्में",
-        sub:"मुख्य कृतियाँ, अध्याय और छोटे संस्करण — सुव्यवस्थित。",
+        sub:"मुख्य कृतियाँ, अध्याय और छोटे संस्करण — सुव्यवस्थित।",
         nav:{ start:"शुरू", about:"हमारे बारे में", films:"फ़िल्में और अध्याय", impulse:"प्रेरणाएँ", workshop:"कार्यशाला", offers:"ऑफ़र", shop:"दुकान", links:"हमें खोजें" },
         note:"न स्पैम। न ड्रामा। केवल कार्य।",
         c1t:"तैयारी में",
@@ -575,10 +577,10 @@
       bn: {
         htmlLang:"bn", dir:"ltr",
         pageTitle:"Lampadēphóros – ফিল্ম",
-        metaDescription:"ফিল্ম ও অধ্যায়: প্রধান কাজ, অধ্যায় এবং সংক্ষিপ্ত সংস্করণ — পরিষ্কারভাবে সাজানো。",
+        metaDescription:"ফিল্ম ও অধ্যায়: প্রধান কাজ, অধ্যায় এবং সংক্ষিপ্ত সংস্করণ — পরিষ্কারভাবে সাজানো।",
         brandMini:"মশালবাহক",
         h1:"ফিল্ম",
-        sub:"প্রধান কাজ, অধ্যায় এবং সংক্ষিপ্ত সংস্করণ — পরিষ্কারভাবে সাজানো。",
+        sub:"প্রধান কাজ, অধ্যায় এবং সংক্ষিপ্ত সংস্করণ — পরিষ্কারভাবে সাজানো।",
         nav:{ start:"শুরু", about:"আমাদের সম্পর্কে", films:"ফিল্ম ও অধ্যায়", impulse:"অনুপ্রেরণা", workshop:"ওয়ার্কশপ", offers:"প্রস্তাব", shop:"দোকান", links:"আমাদের খুঁজুন" },
         note:"স্প্যাম নয়। ড্রামা নয়। শুধু কাজ।",
         c1t:"প্রস্তুতিতে",
@@ -604,20 +606,20 @@
         h1:"Mga pelikula",
         sub:"Pangunahing gawa, kabanata, at maiikling bersyon — malinaw ang ayos。",
         nav:{ start:"Magsimula", about:"Tungkol sa amin", films:"Mga pelikula at kabanata", impulse:"Mga pagninilay", workshop:"Workshop", offers:"Mga alok", shop:"Tindahan", links:"Hanapin kami" },
-        note:"Walang spam. Walang drama. Gawa lang।",
+        note:"Walang spam. Walang drama. Gawa lang。",
         c1t:"Inihahanda",
-        c1p:"Unti-unti itong mapupuno. Malapit mo nang makita: pangunahing gawa, mga pahina ng kabanata, at piling maiikling bersyon — may istruktura at linaw।",
+        c1p:"Unti-unti itong mapupuno. Malapit mo nang makita: pangunahing gawa, mga pahina ng kabanata, at piling maiikling bersyon — may istruktura at linaw。",
         c2t:"Ano ang mapupunta rito",
-        c2p:"Buong pelikula, kabanata, shorts, at mga link sa mga platform kung saan inilalabas ang lahat।",
+        c2p:"Buong pelikula, kabanata, shorts, at mga link sa mga platform kung saan inilalabas ang lahat。",
         c3t:"Likod ng kamera",
-        c3p:"Mga desisyon, ritmo, at transisyon ay naka-dokumento sa workshop।",
+        c3p:"Mga desisyon, ritmo, at transisyon ay naka-dokumento sa workshop。",
         c3a:"Pumunta sa workshop →",
         pubT:"Nailabas na pelikula",
-        pubP:"Panoorin dito — o buksan sa YouTube।",
+        pubP:"Panoorin dito — o buksan sa YouTube。",
         contactWord:"Kontak",
         watch:"Panoorin sa YouTube",
-        ageWarn:"⚠️ May age restriction ang video na ito sa YouTube at hindi puwedeng i-embed dito. Paki-buksan sa YouTube।",
-        privateHint:"Tandaan: kung private pa ang video, lalabas ito kapag na-publish na।"
+        ageWarn:"⚠️ May age restriction ang video na ito sa YouTube at hindi puwedeng i-embed dito. Paki-buksan sa YouTube。",
+        privateHint:"Tandaan: kung private pa ang video, lalabas ito kapag na-publish na。"
       },
 
       ja: {
@@ -750,7 +752,7 @@
         nav:{ start:"Destpêk", about:"Derbarê me de", films:"Fîlm û beş", impulse:"Impuls", workshop:"Atelier", offers:"Pêşniyar", shop:"Firotgeh", links:"Me bibîne" },
         note:"Ne spam. Ne drama. Tenê kar.",
         c1t:"Di amadekariyê de",
-        c1p:"Ev beş bi hêdî-hêdî tê tije kirin. Bi rastî li wir gazîya Xwedê dikare bi nermî dest pê bike: ronahiyek ku te digire, hêviyek ku ji her barê mezintir e.",
+        c1p:"Ev beş bi hêdî-hêdî tê tije kirin. Bi zû re hûn dê bibînin: karên sereke, rûpelên beşan û guhertoyên kurt — bi rêz û zelalî.",
         c2t:"Li vir dê çi bibe",
         c2p:"Fîlmên temam, beş, shorts û girêdanên platformên ku her tişt li wir tê weşandin.",
         c3t:"Li paş perde",
@@ -762,13 +764,86 @@
         watch:"Li YouTube temaşe bike",
         ageWarn:"⚠️ Ev vîdyo li YouTube-ê bi sînora temenê ye û li vir nayê danîn. Ji kerema xwe li YouTube veke.",
         privateHint:"Têbînî: heke vîdyo hîn taybet be, piştî weşanê dê xuya bibe."
+      },
+
+      // +3 languages to make 29 total:
+      nl: {
+        htmlLang:"nl", dir:"ltr",
+        pageTitle:"Lampadēphóros – Films",
+        metaDescription:"Films & hoofdstukken: hoofdwerken, hoofdstukken en korte versies — helder geordend.",
+        brandMini:"De Fakkeldrager",
+        h1:"Films",
+        sub:"Hoofdwerken, hoofdstukken en korte versies — helder geordend.",
+        nav:{ start:"Start", about:"Over ons", films:"Films & hoofdstukken", impulse:"Impulsen", workshop:"Werkplaats", offers:"Aanbod", shop:"Winkel", links:"Vind ons" },
+        note:"Geen spam. Geen drama. Alleen werk.",
+        c1t:"In voorbereiding",
+        c1p:"Deze sectie wordt stap voor stap gevuld. Binnenkort vind je hier: hoofdwerken, hoofdstukpagina’s en geselecteerde korte versies — met structuur en helderheid.",
+        c2t:"Wat hier komt",
+        c2p:"Volledige films, hoofdstukken, shorts en links naar de platforms waar alles verschijnt.",
+        c3t:"Achter de schermen",
+        c3p:"Keuzes, ritme en overgangen documenteren we in de werkplaats.",
+        c3a:"Naar de werkplaats →",
+        pubT:"Gepubliceerde films",
+        pubP:"Hier kijken — of openen op YouTube.",
+        contactWord:"Contact",
+        watch:"Bekijk op YouTube",
+        ageWarn:"⚠️ Deze video heeft een leeftijdsbeperking op YouTube en kan hier niet worden ingesloten. Open hem op YouTube.",
+        privateHint:"Let op: als deze video nog privé is, verschijnt hij zodra hij is gepubliceerd."
+      },
+
+      uk: {
+        htmlLang:"uk", dir:"ltr",
+        pageTitle:"Lampadēphóros – Фільми",
+        metaDescription:"Фільми й розділи: головні роботи, розділи та короткі версії — чітко впорядковано.",
+        brandMini:"Факелоносець",
+        h1:"Фільми",
+        sub:"Головні роботи, розділи та короткі версії — чітко впорядковано.",
+        nav:{ start:"Старт", about:"Про нас", films:"Фільми й розділи", impulse:"Імпульси", workshop:"Майстерня", offers:"Пропозиції", shop:"Магазин", links:"Де ми" },
+        note:"Без спаму. Без драми. Лише справа.",
+        c1t:"У підготовці",
+        c1p:"Цей розділ наповнюється поступово. Незабаром тут будуть: головні роботи, сторінки розділів і вибрані короткі версії — зі структурою та ясністю.",
+        c2t:"Що буде тут",
+        c2p:"Повні фільми, розділи, шорти та посилання на платформи, де все публікується.",
+        c3t:"За лаштунками",
+        c3p:"Рішення, ритм і переходи ми документуємо в майстерні.",
+        c3a:"До майстерні →",
+        pubT:"Опубліковані фільми",
+        pubP:"Дивитися тут — або відкрити на YouTube.",
+        contactWord:"Контакт",
+        watch:"Дивитися на YouTube",
+        ageWarn:"⚠️ Це відео має вікове обмеження на YouTube і не може бути вбудоване тут. Відкрийте його на YouTube.",
+        privateHint:"Примітка: якщо відео ще приватне, воно з’явиться після публікації."
+      },
+
+      el: {
+        htmlLang:"el", dir:"ltr",
+        pageTitle:"Lampadēphóros – Ταινίες",
+        metaDescription:"Ταινίες & κεφάλαια: κύρια έργα, κεφάλαια και σύντομες εκδοχές — καθαρά οργανωμένα.",
+        brandMini:"Ο Λαμπαδηφόρος",
+        h1:"Ταινίες",
+        sub:"Κύρια έργα, κεφάλαια και σύντομες εκδοχές — καθαρά οργανωμένα.",
+        nav:{ start:"Έναρξη", about:"Σχετικά", films:"Ταινίες & κεφάλαια", impulse:"Εμπνεύσεις", workshop:"Εργαστήριο", offers:"Προσφορές", shop:"Κατάστημα", links:"Βρες μας" },
+        note:"Χωρίς spam. Χωρίς δράμα. Μόνο έργο.",
+        c1t:"Σε προετοιμασία",
+        c1p:"Αυτή η ενότητα θα γεμίζει σταδιακά. Σύντομα θα βρεις: κύρια έργα, σελίδες κεφαλαίων και επιλεγμένες σύντομες εκδοχές — με δομή και καθαρότητα.",
+        c2t:"Τι θα υπάρχει εδώ",
+        c2p:"Ολόκληρες ταινίες, κεφάλαια, shorts και σύνδεσμοι στις πλατφόρμες όπου δημοσιεύονται όλα.",
+        c3t:"Παρασκήνια",
+        c3p:"Αποφάσεις, ρυθμός και μεταβάσεις καταγράφονται στο εργαστήριο.",
+        c3a:"Στο εργαστήριο →",
+        pubT:"Δημοσιευμένες ταινίες",
+        pubP:"Δες εδώ — ή άνοιξε στο YouTube.",
+        contactWord:"Επικοινωνία",
+        watch:"Δες στο YouTube",
+        ageWarn:"⚠️ Αυτό το βίντεο έχει ηλικιακό περιορισμό στο YouTube και δεν μπορεί να ενσωματωθεί εδώ. Άνοιξέ το στο YouTube.",
+        privateHint:"Σημείωση: αν το βίντεο είναι ακόμη ιδιωτικό, θα εμφανιστεί μόλις δημοσιευτεί."
       }
     };
 
     // supported languages derived from translations
     const supported = new Set(Object.keys(T));
 
-    // --------- Videos (YOUR DATA) ----------
+    // --------- Videos (DATA) ----------
     const VIDEOS = [
       {
         key:"v1",
@@ -776,122 +851,542 @@
         ytId:"scDncB1saQY",
         start: 15,
         t: 15,
-        title:{ de:"Wenn die Nacht schwer ist: Gott ruft dich" },
-        desc:{ de:`Fühlt sich die Nacht schwer an – still, dunkel, leer? Dieses Video ist eine ruhige Einladung: Gott sieht dich, und sein Licht findet dich – ohne Druck. LIGHT CALLS ist eine Einladung, das leise Wirken Gottes zu entdecken – mitten in der Dunkelheit, mitten im Ringen, mitten im Alltag. In diesem Video geht es um den Ruf Gottes, um das Licht, das unsere Nacht berührt, und um die Hoffnung, die in jedem Herzen aufbrechen kann. Wenn du im Moment kaum etwas spürst oder dich fragst, ob Gott dich sieht: dieses Video ist für dich.
+        title:{
+          de:"Wenn die Nacht schwer ist: Gott ruft dich",
+          fr:"Quand la nuit est lourde : Dieu t’appelle",
+          en:"When the night feels heavy: God is calling you",
+          pt:"Quando a noite pesa: Deus te chama",
+          it:"Quando la notte è pesante: Dio ti chiama",
+          es:"Cuando la noche pesa: Dios te llama",
+          pl:"Gdy noc jest ciężka: Bóg cię woła",
+          ru:"Когда ночь тяжела: Бог зовёт тебя",
+          hr:"Kad je noć teška: Bog te zove",
+          bs:"Kad je noć teška: Bog te zove",
+          sr:"Kada je noć teška: Bog te zove",
+          ro:"Când noaptea e grea: Dumnezeu te cheamă",
+          tr:"Gece ağırsa: Tanrı seni çağırıyor",
+          ar:"عندما تكون الليلة ثقيلة: الله يناديك",
+          ur:"جب رات بھاری ہو: خدا تمہیں پکارتا ہے",
+          fa:"وقتی شب سنگین است: خدا تو را می‌خوانَد",
+          zh:"当黑夜沉重：上帝在呼唤你",
+          hi:"जब रात भारी लगे: परमेश्वर तुम्हें बुलाता है",
+          bn:"যখন রাত ভারী লাগে: ঈশ্বর তোমাকে ডাকছেন",
+          fil:"Kapag mabigat ang gabi: Tinatawag ka ng Diyos",
+          ja:"夜が重いとき：神はあなたを呼んでいる",
+          ko:"밤이 무거울 때: 하느님이 너를 부르신다",
+          vi:"Khi đêm nặng nề: Thiên Chúa đang gọi bạn",
+          ms:"Apabila malam terasa berat: Tuhan memanggilmu",
+          ta:"இரவு கனமாக இருந்தால்: இறைவன் உன்னை அழைக்கிறார்",
+          ku:"Dema şev giran be: Xwedê te digazî",
+          nl:"Als de nacht zwaar is: God roept je",
+          uk:"Коли ніч важка: Бог кличе тебе",
+          el:"Όταν η νύχτα είναι βαριά: Ο Θεός σε καλεί"
+        },
+        desc:{
+          de:`Fühlt sich die Nacht schwer an – still, dunkel, leer? Dieses Video ist eine ruhige Einladung: Gott sieht dich, und sein Licht findet dich – ohne Druck.
 
-Themen im Video:
-• Wie Gott in der Dunkelheit spricht
-• Warum sein Licht uns gerade dann findet, wenn wir es nicht erwarten
-• Der innere Ruf, der das Herz weckt
+Themen:
+• Gott spricht in der Dunkelheit
+• Sein Licht findet uns unerwartet
 • Hoffnung für schwere Zeiten
-• Was es bedeutet, „ins Licht“ zu gehen
-• Eine geistliche Einladung, die dich stärkt
 
-Dieses Video möchte dich erinnern: Du bist nicht allein. Gott ruft dich. Sein Licht sucht dich. Auch jetzt.
+Du bist nicht allein. Gott ruft dich. Sein Licht sucht dich – auch jetzt.`,
+          fr:`La nuit te semble lourde — silencieuse, sombre, vide ? Invitation paisible : Dieu te voit et sa lumière te trouve, sans pression.
 
-Wenn dich diese Botschaft berührt hat oder du selbst etwas erlebt hast, teile es gerne in den Kommentaren. Deine Erfahrung kann jemand anderem Hoffnung schenken.
+Thèmes :
+• Dieu parle dans l’obscurité
+• Sa lumière nous rejoint quand on ne s’y attend pas
+• Espérance pour les temps difficiles
 
-In Christus verbunden,
-Bruder Romain
+Tu n’es pas seul. Dieu t’appelle — même maintenant.`,
+          en:`Does the night feel heavy — quiet, dark, empty? A gentle invitation: God sees you and His light finds you, without pressure.
 
-Schlüsselwörter für die Videoeinordnung:
-Licht, Hoffnung, Dunkelheit, Gott, Ruf Gottes, Jesus, Trost, Light Calls, Licht Gottes, spirituelle Inspiration, christliche Ermutigung, keine Worte zum Beten, Gott fühlt sich fern,` }
+Topics:
+• God speaks in the dark
+• His light finds us unexpectedly
+• Hope for hard times
+
+You are not alone. God is calling you — even now.`,
+          pt:`A noite parece pesada — silenciosa, escura, vazia? Um convite sereno: Deus te vê e a Sua luz te encontra, sem pressão.
+
+Temas:
+• Deus fala na escuridão
+• A luz chega quando menos esperamos
+• Esperança em tempos difíceis
+
+Você não está sozinho. Deus te chama — agora também.`,
+          it:`La notte ti sembra pesante — silenziosa, buia, vuota? Un invito delicato: Dio ti vede e la sua luce ti trova, senza pressione.
+
+Temi:
+• Dio parla nel buio
+• La sua luce arriva quando non te l’aspetti
+• Speranza nei tempi difficili
+
+Non sei solo. Dio ti chiama — anche adesso.`,
+          es:`¿La noche se siente pesada — silenciosa, oscura, vacía? Una invitación suave: Dios te ve y su luz te encuentra, sin presión.
+
+Temas:
+• Dios habla en la oscuridad
+• Su luz llega cuando menos lo esperamos
+• Esperanza para tiempos difíciles
+
+No estás solo. Dios te llama — incluso ahora.`,
+          pl:`Czy noc jest ciężka — cicha, ciemna, pusta? To łagodne zaproszenie: Bóg cię widzi, a Jego światło cię odnajduje — bez presji.
+
+Tematy:
+• Bóg mówi w ciemności
+• Jego światło przychodzi niespodziewanie
+• Nadzieja na trudne czasy
+
+Nie jesteś sam. Bóg cię woła — także teraz.`,
+          ru:`Ночь кажется тяжёлой — тихой, тёмной, пустой? Это мягкое приглашение: Бог видит тебя, и Его свет находит тебя — без давления.
+
+Темы:
+• Бог говорит во тьме
+• Его свет приходит неожиданно
+• Надежда в трудные времена
+
+Ты не один. Бог зовёт тебя — даже сейчас.`,
+          hr:`Osjećaš li da je noć teška — tiha, tamna, prazna? Nježan poziv: Bog te vidi, a njegovo svjetlo te pronalazi — bez pritiska.
+
+Teme:
+• Bog govori u tami
+• Svjetlo dolazi neočekivano
+• Nada u teškim vremenima
+
+Nisi sam. Bog te zove — i sada.`,
+          bs:`Da li ti je noć teška — tiha, tamna, prazna? Nježan poziv: Bog te vidi i njegovo svjetlo te nalazi — bez pritiska.
+
+Teme:
+• Bog govori u tami
+• Svjetlo dolazi kad ne očekujemo
+• Nada u teškim vremenima
+
+Nisi sam. Bog te zove — i sada.`,
+          sr:`Da li ti je noć teška — tiha, tamna, prazna? Nežan poziv: Bog te vidi i njegovo svetlo te nalazi — bez pritiska.
+
+Teme:
+• Bog govori u tami
+• Svetlo dolazi neočekivano
+• Nada u teškim vremenima
+
+Nisi sam. Bog te zove — i sada.`,
+          ro:`Noaptea pare grea — liniștită, întunecată, goală? O invitație blândă: Dumnezeu te vede, iar lumina Lui te găsește — fără presiune.
+
+Teme:
+• Dumnezeu vorbește în întuneric
+• Lumina Lui ne găsește neașteptat
+• Speranță pentru vremuri grele
+
+Nu ești singur. Dumnezeu te cheamă — chiar acum.`,
+          tr:`Gece ağır mı geliyor — sessiz, karanlık, boş? Yumuşak bir davet: Tanrı seni görüyor ve ışığı seni buluyor — baskı yok.
+
+Konular:
+• Tanrı karanlıkta konuşur
+• Işık beklenmedik anda gelir
+• Zor zamanlarda umut
+
+Yalnız değilsin. Tanrı seni çağırıyor — şimdi bile.`,
+          ar:`هل تبدو الليلة ثقيلة — صامتة، مظلمة، فارغة؟ دعوة لطيفة: الله يراك ونوره يجدك — بلا ضغط.
+
+المحاور:
+• الله يتكلم في الظلام
+• نوره يصل حين لا نتوقع
+• رجاء للأوقات الصعبة
+
+لست وحدك. الله يناديك — الآن أيضًا.`,
+          ur:`کیا رات بھاری لگتی ہے — خاموش، تاریک، خالی؟ ایک نرم دعوت: خدا تمہیں دیکھتا ہے اور اُس کی روشنی تمہیں ڈھونڈ لیتی ہے — بغیر دباؤ۔
+
+موضوعات:
+• خدا تاریکی میں بولتا ہے
+• روشنی غیر متوقع طور پر آتی ہے
+• مشکل وقتوں میں امید
+
+تم اکیلے نہیں۔ خدا تمہیں پکار رہا ہے — ابھی بھی۔`,
+          fa:`آیا شب سنگین است — ساکت، تاریک، خالی؟ دعوتی آرام: خدا تو را می‌بیند و نورش تو را می‌یابد — بدون فشار.
+
+موضوع‌ها:
+• خدا در تاریکی سخن می‌گوید
+• نورش وقتی نمی‌پنداریم می‌رسد
+• امید برای زمان‌های سخت
+
+تو تنها نیستی. خدا تو را می‌خوانَد — همین حالا.`,
+          zh:`夜晚是否沉重——安静、黑暗、空旷？一个温柔的邀请：上帝看见你，祂的光会找到你——不带压力。
+
+主题：
+• 上帝在黑暗中说话
+• 祂的光常在意想不到时临到
+• 困难时刻的希望
+
+你并不孤单。上帝在呼唤你——就在此刻。`,
+          hi:`क्या रात भारी लगती है — शांत, अँधेरी, खाली? एक कोमल निमंत्रण: परमेश्वर तुम्हें देखते हैं और उनका प्रकाश तुम्हें ढूँढ लेता है — बिना दबाव।
+
+विषय:
+• परमेश्वर अँधेरे में बोलते हैं
+• उनका प्रकाश अप्रत्याशित रूप से मिलता है
+• कठिन समय के लिए आशा
+
+तुम अकेले नहीं हो। परमेश्वर तुम्हें बुला रहे हैं — अभी भी।`,
+          bn:`রাত কি ভারী লাগে — নীরব, অন্ধকার, ফাঁকা? এক কোমল আমন্ত্রণ: ঈশ্বর তোমাকে দেখেন, আর তাঁর আলো তোমাকে খুঁজে পায় — কোনো চাপ নেই।
+
+বিষয়:
+• অন্ধকারে ঈশ্বর কথা বলেন
+• তাঁর আলো আসে অপ্রত্যাশিতভাবে
+• কঠিন সময়ের জন্য আশা
+
+তুমি একা নও। ঈশ্বর তোমাকে ডাকছেন — এখনই।`,
+          fil:`Mabigat ba ang gabi — tahimik, madilim, parang walang laman? Isang banayad na paanyaya: Nakikita ka ng Diyos, at hahanapin ka ng Kanyang liwanag — walang pilit.
+
+Paksa:
+• Nagsasalita ang Diyos sa dilim
+• Dumarating ang liwanag nang di inaasahan
+• Pag-asa sa mahihirap na oras
+
+Hindi ka nag-iisa. Tinatawag ka ng Diyos — ngayon din.`,
+          ja:`夜が重く感じますか—静かで、暗くて、空っぽのように？やさしい招き：神はあなたを見ておられ、その光はあなたに届きます（無理はありません）。
+
+テーマ：
+• 神は闇の中でも語られる
+• 光は思いがけず届く
+• 苦しい時の希望
+
+あなたは一人ではありません。神は今も呼んでいます。`,
+          ko:`밤이 무겁게 느껴지나요 — 조용하고, 어둡고, 텅 빈 것처럼? 부드러운 초대: 하느님은 너를 보시고, 그분의 빛은 너를 찾아온다 — 억지 없음.
+
+주제:
+• 하느님은 어둠 속에서도 말씀하신다
+• 빛은 예상치 못한 순간에 온다
+• 힘든 때의 희망
+
+너는 혼자가 아니다. 하느님이 지금도 부르신다.`,
+          vi:`Đêm có nặng nề — yên lặng, tối, trống rỗng? Một lời mời nhẹ nhàng: Thiên Chúa thấy bạn và ánh sáng của Ngài sẽ tìm đến bạn — không áp lực.
+
+Chủ đề:
+• Thiên Chúa nói trong bóng tối
+• Ánh sáng đến khi ta không ngờ
+• Hy vọng cho thời gian khó
+
+Bạn không cô đơn. Thiên Chúa đang gọi bạn — ngay lúc này.`,
+          ms:`Adakah malam terasa berat — sunyi, gelap, kosong? Jemputan yang lembut: Tuhan melihatmu dan cahaya-Nya menemukanmu — tanpa paksaan.
+
+Topik:
+• Tuhan berbicara dalam kegelapan
+• Cahaya datang tanpa diduga
+• Harapan saat masa sukar
+
+Kamu tidak sendirian. Tuhan memanggilmu — sekarang juga.`,
+          ta:`இரவு கனமாக இருக்கிறதா — அமைதி, இருள், வெற்றிடம்? ஒரு மென்மையான அழைப்பு: இறைவன் உன்னை காண்கிறார்; அவருடைய ஒளி உன்னை அடையும் — அழுத்தமில்லை.
+
+தலைப்புகள்:
+• இருளில் இறைவன் பேசுகிறார்
+• ஒளி எதிர்பாராத நேரத்தில் வருகிறது
+• கடின நாட்களுக்கான நம்பிக்கை
+
+நீ ஒருவனாக இல்லை. இறைவன் உன்னை அழைக்கிறார் — இப்போதே.`,
+          ku:`Şev giran tê? Bêdeng, tarî, vala? Vexwendinek nerm: Xwedê te dibîne û ronahiyê wî te dibîne — bê zorlî.
+
+Mijar:
+• Xwedê di tarîyê de diaxive
+• Ronahî wexta ku em ne li bendê ne tê
+• Hêvî ji bo demên dijwar
+
+Tu ne tenê yî. Xwedê te digazî — niha jî.`,
+          nl:`Voelt de nacht zwaar — stil, donker, leeg? Een zachte uitnodiging: God ziet je en Zijn licht vindt je — zonder druk.
+
+Thema’s:
+• God spreekt in het donker
+• Zijn licht bereikt ons onverwacht
+• Hoop voor moeilijke tijden
+
+Je bent niet alleen. God roept je — ook nu.`,
+          uk:`Ніч здається важкою — тихою, темною, порожньою? Ніжне запрошення: Бог бачить тебе, і Його світло знаходить тебе — без тиску.
+
+Теми:
+• Бог говорить у темряві
+• Його світло приходить несподівано
+• Надія для важких часів
+
+Ти не сам. Бог кличе тебе — навіть зараз.`,
+          el:`Η νύχτα μοιάζει βαριά — ήσυχη, σκοτεινή, άδεια; Μια απαλή πρόσκληση: Ο Θεός σε βλέπει και το φως Του σε βρίσκει — χωρίς πίεση.
+
+Θέματα:
+• Ο Θεός μιλά μέσα στο σκοτάδι
+• Το φως έρχεται απρόσμενα
+• Ελπίδα για δύσκολους καιρούς
+
+Δεν είσαι μόνος. Ο Θεός σε καλεί — και τώρα.`
+        }
       },
 
       {
         key:"v2",
         type:"age_fallback",
         ytId:"-4WyAvKxI7A",
-        title:{ de:"Die zwei Quellen – Von Eden zum Kreuz" },
-        desc:{ de:`Die zwei Quellen – Von Eden zum Kreuz
+        title:{
+          de:"Die zwei Quellen – Von Eden zum Kreuz",
+          fr:"Les deux sources — D’Éden à la Croix",
+          en:"The two sources — From Eden to the Cross",
+          pt:"As duas fontes — Do Éden à Cruz",
+          it:"Le due sorgenti — Dall’Eden alla Croce",
+          es:"Las dos fuentes — Del Edén a la Cruz",
+          pl:"Dwa źródła — Od Edenu do Krzyża",
+          ru:"Два источника — От Эдема к Кресту",
+          hr:"Dva izvora — Od Edena do Križa",
+          bs:"Dva izvora — Od Edena do Krsta",
+          sr:"Dva izvora — Od Edema do Krsta",
+          ro:"Două izvoare — De la Eden la Cruce",
+          tr:"İki kaynak — Eden’den Çarmıha",
+          ar:"مصدران — من عدن إلى الصليب",
+          ur:"دو چشمے — عدن سے صلیب تک",
+          fa:"دو سرچشمه — از عدن تا صلیب",
+          zh:"两股泉源——从伊甸到十字架",
+          hi:"दो स्रोत — अदन से क्रूस तक",
+          bn:"দুটি উৎস — এডেন থেকে ক্রুশ পর্যন্ত",
+          fil:"Dalawang Bukal — Mula Eden hanggang Krus",
+          ja:"二つの源 — エデンから十字架へ",
+          ko:"두 샘 — 에덴에서 십자가까지",
+          vi:"Hai nguồn — Từ Êđen đến Thập giá",
+          ms:"Dua sumber — Dari Eden ke Salib",
+          ta:"இரண்டு ஊற்றுகள் — ஏதேன் முதல் சிலுவை வரை",
+          ku:"Du çavkanî — Ji Edenê heta Xaçê",
+          nl:"Twee bronnen — Van Eden naar het Kruis",
+          uk:"Два джерела — Від Едему до Хреста",
+          el:"Δύο πηγές — Από την Εδέμ στον Σταυρό"
+        },
+        desc:{
+          de:`Dieses Video kommt ohne Voice-over – damit Bild, Musik und Stille sprechen können.
 
-Dieses Video kommt ohne Voice-over – damit Bild, Musik und Stille sprechen können. Die Worte, die ursprünglich gesprochen werden sollten, findest du hier als Begleitung.
+Kern:
+• In Eden entsteht durch Misstrauen die Quelle des Unheils (Trennung, Angst, Scham).
+• Gott ruft: „Wo bist du?“
+• Am Kreuz öffnet sich die zweite Quelle: Heil und neues Leben.
 
-Am Anfang schuf Gott Himmel und Erde.
-Und Gott sprach: Es werde Licht. Und es wurde Licht. ✨
+Bibelstellen: Gen 1–3 • Gen 3,15 • Joh 4,10–14 • Joh 7,37–38 • Joh 19,34`,
+          fr:`Sans voix off — pour laisser parler l’image, la musique et le silence.
 
-Ordnung trat aus dem Chaos hervor – und Gott ist es bis heute: ein Gott des Lebens.
+Essentiel :
+• À Éden, la méfiance ouvre une source de rupture (peur, honte, séparation).
+• Dieu appelle : « Où es-tu ? »
+• À la Croix s’ouvre la seconde source : salut et vie nouvelle.
 
-Am sechsten Tag schuf Gott den Menschen – als Mann und Frau, als Bild Gottes.
-Nicht als Zufall, sondern als Wesen, das für Beziehung geschaffen ist:
-Gott legte seine Spur in ihr Herz und seinen Atem in ihre Brust.
+Réfs : Gn 1–3 • Gn 3,15 • Jn 4,10–14 • Jn 7,37–38 • Jn 19,34`,
+          en:`No voice-over — so image, music, and silence can speak.
 
-Dann stellte Gott sie in den Garten Eden.
-Er schenkte ihnen alles – Schönheit, Nahrung, Frieden, Nähe.
+Core:
+• In Eden, mistrust opens a source of ruin (fear, shame, separation).
+• God calls: “Where are you?”
+• At the Cross, the second source opens: healing and new life.
 
-Und mitten im Garten stand ein Baum:
-der Baum der Erkenntnis von Gut und Böse.
+Refs: Gen 1–3 • Gen 3:15 • John 4:10–14 • John 7:37–38 • John 19:34`,
+          pt:`Sem voice-over — para deixar imagem, música e silêncio falarem.
 
-Warum stand er dort?
-Nicht als Falle. Nicht als Strafe.
-Sondern weil Liebe Freiheit braucht:
-ohne Wahl keine Freiheit – und ohne Freiheit keine Liebe.
+Essência:
+• No Éden, a desconfiança abre uma fonte de ruptura (medo, vergonha, separação).
+• Deus chama: “Onde estás?”
+• Na Cruz, abre-se a segunda fonte: cura e vida nova.
 
-„Erkenntnis“ (hebr. daʿat) meint nicht bloß Wissen,
-sondern gelebte Erfahrung.
+Refs: Gn 1–3 • Gn 3,15 • Jo 4,10–14 • Jo 7,37–38 • Jo 19,34`,
+          it:`Senza voice-over — perché parlino immagini, musica e silenzio.
 
-Am Anfang war alles „sehr gut“ –
-das Böse war nicht erfahren.
+Cuore:
+• In Eden la sfiducia apre una sorgente di rovina (paura, vergogna, separazione).
+• Dio chiama: “Dove sei?”
+• Alla Croce si apre la seconda sorgente: guarigione e vita nuova.
 
-Mit dem Griff nach der Frucht öffnet sich der Zugang
-zur Erfahrung des Bösen:
-Misstrauen, Scham, Angst – und damit der Tod der Beziehung.
+Rif: Gen 1–3 • Gen 3,15 • Gv 4,10–14 • Gv 7,37–38 • Gv 19,34`,
+          es:`Sin voz en off — para que hablen la imagen, la música y el silencio.
 
-Darum ist auch Gottes Warnung kein „Ich töte euch“,
-sondern eine Wahrheit:
-„Sterbend werdet ihr sterben.“
+Núcleo:
+• En el Edén la desconfianza abre una fuente de ruptura (miedo, vergüenza, separación).
+• Dios llama: “¿Dónde estás?”
+• En la Cruz se abre la segunda fuente: sanación y vida nueva.
 
-Nicht zuerst biologisch –
-sondern geistlich:
-die Verbindung zerbricht, die Nähe stirbt.
+Refs: Gn 1–3 • Gn 3,15 • Jn 4,10–14 • Jn 7,37–38 • Jn 19,34`,
+          pl:`Bez lektora — niech przemówią obraz, muzyka i cisza.
 
-Und doch kommt Gott.
-Wie jeden Tag.
-Und er ruft:
-„Wo bist du?“
+Sedno:
+• W Edenie nieufność otwiera źródło zniszczenia (lęk, wstyd, rozdarcie).
+• Bóg woła: „Gdzie jesteś?”
+• Na Krzyżu otwiera się drugie źródło: uzdrowienie i nowe życie.
 
-Nicht: Wo wart ihr?
-Sondern:
-Wo bist du – jetzt?
+Ref: Rdz 1–3 • Rdz 3,15 • J 4,10–14 • J 7,37–38 • J 19,34`,
+          ru:`Без озвучки — чтобы говорили образ, музыка и тишина.
 
-Aus diesem Bruch fließt eine Quelle des Unheils,
-die die Welt bis heute zeichnet:
-Trennung, Gewalt, Neid, Hass, Unterdrückung.
+Суть:
+• В Эдеме недоверие открывает источник беды (страх, стыд, разрыв).
+• Бог зовёт: «Где ты?»
+• На Кресте открывается второй источник: исцеление и новая жизнь.
 
-Aber Gott lässt den Menschen nicht fallen.
-Er eröffnet einen Weg zurück.
-Er gibt eine Verheißung:
-Einer wird kommen – verwundet, aber Sieger über das Böse.
+Ссылки: Быт 1–3 • Быт 3:15 • Ин 4:10–14 • Ин 7:37–38 • Ин 19:34`,
+          hr:`Bez voice-overa — neka govore slika, glazba i tišina.
 
-Und so öffnet sich eine zweite Quelle:
-die Quelle des Heils.
+Srž:
+• U Edenu nepovjerenje otvara izvor nesreće (strah, sram, raskid).
+• Bog zove: „Gdje si?“
+• Na Križu se otvara drugi izvor: ozdravljenje i novi život.
 
-Jesus sagt:
-„Wenn du wüsstest, wer dich bittet:
-Gib mir zu trinken…“
+Ref: Post 1–3 • Post 3,15 • Iv 4,10–14 • Iv 7,37–38 • Iv 19,34`,
+          bs:`Bez voice-overa — da govore slika, muzika i tišina.
 
-Er spricht von lebendigem Wasser,
-das nicht mehr durstig macht,
-und von Strömen lebendigen Wassers,
-die aus dem Inneren fließen.
+Suština:
+• U Edenu nepovjerenje otvara izvor nesreće (strah, sram, prekid).
+• Bog zove: „Gdje si?“
+• Na Krstu se otvara drugi izvor: iscjeljenje i novi život.
 
-Am Kreuz wird diese Quelle sichtbar:
-Das Herz Jesu wird geöffnet.
-Aus seiner Seite fließen Blut und Wasser.
-Diese Quelle verbindet neu – und führt ins Leben.
+Ref: Post 1–3 • Post 3,15 • Iv 4,10–14 • Iv 7,37–38 • Iv 19,34`,
+          sr:`Bez voice-overa — da govore slika, muzika i tišina.
 
-Und am Ende bleibt die Frage,
-die bis heute ruft:
-„Wo bist du?“
+Suština:
+• U Edenu nepoverenje otvara izvor nesreće (strah, sram, prekid).
+• Bog zove: „Gde si?“
+• Na Krstu se otvara drugi izvor: isceljenje i novi život.
 
-Und die Antwort beginnt dort,
-wo du antwortest:
-„Herr, hier bin ich.“ 🙏
+Ref: Post 1–3 • Post 3,15 • Jn 4,10–14 • Jn 7,37–38 • Jn 19,34`,
+          ro:`Fără voice-over — ca imaginea, muzica și tăcerea să vorbească.
 
-Bibelstellen:
-Gen 1–3 • Gen 3,15 • Joh 4,10–14 • Joh 7,37–38 • Joh 19,34
+Esențial:
+• În Eden, neîncrederea deschide izvorul rupturii (frică, rușine, separare).
+• Dumnezeu cheamă: „Unde ești?”
+• La Cruce se deschide al doilea izvor: vindecare și viață nouă.
 
-Hinweis: Die Bildwelt ist KI-gestützt erzeugt und bewusst künstlerisch gestaltet.` }
+Ref: Gen 1–3 • Gen 3,15 • In 4,10–14 • In 7,37–38 • In 19,34`,
+          tr:`Voice-over yok — görüntü, müzik ve sessizlik konuşsun.
+
+Öz:
+• Eden’de güvensizlik yıkım kaynağını açar (korku, utanç, kopuş).
+• Tanrı çağırır: “Neredesin?”
+• Çarmıhta ikinci kaynak açılır: şifa ve yeni yaşam.
+
+Ref: Yar 1–3 • Yar 3:15 • Yu 4:10–14 • Yu 7:37–38 • Yu 19:34`,
+          ar:`بدون تعليق صوتي — لتتكلّم الصورة والموسيقى والصمت.
+
+الخلاصة:
+• في عدن يفتح عدم الثقة مصدر الانكسار (خوف، خجل، انفصال).
+• الله ينادي: «أين أنت؟»
+• على الصليب ينفتح المصدر الثاني: شفاء وحياة جديدة.
+
+مراجع: تك 1–3 • تك 3:15 • يو 4:10–14 • يو 7:37–38 • يو 19:34`,
+          ur:`وائس اوور کے بغیر — تاکہ تصویر، موسیقی اور خاموشی بول سکیں۔
+
+خلاصہ:
+• عدن میں بے اعتمادی تباہی کا چشمہ کھولتی ہے (خوف، شرم، جدائی)۔
+• خدا پکارتا ہے: “تو کہاں ہے؟”
+• صلیب پر دوسرا چشمہ کھلتا ہے: شفا اور نئی زندگی۔
+
+حوالہ جات: پید 1–3 • پید 3:15 • یو 4:10–14 • یو 7:37–38 • یو 19:34`,
+          fa:`بدون گویندگی — تا تصویر، موسیقی و سکوت سخن بگویند.
+
+هسته:
+• در عدن بی‌اعتمادی سرچشمه‌ی گسست را می‌گشاید (ترس، شرم، جدایی).
+• خدا می‌پرسد: «کجایی؟»
+• بر صلیب سرچشمه‌ی دوم گشوده می‌شود: شفا و زندگی نو.
+
+ارجاع: پید 1–3 • پید 3:15 • یو 4:10–14 • یو 7:37–38 • یو 19:34`,
+          zh:`无旁白——让画面、音乐与沉默说话。
+
+核心：
+• 在伊甸，不信任开启了破裂之源（恐惧、羞耻、分离）。
+• 上帝呼唤：“你在哪里？”
+• 在十字架上，第二股泉源开启：医治与新生命。
+
+经文：创 1–3 • 创 3:15 • 约 4:10–14 • 约 7:37–38 • 约 19:34`,
+          hi:`बिना वॉइस-ओवर — ताकि चित्र, संगीत और मौन बोल सकें।
+
+मुख्य बात:
+• अदन में अविश्वास टूटन का स्रोत खोलता है (भय, लज्जा, अलगाव)।
+• परमेश्वर पुकारते हैं: “तुम कहाँ हो?”
+• क्रूस पर दूसरा स्रोत खुलता है: चंगाई और नया जीवन।
+
+संदर्भ: उत्प 1–3 • उत्प 3:15 • यूह 4:10–14 • यूह 7:37–38 • यूह 19:34`,
+          bn:`ভয়েস-ওভার নেই — যাতে ছবি, সঙ্গীত ও নীরবতা কথা বলে।
+
+মূল কথা:
+• এডেনে অবিশ্বাস ভাঙনের উৎস খুলে দেয় (ভয়, লজ্জা, বিচ্ছেদ)।
+• ঈশ্বর ডাকেন: “তুমি কোথায়?”
+• ক্রুশে দ্বিতীয় উৎস খুলে যায়: আরোগ্য ও নতুন জীবন।
+
+তথ্যসূত্র: আদি 1–3 • আদি 3:15 • যোহ 4:10–14 • যোহ 7:37–38 • যোহ 19:34`,
+          fil:`Walang voice-over — para magsalita ang larawan, musika, at katahimikan.
+
+Buod:
+• Sa Eden, ang kawalan ng tiwala ay nagbubukas ng bukal ng pagkasira (takot, hiya, pagkalayo).
+• Tumatawag ang Diyos: “Nasaan ka?”
+• Sa Krus, bumubukas ang ikalawang bukal: pagpapagaling at bagong buhay.
+
+Refs: Gen 1–3 • Gen 3:15 • Juan 4:10–14 • Juan 7:37–38 • Juan 19:34`,
+          ja:`ナレーションなし—映像と音楽と沈黙が語ります。
+
+要点：
+• エデンで不信が「破れの源」（恐れ・恥・隔たり）を開く。
+• 神は呼ぶ：「どこにいるのか？」
+• 十字架で第二の源が開く：癒しと新しい命。
+
+参照：創 1–3 • 創 3:15 • ヨハ 4:10–14 • 7:37–38 • 19:34`,
+          ko:`내레이션 없이 — 화면과 음악과 침묵이 말하도록.
+
+핵심:
+• 에덴에서 불신이 파괴의 샘(두려움, 수치, 단절)을 연다.
+• 하느님이 부르신다: “너는 어디 있느냐?”
+• 십자가에서 두 번째 샘이 열린다: 치유와 새 생명.
+
+참조: 창 1–3 • 창 3:15 • 요 4:10–14 • 요 7:37–38 • 요 19:34`,
+          vi:`Không lời thoại — để hình ảnh, âm nhạc và thinh lặng lên tiếng.
+
+Cốt lõi:
+• Ở Êđen, sự nghi ngờ mở ra nguồn đổ vỡ (sợ hãi, xấu hổ, chia lìa).
+• Thiên Chúa gọi: “Con ở đâu?”
+• Trên Thập giá, nguồn thứ hai mở ra: chữa lành và sự sống mới.
+
+Trích: St 1–3 • St 3,15 • Ga 4,10–14 • Ga 7,37–38 • Ga 19,34`,
+          ms:`Tanpa voice-over — biar imej, muzik dan kesunyian berbicara.
+
+Inti:
+• Di Eden, ketidakpercayaan membuka sumber keretakan (takut, malu, terpisah).
+• Tuhan memanggil: “Di mana kamu?”
+• Di Salib, sumber kedua terbuka: pemulihan dan hidup baru.
+
+Ruj: Kej 1–3 • Kej 3:15 • Yoh 4:10–14 • Yoh 7:37–38 • Yoh 19:34`,
+          ta:`வாய்ஸ்-ஓவர் இல்லை — படமும் இசையும் மௌனமும் பேசட்டும்.
+
+மையம்:
+• ஏதெனில் அவநம்பிக்கை முறிவின் ஊற்றைத் திறக்கிறது (பயம், அவமானம், பிரிவு).
+• இறைவன் அழைக்கிறார்: “நீ எங்கே?”
+• சிலுவையில் இரண்டாம் ஊற்று திறக்கிறது: சிகிச்சை/மீட்பு மற்றும் புதிய வாழ்க்கை.
+
+வசனங்கள்: ஆத் 1–3 • ஆத் 3:15 • யோவா 4:10–14 • 7:37–38 • 19:34`,
+          ku:`Bê voice-over — da wêne, muzîk û bêdengî biaxivin.
+
+Navîn:
+• Li Edenê bêbawerî çavkaniya qirêjiyê veke (tirsa, şerm, veqetîn).
+• Xwedê digot: “Tu li ku yî?”
+• Li Xaçê çavkaniya duyem vebe: şifayî û jiyana nû.
+
+Ref: Gen 1–3 • Gen 3:15 • Yûh 4:10–14 • 7:37–38 • 19:34`,
+          nl:`Zonder voice-over — zodat beeld, muziek en stilte spreken.
+
+Kern:
+• In Eden opent wantrouwen een bron van breuk (angst, schaamte, afstand).
+• God roept: “Waar ben je?”
+• Aan het Kruis opent de tweede bron: genezing en nieuw leven.
+
+Refs: Gen 1–3 • Gen 3:15 • Joh 4:10–14 • Joh 7:37–38 • Joh 19:34`,
+          uk:`Без озвучення — щоб говорили образ, музика й тиша.
+
+Суть:
+• В Едемі недовіра відкриває джерело розриву (страх, сором, відчуження).
+• Бог кличе: «Де ти?»
+• На Хресті відкривається друге джерело: зцілення й нове життя.
+
+Посилання: Бут 1–3 • Бут 3:15 • Ів 4:10–14 • Ів 7:37–38 • Ів 19:34`,
+          el:`Χωρίς αφήγηση — για να μιλήσουν εικόνα, μουσική και σιωπή.
+
+Πυρήνας:
+• Στην Εδέμ η δυσπιστία ανοίγει πηγή ρήξης (φόβος, ντροπή, απομάκρυνση).
+• Ο Θεός καλεί: «Πού είσαι;»
+• Στον Σταυρό ανοίγει η δεύτερη πηγή: ίαση και νέα ζωή.
+
+Αναφορές: Γεν 1–3 • Γεν 3:15 • Ιω 4:10–14 • Ιω 7:37–38 • Ιω 19:34`
+        }
       },
 
       {
@@ -900,24 +1395,68 @@ Hinweis: Die Bildwelt ist KI-gestützt erzeugt und bewusst künstlerisch gestalt
         ytId:"lOgCjDfg7Y8",
         start: 4,
         t: 4,
-        title:{ de:"„Mich dürstet.“ – Die Quelle des Heils (Herz Jesu | Gebet in der Stille)" },
-        desc:{ de:`Wenn du gerade viel trägst und innerlich leer bist: Komm zur Quelle. 8 Minuten Stille, Heilung und Nähe im Herz Jesu – ohne Druck. Komm wie du bist. 🙏🕯️
-
-Wenn deine Tage voll waren: Nachrichten. Stimmen. Termine. Gedanken… dann ist dieser Raum für dich.
-
-Ein stiller Weg zur Quelle des Heils. Dieses Video führt zum Herzen Jesu: Am Kreuz wurde seine Seite geöffnet – und aus ihr floss Wasser und Blut: Leben und Liebe.
-
-Und Jesus sagte: „Mich dürstet.“ Sein Durst war mehr als Durst nach Wasser: Es dürstete ihn nach Nähe… nach dir.
-
-Für alle, die Gott gerade nicht spüren: Trockenheit im Gebet, Leere, keine Worte – komm zur Quelle.
-
-Wenn du magst, leg jetzt (oder später im passenden Moment) eine Hand auf dein Herz. Spür, wie es schlägt: Du bist gewollt. Du bist geliebt. Und wenn dein Herz es zulässt, sag ganz leise, innerlich: „Jesus… ich gehöre dir.“
-
-🎧 Tipp: Kopfhörer an, Licht dimmen, keine Ablenkung – nur da sein.
-🕯️ Schreib mir gern in die Kommentare ein einziges Wort: „Quelle“ (oder: „Ich gehöre dir.“)
-
-Musik / Music: “Heaven’s Window” – Peter Kater
-Alle Rechte liegen bei den jeweiligen Rechteinhabern.` }
+        title:{
+          de:"„Mich dürstet.“ – Die Quelle des Heils (Herz Jesu | Gebet in der Stille)",
+          fr:"« J’ai soif. » — La source du salut (Cœur de Jésus | prière en silence)",
+          en:"“I thirst.” — The source of salvation (Sacred Heart | prayer in silence)",
+          pt:"“Tenho sede.” — A fonte da salvação (Coração de Jesus | oração em silêncio)",
+          it:"« Ho sete. » — La sorgente della salvezza (Cuore di Gesù | preghiera nel silenzio)",
+          es:"“Tengo sed.” — La fuente de la salvación (Corazón de Jesús | oración en silencio)",
+          pl:"„Pragnę.” — Źródło zbawienia (Serce Jezusa | modlitwa w ciszy)",
+          ru:"«Жажду.» — Источник спасения (Сердце Иисуса | молитва в тишине)",
+          hr:"„Žedan sam.” — Izvor spasenja (Isusovo Srce | molitva u tišini)",
+          bs:"„Žedan sam.” — Izvor spasenja (Srce Isusovo | molitva u tišini)",
+          sr:"„Žedan sam.” — Izvor spasenja (Srce Isusovo | molitva u tišini)",
+          ro:"„Mi-e sete.” — Izvorul mântuirii (Inima lui Isus | rugăciune în tăcere)",
+          tr:"“Susadım.” — Kurtuluşun kaynağı (İsa’nın Kalbi | sessiz dua)",
+          ar:"«أنا عطشان.» — ينبوع الخلاص (قلب يسوع | صلاة في صمت)",
+          ur:"“مجھے پیاس ہے۔” — نجات کا چشمہ (قلبِ یسوع | خاموش دعا)",
+          fa:"«تشنه‌ام.» — سرچشمهٔ نجات (قلب عیسی | دعای در سکوت)",
+          zh:"“我渴了。”——救恩之泉（耶稣圣心｜静默祈祷）",
+          hi:"“मैं प्यासा हूँ।” — उद्धार का स्रोत (यीशु का हृदय | मौन प्रार्थना)",
+          bn:"“আমি তৃষ্ণার্ত।” — মুক্তির উৎস (যীশুর হৃদয় | নীরব প্রার্থনা)",
+          fil:"“Nauuhaw ako.” — Ang bukal ng kaligtasan (Puso ni Hesus | panalangin sa katahimikan)",
+          ja:"「渇く」— 救いの源（イエスの御心｜静かな祈り）",
+          ko:"“목마르다.” — 구원의 샘 (예수 성심 | 침묵 기도)",
+          vi:"“Ta khát.” — Nguồn ơn cứu độ (Thánh Tâm Chúa Giêsu | cầu nguyện trong thinh lặng)",
+          ms:"“Aku dahaga.” — Sumber keselamatan (Hati Yesus | doa dalam hening)",
+          ta:"“எனக்கு தாகமாகிறது.” — மீட்பின் ஊற்று (இயேசு திரு இருதயம் | அமைதிப் பிரார்த்தனை)",
+          ku:"“Ez tînim.” — Çavkaniya xelasbûnê (Dilê Îsa | duaya bêdeng)",
+          nl:"“Ik heb dorst.” — De bron van heil (Heilig Hart | gebed in stilte)",
+          uk:"«Я прагну.» — Джерело спасіння (Серце Ісуса | молитва в тиші)",
+          el:"«Διψώ.» — Η πηγή της σωτηρίας (Ιερά Καρδιά | προσευχή στη σιωπή)"
+        },
+        desc:{
+          de:`Wenn du innerlich leer bist: Komm zur Quelle. Ein stiller Raum im Herzen Jesu — ohne Druck. Leg (wenn du willst) die Hand aufs Herz und bete leise: „Jesus… ich gehöre dir.“`,
+          fr:`Si tu te sens vide : viens à la source. Un espace de silence dans le Cœur de Jésus — sans pression. Si tu veux : main sur le cœur, et doucement : « Jésus… je suis à toi. »`,
+          en:`If you feel empty inside: come to the Source. A quiet space in the Heart of Jesus — no pressure. If you want: hand on your heart and whisper: “Jesus… I belong to You.”`,
+          pt:`Se você se sente vazio por dentro: venha à Fonte. Um espaço de silêncio no Coração de Jesus — sem pressão. Se quiser: mão no coração e diga baixinho: “Jesus… eu pertenço a Ti.”`,
+          it:`Se ti senti vuoto dentro: vieni alla Sorgente. Uno spazio di silenzio nel Cuore di Gesù — senza pressione. Se vuoi: mano sul cuore e sussurra: “Gesù… io appartengo a Te.”`,
+          es:`Si te sientes vacío por dentro: ven a la Fuente. Un espacio de silencio en el Corazón de Jesús — sin presión. Si quieres: mano en el corazón y susurra: “Jesús… te pertenezco.”`,
+          pl:`Jeśli czujesz pustkę: przyjdź do Źródła. Cicha przestrzeń w Sercu Jezusa — bez presji. Jeśli chcesz: dłoń na sercu i szept: „Jezu… należę do Ciebie.”`,
+          ru:`Если внутри пусто: приди к Источнику. Тихое пространство в Сердце Иисуса — без давления. Если хочешь: ладонь на сердце и тихо: «Иисус… я принадлежу Тебе».`,
+          hr:`Ako si iznutra prazan: dođi na Izvor. Tihi prostor u Isusovu Srcu — bez pritiska. Ako želiš: ruka na srce i šapni: “Isuse… pripadam ti.”`,
+          bs:`Ako si iznutra prazan: dođi na Izvor. Tihi prostor u Srcu Isusovu — bez pritiska. Ako želiš: ruka na srce i šapni: “Isuse… pripadam ti.”`,
+          sr:`Ako si iznutra prazan: dođi na Izvor. Tihi prostor u Srcu Isusovom — bez pritiska. Ako želiš: ruka na srce i šapni: “Isuse… pripadam ti.”`,
+          ro:`Dacă te simți gol pe dinăuntru: vino la Izvor. Un spațiu de tăcere în Inima lui Isus — fără presiune. Dacă vrei: mâna pe inimă și șoptește: „Isuse… îți aparțin.”`,
+          tr:`İçin boşsa: Kaynağa gel. İsa’nın Kalbinde sessiz bir alan — baskı yok. İstersen: elini kalbine koy ve fısılda: “İsa… Sana aitim.”`,
+          ar:`إن كنت تشعر بالفراغ: تعال إلى الينبوع. مساحة صمت في قلب يسوع — بلا ضغط. إن شئت: ضع يدك على قلبك وقل بهدوء: «يسوع… أنا لك».`,
+          ur:`اگر اندر سے خالی ہو: چشمے کے پاس آؤ۔ قلبِ یسوع میں ایک خاموش جگہ — بغیر دباؤ۔ چاہو تو ہاتھ دل پر رکھو اور آہستہ کہو: “یسوع… میں تیرا ہوں۔”`,
+          fa:`اگر درونت خالی است: به سرچشمه بیا. فضایی آرام در قلب عیسی — بدون فشار. اگر خواستی: دست بر قلب و آرام بگو: «عیسی… من از آنِ توام».`,
+          zh:`若你心里空：来到泉源。进入耶稣圣心的静默空间——不必勉强。若愿意：手放在心口，轻声说：“耶稣…我属于你。”`,
+          hi:`अगर भीतर खालीपन है: स्रोत के पास आओ। यीशु के हृदय में एक शांत स्थान — बिना दबाव। चाहो तो हाथ हृदय पर रखो और धीरे कहो: “यीशु… मैं तुम्हारा हूँ।”`,
+          bn:`ভেতরে শূন্য লাগলে: উৎসে এসো। যীশুর হৃদয়ে নীরব এক স্থান — কোনো চাপ নেই। চাইলে: হাত হৃদয়ে রেখে ধীরে বলো: “যীশু… আমি তোমার।”`,
+          fil:`Kung pakiramdam mo’y walang laman: lumapit sa Bukal. Isang tahimik na puwang sa Puso ni Hesus — walang pilit. Kung gusto mo: kamay sa dibdib at bulong: “Hesus… sa Iyo ako.”`,
+          ja:`心が空っぽなら：源へ。イエスの御心の静かな場所へ（無理はしないで）。よければ胸に手を置いて、小さく：「イエス…あなたのものです」。`,
+          ko:`속이 비어 있다면: 샘으로 오세요. 예수 성심 안의 고요한 자리 — 억지 없음. 원하면: 손을 가슴에 얹고 속삭이세요: “예수님… 저는 당신의 것입니다.”`,
+          vi:`Nếu lòng bạn trống rỗng: hãy đến với Nguồn. Một khoảng lặng trong Thánh Tâm Chúa Giêsu — không áp lực. Nếu muốn: đặt tay lên tim và khẽ thưa: “Lạy Chúa Giêsu… con thuộc về Ngài.”`,
+          ms:`Jika hatimu terasa kosong: datanglah ke Sumber. Ruang hening dalam Hati Yesus — tanpa paksaan. Jika mahu: tangan di dada dan bisik: “Yesus… aku milik-Mu.”`,
+          ta:`உள்ளம் காலியாக இருந்தால்: ஊற்றிற்கு வா. இயேசுவின் திரு இருதயத்தில் அமைதியான இடம் — அழுத்தமில்லை. விருப்பமெனில்: கை இதயத்தில் வைத்து மெதுவாக சொல்: “இயேசு… நான் உன்னுடையவன்.”`,
+          ku:`Heke dilê te vala ye: were çavkaniyê. Cihê bêdeng di Dilê Îsa de — bê zorlî. Heke dixwazî: dest li ser dil û bihêlî: “Îsa… ez ya te me.”`,
+          nl:`Voel je je vanbinnen leeg? Kom naar de Bron. Een stille ruimte in het Hart van Jezus — zonder druk. Als je wilt: hand op je hart en fluister: “Jezus… ik ben van U.”`,
+          uk:`Якщо всередині порожньо: прийди до Джерела. Тиха присутність у Серці Ісуса — без тиску. Якщо хочеш: рука на серці й тихо: «Ісусе… я належу Тобі».`,
+          el:`Αν νιώθεις άδειος μέσα σου: έλα στην Πηγή. Ένας ήσυχος χώρος στην Καρδιά του Ιησού — χωρίς πίεση. Αν θέλεις: χέρι στην καρδιά και ψιθύρισε: «Ιησού… Σου ανήκω».`
+        }
       },
 
       {
@@ -926,14 +1465,68 @@ Alle Rechte liegen bei den jeweiligen Rechteinhabern.` }
         ytId:"FJBBgkklXso",
         start: 1,
         t: 1,
-        title:{ de:"„Lebensübergabe & Weihe an das Herz Jesu (Gebet der Hingabe)“" },
-        desc:{ de:`Wenn du gerade müde bist… wenn dein Kopf zu laut ist… wenn du nur noch funktionierst: Dann ist dieses Video für dich.
-Ein stilles Gebet der Lebensübergabe & Weihe an das Herz Jesu. ❤️‍🔥
-
-Leg (wenn du kannst) die Hand auf dein Herz. Atme. Und bete einfach mit – so wie du bist.
-
-🙏 Wenn du willst, schreib in die Kommentare: „Ich komme.“
-Ich bete dann in den nächsten Tagen besonders für dich.` }
+        title:{
+          de:"„Lebensübergabe & Weihe an das Herz Jesu (Gebet der Hingabe)“",
+          fr:"« Abandon & consécration au Cœur de Jésus (prière d’offrande) »",
+          en:"“Surrender & consecration to the Heart of Jesus (prayer of offering)”",
+          pt:"“Entrega & consagração ao Coração de Jesus (oração de entrega)”",
+          it:"« Abbandono & consacrazione al Cuore di Gesù (preghiera di offerta) »",
+          es:"“Entrega y consagración al Corazón de Jesús (oración de entrega)”",
+          pl:"„Oddanie życia i poświęcenie Sercu Jezusa (modlitwa zawierzenia)”",
+          ru:"«Предание жизни и посвящение Сердцу Иисуса (молитва отдачи)»",
+          hr:"„Predanje života i posveta Srcu Isusovu (molitva predanja)”",
+          bs:"„Predaja života i posveta Srcu Isusovu (molitva predaje)”",
+          sr:"„Predanje života i posveta Srcu Isusovom (molitva predanja)”",
+          ro:"„Predarea vieții & consacrarea Inimii lui Isus (rugăciune de dăruire)”",
+          tr:"“Hayatını teslim etme & İsa’nın Kalbine adama (teslimiyet duası)”",
+          ar:"«تسليم الحياة وتكريسها لقلب يسوع (صلاة التسليم)»",
+          ur:"“زندگی سپردگی اور قلبِ یسوع کے لئے وقف (دعائے سپردگی)”",
+          fa:"«سپردن زندگی و تقدیس به قلب عیسی (دعای سپردگی)»",
+          zh:"“生命交托与奉献给耶稣圣心（交托祈祷）”",
+          hi:"“जीवन समर्पण व यीशु के हृदय को अभिषेक (समर्पण प्रार्थना)”",
+          bn:"“জীবন সমর্পণ ও যীশুর হৃদয়ে উৎসর্গ (সমর্পণের প্রার্থনা)”",
+          fil:"“Pag-aalay ng buhay at paglalaan sa Puso ni Hesus (panalangin ng pag-aalay)”",
+          ja:"「人生の奉献とイエスの御心への奉献（献げの祈り）」",
+          ko:"“삶의 봉헌과 예수 성심 봉헌(봉헌 기도)”",
+          vi:"“Phó dâng đời sống & thánh hiến cho Thánh Tâm Chúa Giêsu (lời nguyện phó dâng)”",
+          ms:"“Penyerahan hidup & pentahbisan kepada Hati Yesus (doa penyerahan)”",
+          ta:"“வாழ்வை ஒப்படைத்தல் & இயேசு திரு இருதயத்திற்கு அர்ப்பணம் (ஒப்படைக்கும் பிரார்த்தனை)”",
+          ku:"“Teslîmkirina jiyanê & pîrozikirina Dilê Îsa (duaya teslîmê)”",
+          nl:"“Levensovergave & toewijding aan het Hart van Jezus (gebed van overgave)”",
+          uk:"«Віддання життя та посвята Серцю Ісуса (молитва віддання)»",
+          el:"«Παράδοση ζωής & αφιέρωση στην Καρδιά του Ιησού (προσευχή παράδοσης)»"
+        },
+        desc:{
+          de:`Wenn du müde bist oder der Kopf zu laut: Dieses Gebet hilft, das Leben neu Jesus anzuvertrauen. Hand aufs Herz, atmen, einfach mitbeten — so wie du bist.`,
+          fr:`Si tu es fatigué ou que ta tête est trop bruyante : cette prière t’aide à confier à nouveau ta vie à Jésus. Main sur le cœur, respire, prie simplement — tel que tu es.`,
+          en:`If you’re tired or your mind is too loud: this prayer helps you entrust your life to Jesus again. Hand on heart, breathe, pray along — as you are.`,
+          pt:`Se você está cansado ou com a mente barulhenta: esta oração ajuda a confiar sua vida novamente a Jesus. Mão no coração, respire e reze — como você está.`,
+          it:`Se sei stanco o la mente è troppo rumorosa: questa preghiera ti aiuta ad affidare di nuovo la tua vita a Gesù. Mano sul cuore, respira e prega — così come sei.`,
+          es:`Si estás cansado o tu mente está demasiado ruidosa: esta oración te ayuda a volver a confiar tu vida a Jesús. Mano en el corazón, respira y reza — tal como estás.`,
+          pl:`Jeśli jesteś zmęczony lub w głowie jest zbyt głośno: ta modlitwa pomaga na nowo powierzyć życie Jezusowi. Dłoń na sercu, oddech, módl się — taki, jaki jesteś.`,
+          ru:`Если ты устал или в голове слишком шумно: эта молитва помогает заново доверить жизнь Иисусу. Ладонь на сердце, вдох-выдох, молись — таким, какой ты есть.`,
+          hr:`Ako si umoran ili je u glavi preglasno: ova molitva pomaže iznova povjeriti život Isusu. Ruka na srce, diši, moli — takav kakav jesi.`,
+          bs:`Ako si umoran ili je u glavi preglasno: ova molitva pomaže iznova povjeriti život Isusu. Ruka na srce, diši, moli — takav kakav jesi.`,
+          sr:`Ako si umoran ili je u glavi preglasno: ova molitva pomaže iznova poveriti život Isusu. Ruka na srce, diši, moli — takav kakav jesi.`,
+          ro:`Dacă ești obosit sau ai mintea prea gălăgioasă: această rugăciune te ajută să-ți încredințezi din nou viața lui Isus. Mâna pe inimă, respiră, roagă-te — așa cum ești.`,
+          tr:`Yorgunsan ya da zihnin çok gürültülüyse: bu dua hayatını yeniden İsa’ya emanet etmene yardım eder. Elini kalbine koy, nefes al, dua et — olduğun gibi.`,
+          ar:`إن كنت متعبًا أو ذهنك صاخبًا: هذه الصلاة تساعدك أن تسلّم حياتك من جديد ليسوع. يد على القلب، تنفّس، وصلِّ — كما أنت.`,
+          ur:`اگر تم تھکے ہو یا ذہن بہت شور کر رہا ہو: یہ دعا زندگی کو دوبارہ یسوع کے سپرد کرنے میں مدد دیتی ہے۔ ہاتھ دل پر، سانس لو، ساتھ دعا کرو — جیسے ہو۔`,
+          fa:`اگر خسته‌ای یا ذهنت خیلی شلوغ است: این دعا کمک می‌کند زندگی‌ات را دوباره به عیسی بسپاری. دست روی قلب، نفس، و همراه دعا کن — همان‌گونه که هستی.`,
+          zh:`若你疲惫或思绪太吵：这段祈祷帮助你再次把生命交托给耶稣。手放在心口，呼吸，跟着祈祷——如你所是。`,
+          hi:`यदि आप थके हैं या मन बहुत शोर करता है: यह प्रार्थना जीवन को फिर से यीशु को सौंपने में मदद करती है। हाथ हृदय पर, सांस लें, और साथ प्रार्थना करें — जैसे आप हैं।`,
+          bn:`আপনি ক্লান্ত বা মাথা খুব ‘শোর’ করলে: এই প্রার্থনা আপনার জীবন আবার যীশুর কাছে সমর্পণ করতে সাহায্য করে। হাত হৃদয়ে, শ্বাস নিন, সঙ্গে প্রার্থনা করুন — যেমন আছেন।`,
+          fil:`Kung pagod ka o masyadong maingay ang isip: tutulungan ka ng panalanging ito na ialay muli ang buhay kay Hesus. Kamay sa dibdib, huminga, at manalangin — kung ano ka man ngayon.`,
+          ja:`疲れている、頭が騒がしい…そんな時に。人生をもう一度イエスに委ねる祈りです。胸に手を置き、呼吸し、ありのままで祈ってください。`,
+          ko:`지치거나 머리가 너무 시끄러울 때: 이 기도는 삶을 다시 예수님께 맡기도록 돕습니다. 손을 가슴에, 숨을 쉬고, 그대로 함께 기도하세요.`,
+          vi:`Nếu bạn mệt mỏi hoặc tâm trí quá ồn: lời nguyện này giúp bạn phó dâng đời mình lại cho Chúa Giêsu. Đặt tay lên tim, hít thở, và cầu nguyện — như chính bạn.`,
+          ms:`Jika kamu letih atau fikiran terlalu bising: doa ini membantu menyerahkan hidupmu kembali kepada Yesus. Tangan di dada, bernafas, berdoa — seadanya.`,
+          ta:`நீ சோர்ந்திருந்தால் அல்லது மனம் மிகச் சத்தமாக இருந்தால்: இந்தப் பிரார்த்தனை மீண்டும் வாழ்வை இயேசுவிற்கு ஒப்படைக்க உதவும். கை இதயத்தில், மூச்சு, & இணைந்து பிரார்த்தனை — நீ இருப்பது போலவே.`,
+          ku:`Heke tu westiyayî an serê te pir dengdar e: ev dua alîkarî dike ku jiyana xwe dîsa bide Îsa. Dest li ser dil, bihêlî, û bi hev re dua bike — wisa ku yî.`,
+          nl:`Ben je moe of is je hoofd te luid? Dit gebed helpt je je leven opnieuw aan Jezus toe te vertrouwen. Hand op je hart, adem, bid mee — zoals je bent.`,
+          uk:`Якщо ти втомився або в голові занадто шумно: ця молитва допомагає знову довірити життя Ісусові. Рука на серці, подих, молись разом — таким, як є.`,
+          el:`Αν είσαι κουρασμένος ή το μυαλό σου είναι πολύ «θορυβώδες»: αυτή η προσευχή βοηθά να εμπιστευτείς ξανά τη ζωή σου στον Ιησού. Χέρι στην καρδιά, ανάσα, προσευχή — όπως είσαι.`
+        }
       },
 
       {
@@ -942,39 +1535,140 @@ Ich bete dann in den nächsten Tagen besonders für dich.` }
         ytId:"5g57wBxzxAE",
         start: 9,
         t: 9,
-        title:{ de:"Christus in uns – ein neues Leben." },
-        desc:{ de:`Du kämpfst. Du strengst dich an. Und trotzdem bleibt es innen leer? Vielleicht ist nicht dein Einsatz das Problem – sondern der Ort, an dem du kämpfst.
-
-Blick auf Jesus. Nicht auf dich.
-
-Am Ende bekommst du eine 30-Sekunden-Übung, wenn du keine Worte mehr hast. Für Tage mit Druck, Scham, innerer Trockenheit, Abend-Leere – und für alle, die einfach wieder zurück zu Jesus wollen.
-
-Schreib mir in die Kommentare ein Wort: „Quelle“
-Ich lese jeden Kommentar.
-Du bist nicht allein. ❤️` }
+        title:{
+          de:"Christus in uns – ein neues Leben.",
+          fr:"Le Christ en nous — une vie nouvelle.",
+          en:"Christ in us — a new life.",
+          pt:"Cristo em nós — uma vida nova.",
+          it:"Cristo in noi — una vita nuova.",
+          es:"Cristo en nosotros — una vida nueva.",
+          pl:"Chrystus w nas — nowe życie.",
+          ru:"Христос в нас — новая жизнь.",
+          hr:"Krist u nama — novi život.",
+          bs:"Krist u nama — novi život.",
+          sr:"Hristos u nama — novi život.",
+          ro:"Cristos în noi — o viață nouă.",
+          tr:"İçimizde Mesih — yeni bir yaşam.",
+          ar:"المسيح فينا — حياة جديدة.",
+          ur:"ہم میں مسیح — نئی زندگی۔",
+          fa:"مسیح در ما — زندگی نو.",
+          zh:"基督在我们里面——新的生命。",
+          hi:"हम में मसीह — नया जीवन।",
+          bn:"আমাদের মধ্যে খ্রীষ্ট — নতুন জীবন।",
+          fil:"Si Kristo sa atin — bagong buhay.",
+          ja:"私たちの内なるキリスト — 新しい命。",
+          ko:"우리 안의 그리스도 — 새 삶.",
+          vi:"Đức Kitô trong ta — sự sống mới.",
+          ms:"Kristus dalam kita — hidup baru.",
+          ta:"நம்முள் கிறிஸ்து — புதிய வாழ்க்கை.",
+          ku:"Mesîh di me de — jiyaneke nû.",
+          nl:"Christus in ons — een nieuw leven.",
+          uk:"Христос у нас — нове життя.",
+          el:"Ο Χριστός μέσα μας — νέα ζωή."
+        },
+        desc:{
+          de:`Du kämpfst – und innen bleibt es leer? Vielleicht ist nicht dein Einsatz das Problem, sondern der Ort, an dem du kämpfst. Blick auf Jesus, nicht auf dich. Am Ende: eine kurze Übung für Tage ohne Worte.`,
+          fr:`Tu luttes — et tu te sens vide ? Peut-être que le problème n’est pas ton effort, mais l’endroit où tu combats. Regarde Jésus, pas toi. À la fin : un exercice court pour les jours sans mots.`,
+          en:`You fight — yet it stays empty inside? Maybe it’s not your effort, but where you’re fighting. Look at Jesus, not at yourself. At the end: a short exercise for days without words.`,
+          pt:`Você luta — e por dentro continua vazio? Talvez o problema não seja o seu esforço, mas onde você está lutando. Olhe para Jesus, não para si. No final: um exercício curto para dias sem palavras.`,
+          it:`Lotti — e dentro resta vuoto? Forse non è il tuo impegno, ma il luogo in cui combatti. Guarda Gesù, non te stesso. Alla fine: un esercizio breve per i giorni senza parole.`,
+          es:`Luchas — y por dentro sigue vacío? Quizá el problema no sea tu esfuerzo, sino dónde estás luchando. Mira a Jesús, no a ti. Al final: un ejercicio corto para días sin palabras.`,
+          pl:`Walczysz — a w środku wciąż pusto? Może problemem nie jest wysiłek, lecz miejsce walki. Patrz na Jezusa, nie na siebie. Na końcu: krótka praktyka na dni bez słów.`,
+          ru:`Ты борешься — а внутри пусто? Возможно, дело не в усилии, а в месте борьбы. Смотри на Иисуса, не на себя. В конце: короткое упражнение на дни без слов.`,
+          hr:`Boriš se — a iznutra ostaje prazno? Možda problem nije tvoj trud, nego mjesto borbe. Gledaj Isusa, ne sebe. Na kraju: kratka vježba za dane bez riječi.`,
+          bs:`Boriš se — a iznutra ostaje prazno? Možda problem nije tvoj trud, nego mjesto borbe. Gledaj Isusa, ne sebe. Na kraju: kratka vježba za dane bez riječi.`,
+          sr:`Boriš se — a iznutra ostaje prazno? Možda problem nije tvoj trud, nego mesto borbe. Gledaj Isusa, ne sebe. Na kraju: kratka vežba za dane bez reči.`,
+          ro:`Te lupți — și totuși e gol înăuntru? Poate nu e problema efortul, ci locul în care te lupți. Privește la Isus, nu la tine. La final: un exercițiu scurt pentru zile fără cuvinte.`,
+          tr:`Mücadele ediyorsun — ama içerisi boş mu kalıyor? Belki sorun çaban değil, savaştığın yer. İsa’ya bak, kendine değil. Sonda: sözsüz günler için kısa bir egzersiz.`,
+          ar:`أنت تجاهد — لكن الداخل يبقى فارغًا؟ ربما المشكلة ليست جهدك، بل المكان الذي تجاهد فيه. انظر إلى يسوع، لا إلى نفسك. في النهاية: تمرين قصير لأيام بلا كلمات.`,
+          ur:`تم جدوجہد کرتے ہو — پھر بھی اندر خالی؟ شاید مسئلہ کوشش نہیں، بلکہ وہ جگہ ہے جہاں تم لڑ رہے ہو۔ یسوع پر نظر، خود پر نہیں۔ آخر میں: بے الفاظ دنوں کے لیے مختصر مشق۔`,
+          fa:`می‌جنگی — اما درونت خالی می‌ماند؟ شاید مشکل تلاش تو نیست، بلکه جایی است که می‌جنگی. نگاهت به عیسی باشد، نه به خودت. پایان: تمرینی کوتاه برای روزهای بی‌کلام.`,
+          zh:`你在奋斗——但里面仍空？也许问题不在努力，而在你“在哪里”战斗。看向耶稣，而不是自己。结尾：30秒小练习，给那些说不出话的日子。`,
+          hi:`आप संघर्ष करते हैं — फिर भी भीतर खाली? शायद समस्या आपका प्रयास नहीं, बल्कि जहाँ आप लड़ रहे हैं वह जगह है। यीशु की ओर देखिए, खुद की ओर नहीं। अंत में: शब्दों के बिना दिनों के लिए छोटा अभ्यास।`,
+          bn:`আপনি লড়াই করেন — তবু ভেতরে শূন্য? হয়তো সমস্যা আপনার চেষ্টা নয়, বরং আপনি কোথায় লড়ছেন। যীশুর দিকে তাকান, নিজের দিকে নয়। শেষে: কথাহীন দিনের জন্য ছোট অনুশীলন।`,
+          fil:`Nakikipaglaban ka — pero parang walang laman sa loob? Baka hindi ang pagsisikap ang problema, kundi kung saan ka nakikipaglaban. Tumingin kay Hesus, hindi sa sarili. Sa dulo: maikling ehersisyo para sa mga araw na walang salita.`,
+          ja:`頑張っているのに、心が空っぽ？問題は努力ではなく「戦う場所」かもしれません。自分ではなくイエスを見て。最後に：言葉が出ない日のための短い実践。`,
+          ko:`애쓰는데도 속이 비어 있나요? 문제는 노력보다 ‘어디서’ 싸우는지일 수 있습니다. 자신이 아니라 예수님을 보세요. 끝에는 말이 안 나오는 날을 위한 짧은 연습이 있어요.`,
+          vi:`Bạn chiến đấu — mà lòng vẫn trống rỗng? Có thể không phải nỗ lực của bạn, mà là nơi bạn đang chiến đấu. Nhìn lên Chúa Giêsu, không nhìn vào mình. Cuối video: bài tập ngắn cho những ngày không có lời.`,
+          ms:`Kamu berjuang — tapi masih kosong di dalam? Mungkin bukan usaha, tetapi tempat kamu berjuang. Pandang Yesus, bukan diri sendiri. Di akhir: latihan ringkas untuk hari-hari tanpa kata.`,
+          ta:`நீ போராடுகிறாய் — ஆனாலும் உள்ளே வெற்றிடமா? ஒருவேளை பிரச்சனை முயற்சி அல்ல; நீ “எங்கே” போராடுகிறாய் என்பதே. உன்னை அல்ல, இயேசுவைப் பார். இறுதியில்: வார்த்தையில்லா நாட்களுக்கு ஒரு சிறு பயிற்சி.`,
+          ku:`Tu têdikevî — lê hundir vala? Dibe ku pirsgirêk ne hewl, lê cihê şerê ye. Li Îsa binêre, ne li xwe. Di dawiyê de: pratîka kurt ji bo rojên bê peyv.`,
+          nl:`Je vecht — maar vanbinnen blijft het leeg? Misschien is niet je inzet het probleem, maar waar je vecht. Kijk naar Jezus, niet naar jezelf. Aan het einde: een korte oefening voor dagen zonder woorden.`,
+          uk:`Ти борешся — а всередині порожньо? Можливо, проблема не в зусиллях, а в тому, де ти борешся. Дивись на Ісуса, не на себе. Наприкінці: коротка вправа для днів без слів.`,
+          el:`Αγωνίζεσαι — κι όμως μέσα σου μένει κενό; Ίσως το πρόβλημα δεν είναι η προσπάθεια, αλλά το «πού» αγωνίζεσαι. Κοίτα τον Ιησού, όχι τον εαυτό σου. Στο τέλος: μια σύντομη άσκηση για μέρες χωρίς λόγια.`
+        }
       },
 
       {
         key:"v6",
         type:"iframe",
         ytId:"si2zrh8t_5k",
-        title:{ de:"Bleibe in der Kraft des Evangeliums" },
-        desc:{ de:`Du lebst nicht vom Brot allein – sondern von jedem Wort, das aus Gottes Mund kommt. (Mt 4,4)
-
-Wenn du innerlich müde bist, voller Druck, Zweifel oder Trockenheit: Es gibt eine Kraft, die nicht aus dir kommt. Sie kommt aus dem Evangelium – aus Gottes Wort.
-In diesem Video:
-• Warum Gottes Wort Nahrung ist (nicht nur Information)
-• Wie Treue dich baut: 1 Kapitel am Tag
-• Wie „Riesen“ in deinem Leben fallen, wenn du in der Barmherzigkeit wächst
-• Warum das Herz von allem Joh 3,16 ist: Sobald du glaubst, kommt ewiges Leben in dich
-• Deine 7-Tage-Challenge: Jeden Tag ein Kapitel Bibel
-
-Bibelstellen (zur Vertiefung):
-Mt 4,4 • Dan 11,32 • 2 Petr 1,2 • Kol 3,16 • Joh 8,31 • Phil 3,8–10 • Röm 1,16 • Apg 4,20 • Joh 3,16 • Mk 16,15 • Mk 16,20` }
+        title:{
+          de:"Bleibe in der Kraft des Evangeliums",
+          fr:"Reste dans la puissance de l’Évangile",
+          en:"Remain in the power of the Gospel",
+          pt:"Permanece na força do Evangelho",
+          it:"Resta nella forza del Vangelo",
+          es:"Permanece en la fuerza del Evangelio",
+          pl:"Trwaj w mocy Ewangelii",
+          ru:"Оставайся в силе Евангелия",
+          hr:"Ostani u snazi Evanđelja",
+          bs:"Ostani u snazi Evanđelja",
+          sr:"Ostani u sili Jevanđelja",
+          ro:"Rămâi în puterea Evangheliei",
+          tr:"Müjdenin gücünde kal",
+          ar:"اثبت في قوة الإنجيل",
+          ur:"انجیل کی قدرت میں قائم رہو",
+          fa:"در قدرت انجیل بمان",
+          zh:"停留在福音的大能里",
+          hi:"सुसमाचार की शक्ति में बने रहो",
+          bn:"সুসমাচারের শক্তিতে স্থির থাকো",
+          fil:"Manatili sa lakas ng Ebanghelyo",
+          ja:"福音の力にとどまる",
+          ko:"복음의 능력 안에 머물라",
+          vi:"Ở lại trong sức mạnh của Tin Mừng",
+          ms:"Tetap dalam kuasa Injil",
+          ta:"சுவிசேஷத்தின் வல்லமையில் நிலைத்திரு",
+          ku:"Di hêza Încîlê de bimîne",
+          nl:"Blijf in de kracht van het Evangelie",
+          uk:"Залишайся в силі Євангелія",
+          el:"Μείνε στη δύναμη του Ευαγγελίου"
+        },
+        desc:{
+          de:`Gottes Wort ist Nahrung – nicht nur Information. Treue baut: 1 Kapitel am Tag. Und die Herausforderung: 7 Tage lang jeden Tag ein Kapitel Bibel.`,
+          fr:`La Parole de Dieu est une nourriture — pas seulement une information. La fidélité construit : 1 chapitre par jour. Défi : 7 jours, un chapitre de Bible par jour.`,
+          en:`God’s Word is food — not just information. Faithfulness builds: one chapter a day. Challenge: 7 days, one Bible chapter each day.`,
+          pt:`A Palavra de Deus é alimento — não só informação. A fidelidade constrói: 1 capítulo por dia. Desafio: 7 dias, um capítulo da Bíblia por dia.`,
+          it:`La Parola di Dio è nutrimento — non solo informazione. La fedeltà costruisce: 1 capitolo al giorno. Sfida: 7 giorni, un capitolo di Bibbia al giorno.`,
+          es:`La Palabra de Dios es alimento — no solo información. La fidelidad construye: 1 capítulo al día. Reto: 7 días, un capítulo de Biblia cada día.`,
+          pl:`Słowo Boże to pokarm — nie tylko informacja. Wierność buduje: 1 rozdział dziennie. Wyzwanie: 7 dni, codziennie jeden rozdział Biblii.`,
+          ru:`Слово Божие — пища, а не только информация. Верность созидает: 1 глава в день. Вызов: 7 дней — каждый день по главе Библии.`,
+          hr:`Božja riječ je hrana — ne samo informacija. Vjernost gradi: 1 poglavlje na dan. Izazov: 7 dana, svaki dan jedno poglavlje Biblije.`,
+          bs:`Božja riječ je hrana — ne samo informacija. Vjernost gradi: 1 poglavlje na dan. Izazov: 7 dana, svaki dan jedno poglavlje Biblije.`,
+          sr:`Božja reč je hrana — ne samo informacija. Vernost gradi: 1 poglavlje dnevno. Izazov: 7 dana, svakog dana jedno poglavlje Biblije.`,
+          ro:`Cuvântul lui Dumnezeu este hrană — nu doar informație. Fidelitatea zidește: 1 capitol pe zi. Provocare: 7 zile, în fiecare zi un capitol din Biblie.`,
+          tr:`Tanrı’nın Sözü besindir — sadece bilgi değil. Sadakat inşa eder: günde 1 bölüm. Meydan okuma: 7 gün boyunca her gün 1 Kutsal Kitap bölümü.`,
+          ar:`كلمة الله غذاء — ليست مجرد معلومات. الأمانة تبني: فصل واحد يوميًا. تحدّي: 7 أيام، كل يوم فصل من الكتاب المقدّس.`,
+          ur:`خدا کا کلام غذا ہے — صرف معلومات نہیں۔ وفاداری بناتی ہے: روز ایک باب۔ چیلنج: 7 دن، ہر دن بائبل کا ایک باب۔`,
+          fa:`کلام خدا خوراک است — فقط اطلاعات نیست. وفاداری می‌سازد: روزی یک فصل. چالش: ۷ روز، هر روز یک فصل از کتاب مقدس.`,
+          zh:`上帝的话语是食粮——不仅是信息。忠心会建立你：每天一章。挑战：7天，每天读一章圣经。`,
+          hi:`परमेश्वर का वचन भोजन है — केवल जानकारी नहीं। विश्वासयोग्यता बनाती है: रोज़ 1 अध्याय। चुनौती: 7 दिन, हर दिन बाइबल का 1 अध्याय।`,
+          bn:`ঈশ্বরের বাক্য খাদ্য — শুধু তথ্য নয়। বিশ্বস্ততা গড়ে তোলে: দিনে ১ অধ্যায়। চ্যালেঞ্জ: ৭ দিন, প্রতিদিন বাইবেলের ১ অধ্যায়।`,
+          fil:`Ang Salita ng Diyos ay pagkain — hindi lang impormasyon. Ang katapatan ay bumubuo: 1 kabanata bawat araw. Hamon: 7 araw, araw-araw 1 kabanata ng Bibliya.`,
+          ja:`神の言葉は「栄養」—情報だけではありません。忠実さがあなたを育てる：1日1章。チャレンジ：7日間、毎日聖書を1章。`,
+          ko:`하느님의 말씀은 ‘양식’입니다 — 정보만이 아닙니다. 충실함이 사람을 세웁니다: 하루 한 장. 도전: 7일 동안 매일 성경 한 장.`,
+          vi:`Lời Chúa là lương thực — không chỉ là thông tin. Sự trung tín xây dựng: mỗi ngày 1 chương. Thử thách: 7 ngày, mỗi ngày 1 chương Kinh Thánh.`,
+          ms:`Firman Tuhan adalah makanan — bukan sekadar informasi. Kesetiaan membina: 1 bab sehari. Cabaran: 7 hari, setiap hari 1 bab Alkitab.`,
+          ta:`தேவ வார்த்தை ‘உணவு’ — தகவல் மட்டுமல்ல. நம்பிக்கையுடன் நிலைத்திருப்பது வளர்க்கும்: தினமும் 1 அத்தியாயம். சவால்: 7 நாட்கள், தினமும் பைபிள் 1 அத்தியாயம்.`,
+          ku:`Peyva Xwedê xwarin e — ne tenê agahî. Dilsozî ava dike: her roj 1 beş. Şermezar: 7 roj, her roj 1 beşa Biblê.`,
+          nl:`Gods Woord is voedsel — niet alleen informatie. Trouw bouwt: 1 hoofdstuk per dag. Uitdaging: 7 dagen lang elke dag 1 Bijbelhoofdstuk.`,
+          uk:`Боже Слово — це пожива, не лише інформація. Вірність будує: 1 розділ на день. Виклик: 7 днів, щодня один розділ Біблії.`,
+          el:`Ο Λόγος του Θεού είναι τροφή — όχι μόνο πληροφορία. Η πιστότητα σε χτίζει: 1 κεφάλαιο την ημέρα. Πρόκληση: 7 μέρες, κάθε μέρα 1 κεφάλαιο από τη Βίβλο.`
+        }
       }
     ];
 
-    // --------- Helpers (NO EN fallback, fallback = DE) ----------
+    // --------- Helpers ----------
     const pickDE = (lang, map) => {
       if (!map) return "";
       if (Object.prototype.hasOwnProperty.call(map, lang)) return map[lang] || "";
@@ -1009,7 +1703,7 @@ Mt 4,4 • Dan 11,32 • 2 Petr 1,2 • Kol 3,16 • Joh 8,31 • Phil 3,8–10 
     ensureLangInUrl(lang);
 
     const deUI = T.de;
-    const ui = T[lang] || deUI; // NO EN fallback; if unknown -> DE
+    const ui = T[lang] || deUI;
 
     document.documentElement.lang = ui.htmlLang || lang;
     document.documentElement.dir  = ui.dir || (RTL.has(lang) ? "rtl" : "ltr");
@@ -1050,13 +1744,13 @@ Mt 4,4 • Dan 11,32 • 2 Petr 1,2 • Kol 3,16 • Joh 8,31 • Phil 3,8–10 
     setText("pubP", ui.pubP || deUI.pubP);
     setText("contactWord", ui.contactWord || deUI.contactWord);
 
-    // Add lang to ALL internal links (incl. nav + cards)
+    // Add lang to ALL internal links
     document.querySelectorAll("a[href]").forEach(a => {
       const href = a.getAttribute("href") || "";
       a.setAttribute("href", withLang(href, lang));
     });
 
-    // --------- Render videos (defensive) ----------
+    // --------- Render videos ----------
     const grid = document.getElementById("videosGrid");
     if (!grid) return;
 
@@ -1088,13 +1782,9 @@ Mt 4,4 • Dan 11,32 • 2 Petr 1,2 • Kol 3,16 • Joh 8,31 • Phil 3,8–10 
               <div class="desc">${nl2br(desc)}</div>
             </div>
 
-            ${v.extraMuted ? `<p class="muted" style="margin-top:10px;">${escapeHTML(pickDE(lang, v.extraMuted))}</p>` : ""}
-
             <div class="video-actions">
               <a class="btn" href="${watchUrl(v.ytId, v.t)}" target="_blank" rel="noopener">${escapeHTML(ui.watch || deUI.watch)}</a>
             </div>
-
-            ${v.showPrivateHint ? `<p class="muted" style="margin-top:10px;">${escapeHTML(ui.privateHint || deUI.privateHint)}</p>` : ""}
           `;
         }
 
