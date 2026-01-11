@@ -1,4 +1,4 @@
-<!-- FILE: start.html (FINAL) -->
+<!-- FILE: start.html (FINAL – Cloudflare Pages Clean Routes + lamp_lang + DE fallback) -->
 <!doctype html>
 <html lang="de" dir="ltr">
 <head>
@@ -21,7 +21,7 @@
         <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">Der Fackelträger</div>
+          <div class="mini" id="brandMini">Der Fackelträger</div>
         </div>
       </div>
 
@@ -29,15 +29,15 @@
       <p class="sub" id="heroSub"></p>
 
       <nav class="nav" aria-label="Navigation">
-        <!-- Clean routes -->
+        <!-- Clean Routes -->
         <a class="btn primary" id="navStart" href="/start"></a>
-        <a class="btn" id="navAbout" href="about.html"></a>
+        <a class="btn" id="navAbout" href="/about"></a>
         <a class="btn" id="navFilms" href="/filme"></a>
-        <a class="btn" id="navImpulses" href="impulse.html"></a>
-        <a class="btn" id="navWorkshop" href="werkstatt.html"></a>
-        <a class="btn" id="navOffers" href="angebote.html"></a>
-        <a class="btn" id="navShop" href="shop.html"></a>
-        <a class="btn" id="navLinks" href="links.html"></a>
+        <a class="btn" id="navImpulses" href="/impulse"></a>
+        <a class="btn" id="navWorkshop" href="/werkstatt"></a>
+        <a class="btn" id="navOffers" href="/angebote"></a>
+        <a class="btn" id="navShop" href="/shop"></a>
+        <a class="btn" id="navLinks" href="/links"></a>
       </nav>
 
       <div class="note" id="noteLine"></div>
@@ -47,7 +47,7 @@
       <article class="card">
         <h2 id="cAboutH"></h2>
         <p id="cAboutP"></p>
-        <a id="cAboutA" href="about.html"></a>
+        <a id="cAboutA" href="/about"></a>
       </article>
 
       <article class="card">
@@ -59,25 +59,25 @@
       <article class="card">
         <h2 id="cImpH"></h2>
         <p id="cImpP"></p>
-        <a id="cImpA" href="impulse.html"></a>
+        <a id="cImpA" href="/impulse"></a>
       </article>
 
       <article class="card">
         <h2 id="cWorkH"></h2>
         <p id="cWorkP"></p>
-        <a id="cWorkA" href="werkstatt.html"></a>
+        <a id="cWorkA" href="/werkstatt"></a>
       </article>
 
       <article class="card">
         <h2 id="cOffersH"></h2>
         <p id="cOffersP"></p>
-        <a id="cOffersA" href="angebote.html"></a>
+        <a id="cOffersA" href="/angebote"></a>
       </article>
 
       <article class="card">
         <h2 id="cShopH"></h2>
         <p id="cShopP"></p>
-        <a id="cShopA" href="shop.html"></a>
+        <a id="cShopA" href="/shop"></a>
       </article>
     </section>
 
@@ -98,34 +98,43 @@
 
   </main>
 
+  <!-- Deine bestehenden Dateien -->
   <script src="langs.js"></script>
   <script src="start-i18n.js"></script>
   <script src="lang-menu.js"></script>
 
   <script>
   (function () {
-    "use strict";
-
     const STORAGE_KEY = "lamp_lang";
 
+    const norm = (x) => (x || "").toString().trim().toLowerCase();
     const base = (tag) => String(tag || "").toLowerCase().split("-")[0];
-    const supported = new Set((window.LANGS || []).map(x => x.code));
 
     const qs = new URLSearchParams(location.search);
-    const urlLang = base(qs.get("lang"));
+    const urlLang = norm(qs.get("lang"));
+
+    // Supported: bevorzugt LANGS.js, sonst START_I18N keys, sonst "de"
+    const supported = new Set();
+    (window.LANGS || []).forEach(x => x?.code && supported.add(norm(x.code)));
+    Object.keys(window.START_I18N || {}).forEach(k => supported.add(norm(k)));
+    if (!supported.size) supported.add("de");
 
     const browserPrefs = (navigator.languages && navigator.languages.length)
       ? navigator.languages
       : [navigator.language || "de"];
 
-    // 1) URL -> 2) storage -> 3) browser -> de
+    // Resolve language (URL > storage > legacy > browser > de)
     let lang = "de";
-    if (urlLang && supported.has(urlLang)) {
+
+    if (supported.has(urlLang)) {
       lang = urlLang;
     } else {
-      const saved = base(localStorage.getItem(STORAGE_KEY));
-      if (saved && supported.has(saved)) {
+      const saved = norm(localStorage.getItem(STORAGE_KEY));
+      const legacy = norm(localStorage.getItem("lp_lang"));
+      if (supported.has(saved)) {
         lang = saved;
+      } else if (supported.has(legacy)) {
+        lang = legacy;
       } else {
         for (const t of browserPrefs) {
           const b = base(t);
@@ -134,82 +143,61 @@
       }
     }
 
-    // Persist ONE key
+    // Persist
     try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
+    try { localStorage.setItem("lp_lang", lang); } catch(e){} // optional legacy
 
-    // Ensure URL has lang param (stable)
-    try {
-      const u = new URL(location.href);
-      if (base(u.searchParams.get("lang")) !== lang) {
-        u.searchParams.set("lang", lang);
-        history.replaceState({}, "", u.toString());
-      }
-    } catch(e){}
-
-    // Dir/lang
-    const curObj = (window.LANGS || []).find(x => x.code === lang);
+    // Direction
+    const curObj = (window.LANGS || []).find(x => norm(x.code) === lang);
     const dir = curObj?.dir || "ltr";
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", lang);
 
-    // Mark current for menu
+    // Set current for menu
     const holder = document.querySelector(".lang[data-current]");
     if (holder) holder.setAttribute("data-current", lang);
 
-    // Render menu
+    // Render menu (falls vorhanden)
     if (typeof window.renderLangMenu === "function") window.renderLangMenu();
 
-    // Add/replace lang on internal links (robust, no duplicates)
+    // Helper: keep lang on internal links (and UPDATE if already present)
     const withLang = (href) => {
       if (!href) return href;
       if (href.startsWith("#")) return href;
-      if (/^https?:\/\//i.test(href) || href.startsWith("mailto:")) return href;
-      try {
-        const u = new URL(href, location.origin);
-        u.searchParams.set("lang", lang);
-        return u.pathname + "?" + u.searchParams.toString();
-      } catch {
-        const sep = href.includes("?") ? "&" : "?";
-        return href + sep + "lang=" + encodeURIComponent(lang);
-      }
+      if (/^(https?:)?\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:")) return href;
+
+      const u = new URL(href, location.origin);
+      u.searchParams.set("lang", lang);
+      const q = u.searchParams.toString();
+      return u.pathname + (q ? `?${q}` : "") + u.hash;
     };
 
-    // Apply to ALL anchors so nothing is missed
-    document.querySelectorAll("a[href]").forEach(a => {
-      a.setAttribute("href", withLang(a.getAttribute("href") || ""));
-    });
-
-    // Texts (DE fallback only)
+    // Texts (NO EN fallback — fallback is DE)
     const dictAll = window.START_I18N || {};
     const dict = dictAll[lang] || dictAll["de"] || {};
-    const dictDE = dictAll["de"] || {};
+
+    document.getElementById("brandMini").textContent = (dict.brandMini || "Der Fackelträger");
+
+    document.getElementById("heroTitle").textContent = (dict.title || "Lampadēphóros");
+    document.getElementById("heroSub").textContent   = (dict.sub   || "");
+    document.getElementById("noteLine").textContent  = (dict.note  || "");
 
     const nav = dict.nav || {};
-    const navDE = dictDE.nav || {};
-
-    const txt = (v, fallback) => (v != null && v !== "") ? v : fallback;
-
-    document.getElementById("heroTitle").textContent = txt(dict.title, "Lampadēphóros");
-    document.getElementById("heroSub").textContent   = txt(dict.sub, "");
-    document.getElementById("noteLine").textContent  = txt(dict.note, "");
-
-    document.getElementById("navStart").textContent    = txt(nav.start,    navDE.start    || "Start");
-    document.getElementById("navAbout").textContent    = txt(nav.about,    navDE.about    || "Über uns");
-    document.getElementById("navFilms").textContent    = txt(nav.films,    navDE.films    || "Filme & Kapitel");
-    document.getElementById("navImpulses").textContent = txt(nav.impulses, navDE.impulses || "Impulse");
-    document.getElementById("navWorkshop").textContent = txt(nav.workshop, navDE.workshop || "Werkstatt");
-    document.getElementById("navOffers").textContent   = txt(nav.offers,   navDE.offers   || "Angebote");
-    document.getElementById("navShop").textContent     = txt(nav.shop,     navDE.shop     || "Shop");
-    document.getElementById("navLinks").textContent    = txt(nav.links,    navDE.links    || "Hier findest du uns");
+    document.getElementById("navStart").textContent     = (nav.start     || "Start");
+    document.getElementById("navAbout").textContent     = (nav.about     || "Über uns");
+    document.getElementById("navFilms").textContent     = (nav.films     || "Filme & Kapitel");
+    document.getElementById("navImpulses").textContent  = (nav.impulses  || "Impulse");
+    document.getElementById("navWorkshop").textContent  = (nav.workshop  || "Werkstatt");
+    document.getElementById("navOffers").textContent    = (nav.offers    || "Angebote");
+    document.getElementById("navShop").textContent      = (nav.shop      || "Shop");
+    document.getElementById("navLinks").textContent     = (nav.links     || "Hier findest du uns");
 
     const c = dict.cards || {};
-    const cDE = dictDE.cards || {};
     const setCard = (key, hId, pId, aId) => {
-      document.getElementById(hId).textContent = c[key]?.h ?? cDE[key]?.h ?? "";
-      document.getElementById(pId).textContent = c[key]?.p ?? cDE[key]?.p ?? "";
-      document.getElementById(aId).textContent = c[key]?.a ?? cDE[key]?.a ?? "";
+      document.getElementById(hId).textContent = c[key]?.h || "";
+      document.getElementById(pId).textContent = c[key]?.p || "";
+      document.getElementById(aId).textContent = c[key]?.a || "";
     };
-
     setCard("about",    "cAboutH",  "cAboutP",  "cAboutA");
     setCard("films",    "cFilmsH",  "cFilmsP",  "cFilmsA");
     setCard("impulses", "cImpH",    "cImpP",    "cImpA");
@@ -218,12 +206,16 @@
     setCard("shop",     "cShopH",   "cShopP",   "cShopA");
 
     const f = dict.footer || {};
-    const fDE = dictDE.footer || {};
-    document.getElementById("fContact").textContent  = txt(f.contact,  fDE.contact  || "Kontakt:");
-    document.getElementById("vVisitors").textContent = txt(f.visitors, fDE.visitors || "Besucher");
-    document.getElementById("vTotal").textContent    = txt(f.total,    fDE.total    || "Gesamt");
+    document.getElementById("fContact").textContent = (f.contact || "Kontakt:");
+    document.getElementById("vVisitors").textContent = (f.visitors || "Besucher");
+    document.getElementById("vTotal").textContent = (f.total || "Gesamt");
 
-    // counter
+    // Ensure ALL internal links keep lang
+    document.querySelectorAll('a[href]').forEach(a => {
+      a.setAttribute("href", withLang(a.getAttribute("href")));
+    });
+
+    // Counter
     (async () => {
       const NS = "lampadephoros_web";
       const PAGE = `start_${lang}`;
@@ -237,15 +229,16 @@
         fetch(urlTotal, { cache: "no-store" }).then(r => r.json())
       ]);
 
-      const pick = (obj) => (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? obj.data?.count)) ?? "—";
-      document.getElementById("countPage").textContent  = pick(pageData);
-      document.getElementById("countTotal").textContent = pick(totalData);
+      const pickCount = (obj) => (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? obj.data?.count)) ?? "—";
+      document.getElementById("countPage").textContent  = pickCount(pageData);
+      document.getElementById("countTotal").textContent = pickCount(totalData);
     })().catch(() => {
       const a = document.getElementById("countPage");
       const b = document.getElementById("countTotal");
       if (a) a.textContent = "—";
       if (b) b.textContent = "—";
     });
+
   })();
   </script>
 </body>
