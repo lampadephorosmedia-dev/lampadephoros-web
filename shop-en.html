@@ -1,71 +1,27 @@
-<!-- FILE: shop-en.html (EN) -->
+<!-- FILE: shop-en.html (REDIRECT -> shop.html?lang=en) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadēphóros – Shop</title>
-  <meta name="description" content="Lampadēphóros shop: merch (t-shirts, mugs, etc.) — in progress." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Redirecting…</title>
+  <meta http-equiv="refresh" content="0; url=shop.html?lang=en" />
+  <link rel="canonical" href="shop.html?lang=en" />
+  <script>
+    (function () {
+      const url = new URL(window.location.href);
+      const params = new URLSearchParams(url.search);
+
+      // force this legacy page to EN
+      params.set("lang", "en");
+
+      // keep any other params (if any)
+      const target = "shop.html" + (params.toString() ? ("?" + params.toString()) : "");
+      window.location.replace(target);
+    })();
+  </script>
 </head>
-
 <body>
-  <main class="wrap">
-
-    <header class="hero">
-      <!-- Brand -->
-      <div class="brand">
-        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
-        <div class="brand-meta">
-          <div class="badge">Lampadēphóros</div>
-          <div class="mini">The Torchbearer</div>
-        </div>
-      </div>
-
-      <h1>Shop</h1>
-      <p class="sub">Merch from the start: simple, clean, and consistent with the project.</p>
-
-      <!-- NAV (no language switch here — only on start-*.html) -->
-      <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-en.html">Start</a>
-        <a class="btn" href="about-en.html">About</a>
-        <a class="btn" href="filme-en.html">Films &amp; chapters</a>
-        <a class="btn" href="impulse-en.html">Impulses</a>
-        <a class="btn" href="werkstatt.html">Workshop</a>
-        <a class="btn" href="angebote-en.html">Offers</a>
-        <a class="btn primary" href="shop-en.html">Shop</a>
-        <a class="btn" href="links-en.html">Find us</a>
-      </nav>
-
-      <div class="note">No spam. No drama. Just the work.</div>
-    </header>
-
-    <section class="grid" aria-label="Shop – content">
-      <article class="card">
-        <h2>In progress</h2>
-        <p>
-          The shop is coming soon. We’ll start small, but clean:
-          clear design, decent quality, simple logistics.
-        </p>
-      </article>
-
-      <article class="card">
-        <h2>What’s coming</h2>
-        <p>T-shirts, mugs, stickers, and a few minimal items — with the Lampadēphóros logo.</p>
-      </article>
-
-      <article class="card">
-        <h2>Info / contact</h2>
-        <p>If you want a ping when the shop opens, email us.</p>
-        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com →</a>
-      </article>
-    </section>
-
-    <footer class="footer">
-      © Lampadēphóros • Contact:
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-    </footer>
-
-  </main>
+  <p>Redirecting to <a href="shop.html?lang=en">shop.html?lang=en</a>…</p>
 </body>
 </html>
