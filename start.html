@@ -1,4 +1,4 @@
-<!-- FILE: start.html --> 
+<!-- FILE: start.html (FIXED) -->
 <!doctype html>
 <html lang="de">
 <head>
@@ -103,6 +103,8 @@
 
   <script>
   (function () {
+    const STORAGE_KEY = "lamp_lang"; // EIN Key für die ganze Seite/alle Seiten
+
     const qs = new URLSearchParams(location.search);
     const urlLang = (qs.get("lang") || "").toLowerCase();
 
@@ -121,7 +123,7 @@
       lang = urlLang;
     } else {
       // 2) saved
-      const saved = (localStorage.getItem("lamp_lang") || "").toLowerCase();
+      const saved = (localStorage.getItem(STORAGE_KEY) || "").toLowerCase();
       if (supported.has(saved)) {
         lang = saved;
       } else {
@@ -133,13 +135,12 @@
       }
     }
 
-    // persist (wichtig: beide Keys setzen!)
-    try { localStorage.setItem("lamp_lang", lang); } catch(e){}
-    try { localStorage.setItem("lp_lang",   lang); } catch(e){}
+    // persist
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
 
     // document direction
     const curObj = (window.LANGS || []).find(x => x.code === lang);
-    const dir = (curObj && curObj.dir) ? curObj.dir : "ltr";
+    const dir = curObj?.dir || "ltr";
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", lang);
 
@@ -149,6 +150,15 @@
 
     // render menu
     if (typeof window.renderLangMenu === "function") window.renderLangMenu();
+
+    // helper: add ?lang=xx to internal links
+    const withLang = (href) => {
+      if (!href) return href;
+      if (/^https?:\/\//i.test(href) || href.startsWith("mailto:")) return href;
+      const hasQuery = href.includes("?");
+      const sep = hasQuery ? "&" : "?";
+      return `${href}${sep}lang=${encodeURIComponent(lang)}`;
+    };
 
     // texts
     const dictAll = window.START_I18N || {};
@@ -168,11 +178,22 @@
     document.getElementById("navShop").textContent = nav.shop || "Shop";
     document.getElementById("navLinks").textContent = nav.links || "Links";
 
+    // IMPORTANT: alle NAV-Links + Card-Links bekommen lang
+    const linkIds = [
+      "navStart","navAbout","navFilms","navImpulses","navWorkshop","navOffers","navShop","navLinks",
+      "cAboutA","cFilmsA","cImpA","cWorkA","cOffersA","cShopA"
+    ];
+    linkIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.setAttribute("href", withLang(el.getAttribute("href")));
+    });
+
     const c = dict.cards || {};
     const setCard = (key, hId, pId, aId) => {
-      document.getElementById(hId).textContent = (c[key] && c[key].h) ? c[key].h : "";
-      document.getElementById(pId).textContent = (c[key] && c[key].p) ? c[key].p : "";
-      document.getElementById(aId).textContent = (c[key] && c[key].a) ? c[key].a : "";
+      document.getElementById(hId).textContent = c[key]?.h || "";
+      document.getElementById(pId).textContent = c[key]?.p || "";
+      document.getElementById(aId).textContent = c[key]?.a || "";
     };
     setCard("about",    "cAboutH",  "cAboutP",  "cAboutA");
     setCard("films",    "cFilmsH",  "cFilmsP",  "cFilmsA");
@@ -185,42 +206,6 @@
     document.getElementById("fContact").textContent = f.contact || "Kontakt:";
     document.getElementById("vVisitors").textContent = f.visitors || "Besucher";
     document.getElementById("vTotal").textContent = f.total || "Gesamt";
-
-    // --- helper: internal links keep lang (und Cloudflare-Pages clean routes) ---
-    const withLang = (href) => {
-      if (!href) return href;
-
-      // don't touch anchors / external / mailto / tel
-      if (href.startsWith("#") || href.startsWith("javascript:")) return href;
-      if (/^(https?:)?\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:")) return href;
-
-      const u = new URL(href, location.origin);
-
-      if (!u.searchParams.get("lang")) u.searchParams.set("lang", lang);
-
-      // clean route: /filme statt /filme.html
-      u.pathname = u.pathname.replace(/\.html$/i, "");
-
-      return `${u.pathname}?${u.searchParams.toString()}${u.hash || ""}`;
-    };
-
-    // set ALL nav hrefs
-    document.getElementById("navStart").setAttribute("href", withLang("start.html"));
-    document.getElementById("navAbout").setAttribute("href", withLang("about.html"));
-    document.getElementById("navFilms").setAttribute("href", withLang("filme.html"));
-    document.getElementById("navImpulses").setAttribute("href", withLang("impulse.html"));
-    document.getElementById("navWorkshop").setAttribute("href", withLang("werkstatt.html"));
-    document.getElementById("navOffers").setAttribute("href", withLang("angebote.html"));
-    document.getElementById("navShop").setAttribute("href", withLang("shop.html"));
-    document.getElementById("navLinks").setAttribute("href", withLang("links.html"));
-
-    // set ALL card hrefs
-    document.getElementById("cAboutA").setAttribute("href", withLang("about.html"));
-    document.getElementById("cFilmsA").setAttribute("href", withLang("filme.html"));
-    document.getElementById("cImpA").setAttribute("href", withLang("impulse.html"));
-    document.getElementById("cWorkA").setAttribute("href", withLang("werkstatt.html"));
-    document.getElementById("cOffersA").setAttribute("href", withLang("angebote.html"));
-    document.getElementById("cShopA").setAttribute("href", withLang("shop.html"));
 
     // counter
     (async () => {
@@ -236,7 +221,7 @@
         fetch(urlTotal, { cache: "no-store" }).then(r => r.json())
       ]);
 
-      const pick = (obj) => (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? (obj.data && obj.data.count))) ?? "—";
+      const pick = (obj) => (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? obj.data?.count)) ?? "—";
       document.getElementById("countPage").textContent  = pick(pageData);
       document.getElementById("countTotal").textContent = pick(totalData);
     })().catch(() => {
