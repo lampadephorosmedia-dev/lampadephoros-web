@@ -1,4 +1,4 @@
-<!-- FILE: about.html (DE) -->
+<!-- FILE: about.html (MULTI) -->
 <!doctype html>
 <html lang="de">
 <head>
@@ -13,53 +13,51 @@
   <main class="wrap">
 
     <header class="hero">
-      <!-- Brand -->
       <div class="brand">
         <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">Der Fackelträger</div>
+          <div class="mini" id="brandMini">Der Fackelträger</div>
         </div>
       </div>
 
-      <h1>Über uns</h1>
-      <p class="sub">
+      <h1 id="pageTitle">Über uns</h1>
+      <p class="sub" id="pageSub">
         Lampadēphóros bedeutet „Fackelträger“: nicht laut, nicht grell – sondern Licht,
         das Orientierung gibt. Ein Weg aus Licht, Wasser, Herz und Stille.
       </p>
 
-      <!-- NAV (keine Sprachwahl hier — nur auf start-*.html) -->
       <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-de.html">Start</a>
-        <a class="btn primary" href="about.html">Über uns</a>
-        <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
-        <a class="btn" href="impulse.html">Impulse</a>
-        <a class="btn" href="werkstatt.html">Werkstatt</a>
-        <a class="btn" href="angebote.html">Angebote</a>
-        <a class="btn" href="shop.html">Shop</a>
-        <a class="btn" href="links.html">Hier findest du uns</a>
+        <a class="btn" id="navStart" href="start?lang=de">Start</a>
+        <a class="btn primary" id="navAbout" href="about.html?lang=de">Über uns</a>
+        <a class="btn" id="navFilms" href="filme.html?lang=de">Filme &amp; Kapitel</a>
+        <a class="btn" id="navImpulse" href="impulse.html?lang=de">Impulse</a>
+        <a class="btn" id="navWorkshop" href="werkstatt.html?lang=de">Werkstatt</a>
+        <a class="btn" id="navOffers" href="angebote.html?lang=de">Angebote</a>
+        <a class="btn" id="navShop" href="shop.html?lang=de">Shop</a>
+        <a class="btn" id="navLinks" href="links.html?lang=de">Hier findest du uns</a>
       </nav>
 
-      <div class="note">Kein Spam. Kein Drama. Nur Werk.</div>
+      <div class="note" id="note">Kein Spam. Kein Drama. Nur Werk.</div>
     </header>
 
     <section class="grid" aria-label="Über uns Inhalte">
 
       <article class="card">
-        <h2>Wer ist Lampadēphóros?</h2>
-        <p>
+        <h2 id="c1t">Wer ist Lampadēphóros?</h2>
+        <p id="c1p1">
           Lampadēphóros ist ein kreatives Medienprojekt mit geistlicher Tiefe.
           Wir erzählen Geschichten, bauen Bilder, ordnen Gedanken – und suchen
           nach dem, was wirklich trägt.
         </p>
-        <p style="margin: 0; color: var(--muted); font-size: 13px;">
+        <p id="c1p2" style="margin: 0; color: var(--muted); font-size: 13px;">
           Kurz: ein Ort für Menschen, die Licht wollen – ohne Lärm.
         </p>
       </article>
 
       <article class="card">
-        <h2>Warum gibt es uns?</h2>
-        <p>
+        <h2 id="c2t">Warum gibt es uns?</h2>
+        <p id="c2p">
           Weil viele nach Sinn suchen – und oft nur Krach finden.
           Wir glauben: Stille ist nicht leer. Stille ist ein Raum.
           Und in diesem Raum kann Wahrheit wieder hörbar werden.
@@ -67,8 +65,8 @@
       </article>
 
       <article class="card">
-        <h2>Unser Ziel</h2>
-        <p>
+        <h2 id="c3t">Unser Ziel</h2>
+        <p id="c3p">
           Sichtbarkeit ohne Lärm. Tiefe ohne Angst.
           Wir möchten Inhalte schaffen, die erden, aufrichten
           und das Herz wach machen – Schritt für Schritt.
@@ -76,41 +74,490 @@
       </article>
 
       <article class="card">
-        <h2>Wofür wir stehen</h2>
-        <p>
+        <h2 id="c4t">Wofür wir stehen</h2>
+        <p id="c4p1">
           Klarheit statt Clickbait. Würde statt Drama.
           Schönheit statt Zynismus. Treue statt Trend.
         </p>
-        <p style="margin: 0; color: var(--muted); font-size: 13px;">
+        <p id="c4p2" style="margin: 0; color: var(--muted); font-size: 13px;">
           Wir bauen langsam – aber echt.
         </p>
       </article>
 
       <article class="card">
-        <h2>Was du hier findest</h2>
-        <p>
+        <h2 id="c5t">Was du hier findest</h2>
+        <p id="c5p">
           Filme &amp; Kapitel, Impulse, Werkstatt-Einblicke, Angebote
           (z. B. Pilgerreisen, Workshops, Vorträge) – und später auch einen Shop.
         </p>
-        <a href="start-de.html">Zur Übersicht →</a>
+        <a id="c5a" href="start?lang=de">Zur Übersicht →</a>
       </article>
 
       <article class="card">
-        <h2>Mach den ersten Schritt</h2>
-        <p>
+        <h2 id="c6t">Mach den ersten Schritt</h2>
+        <p id="c6p">
           Wenn du neu hier bist: Starte ruhig. Ein Film. Ein Impuls.
           Ein kleiner Schritt – aber bewusst.
         </p>
-        <a href="filme.html">Zu Filme &amp; Kapitel →</a>
+        <a id="c6a" href="filme.html?lang=de">Zu Filme &amp; Kapitel →</a>
       </article>
 
     </section>
 
     <footer class="footer">
-      © Lampadēphóros • Kontakt:
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      <div class="footer-line" id="footerLine">
+        © Lampadēphóros • Kontakt:
+        <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+      </div>
     </footer>
 
   </main>
+
+  <script>
+  (function () {
+    function norm(x){ return (x||"").toLowerCase().trim(); }
+    function base(x){ return norm(x).split("-")[0]; }
+
+    var rtl = { ar:1, ur:1, fa:1 };
+
+    var T = {
+      de:{htmlLang:"de",dir:"ltr",title:"Lampadēphóros – Über uns",brandMini:"Der Fackelträger",h1:"Über uns",
+        sub:"Lampadēphóros bedeutet „Fackelträger“: nicht laut, nicht grell – sondern Licht, das Orientierung gibt. Ein Weg aus Licht, Wasser, Herz und Stille.",
+        nav:{start:"Start",about:"Über uns",films:"Filme & Kapitel",impulse:"Impulse",workshop:"Werkstatt",offers:"Angebote",shop:"Shop",links:"Hier findest du uns"},
+        note:"Kein Spam. Kein Drama. Nur Werk.",
+        c1t:"Wer ist Lampadēphóros?",c1p1:"Lampadēphóros ist ein kreatives Medienprojekt mit geistlicher Tiefe. Wir erzählen Geschichten, bauen Bilder, ordnen Gedanken – und suchen nach dem, was wirklich trägt.",
+        c1p2:"Kurz: ein Ort für Menschen, die Licht wollen – ohne Lärm.",
+        c2t:"Warum gibt es uns?",c2p:"Weil viele nach Sinn suchen – und oft nur Krach finden. Wir glauben: Stille ist nicht leer. Stille ist ein Raum. Und in diesem Raum kann Wahrheit wieder hörbar werden.",
+        c3t:"Unser Ziel",c3p:"Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Wir möchten Inhalte schaffen, die erden, aufrichten und das Herz wach machen – Schritt für Schritt.",
+        c4t:"Wofür wir stehen",c4p1:"Klarheit statt Clickbait. Würde statt Drama. Schönheit statt Zynismus. Treue statt Trend.",c4p2:"Wir bauen langsam – aber echt.",
+        c5t:"Was du hier findest",c5p:"Filme & Kapitel, Impulse, Werkstatt-Einblicke, Angebote (z. B. Pilgerreisen, Workshops, Vorträge) – und später auch einen Shop.",c5a:"Zur Übersicht →",
+        c6t:"Mach den ersten Schritt",c6p:"Wenn du neu hier bist: Starte ruhig. Ein Film. Ein Impuls. Ein kleiner Schritt – aber bewusst.",c6a:"Zu Filme & Kapitel →",
+        footer:"© Lampadēphóros • Kontakt:"},
+
+      fr:{htmlLang:"fr",dir:"ltr",title:"Lampadēphóros – À propos",brandMini:"Le Porteur de flambeau",h1:"À propos",
+        sub:"Lampadēphóros signifie « porteur de flambeau » : pas bruyant, pas agressif — mais une lumière qui oriente. Un chemin de lumière, d’eau, de cœur et de silence.",
+        nav:{start:"Accueil",about:"À propos",films:"Films & chapitres",impulse:"Impulsions",workshop:"Atelier",offers:"Offres",shop:"Boutique",links:"Nous trouver"},
+        note:"Pas de spam. Pas de drama. Juste l’œuvre.",
+        c1t:"Qui est Lampadēphóros ?",c1p1:"Lampadēphóros est un projet média créatif avec une profondeur spirituelle. Nous racontons, construisons des images, mettons de l’ordre — et cherchons ce qui tient vraiment.",
+        c1p2:"Bref : un lieu pour ceux qui veulent la lumière — sans le bruit.",
+        c2t:"Pourquoi existons-nous ?",c2p:"Parce que beaucoup cherchent du sens — et ne trouvent souvent que du vacarme. Le silence n’est pas vide : c’est un espace. Et dans cet espace, la vérité redevient audible.",
+        c3t:"Notre objectif",c3p:"Visibilité sans bruit. Profondeur sans peur. Créer des contenus qui ancrent, relèvent et réveillent le cœur — pas à pas.",
+        c4t:"Nos repères",c4p1:"Clarté plutôt que clickbait. Dignité plutôt que drame. Beauté plutôt que cynisme. Fidélité plutôt que tendance.",c4p2:"On construit lentement — mais vrai.",
+        c5t:"Ce que tu trouveras ici",c5p:"Films & chapitres, impulsions, coulisses, offres (pèlerinages, ateliers, conférences) — et plus tard une boutique.",c5a:"Voir l’ensemble →",
+        c6t:"Fais le premier pas",c6p:"Si tu es nouveau : commence doucement. Un film. Une impulsion. Un petit pas — mais conscient.",c6a:"Vers Films & chapitres →",
+        footer:"© Lampadēphóros • Contact :"},
+
+      en:{htmlLang:"en",dir:"ltr",title:"Lampadēphóros – About",brandMini:"The Torchbearer",h1:"About",
+        sub:"Lampadēphóros means “torchbearer”: not loud, not flashy — but a light that gives direction. A path of light, water, heart, and silence.",
+        nav:{start:"Start",about:"About",films:"Films & Chapters",impulse:"Impulses",workshop:"Workshop",offers:"Offers",shop:"Shop",links:"Find us"},
+        note:"No spam. No drama. Just work.",
+        c1t:"Who is Lampadēphóros?",c1p1:"Lampadēphóros is a creative media project with spiritual depth. We tell stories, build images, organize thoughts — and search for what truly holds.",
+        c1p2:"In short: a place for people who want light — without noise.",
+        c2t:"Why do we exist?",c2p:"Because many search for meaning — and often find only noise. Silence isn’t empty. Silence is space. And in that space, truth can be heard again.",
+        c3t:"Our aim",c3p:"Visibility without noise. Depth without fear. Content that grounds, lifts, and wakes the heart — step by step.",
+        c4t:"What we stand for",c4p1:"Clarity over clickbait. Dignity over drama. Beauty over cynicism. Fidelity over trends.",c4p2:"We build slowly — but for real.",
+        c5t:"What you’ll find here",c5p:"Films & chapters, impulses, behind-the-scenes, offers (pilgrimages, workshops, talks) — and later a shop.",c5a:"Overview →",
+        c6t:"Take the first step",c6p:"If you’re new: start gently. One film. One impulse. A small step — but intentional.",c6a:"Go to Films & Chapters →",
+        footer:"© Lampadēphóros • Contact:"},
+
+      pt:{htmlLang:"pt",dir:"ltr",title:"Lampadēphóros – Sobre",brandMini:"O Portador da Tocha",h1:"Sobre nós",
+        sub:"Lampadēphóros significa “portador da tocha”: não barulhento, não chamativo — mas luz que orienta. Um caminho de luz, água, coração e silêncio.",
+        nav:{start:"Início",about:"Sobre",films:"Filmes & capítulos",impulse:"Impulsos",workshop:"Oficina",offers:"Ofertas",shop:"Loja",links:"Onde estamos"},
+        note:"Sem spam. Sem drama. Só obra.",
+        c1t:"Quem é Lampadēphóros?",c1p1:"Lampadēphóros é um projeto de mídia criativa com profundidade espiritual. Contamos histórias, criamos imagens, organizamos ideias — e buscamos o que realmente sustenta.",
+        c1p2:"Em resumo: um lugar para quem quer luz — sem barulho.",
+        c2t:"Por que existimos?",c2p:"Porque muitos procuram sentido — e acabam encontrando apenas ruído. O silêncio não é vazio. É espaço. E nesse espaço, a verdade volta a ser audível.",
+        c3t:"Nosso objetivo",c3p:"Visibilidade sem ruído. Profundidade sem medo. Conteúdos que aterrizam, levantam e despertam o coração — passo a passo.",
+        c4t:"Nossos valores",c4p1:"Clareza em vez de clickbait. Dignidade em vez de drama. Beleza em vez de cinismo. Fidelidade em vez de tendência.",c4p2:"Construímos devagar — mas de verdade.",
+        c5t:"O que você encontra aqui",c5p:"Filmes & capítulos, impulsos, bastidores, ofertas (peregrinações, workshops, palestras) — e depois também uma loja.",c5a:"Visão geral →",
+        c6t:"Dê o primeiro passo",c6p:"Se você é novo: comece com calma. Um filme. Um impulso. Um pequeno passo — mas consciente.",c6a:"Ir para Filmes & capítulos →",
+        footer:"© Lampadēphóros • Contato:"},
+
+      it:{htmlLang:"it",dir:"ltr",title:"Lampadēphóros – Chi siamo",brandMini:"Il Portatore di fiaccola",h1:"Chi siamo",
+        sub:"Lampadēphóros significa “portatore di fiaccola”: non rumoroso, non abbagliante — ma una luce che orienta. Un cammino di luce, acqua, cuore e silenzio.",
+        nav:{start:"Inizio",about:"Chi siamo",films:"Film & capitoli",impulse:"Spunti",workshop:"Laboratorio",offers:"Offerte",shop:"Shop",links:"Dove trovarci"},
+        note:"Niente spam. Niente drama. Solo opera.",
+        c1t:"Chi è Lampadēphóros?",c1p1:"Lampadēphóros è un progetto media creativo con profondità spirituale. Raccontiamo storie, costruiamo immagini, mettiamo ordine — e cerchiamo ciò che regge davvero.",
+        c1p2:"In breve: un luogo per chi vuole luce — senza rumore.",
+        c2t:"Perché esistiamo?",c2p:"Perché molti cercano senso — e spesso trovano solo rumore. Il silenzio non è vuoto: è uno spazio. E in quello spazio la verità può tornare udibile.",
+        c3t:"Il nostro obiettivo",c3p:"Visibilità senza rumore. Profondità senza paura. Contenuti che radicano, rialzano e risvegliano il cuore — passo dopo passo.",
+        c4t:"In cosa crediamo",c4p1:"Chiarezza invece di clickbait. Dignità invece di dramma. Bellezza invece di cinismo. Fedeltà invece di trend.",c4p2:"Costruiamo lentamente — ma sul serio.",
+        c5t:"Cosa trovi qui",c5p:"Film & capitoli, spunti, dietro le quinte, offerte (pellegrinaggi, workshop, conferenze) — e più avanti anche uno shop.",c5a:"Panoramica →",
+        c6t:"Fai il primo passo",c6p:"Se sei nuovo: inizia con calma. Un film. Uno spunto. Un piccolo passo — ma consapevole.",c6a:"Vai a Film & capitoli →",
+        footer:"© Lampadēphóros • Contatto:"},
+
+      es:{htmlLang:"es",dir:"ltr",title:"Lampadēphóros – Acerca de",brandMini:"El Portador de la Antorcha",h1:"Acerca de",
+        sub:"Lampadēphóros significa “portador de la antorcha”: no ruidoso, no brillante — sino una luz que orienta. Un camino de luz, agua, corazón y silencio.",
+        nav:{start:"Inicio",about:"Acerca de",films:"Películas & capítulos",impulse:"Impulsos",workshop:"Taller",offers:"Ofertas",shop:"Tienda",links:"Dónde encontrarnos"},
+        note:"Sin spam. Sin drama. Solo obra.",
+        c1t:"¿Quién es Lampadēphóros?",c1p1:"Lampadēphóros es un proyecto creativo con profundidad espiritual. Contamos historias, construimos imágenes, ordenamos ideas — y buscamos lo que realmente sostiene.",
+        c1p2:"En resumen: un lugar para quien quiere luz — sin ruido.",
+        c2t:"¿Por qué existimos?",c2p:"Porque muchos buscan sentido — y a menudo encuentran solo ruido. El silencio no está vacío. El silencio es espacio. Y en ese espacio la verdad puede escucharse de nuevo.",
+        c3t:"Nuestro objetivo",c3p:"Visibilidad sin ruido. Profundidad sin miedo. Contenidos que enraízan, levantan y despiertan el corazón — paso a paso.",
+        c4t:"Lo que defendemos",c4p1:"Claridad en vez de clickbait. Dignidad en vez de drama. Belleza en vez de cinismo. Fidelidad en vez de tendencia.",c4p2:"Construimos lento — pero real.",
+        c5t:"Lo que encontrarás aquí",c5p:"Películas & capítulos, impulsos, detrás de escenas, ofertas (peregrinaciones, talleres, charlas) — y más adelante una tienda.",c5a:"Ver todo →",
+        c6t:"Da el primer paso",c6p:"Si eres nuevo: empieza con calma. Una película. Un impulso. Un paso pequeño — pero consciente.",c6a:"Ir a Películas & capítulos →",
+        footer:"© Lampadēphóros • Contacto:"},
+
+      pl:{htmlLang:"pl",dir:"ltr",title:"Lampadēphóros – O nas",brandMini:"Niosący Pochodnię",h1:"O nas",
+        sub:"Lampadēphóros znaczy „niosący pochodnię”: nie głośno, nie krzykliwie — lecz światło, które prowadzi. Droga światła, wody, serca i ciszy.",
+        nav:{start:"Start",about:"O nas",films:"Filmy i rozdziały",impulse:"Impulsy",workshop:"Warsztat",offers:"Oferty",shop:"Sklep",links:"Gdzie nas znaleźć"},
+        note:"Bez spamu. Bez dramy. Tylko dzieło.",
+        c1t:"Kim jest Lampadēphóros?",c1p1:"Lampadēphóros to kreatywny projekt medialny z duchową głębią. Opowiadamy historie, budujemy obrazy, porządkujemy myśli — i szukamy tego, co naprawdę trwa.",
+        c1p2:"Krótko: miejsce dla tych, którzy chcą światła — bez hałasu.",
+        c2t:"Dlaczego istniejemy?",c2p:"Bo wielu szuka sensu — a często znajduje tylko hałas. Cisza nie jest pusta. Cisza jest przestrzenią. I w tej przestrzeni prawda znów może być słyszana.",
+        c3t:"Nasz cel",c3p:"Widoczność bez hałasu. Głębia bez lęku. Treści, które ugruntowują, podnoszą i budzą serce — krok po kroku.",
+        c4t:"Co jest dla nas ważne",c4p1:"Jasność zamiast clickbaitu. Godność zamiast dramy. Piękno zamiast cynizmu. Wierność zamiast trendów.",c4p2:"Budujemy wolno — ale naprawdę.",
+        c5t:"Co tu znajdziesz",c5p:"Filmy i rozdziały, impulsy, kulisy, oferty (pielgrzymki, warsztaty, konferencje) — a później także sklep.",c5a:"Przegląd →",
+        c6t:"Zrób pierwszy krok",c6p:"Jeśli jesteś nowy: zacznij spokojnie. Jeden film. Jeden impuls. Mały krok — ale świadomy.",c6a:"Filmy i rozdziały →",
+        footer:"© Lampadēphóros • Kontakt:"},
+
+      ru:{htmlLang:"ru",dir:"ltr",title:"Lampadēphóros – О нас",brandMini:"Факелоносец",h1:"О нас",
+        sub:"Lampadēphóros означает «факелоносец»: не громко и не ярко — а свет, который ведёт. Путь света, воды, сердца и тишины.",
+        nav:{start:"Старт",about:"О нас",films:"Фильмы и главы",impulse:"Импульсы",workshop:"Мастерская",offers:"Предложения",shop:"Магазин",links:"Где мы"},
+        note:"Без спама. Без драмы. Только дело.",
+        c1t:"Кто такие Lampadēphóros?",c1p1:"Lampadēphóros — творческий медиа-проект с духовной глубиной. Мы рассказываем истории, создаём образы, наводим порядок в мыслях — и ищем то, что по-настоящему держит.",
+        c1p2:"Коротко: место для тех, кто хочет света — без шума.",
+        c2t:"Зачем мы существуем?",c2p:"Потому что многие ищут смысл — и часто находят лишь шум. Тишина не пуста. Тишина — это пространство. И в этом пространстве истина снова становится слышимой.",
+        c3t:"Наша цель",c3p:"Видимость без шума. Глубина без страха. Контент, который укореняет, поднимает и пробуждает сердце — шаг за шагом.",
+        c4t:"За что мы",c4p1:"Ясность вместо кликбейта. Достоинство вместо драмы. Красота вместо цинизма. Верность вместо трендов.",c4p2:"Мы строим медленно — но по-настоящему.",
+        c5t:"Что ты найдёшь здесь",c5p:"Фильмы и главы, импульсы, заметки из мастерской, предложения (паломничества, воркшопы, лекции) — а позже и магазин.",c5a:"Обзор →",
+        c6t:"Сделай первый шаг",c6p:"Если ты здесь впервые: начни спокойно. Один фильм. Один импульс. Маленький шаг — но осознанный.",c6a:"К фильмам и главам →",
+        footer:"© Lampadēphóros • Контакт:"},
+
+      nl:{htmlLang:"nl",dir:"ltr",title:"Lampadēphóros – Over ons",brandMini:"De Fakkeldrager",h1:"Over ons",
+        sub:"Lampadēphóros betekent “fakkeldrager”: niet luid, niet schreeuwerig — maar licht dat richting geeft. Een weg van licht, water, hart en stilte.",
+        nav:{start:"Start",about:"Over ons",films:"Films & hoofdstukken",impulse:"Impulsen",workshop:"Werkplaats",offers:"Aanbod",shop:"Shop",links:"Vind ons"},
+        note:"Geen spam. Geen drama. Alleen werk.",
+        c1t:"Wie is Lampadēphóros?",c1p1:"Lampadēphóros is een creatief mediaproject met spirituele diepte. We vertellen verhalen, bouwen beelden, ordenen gedachten — en zoeken wat echt draagt.",
+        c1p2:"Kort: een plek voor mensen die licht willen — zonder lawaai.",
+        c2t:"Waarom bestaan we?",c2p:"Omdat velen zin zoeken — en vaak alleen ruis vinden. Stilte is niet leeg. Stilte is ruimte. En in die ruimte kan waarheid weer hoorbaar worden.",
+        c3t:"Ons doel",c3p:"Zichtbaarheid zonder lawaai. Diepte zonder angst. Inhoud die grondt, opricht en het hart wakker maakt — stap voor stap.",
+        c4t:"Waar we voor staan",c4p1:"Helderheid boven clickbait. Waardigheid boven drama. Schoonheid boven cynisme. Trouw boven trends.",c4p2:"We bouwen langzaam — maar echt.",
+        c5t:"Wat je hier vindt",c5p:"Films & hoofdstukken, impulsen, achter de schermen, aanbod (pelgrimages, workshops, lezingen) — en later ook een shop.",c5a:"Overzicht →",
+        c6t:"Zet de eerste stap",c6p:"Nieuw hier? Begin rustig. Eén film. Eén impuls. Een kleine stap — maar bewust.",c6a:"Naar Films & hoofdstukken →",
+        footer:"© Lampadēphóros • Contact:"},
+
+      ro:{htmlLang:"ro",dir:"ltr",title:"Lampadēphóros – Despre noi",brandMini:"Purtătorul de făclie",h1:"Despre noi",
+        sub:"Lampadēphóros înseamnă „purtător de făclie”: nu zgomotos, nu strident — ci lumină care oferă direcție. Un drum de lumină, apă, inimă și tăcere.",
+        nav:{start:"Start",about:"Despre",films:"Filme & capitole",impulse:"Impulsuri",workshop:"Atelier",offers:"Oferte",shop:"Magazin",links:"Unde suntem"},
+        note:"Fără spam. Fără dramă. Doar lucru.",
+        c1t:"Cine este Lampadēphóros?",c1p1:"Lampadēphóros este un proiect media creativ cu profunzime spirituală. Spunem povești, construim imagini, ordonăm gânduri — și căutăm ceea ce susține cu adevărat.",
+        c1p2:"Pe scurt: un loc pentru cei care vor lumină — fără zgomot.",
+        c2t:"De ce existăm?",c2p:"Pentru că mulți caută sens — și găsesc adesea doar zgomot. Tăcerea nu e goală. Tăcerea e spațiu. Iar în acel spațiu adevărul poate fi auzit din nou.",
+        c3t:"Scopul nostru",c3p:"Vizibilitate fără zgomot. Profunzime fără frică. Conținut care ancorează, ridică și trezește inima — pas cu pas.",
+        c4t:"În ce credem",c4p1:"Claritate în loc de clickbait. Demnitate în loc de dramă. Frumusețe în loc de cinism. Fidelitate în loc de trend.",c4p2:"Construim încet — dar real.",
+        c5t:"Ce găsești aici",c5p:"Filme & capitole, impulsuri, culise, oferte (pelerinaje, workshopuri, conferințe) — și mai târziu și un magazin.",c5a:"Prezentare →",
+        c6t:"Fă primul pas",c6p:"Dacă ești nou: începe încet. Un film. Un impuls. Un pas mic — dar conștient.",c6a:"La Filme & capitole →",
+        footer:"© Lampadēphóros • Contact:"},
+
+      uk:{htmlLang:"uk",dir:"ltr",title:"Lampadēphóros – Про нас",brandMini:"Смолоскипоносець",h1:"Про нас",
+        sub:"Lampadēphóros означає «смолоскипоносець»: не гучно і не яскраво — а світло, яке веде. Шлях світла, води, серця й тиші.",
+        nav:{start:"Старт",about:"Про нас",films:"Фільми і розділи",impulse:"Імпульси",workshop:"Майстерня",offers:"Пропозиції",shop:"Магазин",links:"Де ми"},
+        note:"Без спаму. Без драми. Лише праця.",
+        c1t:"Хто такі Lampadēphóros?",c1p1:"Lampadēphóros — креативний медіапроєкт із духовною глибиною. Ми розповідаємо історії, будуємо образи, впорядковуємо думки — і шукаємо те, що справді тримає.",
+        c1p2:"Коротко: місце для тих, хто хоче світла — без шуму.",
+        c2t:"Чому ми існуємо?",c2p:"Бо багато хто шукає сенс — і часто знаходить лише шум. Тиша не порожня. Тиша — це простір. І в цьому просторі істину знову можна почути.",
+        c3t:"Наша мета",c3p:"Видимість без шуму. Глибина без страху. Контент, що укорінює, піднімає й будить серце — крок за кроком.",
+        c4t:"За що ми",c4p1:"Ясність замість клікбейту. Гідність замість драми. Краса замість цинізму. Вірність замість трендів.",c4p2:"Будуємо повільно — але по-справжньому.",
+        c5t:"Що ти знайдеш тут",c5p:"Фільми й розділи, імпульси, нотатки з майстерні, пропозиції (паломництва, воркшопи, лекції) — а згодом і магазин.",c5a:"Огляд →",
+        c6t:"Зроби перший крок",c6p:"Якщо ти тут уперше: почни спокійно. Один фільм. Один імпульс. Малий крок — але свідомий.",c6a:"До фільмів і розділів →",
+        footer:"© Lampadēphóros • Контакт:"},
+
+      hr:{htmlLang:"hr",dir:"ltr",title:"Lampadēphóros – O nama",brandMini:"Nosač baklje",h1:"O nama",
+        sub:"Lampadēphóros znači “nosač baklje”: ne glasno, ne blještavo — nego svjetlo koje usmjerava. Put svjetla, vode, srca i tišine.",
+        nav:{start:"Start",about:"O nama",films:"Filmovi & poglavlja",impulse:"Impulsi",workshop:"Radionica",offers:"Ponude",shop:"Trgovina",links:"Gdje smo"},
+        note:"Bez spama. Bez drame. Samo djelo.",
+        c1t:"Tko je Lampadēphóros?",c1p1:"Lampadēphóros je kreativni medijski projekt s duhovnom dubinom. Pričamo priče, gradimo slike, uređujemo misli — i tražimo ono što stvarno nosi.",
+        c1p2:"Ukratko: mjesto za ljude koji žele svjetlo — bez buke.",
+        c2t:"Zašto postojimo?",c2p:"Jer mnogi traže smisao — a često nađu samo buku. Tišina nije prazna. Tišina je prostor. U tom prostoru istina opet može biti čujna.",
+        c3t:"Naš cilj",c3p:"Vidljivost bez buke. Dubina bez straha. Sadržaj koji uzemljuje, podiže i budi srce — korak po korak.",
+        c4t:"Za što stojimo",c4p1:"Jasnoća umjesto clickbaita. Dostojanstvo umjesto drame. Ljepota umjesto cinizma. Vjernost umjesto trendova.",c4p2:"Gradimo polako — ali stvarno.",
+        c5t:"Što ćeš ovdje naći",c5p:"Filmovi & poglavlja, impulsi, pogled iza kulisa, ponude (hodočašća, radionice, predavanja) — i kasnije trgovinu.",c5a:"Pregled →",
+        c6t:"Napravi prvi korak",c6p:"Ako si nov: kreni mirno. Jedan film. Jedan impuls. Mali korak — ali svjestan.",c6a:"Na Filmove & poglavlja →",
+        footer:"© Lampadēphóros • Kontakt:"},
+
+      bs:{htmlLang:"bs",dir:"ltr",title:"Lampadēphóros – O nama",brandMini:"Nosilac baklje",h1:"O nama",
+        sub:"Lampadēphóros znači „nosilac baklje“: ne glasno, ne blještavo — nego svjetlo koje usmjerava. Put svjetla, vode, srca i tišine.",
+        nav:{start:"Start",about:"O nama",films:"Filmovi & poglavlja",impulse:"Impulsi",workshop:"Radionica",offers:"Ponude",shop:"Shop",links:"Gdje smo"},
+        note:"Bez spama. Bez drame. Samo djelo.",
+        c1t:"Ko je Lampadēphóros?",c1p1:"Lampadēphóros je kreativni medijski projekat s duhovnom dubinom. Pričamo priče, gradimo slike, uređujemo misli — i tražimo ono što zaista nosi.",
+        c1p2:"Ukratko: mjesto za one koji žele svjetlo — bez buke.",
+        c2t:"Zašto postojimo?",c2p:"Jer mnogi traže smisao — a često nađu samo buku. Tišina nije prazna. Tišina je prostor. U tom prostoru istina ponovo može biti čujna.",
+        c3t:"Naš cilj",c3p:"Vidljivost bez buke. Dubina bez straha. Sadržaj koji uzemljuje, podiže i budi srce — korak po korak.",
+        c4t:"Za šta stojimo",c4p1:"Jasnoća umjesto clickbaita. Dostojanstvo umjesto drame. Ljepota umjesto cinizma. Vjernost umjesto trendova.",c4p2:"Gradimo polako — ali stvarno.",
+        c5t:"Šta ćeš ovdje naći",c5p:"Filmovi & poglavlja, impulsi, iza kulisa, ponude (hodočašća, radionice, predavanja) — i kasnije shop.",c5a:"Pregled →",
+        c6t:"Napravi prvi korak",c6p:"Ako si nov: kreni mirno. Jedan film. Jedan impuls. Mali korak — ali svjestan.",c6a:"Na Filmove & poglavlja →",
+        footer:"© Lampadēphóros • Kontakt:"},
+
+      sr:{htmlLang:"sr",dir:"ltr",title:"Lampadēphóros – О нама",brandMini:"Носилац бакље",h1:"О нама",
+        sub:"Lampadēphóros значи „носилац бакље“: не гласно, не бљештаво — већ светло које усмерава. Пут светла, воде, срца и тишине.",
+        nav:{start:"Старт",about:"О нама",films:"Филмови и поглавља",impulse:"Импулси",workshop:"Радионица",offers:"Понуде",shop:"Продавница",links:"Где смо"},
+        note:"Без спама. Без драме. Само дело.",
+        c1t:"Ко је Lampadēphóros?",c1p1:"Lampadēphóros је креативни медијски пројекат са духовном дубином. Причамо приче, градимо слике, уређујемо мисли — и тражимо оно што заиста носи.",
+        c1p2:"Укратко: место за оне који желе светло — без буке.",
+        c2t:"Зашто постојимо?",c2p:"Јер многи траже смисао — а често нађу само буку. Тишина није празна. Тишина је простор. У том простору истина поново може бити чујна.",
+        c3t:"Наш циљ",c3p:"Видљивост без буке. Дубина без страха. Садржај који уземљује, подиже и буди срце — корак по корак.",
+        c4t:"За шта стојимо",c4p1:"Јасноћа уместо clickbaita. Достојанство уместо драме. Лепота уместо цинизма. Верност уместо трендова.",c4p2:"Градимо споро — али стварно.",
+        c5t:"Шта овде налазиш",c5p:"Филмови и поглавља, импулси, иза кулиса, понуде (ходочашћа, радионице, предавања) — и касније продавницу.",c5a:"Преглед →",
+        c6t:"Направи први корак",c6p:"Ако си нов: почни мирно. Један филм. Један импулс. Мали корак — али свестан.",c6a:"На Филмове и поглавља →",
+        footer:"© Lampadēphóros • Контакт:"},
+
+      ar:{htmlLang:"ar",dir:"rtl",title:"Lampadēphóros – من نحن",brandMini:"حامل الشعلة",h1:"من نحن",
+        sub:"Lampadēphóros تعني «حامل الشعلة»: ليس صخبًا ولا بهرجة — بل نورًا يرشد. طريق من نور وماء وقلب وسكون.",
+        nav:{start:"البداية",about:"من نحن",films:"الأفلام والفصول",impulse:"ومضات",workshop:"الورشة",offers:"عروض",shop:"المتجر",links:"أين تجدنا"},
+        note:"لا سبام. لا دراما. فقط عمل.",
+        c1t:"من هو Lampadēphóros؟",c1p1:"Lampadēphóros مشروع إعلامي إبداعي بعمق روحي. نحكي قصصًا، نبني صورًا، ونرتب أفكارًا — ونبحث عما يثبت حقًا.",
+        c1p2:"باختصار: مكان لمن يريد النور — بلا ضجيج.",
+        c2t:"لماذا نحن هنا؟",c2p:"لأن كثيرين يبحثون عن معنى — وغالبًا لا يجدون إلا الضوضاء. نؤمن أن السكون ليس فراغًا، بل مساحة، وفيها يمكن أن تُسمع الحقيقة من جديد.",
+        c3t:"هدفنا",c3p:"حضور بلا ضجيج. عمق بلا خوف. محتوى يثبّت ويقيم ويوقظ القلب — خطوة بخطوة.",
+        c4t:"ما الذي نمثّله",c4p1:"وضوح بدل الاصطياد. كرامة بدل الدراما. جمال بدل السخرية. أمانة بدل الموضة.",c4p2:"نبني ببطء — لكن بصدق.",
+        c5t:"ماذا ستجد هنا",c5p:"أفلام وفصول، ومضات، كواليس، عروض — ولاحقًا متجر.",c5a:"نظرة عامة →",
+        c6t:"ابدأ الخطوة الأولى",c6p:"إن كنت جديدًا: ابدأ بهدوء. فيلم واحد. ومضة واحدة. خطوة صغيرة — لكن واعية.",c6a:"إلى الأفلام والفصول →",
+        footer:"© Lampadēphóros • تواصل:"},
+
+      ur:{htmlLang:"ur",dir:"rtl",title:"Lampadēphóros – ہمارے بارے میں",brandMini:"مشعل بردار",h1:"ہمارے بارے میں",
+        sub:"Lampadēphóros کا مطلب ہے “مشعل بردار”: نہ شور، نہ دکھاوا — بلکہ رہنمائی دینے والی روشنی۔ روشنی، پانی، دل اور سکوت کا راستہ۔",
+        nav:{start:"آغاز",about:"ہمارے بارے میں",films:"فلمیں اور ابواب",impulse:"اشارے",workshop:"ورکشاپ",offers:"پیشکشیں",shop:"دکان",links:"ہمیں کہاں پائیں"},
+        note:"کوئی اسپام نہیں۔ کوئی ڈرامہ نہیں۔ صرف کام۔",
+        c1t:"Lampadēphóros کون ہے؟",c1p1:"Lampadēphóros ایک تخلیقی میڈیا منصوبہ ہے جس میں روحانی گہرائی ہے۔ ہم کہانیاں سناتے ہیں، تصاویر بناتے ہیں، خیالات ترتیب دیتے ہیں — اور اس چیز کی تلاش کرتے ہیں جو واقعی قائم رکھتی ہے۔",
+        c1p2:"مختصر: اُن لوگوں کے لیے جگہ جو روشنی چاہتے ہیں — بغیر شور کے۔",
+        c2t:"ہم کیوں موجود ہیں؟",c2p:"کیونکہ بہت سے لوگ معنی ڈھونڈتے ہیں — اور اکثر صرف شور پاتے ہیں۔ خاموشی خالی نہیں۔ خاموشی ایک جگہ ہے، اور اسی جگہ میں سچ پھر سے سنا جا سکتا ہے۔",
+        c3t:"ہمارا مقصد",c3p:"شور کے بغیر موجودگی۔ خوف کے بغیر گہرائی۔ ایسا مواد جو زمین سے جوڑے، اٹھائے، اور دل کو جگائے — قدم بہ قدم۔",
+        c4t:"ہم کس کے لیے کھڑے ہیں",c4p1:"کلئیرٹی بمقابلہ کلک بیٹ۔ وقار بمقابلہ ڈرامہ۔ خوبصورتی بمقابلہ طنز۔ وفاداری بمقابلہ رجحان۔",c4p2:"ہم آہستہ بناتے ہیں — مگر حقیقی۔",
+        c5t:"یہاں کیا ملے گا",c5p:"فلمیں، ابواب، اشارے، پردے کے پیچھے، پیشکشیں — اور بعد میں دکان۔",c5a:"جائزہ →",
+        c6t:"پہلا قدم اٹھائیں",c6p:"اگر آپ نئے ہیں: آہستہ شروع کریں۔ ایک فلم۔ ایک اشارہ۔ ایک چھوٹا قدم — مگر جان بوجھ کر۔",c6a:"فلمیں اور ابواب →",
+        footer:"© Lampadēphóros • رابطہ:"},
+
+      fa:{htmlLang:"fa",dir:"rtl",title:"Lampadēphóros – درباره ما",brandMini:"مشعل‌دار",h1:"درباره ما",
+        sub:"Lampadēphóros یعنی «مشعل‌دار»: نه پر سر و صدا، نه نمایشی — بلکه نوری برای جهت. راهی از نور، آب، دل و سکوت.",
+        nav:{start:"شروع",about:"درباره",films:"فیلم‌ها و فصل‌ها",impulse:"الهام‌ها",workshop:"کارگاه",offers:"پیشنهادها",shop:"فروشگاه",links:"کجا هستیم"},
+        note:"بدون اسپم. بدون دراما. فقط کار.",
+        c1t:"Lampadēphóros چیست؟",c1p1:"Lampadēphóros یک پروژه رسانه‌ای خلاق با عمق معنوی است. داستان می‌گوییم، تصویر می‌سازیم، فکر را مرتب می‌کنیم — و دنبال چیزی هستیم که واقعاً می‌ایستد.",
+        c1p2:"خلاصه: جایی برای کسانی که نور می‌خواهند — بی‌هیاهو.",
+        c2t:"چرا وجود داریم؟",c2p:"چون بسیاری دنبال معنا هستند — و اغلب فقط سروصدا پیدا می‌کنند. سکوت خالی نیست؛ سکوت فضاست. و در این فضا حقیقت دوباره شنیده می‌شود.",
+        c3t:"هدف ما",c3p:"دیده‌شدن بدون هیاهو. عمق بدون ترس. محتوایی که ریشه می‌دهد، بلند می‌کند و دل را بیدار می‌کند — قدم‌به‌قدم.",
+        c4t:"ارزش‌های ما",c4p1:"شفافیت به‌جای کلیک‌بیت. کرامت به‌جای دراما. زیبایی به‌جای بدبینی. وفاداری به‌جای مُد.",c4p2:"آهسته می‌سازیم — اما واقعی.",
+        c5t:"اینجا چه می‌بینی",c5p:"فیلم‌ها، فصل‌ها، الهام‌ها، پشت‌صحنه، پیشنهادها — و بعداً فروشگاه.",c5a:"نمای کلی →",
+        c6t:"قدم اول",c6p:"اگر تازه‌ای: آرام شروع کن. یک فیلم. یک الهام. یک قدم کوچک — اما آگاهانه.",c6a:"به فیلم‌ها و فصل‌ها →",
+        footer:"© Lampadēphóros • تماس:"},
+
+      tr:{htmlLang:"tr",dir:"ltr",title:"Lampadēphóros – Hakkımızda",brandMini:"Meşale Taşıyıcısı",h1:"Hakkımızda",
+        sub:"Lampadēphóros “meşale taşıyıcısı” demektir: ne gürültü, ne gösteriş — yön veren bir ışık. Işık, su, kalp ve sessizlik yolu.",
+        nav:{start:"Başla",about:"Hakkımızda",films:"Filmler & Bölümler",impulse:"İlhamlar",workshop:"Atölye",offers:"Teklifler",shop:"Mağaza",links:"Bizi bul"},
+        note:"Spam yok. Drama yok. Sadece iş.",
+        c1t:"Lampadēphóros nedir?",c1p1:"Lampadēphóros ruhsal derinliği olan yaratıcı bir medya projesidir. Hikâyeler anlatır, görüntüler kurar, düşünceleri düzenler — gerçekten taşıyanı ararız.",
+        c1p2:"Kısaca: ışık isteyenler için — gürültüsüz bir yer.",
+        c2t:"Neden varız?",c2p:"Çünkü birçok kişi anlam arıyor — ve çoğu zaman sadece gürültü buluyor. Sessizlik boş değildir. Sessizlik bir alandır. O alanda gerçek yeniden duyulur.",
+        c3t:"Amacımız",c3p:"Gürültüsüz görünürlük. Korkusuz derinlik. Yere basan, kaldıran ve kalbi uyandıran içerikler — adım adım.",
+        c4t:"Neyi savunuyoruz",c4p1:"Clickbait yerine açıklık. Drama yerine haysiyet. Alay yerine güzellik. Trend yerine sadakat.",c4p2:"Yavaş kurarız — ama gerçek.",
+        c5t:"Burada ne var",c5p:"Filmler & bölümler, ilhamlar, perde arkası, teklifler — sonra da mağaza.",c5a:"Genel bakış →",
+        c6t:"İlk adım",c6p:"Yeniysen: sakin başla. Bir film. Bir ilham. Küçük bir adım — ama bilinçli.",c6a:"Filmler & Bölümler →",
+        footer:"© Lampadēphóros • İletişim:"},
+
+      zh:{htmlLang:"zh",dir:"ltr",title:"Lampadēphóros – 关于我们",brandMini:"持炬者",h1:"关于我们",
+        sub:"Lampadēphóros 意为“持炬者”：不喧哗、不炫目，而是指引方向的光。光、水、心与静默之路。",
+        nav:{start:"开始",about:"关于",films:"影片与章节",impulse:"灵感",workshop:"工作坊",offers:"活动",shop:"商店",links:"找到我们"},
+        note:"无垃圾信息。无戏剧。只做作品。",
+        c1t:"Lampadēphóros 是什么？",c1p1:"Lampadēphóros 是一个具有灵性深度的创意媒体项目。我们讲故事、构建画面、整理思想——寻找真正能支撑人的东西。",
+        c1p2:"简而言之：给想要光的人——不需要噪音。",
+        c2t:"我们为何存在？",c2p:"因为许多人寻找意义——却常只遇到喧嚣。我们相信：静默不是空的，而是一种空间；在其中真理可以再次被听见。",
+        c3t:"我们的目标",c3p:"不靠喧嚣的可见度；不带恐惧的深度。一步一步做出能扎根、扶起并唤醒内心的内容。",
+        c4t:"我们坚持什么",c4p1:"清晰胜过标题党。尊严胜过戏剧。美胜过犬儒。忠诚胜过潮流。",c4p2:"我们慢慢建——但很真实。",
+        c5t:"你在这里会找到",c5p:"影片与章节、短灵感、幕后记录、活动——之后还有商店。",c5a:"总览 →",
+        c6t:"迈出第一步",c6p:"如果你刚来：慢慢开始。一部影片，一个灵感。小一步——但有意。",c6a:"去 影片与章节 →",
+        footer:"© Lampadēphóros • 联系:"},
+
+      hi:{htmlLang:"hi",dir:"ltr",title:"Lampadēphóros – हमारे बारे में",brandMini:"मशालवाहक",h1:"हमारे बारे में",
+        sub:"Lampadēphóros का अर्थ है “मशालवाहक”: न शोर, न चमक-दमक — बल्कि दिशा देने वाली रोशनी। रोशनी, पानी, दिल और मौन का मार्ग।",
+        nav:{start:"शुरू",about:"हमारे बारे में",films:"फ़िल्में और अध्याय",impulse:"प्रेरणाएँ",workshop:"कार्यशाला",offers:"ऑफ़र",shop:"दुकान",links:"हमें खोजें"},
+        note:"कोई स्पैम नहीं। कोई ड्रामा नहीं। सिर्फ काम।",
+        c1t:"Lampadēphóros क्या है?",c1p1:"Lampadēphóros आध्यात्मिक गहराई वाला एक रचनात्मक मीडिया प्रोजेक्ट है। हम कहानियाँ बताते हैं, दृश्य बनाते हैं, विचारों को क्रम में रखते हैं — और जो सच में टिकता है उसे खोजते हैं।",
+        c1p2:"संक्षेप में: बिना शोर के — रोशनी चाहने वालों के लिए जगह।",
+        c2t:"हम क्यों हैं?",c2p:"क्योंकि बहुत से लोग अर्थ खोजते हैं — और अक्सर सिर्फ शोर मिलता है। मौन खाली नहीं होता; मौन एक स्थान है। उसी स्थान में सत्य फिर से सुना जा सकता है।",
+        c3t:"हमारा लक्ष्य",c3p:"शोर के बिना दृश्यता। डर के बिना गहराई। ऐसा कंटेंट जो जमीन देता है, उठाता है और दिल जगाता है — कदम दर कदम।",
+        c4t:"हम किसके लिए खड़े हैं",c4p1:"क्लिकबेट के बजाय स्पष्टता। ड्रामा के बजाय गरिमा। निंदकता के बजाय सुंदरता। ट्रेंड के बजाय निष्ठा।",c4p2:"धीरे बनाते हैं — पर सच्चा।",
+        c5t:"यहाँ क्या मिलेगा",c5p:"फ़िल्में और अध्याय, प्रेरणाएँ, पर्दे के पीछे, ऑफ़र — और बाद में दुकान।",c5a:"ओवरव्यू →",
+        c6t:"पहला कदम",c6p:"अगर आप नए हैं: धीरे शुरू करें। एक फ़िल्म। एक प्रेरणा। एक छोटा कदम — लेकिन जानबूझकर।",c6a:"फ़िल्में और अध्याय →",
+        footer:"© Lampadēphóros • संपर्क:"},
+
+      bn:{htmlLang:"bn",dir:"ltr",title:"Lampadēphóros – আমাদের সম্পর্কে",brandMini:"মশালবাহক",h1:"আমাদের সম্পর্কে",
+        sub:"Lampadēphóros মানে “মশালবাহক”: না চেঁচামেচি, না প্রদর্শনী — বরং পথ দেখানো আলো। আলো, জল, হৃদয় ও নীরবতার পথ।",
+        nav:{start:"শুরু",about:"আমাদের সম্পর্কে",films:"ফিল্ম ও অধ্যায়",impulse:"ইমপাল্স",workshop:"ওয়ার্কশপ",offers:"অফার",shop:"শপ",links:"আমাদের খুঁজুন"},
+        note:"স্প্যাম নয়। ড্রামা নয়। শুধু কাজ।",
+        c1t:"Lampadēphóros কে?",c1p1:"Lampadēphóros একটি সৃজনশীল মিডিয়া প্রকল্প—আধ্যাত্মিক গভীরতা সহ। আমরা গল্প বলি, ছবি গড়ি, চিন্তা গুছাই — এবং যা সত্যিই ধারণ করে তা খুঁজি।",
+        c1p2:"সংক্ষেপে: যারা আলো চায়—শোর ছাড়া—তাদের জন্য জায়গা।",
+        c2t:"আমরা কেন আছি?",c2p:"কারণ অনেকেই অর্থ খোঁজে — আর প্রায়ই শুধু শব্দ পায়। নীরবতা ফাঁকা নয়; নীরবতা হলো এক পরিসর। সেই পরিসরে সত্য আবার শোনা যায়।",
+        c3t:"আমাদের লক্ষ্য",c3p:"শোর ছাড়া দৃশ্যমানতা। ভয় ছাড়া গভীরতা। এমন কনটেন্ট যা স্থির করে, তুলে ধরে, হৃদয় জাগায় — ধাপে ধাপে।",
+        c4t:"আমরা কীসের পক্ষে",c4p1:"ক্লিকবেইট নয়, স্বচ্ছতা। ড্রামা নয়, মর্যাদা। নৈরাশ্য নয়, সৌন্দর্য। ট্রেন্ড নয়, বিশ্বস্ততা।",c4p2:"ধীরে বানাই — কিন্তু সত্য।",
+        c5t:"এখানে কী পাবেন",c5p:"ফিল্ম ও অধ্যায়, ইমপাল্স, পর্দার আড়াল, অফার — পরে শপও।",c5a:"ওভারভিউ →",
+        c6t:"প্রথম পদক্ষেপ",c6p:"নতুন হলে: ধীরে শুরু করুন। একটি ফিল্ম। একটি ইমপাল্স। ছোট পদক্ষেপ — কিন্তু সচেতন।",c6a:"ফিল্ম ও অধ্যায় →",
+        footer:"© Lampadēphóros • যোগাযোগ:"},
+
+      id:{htmlLang:"id",dir:"ltr",title:"Lampadēphóros – Tentang",brandMini:"Pembawa Obor",h1:"Tentang kami",
+        sub:"Lampadēphóros berarti “pembawa obor”: tidak bising, tidak mencolok — tetapi cahaya yang memberi arah. Jalan dari cahaya, air, hati, dan hening.",
+        nav:{start:"Mulai",about:"Tentang",films:"Film & Bab",impulse:"Impuls",workshop:"Bengkel",offers:"Penawaran",shop:"Toko",links:"Temukan kami"},
+        note:"Tanpa spam. Tanpa drama. Hanya karya.",
+        c1t:"Siapa Lampadēphóros?",c1p1:"Lampadēphóros adalah proyek media kreatif dengan kedalaman rohani. Kami bercerita, membangun gambar, merapikan pikiran — dan mencari yang sungguh menopang.",
+        c1p2:"Singkatnya: tempat bagi yang ingin terang — tanpa bising.",
+        c2t:"Mengapa kami ada?",c2p:"Karena banyak orang mencari makna — namun sering hanya menemukan kebisingan. Hening bukan kosong. Hening adalah ruang. Di ruang itu, kebenaran bisa terdengar kembali.",
+        c3t:"Tujuan kami",c3p:"Terlihat tanpa bising. Dalam tanpa takut. Konten yang meneguhkan, mengangkat, dan membangunkan hati — selangkah demi selangkah.",
+        c4t:"Apa yang kami pegang",c4p1:"Kejelasan, bukan clickbait. Martabat, bukan drama. Keindahan, bukan sinisme. Kesetiaan, bukan tren.",c4p2:"Kami membangun pelan — tapi nyata.",
+        c5t:"Apa yang ada di sini",c5p:"Film & bab, impuls, di balik layar, penawaran — dan nanti toko.",c5a:"Ikhtisar →",
+        c6t:"Langkah pertama",c6p:"Jika kamu baru: mulai pelan. Satu film. Satu impuls. Langkah kecil — tapi sadar.",c6a:"Ke Film & Bab →",
+        footer:"© Lampadēphóros • Kontak:"},
+
+      fil:{htmlLang:"fil",dir:"ltr",title:"Lampadēphóros – Tungkol",brandMini:"Tagapagdala ng Sulo",h1:"Tungkol sa amin",
+        sub:"Ang Lampadēphóros ay “tagapagdala ng sulo”: hindi maingay, hindi palabas — kundi ilaw na gumagabay. Daan ng liwanag, tubig, puso, at katahimikan.",
+        nav:{start:"Simula",about:"Tungkol",films:"Mga Pelikula at Kabanata",impulse:"Mga Impulso",workshop:"Pagawaan",offers:"Alok",shop:"Tindahan",links:"Hanapin kami"},
+        note:"Walang spam. Walang drama. Gawa lang.",
+        c1t:"Sino ang Lampadēphóros?",c1p1:"Ang Lampadēphóros ay malikhaing media project na may espiritwal na lalim. Nagkukuwento kami, bumubuo ng mga imahe, nag-aayos ng isip — at hinahanap ang tunay na tumatagal.",
+        c1p2:"Sa madaling sabi: lugar para sa gustong liwanag — walang ingay.",
+        c2t:"Bakit kami umiiral?",c2p:"Dahil marami ang naghahanap ng kahulugan — pero madalas ingay lang ang nakikita. Ang katahimikan ay hindi walang laman; ito ay espasyo. Sa espasyong iyon, muling maririnig ang katotohanan.",
+        c3t:"Layunin namin",c3p:"Pagkakita nang walang ingay. Lalim nang walang takot. Content na nag-uugat, nagbubuhat, at gumigising ng puso — dahan-dahan.",
+        c4t:"Pinaniniwalaan namin",c4p1:"Linaw kaysa clickbait. Dangal kaysa drama. Ganda kaysa cynicism. Katapatan kaysa uso.",c4p2:"Mabagal kami — pero tunay.",
+        c5t:"Makikita mo rito",c5p:"Mga pelikula at kabanata, impulses, behind-the-scenes, alok — at kalaunan tindahan.",c5a:"Pangkalahatan →",
+        c6t:"Unang hakbang",c6p:"Kung bago ka: simulan nang dahan-dahan. Isang pelikula. Isang impulso. Maliit na hakbang — pero sinasadya.",c6a:"Sa Pelikula at Kabanata →",
+        footer:"© Lampadēphóros • Kontak:"},
+
+      ja:{htmlLang:"ja",dir:"ltr",title:"Lampadēphóros – 私たちについて",brandMini:"松明を運ぶ者",h1:"私たちについて",
+        sub:"Lampadēphóros は「松明を運ぶ者」。騒がず、派手すぎず――方向を示す光。光・水・心・沈黙の道。",
+        nav:{start:"開始",about:"私たちについて",films:"映画と章",impulse:"インパルス",workshop:"工房",offers:"オファー",shop:"ショップ",links:"見つける"},
+        note:"スパムなし。ドラマなし。作品だけ。",
+        c1t:"Lampadēphóros とは？",c1p1:"Lampadēphóros は霊的な深みを持つ創作メディアプロジェクトです。物語を語り、映像を組み立て、思考を整え――本当に支えるものを探します。",
+        c1p2:"要するに：光を求める人のための場所――騒音なし。",
+        c2t:"なぜ存在するの？",c2p:"多くの人が意味を探すのに、得るのはノイズばかり。沈黙は空ではありません。沈黙は空間です。その空間で、真理は再び聞こえるようになります。",
+        c3t:"目的",c3p:"騒がない可視性。恐れない深さ。心を目覚めさせるコンテンツを一歩ずつ。",
+        c4t:"私たちが大切にすること",c4p1:"釣りタイトルより明晰さ。ドラマより尊厳。皮肉より美。流行より忠実さ。",c4p2:"ゆっくり作る――でも本物。",
+        c5t:"ここにあるもの",c5p:"映画と章、短いインパルス、舞台裏、オファー――そして後にショップ。",c5a:"概要 →",
+        c6t:"最初の一歩",c6p:"初めてなら：静かに始めよう。一本の映画。ひとつのインパルス。小さな一歩――でも意図的に。",c6a:"映画と章へ →",
+        footer:"© Lampadēphóros • 連絡:"},
+
+      ko:{htmlLang:"ko",dir:"ltr",title:"Lampadēphóros – 소개",brandMini:"횃불을 드는 사람",h1:"소개",
+        sub:"Lampadēphóros는 “횃불을 드는 사람”이라는 뜻입니다. 시끄럽지 않고 과장되지 않은—방향을 주는 빛. 빛, 물, 마음, 침묵의 길.",
+        nav:{start:"시작",about:"소개",films:"영화 & 챕터",impulse:"임펄스",workshop:"워크숍",offers:"제안",shop:"샵",links:"찾아오기"},
+        note:"스팸 없음. 드라마 없음. 작품만.",
+        c1t:"Lampadēphóros는 무엇인가요?",c1p1:"Lampadēphóros는 영적 깊이를 가진 창의적 미디어 프로젝트입니다. 이야기를 만들고, 이미지를 세우고, 생각을 정돈하며—정말로 버티게 하는 것을 찾습니다.",
+        c1p2:"한마디로: 소음 없이 빛을 원하는 사람들의 공간.",
+        c2t:"왜 존재하나요?",c2p:"많은 이들이 의미를 찾지만, 종종 소음만 만납니다. 침묵은 비어있지 않습니다. 침묵은 공간입니다. 그 공간에서 진실은 다시 들립니다.",
+        c3t:"목표",c3p:"소음 없는 가시성. 두려움 없는 깊이. 마음을 깨우는 콘텐츠를 한 걸음씩.",
+        c4t:"우리가 지키는 것",c4p1:"클릭베이트 대신 명료함. 드라마 대신 존엄. 냉소 대신 아름다움. 유행 대신 충실함.",c4p2:"천천히 만들되—진짜로.",
+        c5t:"여기서 찾을 수 있는 것",c5p:"영화와 챕터, 임펄스, 비하인드, 제안—그리고 나중엔 샵.",c5a:"개요 →",
+        c6t:"첫걸음",c6p:"처음이라면: 천천히 시작하세요. 한 편의 영화. 하나의 임펄스. 작은 한 걸음—하지만 의식적으로.",c6a:"영화 & 챕터로 →",
+        footer:"© Lampadēphóros • 연락:"},
+
+      vi:{htmlLang:"vi",dir:"ltr",title:"Lampadēphóros – Giới thiệu",brandMini:"Người mang đuốc",h1:"Giới thiệu",
+        sub:"Lampadēphóros nghĩa là “người mang đuốc”: không ồn ào, không phô trương — mà là ánh sáng dẫn đường. Con đường của ánh sáng, nước, trái tim và thinh lặng.",
+        nav:{start:"Bắt đầu",about:"Giới thiệu",films:"Phim & Chương",impulse:"Gợi ý",workshop:"Xưởng",offers:"Ưu đãi",shop:"Cửa hàng",links:"Tìm chúng tôi"},
+        note:"Không spam. Không drama. Chỉ tác phẩm.",
+        c1t:"Lampadēphóros là ai?",c1p1:"Lampadēphóros là dự án truyền thông sáng tạo với chiều sâu tâm linh. Chúng tôi kể chuyện, dựng hình ảnh, sắp xếp suy nghĩ — và tìm điều thật sự nâng đỡ.",
+        c1p2:"Tóm lại: nơi cho người muốn ánh sáng — không ồn.",
+        c2t:"Vì sao tồn tại?",c2p:"Vì nhiều người tìm ý nghĩa — nhưng часто chỉ gặp tiếng ồn. Thinh lặng không rỗng. Thinh lặng là không gian. Trong không gian đó, sự thật có thể được nghe lại.",
+        c3t:"Mục tiêu",c3p:"Hiện diện không ồn. Sâu không sợ. Nội dung giúp đứng vững, nâng lên và đánh thức trái tim — từng bước.",
+        c4t:"Chúng tôi đứng về",c4p1:"Rõ ràng thay vì câu view. Phẩm giá thay vì drama. Vẻ đẹp thay vì cay nghiệt. Trung tín thay vì xu hướng.",c4p2:"Xây chậm — nhưng thật.",
+        c5t:"Bạn sẽ thấy gì",c5p:"Phim & chương, gợi ý, hậu trường, ưu đãi — và sau này cửa hàng.",c5a:"Tổng quan →",
+        c6t:"Bước đầu tiên",c6p:"Nếu bạn mới: bắt đầu nhẹ. Một bộ phim. Một gợi ý. Một bước nhỏ — nhưng có ý thức.",c6a:"Đến Phim & Chương →",
+        footer:"© Lampadēphóros • Liên hệ:"},
+
+      ms:{htmlLang:"ms",dir:"ltr",title:"Lampadēphóros – Tentang",brandMini:"Pembawa Obor",h1:"Tentang kami",
+        sub:"Lampadēphóros bermaksud “pembawa obor”: bukan bising, bukan menunjuk — tetapi cahaya yang memberi arah. Jalan cahaya, air, hati dan sunyi.",
+        nav:{start:"Mula",about:"Tentang",films:"Filem & Bab",impulse:"Impuls",workshop:"Bengkel",offers:"Tawaran",shop:"Kedai",links:"Cari kami"},
+        note:"Tiada spam. Tiada drama. Hanya karya.",
+        c1t:"Siapa Lampadēphóros?",c1p1:"Lampadēphóros ialah projek media kreatif dengan kedalaman rohani. Kami bercerita, membina imej, menyusun fikiran — dan mencari yang benar-benar menopang.",
+        c1p2:"Ringkasnya: tempat untuk yang mahukan cahaya — tanpa bising.",
+        c2t:"Mengapa kami wujud?",c2p:"Kerana ramai mencari makna — dan sering hanya menemui bunyi. Sunyi bukan kosong. Sunyi ialah ruang. Dalam ruang itu, kebenaran boleh didengar semula.",
+        c3t:"Matlamat kami",c3p:"Keterlihatan tanpa bising. Kedalaman tanpa takut. Kandungan yang meneguhkan, mengangkat dan membangunkan hati — langkah demi langkah.",
+        c4t:"Apa yang kami pegang",c4p1:"Kejelasan, bukan clickbait. Maruah, bukan drama. Keindahan, bukan sinis. Kesetiaan, bukan trend.",c4p2:"Kami bina perlahan — tapi nyata.",
+        c5t:"Apa yang ada di sini",c5p:"Filem & bab, impuls, di sebalik tabir, tawaran — dan nanti kedai.",c5a:"Gambaran →",
+        c6t:"Langkah pertama",c6p:"Jika anda baru: mula perlahan. Satu filem. Satu impuls. Langkah kecil — tetapi sedar.",c6a:"Ke Filem & Bab →",
+        footer:"© Lampadēphóros • Hubungi:"},
+
+      ta:{htmlLang:"ta",dir:"ltr",title:"Lampadēphóros – எங்களை பற்றி",brandMini:"தீப்பந்தம் தாங்குபவர்",h1:"எங்களை பற்றி",
+        sub:"Lampadēphóros என்பது “தீப்பந்தம் தாங்குபவர்”: சத்தமல்ல, காட்சியல்ல — வழிகாட்டும் ஒளி. ஒளி, நீர், இதயம், அமைதி என்ற பாதை.",
+        nav:{start:"தொடக்கம்",about:"எங்களை பற்றி",films:"திரைப்படங்கள் & அத்தியாயங்கள்",impulse:"தூண்டுதல்கள்",workshop:"பணிமனை",offers:"வழங்கல்கள்",shop:"கடை",links:"எங்களை கண்டுபிடி"},
+        note:"ஸ்பாம் இல்லை. டிராமா இல்லை. வேலை மட்டும்.",
+        c1t:"Lampadēphóros யார்?",c1p1:"Lampadēphóros என்பது ஆன்மீக ஆழமுள்ள படைப்பாற்றல் மீடியா திட்டம். கதைகள், காட்சிகள், சிந்தனைகளை ஒழுங்குபடுத்துதல் — உண்மையில் தாங்குவதைத் தேடுதல்.",
+        c1p2:"சுருக்கமாக: சத்தமின்றி ஒளியை விரும்புவோருக்கான இடம்.",
+        c2t:"நாங்கள் ஏன் இருக்கிறோம்?",c2p:"ஏனெனில் பலர் அர்த்தம் தேடுகிறார்கள் — ஆனால் சத்தமே கிடைக்கிறது. அமைதி வெறுமை அல்ல; அது ஒரு வெளி. அந்த வெளியில் உண்மை மீண்டும் கேட்கப்படும்.",
+        c3t:"எங்கள் நோக்கம்",c3p:"சத்தமில்லா தெரிவுநிலை. பயமில்லா ஆழம். உள்ளத்தை எழுப்பும் உள்ளடக்கம் — படிப்படியாக.",
+        c4t:"எங்கள் மதிப்புகள்",c4p1:"Clickbaitக்கு பதில் தெளிவு. டிராமாவுக்கு பதில் மரியாதை. நையாண்டிக்கு பதில் அழகு. ட்ரெண்டுக்கு பதில் விசுவாசம்.",c4p2:"மெதுவாக கட்டுகிறோம் — ஆனால் உண்மையாக.",
+        c5t:"இங்கே என்ன கிடைக்கும்",c5p:"திரைப்படங்கள் & அத்தியாயங்கள், தூண்டுதல்கள், பின்னணி, வழங்கல்கள் — பின்னர் கடை.",c5a:"ஒட்டுமொத்தம் →",
+        c6t:"முதல் படி",c6p:"புதியவராக இருந்தால்: மெதுவாக தொடங்கு. ஒரு திரைப்படம். ஒரு தூண்டுதல். சிறிய படி — ஆனால் விழிப்புடன்.",c6a:"திரைப்படங்கள் & அத்தியாயங்கள் →",
+        footer:"© Lampadēphóros • தொடர்பு:"},
+
+      ku:{htmlLang:"ku",dir:"ltr",title:"Lampadēphóros – Derbarê me de",brandMini:"Hilmêşber",h1:"Derbarê me de",
+        sub:"Lampadēphóros wateya “hilmêşber” e: ne dengdar, ne şewqdar — lê ronahiyek ku rê nîşan dide. Rêya ronahî, av, dil û bêdengî.",
+        nav:{start:"Destpêk",about:"Derbarê",films:"Fîlm & Beş",impulse:"Împuls",workshop:"Atelye",offers:"Pêşniyar",shop:"Firotgeh",links:"Em li ku ne"},
+        note:"Ne spam. Ne drama. Tenê kar.",
+        c1t:"Lampadēphóros çi ye?",c1p1:"Lampadēphóros projeyek medyayî ya afirîner e bi qûrahiya ruhanî. Em çîrok dibêjin, wêne çêdikin, fikr rêk dikin — û li pey tiştê ku rastî radikevin in.",
+        c1p2:"Kurte: cihê ji bo kesên ku ronahî dixwazin — bê deng.",
+        c2t:"Çima em hene?",c2p:"Ji ber ku gelek kes wate digerin — û gelek caran tenê deng dibînin. Bêdengî vala nîne. Bêdengî cih e. Di wê cihê de rastî dîsa tê bihîstin.",
+        c3t:"Armanca me",c3p:"Dîtin bê deng. Qûrahî bê tirs. Naverok ku bingeh dide, bilind dike û dil şiyar dike — gav bi gav.",
+        c4t:"Em ji bo çi radiwestin",c4p1:"Rûniştinî li şûna clickbait. Rûmet li şûna drama. Bedewî li şûna kîn. Wefadarî li şûna trend.",c4p2:"Em hêdî ava dikin — lê rast.",
+        c5t:"Tu li vir çi dibînî",c5p:"Fîlm & beş, împuls, li paş perdeyê, pêşniyar — û paşê firotgeh.",c5a:"Nîşandan →",
+        c6t:"Gava yekem",c6p:"Heke tu nû yî: hêdî dest pê bike. Fîlmek. Împulsek. Gavek biçûk — lê bi şuur.",c6a:"Herin Fîlm & Beş →",
+        footer:"© Lampadēphóros • Têkilî:"}
+    };
+
+    function getLang(){
+      var p = new URLSearchParams(location.search);
+      var q = base(p.get("lang"));
+      var s = "";
+      try { s = base(localStorage.getItem("lamp_lang")); } catch(e){}
+      var l = q || s || "de";
+      if (!T[l]) l = "de";
+      try { localStorage.setItem("lamp_lang", l); } catch(e){}
+      return l;
+    }
+
+    var lang = getLang();
+    var t = T[lang];
+
+    document.documentElement.lang = t.htmlLang || lang;
+    document.documentElement.dir = t.dir || (rtl[lang] ? "rtl" : "ltr");
+    document.title = t.title || document.title;
+
+    function set(id, value){
+      var el = document.getElementById(id);
+      if (el && typeof value === "string") el.textContent = value;
+    }
+
+    set("brandMini", t.brandMini);
+    set("pageTitle", t.h1);
+    set("pageSub", t.sub);
+    set("note", t.note);
+
+    set("c1t", t.c1t); set("c1p1", t.c1p1); set("c1p2", t.c1p2);
+    set("c2t", t.c2t); set("c2p", t.c2p);
+    set("c3t", t.c3t); set("c3p", t.c3p);
+    set("c4t", t.c4t); set("c4p1", t.c4p1); set("c4p2", t.c4p2);
+    set("c5t", t.c5t); set("c5p", t.c5p);
+    set("c6t", t.c6t); set("c6p", t.c6p);
+
+    // Link-Labels
+    var c5a = document.getElementById("c5a"); if (c5a) c5a.textContent = t.c5a;
+    var c6a = document.getElementById("c6a"); if (c6a) c6a.textContent = t.c6a;
+
+    // NAV Labels + Links (immer lang mitschleifen)
+    function navSet(id, label, href){
+      var a = document.getElementById(id);
+      if (!a) return;
+      if (label) a.textContent = label;
+      if (href) a.setAttribute("href", href);
+    }
+
+    navSet("navStart",  t.nav.start,    "start?lang=" + lang);
+    navSet("navAbout",  t.nav.about,    "about.html?lang=" + lang);
+    navSet("navFilms",  t.nav.films,    "filme.html?lang=" + lang);
+    navSet("navImpulse",t.nav.impulse,  "impulse.html?lang=" + lang);
+    navSet("navWorkshop",t.nav.workshop,"werkstatt.html?lang=" + lang);
+    navSet("navOffers", t.nav.offers,   "angebote.html?lang=" + lang);
+    navSet("navShop",   t.nav.shop,     "shop.html?lang=" + lang);
+    navSet("navLinks",  t.nav.links,    "links.html?lang=" + lang);
+
+    if (c5a) c5a.setAttribute("href", "start?lang=" + lang);
+    if (c6a) c6a.setAttribute("href", "filme.html?lang=" + lang);
+  })();
+  </script>
 </body>
 </html>
