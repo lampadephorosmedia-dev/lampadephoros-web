@@ -13,7 +13,6 @@
   <main class="wrap">
 
     <header class="hero">
-      <!-- Brand -->
       <div class="brand">
         <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
         <div class="brand-meta">
@@ -25,7 +24,6 @@
       <h1 id="h1">Filme</h1>
       <p class="sub" id="sub">Hauptwerke, Kapitel und kurze Schnitte – sauber sortiert.</p>
 
-      <!-- NAV (keine Sprachwahl hier — nur auf start-*.html) -->
       <nav class="nav" aria-label="Navigation">
         <a class="btn" id="navStart" href="start-de.html">Start</a>
         <a class="btn" id="navAbout" href="about.html">Über uns</a>
@@ -65,9 +63,7 @@
       </article>
     </section>
 
-    <!-- Veröffentlichte Filme (YouTube Einbettungen / Fallback bei Altersbeschränkung) -->
     <section class="grid" aria-label="Veröffentlichte Filme">
-      <!-- 1) Header + Light Calls -->
       <article class="card">
         <h2 id="pubTitle">Veröffentlichte Filme</h2>
         <p id="pubSub">Direkt hier ansehen – oder auf YouTube öffnen.</p>
@@ -99,7 +95,6 @@
         </div>
       </article>
 
-      <!-- 2) Die Quelle des Heils -->
       <article class="card">
         <div class="video-embed">
           <iframe
@@ -132,7 +127,6 @@
         </div>
       </article>
 
-      <!-- 3) Lebensübergabe & Weihe -->
       <article class="card">
         <div class="video-embed">
           <iframe
@@ -162,7 +156,6 @@
         </div>
       </article>
 
-      <!-- 4) Christus in uns -->
       <article class="card">
         <div class="video-embed">
           <iframe
@@ -194,7 +187,6 @@
         </div>
       </article>
 
-      <!-- 5) Kraft des Evangeliums -->
       <article class="card">
         <div class="video-embed">
           <iframe
@@ -236,7 +228,6 @@
         </p>
       </article>
 
-      <!-- 6) Altersbeschränkt: Thumbnail-Fallback -->
       <article class="card">
         <div class="video-embed">
           <a class="thumb" id="v6Thumb" href="https://www.youtube.com/watch?v=-4WyAvKxI7A" target="_blank" rel="noopener"
@@ -279,213 +270,38 @@
 
   <script>
   (() => {
-    const supported = new Set(["de","fr","en","pt","it"]);
+    const KNOWN = ["de","fr","en","pt","it","es","pl","ru","hr","bs","sr"];
+    const knownSet = new Set(KNOWN);
+
     const norm = (x) => (x || "").toLowerCase().trim();
     const qp = new URLSearchParams(location.search);
     const qLang = norm(qp.get("lang"));
     const stored = norm(localStorage.getItem("lp_lang"));
-    const lang = supported.has(qLang) ? qLang : (supported.has(stored) ? stored : "de");
-    localStorage.setItem("lp_lang", lang);
 
-    const T = {
-      de: {
-        htmlLang: "de",
-        title: "Lampadēphóros – Filme",
-        desc: "Filme & Kapitel: Hauptwerke, Kapitel und kurze Schnitte – sauber sortiert.",
-        brandMini: "Der Fackelträger",
-        h1: "Filme",
-        sub: "Hauptwerke, Kapitel und kurze Schnitte – sauber sortiert.",
-        nav: { start:"Start", about:"Über uns", films:"Filme & Kapitel", impulse:"Impulse", workshop:"Werkstatt", offers:"Angebote", shop:"Shop", links:"Hier findest du uns" },
-        note: "Kein Spam. Kein Drama. Nur Werk.",
-        prepTitle: "In Vorbereitung",
-        prepText: "Diese Sektion wird nach und nach gefüllt. Hier findest du bald: Hauptwerke, Kapitel-Seiten und ausgewählte Kurzfassungen – mit Struktur und Klarheit.",
-        willLandTitle: "Was hier landen wird",
-        willLandText: "Vollfilme, Kapitel, Shorts und Links zu den Plattformen, auf denen alles veröffentlicht wird.",
-        btsTitle: "Hinter den Kulissen",
-        btsText: "Entscheidungen, Rhythmus und Übergänge dokumentieren wir in der Werkstatt.",
-        btsLink: "Zur Werkstatt →",
-        pubTitle: "Veröffentlichte Filme",
-        pubSub: "Direkt hier ansehen – oder auf YouTube öffnen.",
-        btnYT: "Auf YouTube ansehen",
-        v1Title: "Light Calls – Wenn das Licht deine Nacht berührt.",
-        v1Desc: "Manchmal fühlt sich die Nacht schwer an – still, dunkel, leer. Genau dort kann Gottes Ruf leise beginnen: ein Licht, das trägt, eine Hoffnung, die größer ist als alles, was uns niederdrückt.",
-        v2Title: "Die Quelle des Heils",
-        v2Desc: "Ein stiller Weg zur Quelle: zum Herzen Jesu. „Mich dürstet.“ Aus seiner geöffneten Seite fließen Blut und Wasser – Zeichen von Leben, Liebe und Heilung. Nimm dir einen Moment, komm zur Ruhe, und geh (wenn du willst) innerlich mit.",
-        v2Music: "🎵 Musik: “Heaven's Window” – Peter Kater.",
-        v3Title: "Lebensübergabe & Weihe an das Herz Jesu (Gebet der Hingabe)",
-        v3Desc: "Wenn du gerade müde bist… wenn dein Kopf zu laut ist… wenn du nur noch funktionierst: Dann ist dieses Video für dich.<br/>Ein stilles Gebet der Lebensübergabe &amp; Weihe an das Herz Jesu. ❤️‍🔥<br/><br/>Leg (wenn du kannst) die Hand auf dein Herz. Atme. Und bete einfach mit – so wie du bist.",
-        v4Title: "Christus in uns – ein neues Leben",
-        v4Desc: "Du kämpfst. Du strengst dich an. Und trotzdem bleibt es innen leer?<br/>Vielleicht ist nicht dein Einsatz das Problem – sondern der Ort, an dem du kämpfst.<br/><br/>Blick auf Jesus. Nicht auf dich.<br/>Am Ende bekommst du eine 30-Sekunden-Übung, wenn du keine Worte mehr hast.<br/><br/>Für Tage mit Druck, Scham, innerer Trockenheit, Abend-Leere – und für alle, die einfach wieder zurück zu Jesus wollen.",
-        v5Title: "Bleibe in der Kraft des Evangeliums",
-        v5Desc: "Du lebst nicht vom Brot allein – sondern von jedem Wort, das aus Gottes Mund kommt. (Mt 4,4)<br/><br/>Wenn du innerlich müde bist, voller Druck, Zweifel oder Trockenheit: Es gibt eine Kraft, die nicht aus dir kommt. Sie kommt aus dem Evangelium – aus Gottes Wort.<br/><br/>In diesem Video:<br/>• Warum Gottes Wort Nahrung ist (nicht nur Information)<br/>• Wie Treue dich baut: 1 Kapitel am Tag<br/>• Wie „Riesen“ in deinem Leben fallen, wenn du in der Barmherzigkeit wächst<br/>• Warum das Herz von allem Joh 3,16 ist: Sobald du glaubst, kommt ewiges Leben in dich<br/>• Deine 7-Tage-Challenge: Jeden Tag ein Kapitel Bibel<br/><br/>Bibelstellen (zur Vertiefung):<br/>Mt 4,4 • Dan 11,32 • 2 Petr 1,2 • Kol 3,16 • Joh 8,31 • Phil 3,8–10 • Röm 1,16 • Apg 4,20 • Joh 3,16 • Mk 16,15 • Mk 16,20",
-        v5Note: "Hinweis: Wenn dieses Video noch privat ist, wird es erst sichtbar, sobald es veröffentlicht wurde.",
-        v6Warn: "⚠️ Dieses Video ist auf YouTube altersbeschränkt und kann daher nicht direkt hier eingebettet werden. Bitte öffne es auf YouTube.",
-        v6Title: "Die zwei Quellen – Von Eden zum Kreuz",
-        v6Desc: "Ohne Voice-over – damit Bild, Musik und Stille sprechen können. Eine Reise von der Schöpfung und dem Bruch in Eden bis zur Quelle des Heils am Kreuz: Blut und Wasser, neues Leben, neue Verbindung.",
-        v6Aria: "Auf YouTube ansehen: Die zwei Quellen – Von Eden zum Kreuz"
-      },
+    // Wichtig: wir überschreiben lp_lang NICHT mit einem Fallback.
+    // Nur wenn ein echtes lang kommt (Query), speichern wir es.
+    if (qLang) localStorage.setItem("lp_lang", qLang);
 
-      fr: {
-        htmlLang: "fr",
-        title: "Lampadēphóros – Films",
-        desc: "Films & chapitres : œuvres principales, chapitres et formats courts — clairement classés.",
-        brandMini: "Le Porte-Flambeau",
-        h1: "Films",
-        sub: "Œuvres principales, chapitres et formats courts — clairement classés.",
-        nav: { start:"Accueil", about:"À propos", films:"Films & chapitres", impulse:"Impulsions", workshop:"Atelier", offers:"Offres", shop:"Boutique", links:"Où nous trouver" },
-        note: "Pas de spam. Pas de drama. Juste l’œuvre.",
-        prepTitle: "En préparation",
-        prepText: "Cette section se remplira peu à peu. Tu y trouveras bientôt : œuvres principales, pages par chapitres et courts formats sélectionnés — avec structure et clarté.",
-        willLandTitle: "Ce qui arrivera ici",
-        willLandText: "Films complets, chapitres, shorts et liens vers les plateformes où tout est publié.",
-        btsTitle: "Dans les coulisses",
-        btsText: "Les choix, le rythme et les transitions sont documentés dans l’atelier.",
-        btsLink: "Vers l’atelier →",
-        pubTitle: "Films publiés",
-        pubSub: "Regarde ici — ou ouvre sur YouTube.",
-        btnYT: "Voir sur YouTube",
-        v1Title: "Light Calls — Quand la lumière touche ta nuit.",
-        v1Desc: "Parfois, la nuit paraît lourde — silencieuse, sombre, vide. C’est հենց là que l’appel de Dieu peut commencer doucement : une lumière qui porte, une espérance plus grande que tout ce qui nous écrase.",
-        v2Title: "La source du salut",
-        v2Desc: "Un chemin paisible vers la source : le Cœur de Jésus. « J’ai soif. » De son côté ouvert jaillissent le sang et l’eau — signes de vie, d’amour et de guérison. Prends un instant, respire, et marche intérieurement (si tu veux).",
-        v2Music: "🎵 Musique : “Heaven's Window” – Peter Kater.",
-        v3Title: "Offrande de vie & consécration au Cœur de Jésus (prière d’abandon)",
-        v3Desc: "Si tu es fatigué… si ta tête est trop bruyante… si tu ne fais que tenir : cette vidéo est pour toi.<br/>Une prière paisible d’offrande de vie &amp; de consécration au Cœur de Jésus. ❤️‍🔥<br/><br/>Pose (si tu peux) la main sur ton cœur. Respire. Et prie simplement — tel que tu es.",
-        v4Title: "Le Christ en nous — une vie nouvelle",
-        v4Desc: "Tu luttes. Tu t’efforces. Et pourtant, à l’intérieur, c’est vide ?<br/>Peut-être que le problème n’est pas ton effort — mais l’endroit où tu combats.<br/><br/>Regarde Jésus. Pas toi.<br/>À la fin, tu reçois un exercice de 30 secondes quand tu n’as plus de mots.<br/><br/>Pour les jours de pression, de honte, de sécheresse intérieure, de vide du soir — et pour tous ceux qui veulent simplement revenir à Jésus.",
-        v5Title: "Reste dans la puissance de l’Évangile",
-        v5Desc: "L’homme ne vit pas seulement de pain — mais de toute parole qui sort de la bouche de Dieu. (Mt 4,4)<br/><br/>Si tu es intérieurement fatigué, sous pression, dans le doute ou la sécheresse : il existe une force qui ne vient pas de toi. Elle vient de l’Évangile — de la Parole de Dieu.<br/><br/>Dans cette vidéo :<br/>• Pourquoi la Parole de Dieu est une nourriture (pas seulement une information)<br/>• Comment la fidélité te construit : 1 chapitre par jour<br/>• Comment les « géants » tombent quand tu grandis dans la miséricorde<br/>• Pourquoi le cœur de tout est Jn 3,16 : dès que tu crois, la vie éternelle entre en toi<br/>• Ton défi 7 jours : un chapitre de Bible par jour<br/><br/>Références :<br/>Mt 4,4 • Dn 11,32 • 2 P 1,2 • Col 3,16 • Jn 8,31 • Ph 3,8–10 • Rm 1,16 • Ac 4,20 • Jn 3,16 • Mc 16,15 • Mc 16,20",
-        v5Note: "Note : si cette vidéo est encore privée, elle ne sera visible qu’une fois publiée.",
-        v6Warn: "⚠️ Cette vidéo est soumise à une restriction d’âge sur YouTube et ne peut pas être intégrée ici. Merci de l’ouvrir sur YouTube.",
-        v6Title: "Les deux sources — d’Éden à la Croix",
-        v6Desc: "Sans voix off — pour laisser parler l’image, la musique et le silence. Un voyage de la création et de la rupture en Éden jusqu’à la source du salut à la Croix : sang et eau, vie nouvelle, lien nouveau.",
-        v6Aria: "Voir sur YouTube : Les deux sources — d’Éden à la Croix"
-      },
+    // rawLang = was der Nutzer "meint" (Query > Storage > de)
+    const rawLang = qLang || stored || "de";
 
-      en: {
-        htmlLang: "en",
-        title: "Lampadēphóros – Films",
-        desc: "Films & chapters: main works, chapters, and short cuts — neatly sorted.",
-        brandMini: "The Torchbearer",
-        h1: "Films",
-        sub: "Main works, chapters, and short cuts — neatly sorted.",
-        nav: { start:"Start", about:"About", films:"Films & chapters", impulse:"Impulses", workshop:"Workshop", offers:"Offers", shop:"Shop", links:"Find us here" },
-        note: "No spam. No drama. Just the work.",
-        prepTitle: "In progress",
-        prepText: "This section will be filled step by step. Soon you’ll find: main works, chapter pages, and selected short versions — with structure and clarity.",
-        willLandTitle: "What will land here",
-        willLandText: "Full films, chapters, shorts, and links to the platforms where everything is published.",
-        btsTitle: "Behind the scenes",
-        btsText: "We document decisions, rhythm, and transitions in the workshop.",
-        btsLink: "Go to workshop →",
-        pubTitle: "Published films",
-        pubSub: "Watch here — or open on YouTube.",
-        btnYT: "Watch on YouTube",
-        v1Title: "Light Calls — When the light touches your night.",
-        v1Desc: "Sometimes the night feels heavy — quiet, dark, empty. Right there, God’s call can begin softly: a light that carries, a hope bigger than anything that weighs you down.",
-        v2Title: "The Source of Salvation",
-        v2Desc: "A quiet path to the source: to the Heart of Jesus. “I thirst.” From His opened side flow blood and water — signs of life, love, and healing. Take a moment, breathe, and walk along inwardly (if you want).",
-        v2Music: "🎵 Music: “Heaven's Window” – Peter Kater.",
-        v3Title: "Life surrender & consecration to the Heart of Jesus (prayer of surrender)",
-        v3Desc: "If you’re tired… if your mind is too loud… if you’re only functioning: this video is for you.<br/>A quiet prayer of life surrender &amp; consecration to the Heart of Jesus. ❤️‍🔥<br/><br/>If you can, place your hand on your heart. Breathe. And pray along — just as you are.",
-        v4Title: "Christ within us — a new life",
-        v4Desc: "You fight. You try hard. And yet it’s still empty inside?<br/>Maybe your effort isn’t the problem — but the place where you’re fighting.<br/><br/>Look at Jesus. Not at yourself.<br/>At the end you’ll get a 30-second exercise when you have no words left.<br/><br/>For days of pressure, shame, inner dryness, evening emptiness — and for anyone who simply wants to come back to Jesus.",
-        v5Title: "Stay in the power of the Gospel",
-        v5Desc: "Man does not live by bread alone — but by every word that comes from the mouth of God. (Mt 4:4)<br/><br/>If you feel tired inside, under pressure, in doubt or dryness: there is a strength that doesn’t come from you. It comes from the Gospel — from God’s Word.<br/><br/>In this video:<br/>• Why God’s Word is nourishment (not just information)<br/>• How faithfulness builds you: 1 chapter a day<br/>• How “giants” fall as you grow in mercy<br/>• Why the heart of it all is John 3:16: the moment you believe, eternal life enters you<br/>• Your 7-day challenge: one Bible chapter each day<br/><br/>Verses:<br/>Mt 4:4 • Dan 11:32 • 2 Pet 1:2 • Col 3:16 • Jn 8:31 • Phil 3:8–10 • Rom 1:16 • Acts 4:20 • Jn 3:16 • Mk 16:15 • Mk 16:20",
-        v5Note: "Note: if this video is still private, it will only become visible once it’s published.",
-        v6Warn: "⚠️ This video is age-restricted on YouTube and can’t be embedded here. Please open it on YouTube.",
-        v6Title: "Two sources — from Eden to the Cross",
-        v6Desc: "No voice-over — so image, music, and silence can speak. A journey from creation and the rupture in Eden to the source of salvation at the Cross: blood and water, new life, new connection.",
-        v6Aria: "Watch on YouTube: Two sources — from Eden to the Cross"
-      },
+    // contentLang = nur wenn wir echte Übersetzung haben, sonst EN als Anzeige-Fallback
+    const hasDict = (l) => Object.prototype.hasOwnProperty.call(T, l);
+    const contentLang = hasDict(rawLang) ? rawLang : "en";
 
-      pt: {
-        htmlLang: "pt",
-        title: "Lampadēphóros – Filmes",
-        desc: "Filmes & capítulos: obras principais, capítulos e cortes curtos — bem organizados.",
-        brandMini: "O Portador da Tocha",
-        h1: "Filmes",
-        sub: "Obras principais, capítulos e cortes curtos — bem organizados.",
-        nav: { start:"Início", about:"Sobre", films:"Filmes & capítulos", impulse:"Impulsos", workshop:"Oficina", offers:"Ofertas", shop:"Loja", links:"Encontre-nos aqui" },
-        note: "Sem spam. Sem drama. Só obra.",
-        prepTitle: "Em preparação",
-        prepText: "Esta secção será preenchida aos poucos. Em breve encontrarás: obras principais, páginas por capítulos e versões curtas selecionadas — com estrutura e clareza.",
-        willLandTitle: "O que vai aparecer aqui",
-        willLandText: "Filmes completos, capítulos, shorts e links para as plataformas onde tudo é publicado.",
-        btsTitle: "Nos bastidores",
-        btsText: "Decisões, ritmo e transições ficam documentados na oficina.",
-        btsLink: "Ir para a oficina →",
-        pubTitle: "Filmes publicados",
-        pubSub: "Vê aqui — ou abre no YouTube.",
-        btnYT: "Ver no YouTube",
-        v1Title: "Light Calls — Quando a luz toca a tua noite.",
-        v1Desc: "Às vezes a noite parece pesada — silenciosa, escura, vazia. É justamente aí que o chamado de Deus pode começar suavemente: uma luz que sustenta, uma esperança maior do que tudo o que te oprime.",
-        v2Title: "A Fonte da Salvação",
-        v2Desc: "Um caminho tranquilo até à fonte: ao Coração de Jesus. “Tenho sede.” Do seu lado aberto fluem sangue e água — sinais de vida, amor e cura. Toma um momento, respira, e caminha por dentro (se quiseres).",
-        v2Music: "🎵 Música: “Heaven's Window” – Peter Kater.",
-        v3Title: "Entrega de vida & consagração ao Coração de Jesus (oração de entrega)",
-        v3Desc: "Se estás cansado… se a tua mente está demasiado barulhenta… se só estás a aguentar: este vídeo é para ti.<br/>Uma oração tranquila de entrega de vida &amp; consagração ao Coração de Jesus. ❤️‍🔥<br/><br/>Se puderes, coloca a mão no coração. Respira. E reza comigo — como estás.",
-        v4Title: "Cristo em nós — uma vida nova",
-        v4Desc: "Tu lutas. Tu te esforças. E mesmo assim continua vazio por dentro?<br/>Talvez o problema não seja o teu esforço — mas o lugar onde estás a lutar.<br/><br/>Olha para Jesus. Não para ti.<br/>No fim, recebes um exercício de 30 segundos quando já não tens palavras.<br/><br/>Para dias de pressão, vergonha, secura interior, vazio à noite — e para todos os que querem simplesmente voltar para Jesus.",
-        v5Title: "Permanece na força do Evangelho",
-        v5Desc: "O homem não vive só de pão — mas de toda palavra que sai da boca de Deus. (Mt 4,4)<br/><br/>Se estás cansado por dentro, sob pressão, em dúvida ou secura: existe uma força que não vem de ti. Ela vem do Evangelho — da Palavra de Deus.<br/><br/>Neste vídeo:<br/>• Porque a Palavra de Deus é alimento (não só informação)<br/>• Como a fidelidade te constrói: 1 capítulo por dia<br/>• Como os “gigantes” caem quando cresces na misericórdia<br/>• Porque o coração de tudo é Jo 3,16: no momento em que crês, a vida eterna entra em ti<br/>• Desafio 7 dias: um capítulo da Bíblia por dia<br/><br/>Textos:<br/>Mt 4,4 • Dan 11,32 • 2 Pe 1,2 • Col 3,16 • Jo 8,31 • Fl 3,8–10 • Rm 1,16 • At 4,20 • Jo 3,16 • Mc 16,15 • Mc 16,20",
-        v5Note: "Nota: se este vídeo ainda estiver privado, só ficará visível quando for publicado.",
-        v6Warn: "⚠️ Este vídeo tem restrição de idade no YouTube e não pode ser incorporado aqui. Abre no YouTube.",
-        v6Title: "Duas fontes — do Éden à Cruz",
-        v6Desc: "Sem voz — para deixar a imagem, a música e o silêncio falarem. Uma viagem da criação e da ruptura no Éden até à fonte da salvação na Cruz: sangue e água, vida nova, ligação nova.",
-        v6Aria: "Ver no YouTube: Duas fontes — do Éden à Cruz"
-      },
-
-      it: {
-        htmlLang: "it",
-        title: "Lampadēphóros – Film",
-        desc: "Film e capitoli: opere principali, capitoli e versioni brevi — ordinati con cura.",
-        brandMini: "Il Portatore della Fiaccola",
-        h1: "Film",
-        sub: "Opere principali, capitoli e versioni brevi — ordinati con cura.",
-        nav: { start:"Start", about:"Chi siamo", films:"Film & capitoli", impulse:"Impulsi", workshop:"Officina", offers:"Offerte", shop:"Shop", links:"Dove trovarci" },
-        note: "Niente spam. Niente drama. Solo opera.",
-        prepTitle: "In preparazione",
-        prepText: "Questa sezione verrà riempita poco a poco. Qui troverai presto: opere principali, pagine per capitoli e versioni brevi selezionate — con struttura e chiarezza.",
-        willLandTitle: "Cosa troverai qui",
-        willLandText: "Film completi, capitoli, shorts e link alle piattaforme dove tutto viene pubblicato.",
-        btsTitle: "Dietro le quinte",
-        btsText: "Decisioni, ritmo e transizioni li documentiamo nell’officina.",
-        btsLink: "Vai all’officina →",
-        pubTitle: "Film pubblicati",
-        pubSub: "Guarda qui — oppure apri su YouTube.",
-        btnYT: "Guarda su YouTube",
-        v1Title: "Light Calls — Quando la luce tocca la tua notte.",
-        v1Desc: "A volte la notte sembra pesante — silenziosa, scura, vuota. Proprio lì la chiamata di Dio può iniziare piano: una luce che sostiene, una speranza più grande di tutto ciò che ti schiaccia.",
-        v2Title: "La Fonte della Salvezza",
-        v2Desc: "Un cammino silenzioso verso la fonte: il Cuore di Gesù. «Ho sete». Dal suo costato aperto scorrono sangue e acqua — segni di vita, amore e guarigione. Prenditi un momento, respira, e cammina dentro (se vuoi).",
-        v2Music: "🎵 Musica: “Heaven's Window” – Peter Kater.",
-        v3Title: "Consacrazione della vita & al Cuore di Gesù (preghiera di abbandono)",
-        v3Desc: "Se sei stanco… se la tua mente è troppo rumorosa… se stai solo funzionando: questo video è per te.<br/>Una preghiera silenziosa di consegna della vita &amp; consacrazione al Cuore di Gesù. ❤️‍🔥<br/><br/>Se puoi, posa la mano sul cuore. Respira. E prega con me — così come sei.",
-        v4Title: "Cristo in noi — una vita nuova",
-        v4Desc: "Combatti. Ti sforzi. Eppure dentro resta vuoto?<br/>Forse non è il tuo impegno il problema — ma il luogo in cui stai combattendo.<br/><br/>Guarda Gesù. Non te stesso.<br/>Alla fine riceverai un esercizio di 30 secondi quando non hai più parole.<br/><br/>Per giorni di pressione, vergogna, aridità interiore, vuoto della sera — e per chi vuole semplicemente tornare a Gesù.",
-        v5Title: "Resta nella forza del Vangelo",
-        v5Desc: "L’uomo non vive di solo pane — ma di ogni parola che esce dalla bocca di Dio. (Mt 4,4)<br/><br/>Se sei stanco dentro, sotto pressione, nel dubbio o nell’aridità: esiste una forza che non viene da te. Viene dal Vangelo — dalla Parola di Dio.<br/><br/>In questo video:<br/>• Perché la Parola di Dio è nutrimento (non solo informazione)<br/>• Come la fedeltà ti costruisce: 1 capitolo al giorno<br/>• Come i “giganti” cadono quando cresci nella misericordia<br/>• Perché il cuore di tutto è Gv 3,16: appena credi, la vita eterna entra in te<br/>• Sfida 7 giorni: un capitolo di Bibbia ogni giorno<br/><br/>Riferimenti:<br/>Mt 4,4 • Dn 11,32 • 2 Pt 1,2 • Col 3,16 • Gv 8,31 • Fil 3,8–10 • Rm 1,16 • At 4,20 • Gv 3,16 • Mc 16,15 • Mc 16,20",
-        v5Note: "Nota: se questo video è ancora privato, sarà visibile solo quando verrà pubblicato.",
-        v6Warn: "⚠️ Questo video è con restrizione d’età su YouTube e non può essere incorporato qui. Aprilo su YouTube.",
-        v6Title: "Due fonti — dall’Eden alla Croce",
-        v6Desc: "Senza voce fuori campo — perché parlino immagine, musica e silenzio. Un viaggio dalla creazione e dalla frattura in Eden fino alla fonte della salvezza sulla Croce: sangue e acqua, vita nuova, legame nuovo.",
-        v6Aria: "Guarda su YouTube: Due fonti — dall’Eden alla Croce"
-      }
-    };
-
-    const t = T[lang] || T.de;
+    const t = T[contentLang];
 
     // html lang + title + meta desc
-    document.documentElement.lang = t.htmlLang || lang;
+    document.documentElement.lang = t.htmlLang || contentLang;
     document.title = t.title || document.title;
     const meta = document.querySelector('meta[name="description"]');
     if (meta && t.desc) meta.setAttribute("content", t.desc);
 
-    // Top texts
-    const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-    const setHTML  = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
+    const setText = (id, val) => { const el = document.getElementById(id); if (el && val != null) el.textContent = val; };
+    const setHTML = (id, val) => { const el = document.getElementById(id); if (el && val != null) el.innerHTML = val; };
+    const setAttr = (id, attr, val) => { const el = document.getElementById(id); if (el && val != null) el.setAttribute(attr, val); };
 
+    // Top texts
     setText("brandMini", t.brandMini);
     setText("h1", t.h1);
     setText("sub", t.sub);
@@ -493,7 +309,7 @@
     // Nav labels
     setText("navStart", t.nav.start);
     setText("navAbout", t.nav.about);
-    setHTML("navFilms", t.nav.films.replace("&","&amp;"));
+    setText("navFilms", t.nav.films);
     setText("navImpulse", t.nav.impulse);
     setText("navWorkshop", t.nav.workshop);
     setText("navOffers", t.nav.offers);
@@ -501,10 +317,11 @@
     setText("navLinks", t.nav.links);
     setText("note", t.note);
 
-    // Start link -> correct start-xx.html
-    const startHref = `start-${lang}.html`;
-    const navStart = document.getElementById("navStart");
-    if (navStart) navStart.setAttribute("href", startHref);
+    // Start link -> wenn start-rawLang.html existiert (in deiner Welt), nimm das.
+    // Sonst fallback auf start-contentLang.html (meist EN)
+    const preferred = knownSet.has(rawLang) ? rawLang : contentLang;
+    const startHref = `start-${preferred}.html`;
+    setAttr("navStart", "href", startHref);
 
     // Cards
     setText("prepTitle", t.prepTitle);
@@ -522,33 +339,301 @@
     // Video texts + buttons
     setText("v1Title", t.v1Title);
     setText("v1Desc", t.v1Desc);
+
     setText("v2Title", t.v2Title);
     setText("v2Desc", t.v2Desc);
     setText("v2Music", t.v2Music);
-    setHTML("v3Title", t.v3Title.replace("&","&amp;"));
+
+    setText("v3Title", t.v3Title);
     setHTML("v3Desc", t.v3Desc);
+
     setText("v4Title", t.v4Title);
     setHTML("v4Desc", t.v4Desc);
+
     setText("v5Title", t.v5Title);
     setHTML("v5Desc", t.v5Desc);
     setText("v5Note", t.v5Note);
+
     setText("v6Warn", t.v6Warn);
     setText("v6Title", t.v6Title);
     setText("v6Desc", t.v6Desc);
+    setAttr("v6Thumb", "aria-label", t.v6Aria);
 
     // Button labels
     ["v1Btn","v2Btn","v3Btn","v4Btn","v5Btn","v6Btn"].forEach(id => setText(id, t.btnYT));
 
-    // iframe titles (accessibility)
-    const setAttr = (id, attr, val) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); };
+    // iframe titles
     setAttr("v1Frame", "title", t.v1Title);
     setAttr("v2Frame", "title", t.v2Title);
     setAttr("v3Frame", "title", t.v3Title);
     setAttr("v4Frame", "title", t.v4Title);
     setAttr("v5Frame", "title", t.v5Title);
-    setAttr("v6Thumb", "aria-label", t.v6Aria);
 
+    // Falls jemand filme.html?lang=xx aufruft, halten wir die URL sauber (optional):
+    // (nichts)
   })();
+
+  // ====== TRANSLATIONS ======
+  const T = {
+    de: {
+      htmlLang:"de",
+      title:"Lampadēphóros – Filme",
+      desc:"Filme & Kapitel: Hauptwerke, Kapitel und kurze Schnitte – sauber sortiert.",
+      brandMini:"Der Fackelträger",
+      h1:"Filme",
+      sub:"Hauptwerke, Kapitel und kurze Schnitte – sauber sortiert.",
+      nav:{start:"Start",about:"Über uns",films:"Filme & Kapitel",impulse:"Impulse",workshop:"Werkstatt",offers:"Angebote",shop:"Shop",links:"Hier findest du uns"},
+      note:"Kein Spam. Kein Drama. Nur Werk.",
+      prepTitle:"In Vorbereitung",
+      prepText:"Diese Sektion wird nach und nach gefüllt. Hier findest du bald: Hauptwerke, Kapitel-Seiten und ausgewählte Kurzfassungen – mit Struktur und Klarheit.",
+      willLandTitle:"Was hier landen wird",
+      willLandText:"Vollfilme, Kapitel, Shorts und Links zu den Plattformen, auf denen alles veröffentlicht wird.",
+      btsTitle:"Hinter den Kulissen",
+      btsText:"Entscheidungen, Rhythmus und Übergänge dokumentieren wir in der Werkstatt.",
+      btsLink:"Zur Werkstatt →",
+      pubTitle:"Veröffentlichte Filme",
+      pubSub:"Direkt hier ansehen – oder auf YouTube öffnen.",
+      btnYT:"Auf YouTube ansehen",
+      v1Title:"Light Calls – Wenn das Licht deine Nacht berührt.",
+      v1Desc:"Manchmal fühlt sich die Nacht schwer an – still, dunkel, leer. Genau dort kann Gottes Ruf leise beginnen: ein Licht, das trägt, eine Hoffnung, die größer ist als alles, was uns niederdrückt.",
+      v2Title:"Die Quelle des Heils",
+      v2Desc:"Ein stiller Weg zur Quelle: zum Herzen Jesu. „Mich dürstet.“ Aus seiner geöffneten Seite fließen Blut und Wasser – Zeichen von Leben, Liebe und Heilung. Nimm dir einen Moment, komm zur Ruhe, und geh (wenn du willst) innerlich mit.",
+      v2Music:"🎵 Musik: “Heaven's Window” – Peter Kater.",
+      v3Title:"Lebensübergabe & Weihe an das Herz Jesu (Gebet der Hingabe)",
+      v3Desc:"Wenn du gerade müde bist… wenn dein Kopf zu laut ist… wenn du nur noch funktionierst: Dann ist dieses Video für dich.<br/>Ein stilles Gebet der Lebensübergabe &amp; Weihe an das Herz Jesu. ❤️‍🔥<br/><br/>Leg (wenn du kannst) die Hand auf dein Herz. Atme. Und bete einfach mit – so wie du bist.",
+      v4Title:"Christus in uns – ein neues Leben",
+      v4Desc:"Du kämpfst. Du strengst dich an. Und trotzdem bleibt es innen leer?<br/>Vielleicht ist nicht dein Einsatz das Problem – sondern der Ort, an dem du kämpfst.<br/><br/>Blick auf Jesus. Nicht auf dich.<br/>Am Ende bekommst du eine 30-Sekunden-Übung, wenn du keine Worte mehr hast.<br/><br/>Für Tage mit Druck, Scham, innerer Trockenheit, Abend-Leere – und für alle, die einfach wieder zurück zu Jesus wollen.",
+      v5Title:"Bleibe in der Kraft des Evangeliums",
+      v5Desc:"Du lebst nicht vom Brot allein – sondern von jedem Wort, das aus Gottes Mund kommt. (Mt 4,4)<br/><br/>Wenn du innerlich müde bist, voller Druck, Zweifel oder Trockenheit: Es gibt eine Kraft, die nicht aus dir kommt. Sie kommt aus dem Evangelium – aus Gottes Wort.<br/><br/>In diesem Video:<br/>• Warum Gottes Wort Nahrung ist (nicht nur Information)<br/>• Wie Treue dich baut: 1 Kapitel am Tag<br/>• Wie „Riesen“ in deinem Leben fallen, wenn du in der Barmherzigkeit wächst<br/>• Warum das Herz von allem Joh 3,16 ist: Sobald du glaubst, kommt ewiges Leben in dich<br/>• Deine 7-Tage-Challenge: Jeden Tag ein Kapitel Bibel<br/><br/>Bibelstellen (zur Vertiefung):<br/>Mt 4,4 • Dan 11,32 • 2 Petr 1,2 • Kol 3,16 • Joh 8,31 • Phil 3,8–10 • Röm 1,16 • Apg 4,20 • Joh 3,16 • Mk 16,15 • Mk 16,20",
+      v5Note:"Hinweis: Wenn dieses Video noch privat ist, wird es erst sichtbar, sobald es veröffentlicht wurde.",
+      v6Warn:"⚠️ Dieses Video ist auf YouTube altersbeschränkt und kann daher nicht direkt hier eingebettet werden. Bitte öffne es auf YouTube.",
+      v6Title:"Die zwei Quellen – Von Eden zum Kreuz",
+      v6Desc:"Ohne Voice-over – damit Bild, Musik und Stille sprechen können. Eine Reise von der Schöpfung und dem Bruch in Eden bis zur Quelle des Heils am Kreuz: Blut und Wasser, neues Leben, neue Verbindung.",
+      v6Aria:"Auf YouTube ansehen: Die zwei Quellen – Von Eden zum Kreuz"
+    },
+
+    fr: {
+      htmlLang:"fr",
+      title:"Lampadēphóros – Films",
+      desc:"Films & chapitres : œuvres principales, chapitres et formats courts — clairement classés.",
+      brandMini:"Le Porte-Flambeau",
+      h1:"Films",
+      sub:"Œuvres principales, chapitres et formats courts — clairement classés.",
+      nav:{start:"Accueil",about:"À propos",films:"Films & chapitres",impulse:"Impulsions",workshop:"Atelier",offers:"Offres",shop:"Boutique",links:"Où nous trouver"},
+      note:"Pas de spam. Pas de drama. Juste l’œuvre.",
+      prepTitle:"En préparation",
+      prepText:"Cette section se remplira peu à peu. Tu y trouveras bientôt : œuvres principales, pages par chapitres et courts formats sélectionnés — avec structure et clarté.",
+      willLandTitle:"Ce qui arrivera ici",
+      willLandText:"Films complets, chapitres, shorts et liens vers les plateformes où tout est publié.",
+      btsTitle:"Dans les coulisses",
+      btsText:"Les choix, le rythme et les transitions sont documentés dans l’atelier.",
+      btsLink:"Vers l’atelier →",
+      pubTitle:"Films publiés",
+      pubSub:"Regarde ici — ou ouvre sur YouTube.",
+      btnYT:"Voir sur YouTube",
+      v1Title:"Light Calls — Quand la lumière touche ta nuit.",
+      v1Desc:"Parfois, la nuit paraît lourde — silencieuse, sombre, vide. C’est là que l’appel de Dieu peut commencer doucement : une lumière qui porte, une espérance plus grande que tout ce qui nous écrase.",
+      v2Title:"La source du salut",
+      v2Desc:"Un chemin paisible vers la source : le Cœur de Jésus. « J’ai soif. » De son côté ouvert jaillissent le sang et l’eau — signes de vie, d’amour et de guérison. Prends un instant, respire, et marche intérieurement (si tu veux).",
+      v2Music:"🎵 Musique : “Heaven's Window” – Peter Kater.",
+      v3Title:"Offrande de vie & consécration au Cœur de Jésus (prière d’abandon)",
+      v3Desc:"Si tu es fatigué… si ta tête est trop bruyante… si tu ne fais que tenir : cette vidéo est pour toi.<br/>Une prière paisible d’offrande de vie &amp; de consécration au Cœur de Jésus. ❤️‍🔥<br/><br/>Pose (si tu peux) la main sur ton cœur. Respire. Et prie simplement — tel que tu es.",
+      v4Title:"Le Christ en nous — une vie nouvelle",
+      v4Desc:"Tu luttes. Tu t’efforces. Et pourtant, c’est vide à l’intérieur ?<br/>Peut-être que le problème n’est pas ton effort — mais l’endroit où tu combats.<br/><br/>Regarde Jésus. Pas toi.<br/>À la fin, tu reçois un exercice de 30 secondes quand tu n’as plus de mots.<br/><br/>Pour les jours de pression, de honte, de sécheresse intérieure, de vide du soir — et pour tous ceux qui veulent simplement revenir à Jésus.",
+      v5Title:"Reste dans la puissance de l’Évangile",
+      v5Desc:"L’homme ne vit pas seulement de pain — mais de toute parole qui sort de la bouche de Dieu. (Mt 4,4)<br/><br/>Si tu es intérieurement fatigué, sous pression, dans le doute ou la sécheresse : il existe une force qui ne vient pas de toi. Elle vient de l’Évangile — de la Parole de Dieu.<br/><br/>Dans cette vidéo :<br/>• Pourquoi la Parole de Dieu est une nourriture (pas seulement une information)<br/>• Comment la fidélité te construit : 1 chapitre par jour<br/>• Comment les « géants » tombent quand tu grandis dans la miséricorde<br/>• Pourquoi le cœur de tout est Jn 3,16 : dès que tu crois, la vie éternelle entre en toi<br/>• Ton défi 7 jours : un chapitre de Bible par jour<br/><br/>Références :<br/>Mt 4,4 • Dn 11,32 • 2 P 1,2 • Col 3,16 • Jn 8,31 • Ph 3,8–10 • Rm 1,16 • Ac 4,20 • Jn 3,16 • Mc 16,15 • Mc 16,20",
+      v5Note:"Note : si cette vidéo est encore privée, elle ne sera visible qu’une fois publiée.",
+      v6Warn:"⚠️ Cette vidéo est soumise à une restriction d’âge sur YouTube et ne peut pas être intégrée ici. Merci de l’ouvrir sur YouTube.",
+      v6Title:"Les deux sources — d’Éden à la Croix",
+      v6Desc:"Sans voix off — pour laisser parler l’image, la musique et le silence. Un voyage de la création et de la rupture en Éden jusqu’à la source du salut à la Croix : sang et eau, vie nouvelle, lien nouveau.",
+      v6Aria:"Voir sur YouTube : Les deux sources — d’Éden à la Croix"
+    },
+
+    en: {
+      htmlLang:"en",
+      title:"Lampadēphóros – Films",
+      desc:"Films & chapters: main works, chapters, and short cuts — neatly sorted.",
+      brandMini:"The Torchbearer",
+      h1:"Films",
+      sub:"Main works, chapters, and short cuts — neatly sorted.",
+      nav:{start:"Start",about:"About",films:"Films & chapters",impulse:"Impulses",workshop:"Workshop",offers:"Offers",shop:"Shop",links:"Find us here"},
+      note:"No spam. No drama. Just the work.",
+      prepTitle:"In progress",
+      prepText:"This section will be filled step by step. Soon you’ll find: main works, chapter pages, and selected short versions — with structure and clarity.",
+      willLandTitle:"What will land here",
+      willLandText:"Full films, chapters, shorts, and links to the platforms where everything is published.",
+      btsTitle:"Behind the scenes",
+      btsText:"We document decisions, rhythm, and transitions in the workshop.",
+      btsLink:"Go to workshop →",
+      pubTitle:"Published films",
+      pubSub:"Watch here — or open on YouTube.",
+      btnYT:"Watch on YouTube",
+      v1Title:"Light Calls — When the light touches your night.",
+      v1Desc:"Sometimes the night feels heavy — quiet, dark, empty. Right there, God’s call can begin softly: a light that carries, a hope bigger than anything that weighs you down.",
+      v2Title:"The Source of Salvation",
+      v2Desc:"A quiet path to the source: to the Heart of Jesus. “I thirst.” From His opened side flow blood and water — signs of life, love, and healing. Take a moment, breathe, and walk along inwardly (if you want).",
+      v2Music:"🎵 Music: “Heaven's Window” – Peter Kater.",
+      v3Title:"Life surrender & consecration to the Heart of Jesus (prayer of surrender)",
+      v3Desc:"If you’re tired… if your mind is too loud… if you’re only functioning: this video is for you.<br/>A quiet prayer of life surrender &amp; consecration to the Heart of Jesus. ❤️‍🔥<br/><br/>If you can, place your hand on your heart. Breathe. And pray along — just as you are.",
+      v4Title:"Christ within us — a new life",
+      v4Desc:"You fight. You try hard. And yet it’s still empty inside?<br/>Maybe your effort isn’t the problem — but the place where you’re fighting.<br/><br/>Look at Jesus. Not at yourself.<br/>At the end you’ll get a 30-second exercise when you have no words left.<br/><br/>For days of pressure, shame, inner dryness, evening emptiness — and for anyone who simply wants to come back to Jesus.",
+      v5Title:"Stay in the power of the Gospel",
+      v5Desc:"Man does not live by bread alone — but by every word that comes from the mouth of God. (Mt 4:4)<br/><br/>If you feel tired inside, under pressure, in doubt or dryness: there is a strength that doesn’t come from you. It comes from the Gospel — from God’s Word.<br/><br/>In this video:<br/>• Why God’s Word is nourishment (not just information)<br/>• How faithfulness builds you: 1 chapter a day<br/>• How “giants” fall as you grow in mercy<br/>• Why the heart of it all is John 3:16: the moment you believe, eternal life enters you<br/>• Your 7-day challenge: one Bible chapter each day<br/><br/>Verses:<br/>Mt 4:4 • Dan 11:32 • 2 Pet 1:2 • Col 3:16 • Jn 8:31 • Phil 3:8–10 • Rom 1:16 • Acts 4:20 • Jn 3:16 • Mk 16:15 • Mk 16:20",
+      v5Note:"Note: if this video is still private, it will only become visible once it’s published.",
+      v6Warn:"⚠️ This video is age-restricted on YouTube and can’t be embedded here. Please open it on YouTube.",
+      v6Title:"Two sources — from Eden to the Cross",
+      v6Desc:"No voice-over — so image, music, and silence can speak. A journey from creation and the rupture in Eden to the source of salvation at the Cross: blood and water, new life, new connection.",
+      v6Aria:"Watch on YouTube: Two sources — from Eden to the Cross"
+    },
+
+    pt: {
+      htmlLang:"pt",
+      title:"Lampadēphóros – Filmes",
+      desc:"Filmes & capítulos: obras principais, capítulos e cortes curtos — bem organizados.",
+      brandMini:"O Portador da Tocha",
+      h1:"Filmes",
+      sub:"Obras principais, capítulos e cortes curtos — bem organizados.",
+      nav:{start:"Início",about:"Sobre",films:"Filmes & capítulos",impulse:"Impulsos",workshop:"Oficina",offers:"Ofertas",shop:"Loja",links:"Encontre-nos aqui"},
+      note:"Sem spam. Sem drama. Só obra.",
+      prepTitle:"Em preparação",
+      prepText:"Esta secção será preenchida aos poucos. Em breve encontrarás: obras principais, páginas por capítulos e versões curtas selecionadas — com estrutura e clareza.",
+      willLandTitle:"O que vai aparecer aqui",
+      willLandText:"Filmes completos, capítulos, shorts e links para as plataformas onde tudo é publicado.",
+      btsTitle:"Nos bastidores",
+      btsText:"Decisões, ritmo e transições ficam documentados na oficina.",
+      btsLink:"Ir para a oficina →",
+      pubTitle:"Filmes publicados",
+      pubSub:"Vê aqui — ou abre no YouTube.",
+      btnYT:"Ver no YouTube",
+      v1Title:"Light Calls — Quando a luz toca a tua noite.",
+      v1Desc:"Às vezes a noite parece pesada — silenciosa, escura, vazia. É justamente aí que o chamado de Deus pode começar suavemente: uma luz que sustenta, uma esperança maior do que tudo o que te oprime.",
+      v2Title:"A Fonte da Salvação",
+      v2Desc:"Um caminho tranquilo até à fonte: ao Coração de Jesus. “Tenho sede.” Do seu lado aberto fluem sangue e água — sinais de vida, amor e cura. Toma um momento, respira, e caminha por dentro (se quiseres).",
+      v2Music:"🎵 Música: “Heaven's Window” – Peter Kater.",
+      v3Title:"Entrega de vida & consagração ao Coração de Jesus (oração de entrega)",
+      v3Desc:"Se estás cansado… se a tua mente está demasiado barulhenta… se só estás a aguentar: este vídeo é para ti.<br/>Uma oração tranquila de entrega de vida &amp; consagração ao Coração de Jesus. ❤️‍🔥<br/><br/>Se puderes, coloca a mão no coração. Respira. E reza comigo — como estás.",
+      v4Title:"Cristo em nós — uma vida nova",
+      v4Desc:"Tu lutas. Tu te esforças. E mesmo assim continua vazio por dentro?<br/>Talvez o problema não seja o teu esforço — mas o lugar onde estás a lutar.<br/><br/>Olha para Jesus. Não para ti.<br/>No fim, recebes um exercício de 30 segundos quando já não tens palavras.<br/><br/>Para dias de pressão, vergonha, secura interior, vazio à noite — e para todos os que querem simplesmente voltar para Jesus.",
+      v5Title:"Permanece na força do Evangelho",
+      v5Desc:"O homem não vive só de pão — mas de toda palavra que sai da boca de Deus. (Mt 4,4)<br/><br/>Se estás cansado por dentro, sob pressão, em dúvida ou secura: existe uma força que não vem de ti. Ela vem do Evangelho — da Palavra de Deus.<br/><br/>Neste vídeo:<br/>• Porque a Palavra de Deus é alimento (não só informação)<br/>• Como a fidelidade te constrói: 1 capítulo por dia<br/>• Como os “gigantes” caem quando cresces na misericórdia<br/>• Porque o coração de tudo é Jo 3,16: no momento em que crês, a vida eterna entra em ti<br/>• Desafio 7 dias: um capítulo da Bíblia por dia<br/><br/>Textos:<br/>Mt 4,4 • Dan 11,32 • 2 Pe 1,2 • Col 3,16 • Jo 8,31 • Fl 3,8–10 • Rm 1,16 • At 4,20 • Jo 3,16 • Mc 16,15 • Mc 16,20",
+      v5Note:"Nota: se este vídeo ainda estiver privado, só ficará visível quando for publicado.",
+      v6Warn:"⚠️ Este vídeo tem restrição de idade no YouTube e não pode ser incorporado aqui. Abre no YouTube.",
+      v6Title:"Duas fontes — do Éden à Cruz",
+      v6Desc:"Sem voz — para deixar a imagem, a música e o silêncio falarem. Uma viagem da criação e da ruptura no Éden até à fonte da salvação na Cruz: sangue e água, vida nova, ligação nova.",
+      v6Aria:"Ver no YouTube: Duas fontes — do Éden à Cruz"
+    },
+
+    it: {
+      htmlLang:"it",
+      title:"Lampadēphóros – Film",
+      desc:"Film e capitoli: opere principali, capitoli e versioni brevi — ordinati con cura.",
+      brandMini:"Il Portatore della Fiaccola",
+      h1:"Film",
+      sub:"Opere principali, capitoli e versioni brevi — ordinati con cura.",
+      nav:{start:"Start",about:"Chi siamo",films:"Film & capitoli",impulse:"Impulsi",workshop:"Officina",offers:"Offerte",shop:"Shop",links:"Dove trovarci"},
+      note:"Niente spam. Niente drama. Solo opera.",
+      prepTitle:"In preparazione",
+      prepText:"Questa sezione verrà riempita poco a poco. Qui troverai presto: opere principali, pagine per capitoli e versioni brevi selezionate — con struttura e chiarezza.",
+      willLandTitle:"Cosa troverai qui",
+      willLandText:"Film completi, capitoli, shorts e link alle piattaforme dove tutto viene pubblicato.",
+      btsTitle:"Dietro le quinte",
+      btsText:"Decisioni, ritmo e transizioni li documentiamo nell’officina.",
+      btsLink:"Vai all’officina →",
+      pubTitle:"Film pubblicati",
+      pubSub:"Guarda qui — oppure apri su YouTube.",
+      btnYT:"Guarda su YouTube",
+      v1Title:"Light Calls — Quando la luce tocca la tua notte.",
+      v1Desc:"A volte la notte sembra pesante — silenziosa, scura, vuota. Proprio lì la chiamata di Dio può iniziare piano: una luce che sostiene, una speranza più grande di tutto ciò che ti schiaccia.",
+      v2Title:"La Fonte della Salvezza",
+      v2Desc:"Un cammino silenzioso verso la fonte: il Cuore di Gesù. «Ho sete». Dal suo costato aperto scorrono sangue e acqua — segni di vita, amore e guarigione. Prenditi un momento, respira, e cammina dentro (se vuoi).",
+      v2Music:"🎵 Musica: “Heaven's Window” – Peter Kater.",
+      v3Title:"Consacrazione della vita & al Cuore di Gesù (preghiera di abbandono)",
+      v3Desc:"Se sei stanco… se la tua mente è troppo rumorosa… se stai solo funzionando: questo video è per te.<br/>Una preghiera silenziosa di consegna della vita &amp; consacrazione al Cuore di Gesù. ❤️‍🔥<br/><br/>Se puoi, posa la mano sul cuore. Respira. E prega con me — così come sei.",
+      v4Title:"Cristo in noi — una vita nuova",
+      v4Desc:"Combatti. Ti sforzi. Eppure dentro resta vuoto?<br/>Forse non è il tuo impegno il problema — ma il luogo in cui stai combattendo.<br/><br/>Guarda Gesù. Non te stesso.<br/>Alla fine riceverai un esercizio di 30 secondi quando non hai più parole.<br/><br/>Per giorni di pressione, vergogna, aridità interiore, vuoto della sera — e per chi vuole semplicemente tornare a Gesù.",
+      v5Title:"Resta nella forza del Vangelo",
+      v5Desc:"L’uomo non vive di solo pane — ma di ogni parola che esce dalla bocca di Dio. (Mt 4,4)<br/><br/>Se sei stanco dentro, sotto pressione, nel dubbio o nell’aridità: esiste una forza che non viene da te. Viene dal Vangelo — dalla Parola di Dio.<br/><br/>In questo video:<br/>• Perché la Parola di Dio è nutrimento (non solo informazione)<br/>• Come la fedeltà ti costruisce: 1 capitolo al giorno<br/>• Come i “giganti” cadono quando cresci nella misericordia<br/>• Perché il cuore di tutto è Gv 3,16: appena credi, la vita eterna entra in te<br/>• Sfida 7 giorni: un capitolo di Bibbia ogni giorno<br/><br/>Riferimenti:<br/>Mt 4,4 • Dn 11,32 • 2 Pt 1,2 • Col 3,16 • Gv 8,31 • Fil 3,8–10 • Rm 1,16 • At 4,20 • Gv 3,16 • Mc 16,15 • Mc 16,20",
+      v5Note:"Nota: se questo video è ancora privato, sarà visibile solo quando verrà pubblicato.",
+      v6Warn:"⚠️ Questo video è con restrizione d’età su YouTube e non può essere incorporato qui. Aprilo su YouTube.",
+      v6Title:"Due fonti — dall’Eden alla Croce",
+      v6Desc:"Senza voce fuori campo — perché parlino immagine, musica e silenzio. Un viaggio dalla creazione e dalla frattura in Eden fino alla fonte della salvezza sulla Croce: sangue e acqua, vita nuova, legame nuovo.",
+      v6Aria:"Guarda su YouTube: Due fonti — dall’Eden alla Croce"
+    },
+
+    es: {
+      htmlLang:"es",
+      title:"Lampadēphóros – Películas",
+      desc:"Películas y capítulos: obras principales, capítulos y versiones cortas — ordenado con claridad.",
+      brandMini:"El Portador de la Antorcha",
+      h1:"Películas",
+      sub:"Obras principales, capítulos y versiones cortas — ordenado con claridad.",
+      nav:{start:"Inicio",about:"Sobre nosotros",films:"Películas y capítulos",impulse:"Impulsos",workshop:"Taller",offers:"Ofertas",shop:"Tienda",links:"Dónde encontrarnos"},
+      note:"Sin spam. Sin drama. Solo obra.",
+      prepTitle:"En preparación",
+      prepText:"Esta sección se irá llenando poco a poco. Pronto encontrarás: obras principales, páginas por capítulos y versiones cortas seleccionadas — con estructura y claridad.",
+      willLandTitle:"Lo que encontrarás aquí",
+      willLandText:"Películas completas, capítulos, shorts y enlaces a las plataformas donde se publica todo.",
+      btsTitle:"Detrás de cámaras",
+      btsText:"Documentamos decisiones, ritmo y transiciones en el taller.",
+      btsLink:"Ir al taller →",
+      pubTitle:"Películas publicadas",
+      pubSub:"Mira aquí — o ábrelo en YouTube.",
+      btnYT:"Ver en YouTube",
+      v1Title:"Light Calls — Cuando la luz toca tu noche.",
+      v1Desc:"A veces la noche se siente pesada — silenciosa, oscura, vacía. Justo ahí puede empezar suavemente el llamado de Dios: una luz que sostiene, una esperanza más grande que todo lo que te oprime.",
+      v2Title:"La Fuente de la Salvación",
+      v2Desc:"Un camino sereno hacia la fuente: al Corazón de Jesús. «Tengo sed». De su costado abierto brotan sangre y agua — signos de vida, amor y sanación. Tómate un momento, respira y camina por dentro (si quieres).",
+      v2Music:"🎵 Música: “Heaven's Window” – Peter Kater.",
+      v3Title:"Entrega de vida y consagración al Corazón de Jesús (oración de entrega)",
+      v3Desc:"Si estás cansado… si tu mente está demasiado ruidosa… si solo estás funcionando: este video es para ti.<br/>Una oración serena de entrega de vida y consagración al Corazón de Jesús. ❤️‍🔥<br/><br/>Si puedes, pon la mano sobre tu corazón. Respira. Y reza conmigo — tal como estás.",
+      v4Title:"Cristo en nosotros — una vida nueva",
+      v4Desc:"Luchas. Te esfuerzas. Y aun así por dentro sigue vacío?<br/>Quizá el problema no es tu esfuerzo — sino el lugar donde estás luchando.<br/><br/>Mira a Jesús. No a ti.<br/>Al final recibirás un ejercicio de 30 segundos cuando ya no tengas palabras.<br/><br/>Para días de presión, vergüenza, sequedad interior, vacío de la tarde — y para todos los que simplemente quieren volver a Jesús.",
+      v5Title:"Permanece en la fuerza del Evangelio",
+      v5Desc:"El hombre no vive solo de pan — sino de toda palabra que sale de la boca de Dios. (Mt 4,4)<br/><br/>Si estás cansado por dentro, bajo presión, en duda o sequedad: existe una fuerza que no viene de ti. Viene del Evangelio — de la Palabra de Dios.<br/><br/>En este video:<br/>• Por qué la Palabra de Dios es alimento (no solo información)<br/>• Cómo la fidelidad te construye: 1 capítulo al día<br/>• Cómo caen los “gigantes” cuando creces en misericordia<br/>• Por qué el corazón de todo es Jn 3,16: en cuanto crees, la vida eterna entra en ti<br/>• Tu reto de 7 días: un capítulo de la Biblia cada día<br/><br/>Citas:<br/>Mt 4,4 • Dan 11,32 • 2 Pe 1,2 • Col 3,16 • Jn 8,31 • Fil 3,8–10 • Rom 1,16 • Hch 4,20 • Jn 3,16 • Mc 16,15 • Mc 16,20",
+      v5Note:"Nota: si este video aún está en privado, solo será visible cuando se publique.",
+      v6Warn:"⚠️ Este video tiene restricción de edad en YouTube y no se puede insertar aquí. Por favor, ábrelo en YouTube.",
+      v6Title:"Dos fuentes — del Edén a la Cruz",
+      v6Desc:"Sin voz en off — para que hablen la imagen, la música y el silencio. Un viaje desde la creación y la ruptura en el Edén hasta la fuente de la salvación en la Cruz: sangre y agua, vida nueva, vínculo nuevo.",
+      v6Aria:"Ver en YouTube: Dos fuentes — del Edén a la Cruz"
+    },
+
+    pl: {
+      htmlLang:"pl",
+      title:"Lampadēphóros – Filmy",
+      desc:"Filmy i rozdziały: główne dzieła, rozdziały i krótkie wersje — uporządkowane.",
+      brandMini:"Niosący Pochodnię",
+      h1:"Filmy",
+      sub:"Główne dzieła, rozdziały i krótkie wersje — uporządkowane.",
+      nav:{start:"Start",about:"O nas",films:"Filmy i rozdziały",impulse:"Impulsy",workshop:"Warsztat",offers:"Oferta",shop:"Sklep",links:"Gdzie nas znaleźć"},
+      note:"Bez spamu. Bez dramy. Tylko dzieło.",
+      prepTitle:"W przygotowaniu",
+      prepText:"Ta sekcja będzie uzupełniana krok po kroku. Wkrótce znajdziesz tu: główne dzieła, strony rozdziałów i wybrane krótkie wersje — z jasną strukturą.",
+      willLandTitle:"Co tu będzie",
+      willLandText:"Pełne filmy, rozdziały, shorty i linki do platform, na których wszystko jest publikowane.",
+      btsTitle:"Za kulisami",
+      btsText:"Decyzje, rytm i przejścia dokumentujemy w warsztacie.",
+      btsLink:"Przejdź do warsztatu →",
+      pubTitle:"Opublikowane filmy",
+      pubSub:"Oglądaj tutaj — albo otwórz na YouTube.",
+      btnYT:"Oglądaj na YouTube",
+      v1Title:"Light Calls — Gdy światło dotyka twojej nocy.",
+      v1Desc:"Czasem noc wydaje się ciężka — cicha, ciemna, pusta. Właśnie tam może zacząć się ciche wołanie Boga: światło, które niesie, i nadzieja większa niż wszystko, co przygniata.",
+      v2Title:"Źródło Zbawienia",
+      v2Desc:"Cicha droga do źródła: do Serca Jezusa. „Pragnę.” Z Jego otwartego boku płyną krew i woda — znaki życia, miłości i uzdrowienia. Weź chwilę, odetchnij i idź wewnętrznie (jeśli chcesz).",
+      v2Music:"🎵 Muzyka: “Heaven's Window” – Peter Kater.",
+      v3Title:"Oddanie życia i poświęcenie Najświętszemu Sercu Jezusa (modlitwa zawierzenia)",
+      v3Desc:"Jeśli jesteś zmęczony… jeśli w głowie jest za głośno… jeśli tylko „funkcjonujesz”: ten film jest dla ciebie.<br/>Cicha modlitwa oddania życia i poświęcenia Sercu Jezusa. ❤️‍🔥<br/><br/>Jeśli możesz, połóż dłoń na sercu. Oddychaj. I módl się ze mną — takim, jaki jesteś.",
+      v4Title:"Chrystus w nas — nowe życie",
+      v4Desc:"Walczysz. Starasz się. A jednak w środku pozostaje pustka?<br/>Może problemem nie jest twój wysiłek — ale miejsce, w którym walczysz.<br/><br/>Patrz na Jezusa. Nie na siebie.<br/>Na końcu dostaniesz 30-sekundowe ćwiczenie, gdy zabraknie ci słów.<br/><br/>Na dni presji, wstydu, wewnętrznej suszy, wieczornej pustki — i dla wszystkich, którzy po prostu chcą wrócić do Jezusa.",
+      v5Title:"Trwaj w mocy Ewangelii",
+      v5Desc:"Człowiek nie żyje samym chlebem — lecz każdym słowem, które pochodzi z ust Bożych. (Mt 4,4)<br/><br/>Jeśli w środku jesteś zmęczony, pod presją, w wątpliwościach lub w suszy: istnieje siła, która nie pochodzi z ciebie. Pochodzi z Ewangelii — ze Słowa Bożego.<br/><br/>W tym filmie:<br/>• Dlaczego Słowo Boże jest pokarmem (nie tylko informacją)<br/>• Jak wierność cię buduje: 1 rozdział dziennie<br/>• Jak „olbrzymy” upadają, gdy wzrastasz w miłosierdziu<br/>• Dlaczego sercem wszystkiego jest J 3,16: gdy wierzysz, życie wieczne wchodzi w ciebie<br/>• Wyzwanie 7 dni: codziennie 1 rozdział Biblii<br/><br/>Fragmenty:<br/>Mt 4,4 • Dn 11,32 • 2 P 1,2 • Kol 3,16 • J 8,31 • Flp 3,8–10 • Rz 1,16 • Dz 4,20 • J 3,16 • Mk 16,15 • Mk 16,20",
+      v5Note:"Uwaga: jeśli ten film jest jeszcze prywatny, będzie widoczny dopiero po publikacji.",
+      v6Warn:"⚠️ Ten film ma ograniczenie wiekowe na YouTube i nie może być osadzony tutaj. Otwórz go na YouTube.",
+      v6Title:"Dwa źródła — od Edenu do Krzyża",
+      v6Desc:"Bez lektora — aby obraz, muzyka i cisza mogły mówić. Podróż od stworzenia i pęknięcia w Edenie do źródła zbawienia na Krzyżu: krew i woda, nowe życie, nowa więź.",
+      v6Aria:"Oglądaj na YouTube: Dwa źródła — od Edenu do Krzyża"
+    }
+  };
   </script>
 </body>
 </html>
