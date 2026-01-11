@@ -1,11 +1,11 @@
-<!-- FILE: impulse.html (DE) -->
+<!-- FILE: impulse.html (FINAL – 29 languages + lamp_lang + DE fallback + keep ?lang on links) -->
 <!doctype html>
-<html lang="de">
+<html lang="de" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lampadēphóros – Impulse</title>
-  <meta name="description" content="Impulse: kurze Texte, Gebete und Lichtwege – zum Mitnehmen." />
+  <meta id="metaDesc" name="description" content="Impulse: kurze Texte, Gebete und Lichtwege – zum Mitnehmen." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,35 +18,128 @@
         <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">Der Fackelträger</div>
+          <div class="mini" id="brandMini">Der Fackelträger</div>
         </div>
       </div>
 
-      <h1>Impulse</h1>
-      <p class="sub">Kurze Texte, Gebete und Lichtwege – zum Mitnehmen.</p>
+      <h1 id="h1">Impulse</h1>
+      <p class="sub" id="sub">Kurze Texte, Gebete und Lichtwege – zum Mitnehmen.</p>
 
-      <!-- NAV (keine Sprachwahl hier — nur auf start-*.html) -->
+      <!-- NAV -->
       <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-de.html">Start</a>
-        <a class="btn" href="about.html">Über uns</a>
-        <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
-        <a class="btn primary" href="impulse.html">Impulse</a>
-        <a class="btn" href="werkstatt.html">Werkstatt</a>
-        <a class="btn" href="angebote.html">Angebote</a>
-        <a class="btn" href="shop.html">Shop</a>
-        <a class="btn" href="links.html">Hier findest du uns</a>
+        <a class="btn" id="navStart" href="/start">Start</a>
+        <a class="btn" id="navAbout" href="/about">Über uns</a>
+        <a class="btn" id="navFilms" href="/filme">Filme &amp; Kapitel</a>
+        <a class="btn primary" id="navImpulse" href="/impulse">Impulse</a>
+        <a class="btn" id="navWorkshop" href="/werkstatt">Werkstatt</a>
+        <a class="btn" id="navOffers" href="/angebote">Angebote</a>
+        <a class="btn" id="navShop" href="/shop">Shop</a>
+        <a class="btn" id="navLinks" href="/links">Hier findest du uns</a>
       </nav>
 
-      <div class="note">Kein Spam. Kein Drama. Nur Werk.</div>
+      <div class="note" id="note">Kein Spam. Kein Drama. Nur Werk.</div>
     </header>
 
     <section class="grid" aria-label="Impulse Inhalte">
 
       <article class="card">
-        <h2>Das Gebet der Brückenbauer</h2>
-        <p>Ein Gebet, das um sanfte Stärke bittet – damit Licht Wege findet.</p>
-        <div style="white-space:pre-wrap; line-height:1.65; margin-top:12px;">
-Herr,
+        <h2 id="pTitle">Das Gebet der Brückenbauer</h2>
+        <p id="pIntro">Ein Gebet, das um sanfte Stärke bittet – damit Licht Wege findet.</p>
+
+        <div id="prayerText" style="white-space:pre-wrap; line-height:1.65; margin-top:12px;"></div>
+      </article>
+
+      <article class="card">
+        <h2 id="moreT">Mehr folgt</h2>
+        <p id="moreP">Hier sammeln wir nach und nach weitere Impulse: kurze Gebete, Gedanken, kleine Wege ins Licht.</p>
+      </article>
+
+      <article class="card">
+        <h2 id="wsT">Werkstatt</h2>
+        <p id="wsP">Wie die Texte entstehen (Rhythmus, Bildwelt, Übergänge):</p>
+        <a id="wsA" href="/werkstatt">Zur Werkstatt →</a>
+      </article>
+
+    </section>
+
+    <footer class="footer">
+      © Lampadēphóros • <span id="contactWord">Kontakt</span>:
+      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+    </footer>
+
+  </main>
+
+  <script>
+  (() => {
+    "use strict";
+
+    // ---------- Language core ----------
+    const STORAGE_KEY = "lamp_lang";
+    const RTL = new Set(["ar","ur","fa"]);
+    const norm = (x) => (x || "").toString().trim().toLowerCase();
+    const base = (x) => norm(x).split("-")[0];
+
+    const getLang = (supported) => {
+      const p = base(new URLSearchParams(location.search).get("lang"));
+      if (p && supported.has(p)) return p;
+
+      const storedNew = base(localStorage.getItem(STORAGE_KEY));
+      if (storedNew && supported.has(storedNew)) return storedNew;
+
+      const storedOld = base(localStorage.getItem("lp_lang"));
+      if (storedOld && supported.has(storedOld)) return storedOld;
+
+      return "de";
+    };
+
+    const setLang = (l) => { try { localStorage.setItem(STORAGE_KEY, l); } catch(e) {} };
+
+    const ensureLangInUrl = (lang) => {
+      try {
+        const u = new URL(location.href);
+        if (base(u.searchParams.get("lang")) !== lang) {
+          u.searchParams.set("lang", lang);
+          history.replaceState({}, "", u.toString());
+        }
+      } catch(e){}
+    };
+
+    const withLang = (href, lang) => {
+      if (!href) return href;
+      if (href.startsWith("#")) return href;
+      if (/^https?:\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:")) return href;
+
+      try {
+        const u = new URL(href, location.origin);
+        u.searchParams.set("lang", lang);
+        return u.pathname + "?" + u.searchParams.toString() + (u.hash || "");
+      } catch {
+        const sep = href.includes("?") ? "&" : "?";
+        return `${href}${sep}lang=${encodeURIComponent(lang)}`;
+      }
+    };
+
+    // ---------- Translations (29 languages) ----------
+    const T = {
+      de: {
+        htmlLang:"de", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulse",
+        metaDescription:"Impulse: kurze Texte, Gebete und Lichtwege – zum Mitnehmen.",
+        brandMini:"Der Fackelträger",
+        h1:"Impulse",
+        sub:"Kurze Texte, Gebete und Lichtwege – zum Mitnehmen.",
+        nav:{ start:"Start", about:"Über uns", films:"Filme & Kapitel", impulse:"Impulse", workshop:"Werkstatt", offers:"Angebote", shop:"Shop", links:"Hier findest du uns" },
+        note:"Kein Spam. Kein Drama. Nur Werk.",
+        pTitle:"Das Gebet der Brückenbauer",
+        pIntro:"Ein Gebet, das um sanfte Stärke bittet – damit Licht Wege findet.",
+        moreT:"Mehr folgt",
+        moreP:"Hier sammeln wir nach und nach weitere Impulse: kurze Gebete, Gedanken, kleine Wege ins Licht.",
+        wsT:"Werkstatt",
+        wsP:"Wie die Texte entstehen (Rhythmus, Bildwelt, Übergänge):",
+        wsA:"Zur Werkstatt →",
+        contactWord:"Kontakt",
+        prayer:
+`Herr,
 du hast Licht in mein Herz gelegt.
 Nicht für mich allein,
 sondern für jene,
@@ -77,30 +170,1506 @@ in dein Herz.
 Herr,
 mach mich zu einem Weg,
 durch den du andere heimholst.
-Amen.
-        </div>
-      </article>
+Amen.`
+      },
 
-      <article class="card">
-        <h2>Mehr folgt</h2>
-        <p>
-          Hier sammeln wir nach und nach weitere Impulse: kurze Gebete, Gedanken, kleine Wege ins Licht.
-        </p>
-      </article>
+      fr: {
+        htmlLang:"fr", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsions",
+        metaDescription:"Impulsions : courts textes, prières et chemins de lumière — à emporter.",
+        brandMini:"Le Porteur de flambeau",
+        h1:"Impulsions",
+        sub:"Courts textes, prières et chemins de lumière — à emporter.",
+        nav:{ start:"Accueil", about:"À propos", films:"Films & chapitres", impulse:"Impulsions", workshop:"Atelier", offers:"Offres", shop:"Boutique", links:"Nous trouver" },
+        note:"Pas de spam. Pas de drama. Juste l’œuvre.",
+        pTitle:"La prière des bâtisseurs de ponts",
+        pIntro:"Une prière pour une force douce — afin que la lumière ouvre des chemins.",
+        moreT:"À venir",
+        moreP:"Ici, nous rassemblerons peu à peu d’autres impulsions : prières brèves, pensées, petits chemins vers la lumière.",
+        wsT:"Atelier",
+        wsP:"Comment ces textes naissent (rythme, images, transitions) :",
+        wsA:"Aller à l’atelier →",
+        contactWord:"Contact",
+        prayer:
+`Seigneur,
+tu as déposé une lumière dans mon cœur.
+Pas seulement pour moi,
+mais pour ceux
+qui se tiennent dans l’ombre.
+Apprends-moi à être un bâtisseur de ponts.
+Un être
+qui construit des chemins de lumière
+pour ceux
+qui ne savent plus où aller.
+Rends mes paroles douces,
+mes mains ouvertes,
+mon cœur vaste.
+Donne à mes prières une force
+non pas la mienne,
+mais la tienne.
+Fais-moi appeler
+pour ceux qui n’appellent plus.
+Fais-moi espérer
+pour ceux qui n’ont plus d’espérance.
+Fais-moi aimer
+pour ceux qui se sont perdus eux-mêmes.
+Et quand je prie,
+qu’un chemin de lumière naisse,
+un pont de grâce
+qui ramène une âme
+des ténèbres
+jusqu’à ton cœur.
+Seigneur,
+fais de moi un chemin
+par lequel tu ramènes les autres à la maison.
+Amen.`
+      },
 
-      <article class="card">
-        <h2>Werkstatt</h2>
-        <p>Wie die Texte entstehen (Rhythmus, Bildwelt, Übergänge):</p>
-        <a href="werkstatt.html">Zur Werkstatt →</a>
-      </article>
+      en: {
+        htmlLang:"en", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulses",
+        metaDescription:"Impulses: short texts, prayers, and paths of light — to take with you.",
+        brandMini:"The Torchbearer",
+        h1:"Impulses",
+        sub:"Short texts, prayers, and paths of light — to take with you.",
+        nav:{ start:"Start", about:"About", films:"Films & chapters", impulse:"Impulses", workshop:"Workshop", offers:"Offers", shop:"Shop", links:"Find us" },
+        note:"No spam. No drama. Just the work.",
+        pTitle:"The Prayer of Bridge Builders",
+        pIntro:"A prayer for gentle strength — so that light can make a way.",
+        moreT:"More to come",
+        moreP:"Here we’ll collect more impulses step by step: short prayers, thoughts, small paths into the light.",
+        wsT:"Workshop",
+        wsP:"How these texts are made (rhythm, imagery, transitions):",
+        wsA:"Go to workshop →",
+        contactWord:"Contact",
+        prayer:
+`Lord,
+you placed a light within my heart.
+Not for me alone,
+but for those
+who stand in shadow.
+Teach me to be a bridge builder.
+A person
+who builds paths of light
+for those
+who don’t know where to go anymore.
+Make my words gentle,
+my hands open,
+my heart wide.
+Give my prayers strength—
+not my strength,
+but yours.
+Let me call
+for those who can’t call anymore.
+Let me hope
+for those who have no hope.
+Let me love
+for those who have lost themselves.
+And when I pray,
+may a path of light arise,
+a bridge of grace
+that leads a soul back
+out of the darkness
+into your heart.
+Lord,
+make me a way
+through which you bring others home.
+Amen.`
+      },
 
-    </section>
+      pt: {
+        htmlLang:"pt", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsos",
+        metaDescription:"Impulsos: textos curtos, orações e caminhos de luz — para levar consigo.",
+        brandMini:"O Portador da Tocha",
+        h1:"Impulsos",
+        sub:"Textos curtos, orações e caminhos de luz — para levar consigo.",
+        nav:{ start:"Início", about:"Sobre", films:"Filmes & capítulos", impulse:"Impulsos", workshop:"Oficina", offers:"Ofertas", shop:"Loja", links:"Encontre-nos" },
+        note:"Sem spam. Sem drama. Só obra.",
+        pTitle:"A oração dos construtores de pontes",
+        pIntro:"Uma oração por força suave — para que a luz encontre caminhos.",
+        moreT:"Em breve",
+        moreP:"Aqui vamos reunir aos poucos outros impulsos: orações curtas, pensamentos, pequenos caminhos para a luz.",
+        wsT:"Oficina",
+        wsP:"Como os textos nascem (ritmo, imagens, transições):",
+        wsA:"Ir para a oficina →",
+        contactWord:"Contato",
+        prayer:
+`Senhor,
+tu colocaste uma luz no meu coração.
+Não só para mim,
+mas para aqueles
+que estão na sombra.
+Ensina-me a ser um construtor de pontes.
+Uma pessoa
+que constrói caminhos de luz
+para aqueles
+que já não sabem para onde ir.
+Torna minhas palavras suaves,
+minhas mãos abertas,
+meu coração amplo.
+Dá força às minhas orações —
+não a minha força,
+mas a tua.
+Faz-me chamar
+por quem já não chama.
+Faz-me esperar
+por quem não tem esperança.
+Faz-me amar
+por quem se perdeu de si mesmo.
+E quando eu rezar,
+que nasça um caminho de luz,
+uma ponte de graça
+que conduza uma alma de volta
+das trevas
+ao teu coração.
+Senhor,
+faz de mim um caminho
+pelo qual tu trazes outros para casa.
+Amém.`
+      },
 
-    <footer class="footer">
-      © Lampadēphóros • Kontakt:
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-    </footer>
+      it: {
+        htmlLang:"it", dir:"ltr",
+        pageTitle:"Lampadēphóros – Spunti",
+        metaDescription:"Spunti: testi brevi, preghiere e sentieri di luce — da portare con te.",
+        brandMini:"Il Portatore della Fiaccola",
+        h1:"Spunti",
+        sub:"Testi brevi, preghiere e sentieri di luce — da portare con te.",
+        nav:{ start:"Start", about:"Chi siamo", films:"Film & capitoli", impulse:"Spunti", workshop:"Laboratorio", offers:"Offerte", shop:"Shop", links:"Dove trovarci" },
+        note:"Niente spam. Niente drama. Solo opera.",
+        pTitle:"La preghiera dei costruttori di ponti",
+        pIntro:"Una preghiera per una forza mite — perché la luce trovi strade.",
+        moreT:"Altri in arrivo",
+        moreP:"Qui raccoglieremo poco a poco altri spunti: brevi preghiere, pensieri, piccoli sentieri verso la luce.",
+        wsT:"Laboratorio",
+        wsP:"Come nascono questi testi (ritmo, immagini, transizioni):",
+        wsA:"Vai al laboratorio →",
+        contactWord:"Contatto",
+        prayer:
+`Signore,
+hai posto una luce nel mio cuore.
+Non solo per me,
+ma per coloro
+che stanno nell’ombra.
+Insegnami a essere un costruttore di ponti.
+Una persona
+che costruisce sentieri di luce
+per coloro
+che non sanno più dove andare.
+Rendi dolci le mie parole,
+aperte le mie mani,
+ampio il mio cuore.
+Dona forza alle mie preghiere —
+non la mia forza,
+ma la tua.
+Fammi chiamare
+per chi non riesce più a chiamare.
+Fammi sperare
+per chi non ha speranza.
+Fammi amare
+per chi si è perduto.
+E quando prego,
+possa nascere un sentiero di luce,
+un ponte di grazia
+che riporti un’anima
+dalle tenebre
+al tuo cuore.
+Signore,
+fa’ di me una via
+attraverso cui tu riporti gli altri a casa.
+Amen.`
+      },
 
-  </main>
+      es: {
+        htmlLang:"es", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsos",
+        metaDescription:"Impulsos: textos breves, oraciones y caminos de luz — para llevar contigo.",
+        brandMini:"El Portador de la Antorcha",
+        h1:"Impulsos",
+        sub:"Textos breves, oraciones y caminos de luz — para llevar contigo.",
+        nav:{ start:"Inicio", about:"Sobre nosotros", films:"Películas y capítulos", impulse:"Impulsos", workshop:"Taller", offers:"Ofertas", shop:"Tienda", links:"Encuéntranos" },
+        note:"Sin spam. Sin drama. Solo obra.",
+        pTitle:"La oración de los constructores de puentes",
+        pIntro:"Una oración por fuerza suave — para que la luz encuentre caminos.",
+        moreT:"Pronto más",
+        moreP:"Aquí iremos reuniendo poco a poco más impulsos: oraciones cortas, pensamientos, pequeños caminos hacia la luz.",
+        wsT:"Taller",
+        wsP:"Cómo nacen estos textos (ritmo, imágenes, transiciones):",
+        wsA:"Ir al taller →",
+        contactWord:"Contacto",
+        prayer:
+`Señor,
+has puesto una luz en mi corazón.
+No solo para mí,
+sino para quienes
+están en la sombra.
+Enséñame a ser un constructor de puentes.
+Una persona
+que construye caminos de luz
+para quienes
+ya no saben hacia dónde ir.
+Haz mis palabras suaves,
+mis manos abiertas,
+mi corazón amplio.
+Da fuerza a mis oraciones —
+no mi fuerza,
+sino la tuya.
+Hazme llamar
+por quienes ya no llaman.
+Hazme esperar
+por quienes no tienen esperanza.
+Hazme amar
+por quienes se han perdido.
+Y cuando ore,
+que nazca un camino de luz,
+un puente de gracia
+que devuelva un alma
+de la oscuridad
+a tu corazón.
+Señor,
+haz de mí un camino
+por el que tú traes a otros de vuelta a casa.
+Amén.`
+      },
+
+      pl: {
+        htmlLang:"pl", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsy",
+        metaDescription:"Impulsy: krótkie teksty, modlitwy i drogi światła — na wynos.",
+        brandMini:"Niosący Pochodnię",
+        h1:"Impulsy",
+        sub:"Krótkie teksty, modlitwy i drogi światła — na wynos.",
+        nav:{ start:"Start", about:"O nas", films:"Filmy i rozdziały", impulse:"Impulsy", workshop:"Warsztat", offers:"Oferty", shop:"Sklep", links:"Znajdź nas" },
+        note:"Bez spamu. Bez dramy. Tylko dzieło.",
+        pTitle:"Modlitwa budowniczych mostów",
+        pIntro:"Modlitwa o łagodną siłę — aby światło znajdowało drogę.",
+        moreT:"Więcej wkrótce",
+        moreP:"Tutaj będziemy stopniowo dodawać kolejne impulsy: krótkie modlitwy, myśli, małe drogi do światła.",
+        wsT:"Warsztat",
+        wsP:"Jak powstają te teksty (rytm, obrazy, przejścia):",
+        wsA:"Przejdź do warsztatu →",
+        contactWord:"Kontakt",
+        prayer:
+`Panie,
+włożyłeś światło w moje serce.
+Nie tylko dla mnie,
+lecz dla tych,
+którzy stoją w cieniu.
+Naucz mnie być budowniczym mostów.
+Człowiekiem,
+który buduje drogi ze światła
+dla tych,
+którzy nie wiedzą już, dokąd iść.
+Uczyń moje słowa łagodnymi,
+moje dłonie otwartymi,
+moje serce szerokim.
+Daj moim modlitwom moc —
+nie moją moc,
+lecz Twoją.
+Pozwól mi wołać
+za tych, którzy już nie wołają.
+Pozwól mi mieć nadzieję
+za tych, którzy nie mają nadziei.
+Pozwól mi kochać
+za tych, którzy się zagubili.
+A gdy się modlę,
+niech powstanie droga światła,
+most łaski,
+który prowadzi duszę z powrotem
+z ciemności
+do Twojego serca.
+Panie,
+uczyń mnie drogą,
+przez którą sprowadzasz innych do domu.
+Amen.`
+      },
+
+      ru: {
+        htmlLang:"ru", dir:"ltr",
+        pageTitle:"Lampadēphóros – Импульсы",
+        metaDescription:"Импульсы: короткие тексты, молитвы и пути света — с собой.",
+        brandMini:"Факелоносец",
+        h1:"Импульсы",
+        sub:"Короткие тексты, молитвы и пути света — с собой.",
+        nav:{ start:"Старт", about:"О нас", films:"Фильмы и главы", impulse:"Импульсы", workshop:"Мастерская", offers:"Предложения", shop:"Магазин", links:"Где мы" },
+        note:"Без спама. Без драмы. Только дело.",
+        pTitle:"Молитва строителей мостов",
+        pIntro:"Молитва о мягкой силе — чтобы свет находил путь.",
+        moreT:"Скоро больше",
+        moreP:"Здесь мы постепенно будем собирать другие импульсы: короткие молитвы, мысли, маленькие пути к свету.",
+        wsT:"Мастерская",
+        wsP:"Как рождаются эти тексты (ритм, образы, переходы):",
+        wsA:"В мастерскую →",
+        contactWord:"Контакт",
+        prayer:
+`Господи,
+Ты вложил свет в моё сердце.
+Не только для меня,
+но для тех,
+кто стоит во тьме.
+Научи меня быть строителем мостов.
+Человеком,
+который строит пути из света
+для тех,
+кто уже не знает, куда идти.
+Сделай мои слова мягкими,
+мои руки открытыми,
+моё сердце широким.
+Дай моим молитвам силу —
+не мою силу,
+а Твою.
+Позволь мне звать
+за тех, кто уже не зовёт.
+Позволь мне надеяться
+за тех, у кого нет надежды.
+Позволь мне любить
+за тех, кто потерял себя.
+И когда я молюсь,
+пусть возникнет путь света,
+мост благодати,
+который возвращает душу
+из тьмы
+в Твоё сердце.
+Господи,
+сделай меня дорогой,
+по которой Ты приводишь других домой.
+Аминь.`
+      },
+
+      nl: {
+        htmlLang:"nl", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsen",
+        metaDescription:"Impulsen: korte teksten, gebeden en lichtwegen — om mee te nemen.",
+        brandMini:"De Fakkeldrager",
+        h1:"Impulsen",
+        sub:"Korte teksten, gebeden en lichtwegen — om mee te nemen.",
+        nav:{ start:"Start", about:"Over ons", films:"Films & hoofdstukken", impulse:"Impulsen", workshop:"Werkplaats", offers:"Aanbod", shop:"Shop", links:"Vind ons" },
+        note:"Geen spam. Geen drama. Alleen het werk.",
+        pTitle:"Het gebed van bruggenbouwers",
+        pIntro:"Een gebed om zachte kracht — zodat licht wegen kan vinden.",
+        moreT:"Meer volgt",
+        moreP:"Hier verzamelen we stap voor stap meer impulsen: korte gebeden, gedachten, kleine wegen naar het licht.",
+        wsT:"Werkplaats",
+        wsP:"Hoe de teksten ontstaan (ritme, beelden, overgangen):",
+        wsA:"Naar de werkplaats →",
+        contactWord:"Contact",
+        prayer:
+`Heer,
+U hebt licht in mijn hart gelegd.
+Niet alleen voor mij,
+maar voor hen
+die in de schaduw staan.
+Leer mij een bruggenbouwer te zijn.
+Een mens
+die lichtwegen bouwt
+voor hen
+die niet meer weten waarheen.
+Maak mijn woorden zacht,
+mijn handen open,
+mijn hart wijd.
+Geef mijn gebeden kracht —
+niet mijn kracht,
+maar de Uwe.
+Laat mij roepen
+voor wie niet meer roept.
+Laat mij hopen
+voor wie geen hoop meer heeft.
+Laat mij liefhebben
+voor wie zichzelf is kwijtgeraakt.
+En wanneer ik bid,
+laat er een lichtweg ontstaan,
+een brug van genade
+die een ziel terugbrengt
+uit de duisternis
+naar Uw hart.
+Heer,
+maak mij tot een weg
+waardoor U anderen thuisbrengt.
+Amen.`
+      },
+
+      ro: {
+        htmlLang:"ro", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsuri",
+        metaDescription:"Impulsuri: texte scurte, rugăciuni și căi de lumină — de luat cu tine.",
+        brandMini:"Purtătorul de torță",
+        h1:"Impulsuri",
+        sub:"Texte scurte, rugăciuni și căi de lumină — de luat cu tine.",
+        nav:{ start:"Start", about:"Despre noi", films:"Filme & capitole", impulse:"Impulsuri", workshop:"Atelier", offers:"Oferte", shop:"Magazin", links:"Găsește-ne" },
+        note:"Fără spam. Fără dramă. Doar lucrare.",
+        pTitle:"Rugăciunea constructorilor de poduri",
+        pIntro:"O rugăciune pentru putere blândă — ca lumina să găsească drumuri.",
+        moreT:"Mai urmează",
+        moreP:"Aici vom aduna treptat alte impulsuri: rugăciuni scurte, gânduri, mici căi spre lumină.",
+        wsT:"Atelier",
+        wsP:"Cum se nasc textele (ritm, imagini, tranziții):",
+        wsA:"Mergi la atelier →",
+        contactWord:"Contact",
+        prayer:
+`Doamne,
+ai pus o lumină în inima mea.
+Nu doar pentru mine,
+ci pentru cei
+care stau în umbră.
+Învață-mă să fiu un constructor de poduri.
+Un om
+care zidește căi de lumină
+pentru cei
+care nu mai știu încotro să meargă.
+Fă cuvintele mele blânde,
+mâinile mele deschise,
+inima mea largă.
+Dă rugăciunilor mele putere —
+nu puterea mea,
+ci a Ta.
+Lasă-mă să chem
+pentru cei ce nu mai cheamă.
+Lasă-mă să sper
+pentru cei ce nu mai au speranță.
+Lasă-mă să iubesc
+pentru cei ce s-au pierdut pe ei înșiși.
+Și când mă rog,
+să se nască o cale de lumină,
+un pod de har
+care aduce un suflet înapoi
+din întuneric
+în inima Ta.
+Doamne,
+fă din mine un drum
+prin care îi aduci pe alții acasă.
+Amin.`
+      },
+
+      uk: {
+        htmlLang:"uk", dir:"ltr",
+        pageTitle:"Lampadēphóros – Імпульси",
+        metaDescription:"Імпульси: короткі тексти, молитви й дороги світла — із собою.",
+        brandMini:"Смолоскипоносець",
+        h1:"Імпульси",
+        sub:"Короткі тексти, молитви й дороги світла — із собою.",
+        nav:{ start:"Старт", about:"Про нас", films:"Фільми та розділи", impulse:"Імпульси", workshop:"Майстерня", offers:"Пропозиції", shop:"Крамниця", links:"Знайди нас" },
+        note:"Без спаму. Без драми. Лише праця.",
+        pTitle:"Молитва будівничих мостів",
+        pIntro:"Молитва про лагідну силу — щоб світло знаходило шлях.",
+        moreT:"Далі буде",
+        moreP:"Тут ми поступово збиратимемо інші імпульси: короткі молитви, думки, малі дороги до світла.",
+        wsT:"Майстерня",
+        wsP:"Як народжуються тексти (ритм, образи, переходи):",
+        wsA:"До майстерні →",
+        contactWord:"Контакт",
+        prayer:
+`Господи,
+Ти вклав світло в моє серце.
+Не лише для мене,
+а для тих,
+хто стоїть у тіні.
+Навчи мене бути будівничим мостів.
+Людиною,
+яка будує дороги світла
+для тих,
+хто вже не знає, куди йти.
+Зроби мої слова лагідними,
+мої руки відкритими,
+моє серце широким.
+Дай моїм молитвам силу —
+не мою силу,
+а Твою.
+Дай мені кликати
+за тих, хто вже не кличе.
+Дай мені надіятися
+за тих, хто не має надії.
+Дай мені любити
+за тих, хто загубив себе.
+І коли я молюся,
+нехай постане дорога світла,
+міст благодаті,
+який повертає душу
+з темряви
+в Твоє серце.
+Господи,
+зроби мене шляхом,
+яким Ти повертаєш інших додому.
+Амінь.`
+      },
+
+      hr: {
+        htmlLang:"hr", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsi",
+        metaDescription:"Impulsi: kratki tekstovi, molitve i putovi svjetla — za ponijeti.",
+        brandMini:"Nositelj baklje",
+        h1:"Impulsi",
+        sub:"Kratki tekstovi, molitve i putovi svjetla — za ponijeti.",
+        nav:{ start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Trgovina", links:"Pronađi nas" },
+        note:"Bez spama. Bez drame. Samo djelo.",
+        pTitle:"Molitva graditelja mostova",
+        pIntro:"Molitva za blagu snagu — da svjetlo pronađe put.",
+        moreT:"Još dolazi",
+        moreP:"Ovdje ćemo postupno skupljati druge impulse: kratke molitve, misli, male putove prema svjetlu.",
+        wsT:"Radionica",
+        wsP:"Kako nastaju tekstovi (ritam, slike, prijelazi):",
+        wsA:"U radionicu →",
+        contactWord:"Kontakt",
+        prayer:
+`Gospodine,
+stavio si svjetlo u moje srce.
+Ne samo za mene,
+nego za one
+koji stoje u sjeni.
+Nauči me biti graditelj mostova.
+Čovjek
+koji gradi putove od svjetla
+za one
+koji više ne znaju kamo.
+Učini moje riječi blagima,
+moje ruke otvorenima,
+moje srce širokim.
+Daj mojim molitvama snagu —
+ne moju snagu,
+nego tvoju.
+Daj mi da zovem
+za one koji više ne zovu.
+Daj mi da se nadam
+za one koji nemaju nade.
+Daj mi da ljubim
+za one koji su se izgubili.
+I kad molim,
+neka nastane put svjetla,
+most milosti
+koji vraća dušu
+iz tame
+u tvoje srce.
+Gospodine,
+učini me putem
+kroz koji dovodiš druge kući.
+Amen.`
+      },
+
+      bs: {
+        htmlLang:"bs", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsi",
+        metaDescription:"Impulsi: kratki tekstovi, molitve i putevi svjetla — za ponijeti.",
+        brandMini:"Nosač baklje",
+        h1:"Impulsi",
+        sub:"Kratki tekstovi, molitve i putevi svjetla — za ponijeti.",
+        nav:{ start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Shop", links:"Pronađi nas" },
+        note:"Bez spama. Bez drame. Samo djelo.",
+        pTitle:"Molitva graditelja mostova",
+        pIntro:"Molitva za blagu snagu — da svjetlo nađe put.",
+        moreT:"Uskoro više",
+        moreP:"Ovdje ćemo postepeno skupljati druge impulse: kratke molitve, misli, male puteve ka svjetlu.",
+        wsT:"Radionica",
+        wsP:"Kako nastaju tekstovi (ritam, slike, prelazi):",
+        wsA:"U radionicu →",
+        contactWord:"Kontakt",
+        prayer:
+`Gospode,
+stavio si svjetlo u moje srce.
+Ne samo za mene,
+nego za one
+koji stoje u sjeni.
+Nauči me da budem graditelj mostova.
+Čovjek
+koji gradi puteve od svjetla
+za one
+koji više ne znaju kuda.
+Učini moje riječi blagim,
+moje ruke otvorenim,
+moje srce širokim.
+Daj mojim molitvama snagu —
+ne moju snagu,
+nego tvoju.
+Daj mi da zovem
+za one koji više ne zovu.
+Daj mi da se nadam
+za one koji nemaju nade.
+Daj mi da volim
+za one koji su se izgubili.
+I kada molim,
+neka nastane put svjetla,
+most milosti
+koji vraća dušu
+iz tame
+u tvoje srce.
+Gospode,
+učini me putem
+kroz koji dovodiš druge kući.
+Amen.`
+      },
+
+      sr: {
+        htmlLang:"sr", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impulsi",
+        metaDescription:"Impulsi: kratki tekstovi, molitve i putevi svetla — za poneti.",
+        brandMini:"Bakljonoša",
+        h1:"Impulsi",
+        sub:"Kratki tekstovi, molitve i putevi svetla — za poneti.",
+        nav:{ start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Shop", links:"Pronađi nas" },
+        note:"Bez spama. Bez drame. Samo delo.",
+        pTitle:"Molitva graditelja mostova",
+        pIntro:"Molitva za blagu snagu — da svetlo pronađe put.",
+        moreT:"Još dolazi",
+        moreP:"Ovde ćemo postepeno skupljati druge impulse: kratke molitve, misli, male puteve ka svetlu.",
+        wsT:"Radionica",
+        wsP:"Kako nastaju tekstovi (ritam, slika, prelazi):",
+        wsA:"U radionicu →",
+        contactWord:"Kontakt",
+        prayer:
+`Gospode,
+stavio si svetlo u moje srce.
+Ne samo za mene,
+nego za one
+koji stoje u senci.
+Nauči me da budem graditelj mostova.
+Čovek
+koji gradi puteve od svetla
+za one
+koji više ne znaju kuda.
+Učini moje reči blagim,
+moje ruke otvorenim,
+moje srce širokim.
+Daj mojim molitvama snagu —
+ne moju snagu,
+nego tvoju.
+Daj mi da zovem
+za one koji više ne zovu.
+Daj mi da se nadam
+za one koji nemaju nade.
+Daj mi da volim
+za one koji su se izgubili.
+I kad se molim,
+neka nastane put svetla,
+most blagodati
+koji vraća dušu
+iz tame
+u tvoje srce.
+Gospode,
+učini me putem
+kroz koji dovodiš druge kući.
+Amin.`
+      },
+
+      tr: {
+        htmlLang:"tr", dir:"ltr",
+        pageTitle:"Lampadēphóros – Esinler",
+        metaDescription:"Esinler: kısa metinler, dualar ve ışık yolları — yanında.",
+        brandMini:"Meşale Taşıyıcısı",
+        h1:"Esinler",
+        sub:"Kısa metinler, dualar ve ışık yolları — yanında.",
+        nav:{ start:"Başlangıç", about:"Hakkımızda", films:"Filmler ve bölümler", impulse:"Esinler", workshop:"Atölye", offers:"Teklifler", shop:"Mağaza", links:"Bizi bul" },
+        note:"Spam yok. Drama yok. Sadece emek.",
+        pTitle:"Köprü kuranların duası",
+        pIntro:"Yumuşak bir güç için dua — ışık yollar bulsun diye.",
+        moreT:"Devamı gelecek",
+        moreP:"Burada zamanla başka esinleri toplayacağız: kısa dualar, düşünceler, ışığa küçük yollar.",
+        wsT:"Atölye",
+        wsP:"Metinler nasıl doğuyor (ritim, görseller, geçişler):",
+        wsA:"Atölyeye git →",
+        contactWord:"İletişim",
+        prayer:
+`Rab,
+kalbime bir ışık koydun.
+Sadece benim için değil,
+gölgede duranlar için.
+Bana köprü kurmayı öğret.
+Işıktan yollar kuran
+bir insan olayım;
+artık nereye gideceğini bilmeyenler için.
+Sözlerimi yumuşat,
+ellerimi açık,
+kalbimi geniş kıl.
+Dualarıma güç ver —
+benim gücümü değil,
+Seninkini.
+Artık çağramayanlar için
+çağırmama izin ver.
+Umut edemeyenler için
+umut etmeme izin ver.
+Kendini kaybedenler için
+sevmeme izin ver.
+Ve dua ettiğimde,
+bir ışık yolu doğsun,
+lütufdan bir köprü
+bir canı geri getirsin
+karanlıktan
+Senin kalbine.
+Rab,
+beni bir yol yap;
+Senin başkalarını eve getirdiğin bir yol.
+Âmin.`
+      },
+
+      ar: {
+        htmlLang:"ar", dir:"rtl",
+        pageTitle:"Lampadēphóros – ومضات",
+        metaDescription:"ومضات: نصوص قصيرة وصلوات وطرق نور — لتأخذها معك.",
+        brandMini:"حاملُ الشعلة",
+        h1:"ومضات",
+        sub:"نصوص قصيرة وصلوات وطرق نور — لتأخذها معك.",
+        nav:{ start:"البداية", about:"من نحن", films:"أفلام وفصول", impulse:"ومضات", workshop:"ورشة", offers:"عروض", shop:"متجر", links:"اعثر علينا" },
+        note:"لا سبام. لا دراما. فقط عمل.",
+        pTitle:"صلاة بُنّاة الجسور",
+        pIntro:"صلاة من أجل قوةٍ لطيفة — لكي يجد النور طرقًا.",
+        moreT:"المزيد قريبًا",
+        moreP:"هنا نجمع تدريجيًا ومضات أخرى: صلوات قصيرة، أفكار، طرق صغيرة إلى النور.",
+        wsT:"الورشة",
+        wsP:"كيف تُكتب هذه النصوص (الإيقاع، الصورة، الانتقالات):",
+        wsA:"إلى الورشة →",
+        contactWord:"تواصل",
+        prayer:
+`يا رب،
+لقد وضعتَ نورًا في قلبي.
+ليس لي وحدي،
+بل للذين
+يقفون في الظل.
+علّمني أن أكون بانيًا للجسور.
+إنسانًا
+يبني طرقًا من نور
+للذين
+لم يعودوا يعرفون أين يذهبون.
+اجعل كلماتي رقيقة،
+ويدَيّ مفتوحتين،
+وقلبي واسعًا.
+امنح صلواتي قوة —
+ليست قوتي،
+بل قوتك.
+دعني أنادي
+لأجل الذين لم يعودوا ينادون.
+دعني أرجو
+لأجل الذين بلا رجاء.
+دعني أحب
+لأجل الذين فقدوا أنفسهم.
+وحين أصلّي،
+ليولد طريق من نور،
+وجسر من نعمة
+يعيد نفسًا
+من الظلمة
+إلى قلبك.
+يا رب،
+اجعلني طريقًا
+تعيد به الآخرين إلى البيت.
+آمين.`
+      },
+
+      ur: {
+        htmlLang:"ur", dir:"rtl",
+        pageTitle:"Lampadēphóros – تاثرات",
+        metaDescription:"تاثرات: مختصر تحریریں، دعائیں اور روشنی کے راستے — ساتھ لے جانے کے لیے۔",
+        brandMini:"مشعل بردار",
+        h1:"تاثرات",
+        sub:"مختصر تحریریں، دعائیں اور روشنی کے راستے — ساتھ لے جانے کے لیے۔",
+        nav:{ start:"آغاز", about:"ہمارے بارے میں", films:"فلمیں اور ابواب", impulse:"تاثرات", workshop:"ورکشاپ", offers:"پیشکشیں", shop:"دکان", links:"ہمیں تلاش کریں" },
+        note:"نہ اسپام۔ نہ ڈرامہ۔ صرف کام۔",
+        pTitle:"پل بنانے والوں کی دعا",
+        pIntro:"نرم طاقت کے لیے دعا — تاکہ روشنی راستے ڈھونڈ لے۔",
+        moreT:"مزید جلد",
+        moreP:"یہاں ہم آہستہ آہستہ مزید تاثرات جمع کریں گے: مختصر دعائیں، خیالات، روشنی کی طرف چھوٹے راستے۔",
+        wsT:"ورکشاپ",
+        wsP:"یہ متن کیسے بنتے ہیں (ردھم، منظر، تبدیلیاں):",
+        wsA:"ورکشاپ پر جائیں →",
+        contactWord:"رابطہ",
+        prayer:
+`اَے خُداوند،
+تُو نے میرے دل میں روشنی رکھ دی۔
+صرف میرے لیے نہیں،
+بلکہ اُن کے لیے
+جو سائے میں کھڑے ہیں۔
+مجھے پل بنانے والا بنا۔
+ایسا انسان
+جو روشنی کے راستے بنائے
+اُن کے لیے
+جو اب نہیں جانتے کہاں جائیں۔
+میرے الفاظ نرم کر،
+میرے ہاتھ کھلے،
+میرا دل وسیع کر۔
+میری دعاؤں کو قوت دے —
+میری قوت نہیں،
+بلکہ تیری۔
+مجھے پکارنے دے
+اُن کے لیے جو اب نہیں پکارتے۔
+مجھے امید کرنے دے
+اُن کے لیے جن کے پاس امید نہیں۔
+مجھے محبت کرنے دے
+اُن کے لیے جو خود کو کھو بیٹھے ہیں۔
+اور جب میں دعا کروں،
+تو روشنی کا راستہ جنم لے،
+فضل کا ایک پل
+جو ایک جان کو واپس لے آئے
+اندھیرے سے
+تیرے دل تک۔
+اَے خُداوند،
+مجھے ایک راستہ بنا
+جس کے ذریعے تُو دوسروں کو گھر لے آئے۔
+آمین۔`
+      },
+
+      fa: {
+        htmlLang:"fa", dir:"rtl",
+        pageTitle:"Lampadēphóros – الهام‌ها",
+        metaDescription:"الهام‌ها: متن‌های کوتاه، دعاها و راه‌های نور — برای همراه داشتن.",
+        brandMini:"مشعل‌دار",
+        h1:"الهام‌ها",
+        sub:"متن‌های کوتاه، دعاها و راه‌های نور — برای همراه داشتن.",
+        nav:{ start:"شروع", about:"درباره ما", films:"فیلم‌ها و فصل‌ها", impulse:"الهام‌ها", workshop:"کارگاه", offers:"پیشنهادها", shop:"فروشگاه", links:"ما را پیدا کن" },
+        note:"بدون اسپم. بدون دراما. فقط کار.",
+        pTitle:"دعای پل‌سازان",
+        pIntro:"دعایی برای نیرویی آرام — تا نور راهی بیابد.",
+        moreT:"به‌زودی بیشتر",
+        moreP:"اینجا کم‌کم الهام‌های بیشتری جمع می‌کنیم: دعاهای کوتاه، اندیشه‌ها، راه‌های کوچک به سوی نور.",
+        wsT:"کارگاه",
+        wsP:"این متن‌ها چگونه شکل می‌گیرند (ریتم، تصویر، گذارها):",
+        wsA:"رفتن به کارگاه →",
+        contactWord:"تماس",
+        prayer:
+`خداوندا،
+تو نوری در دل من نهادی.
+نه فقط برای من،
+بلکه برای آنان
+که در سایه ایستاده‌اند.
+به من بیاموز پل‌ساز باشم.
+انسانی
+که راه‌های نور می‌سازد
+برای آنان
+که دیگر نمی‌دانند کجا بروند.
+سخنم را نرم کن،
+دستانم را گشوده،
+دلم را وسیع.
+به دعاهایم نیرو بده —
+نه نیروی من،
+بلکه نیروی تو.
+بگذار صدا بزنم
+برای آنان که دیگر صدا نمی‌زنند.
+بگذار امید داشته باشم
+برای آنان که امیدی ندارند.
+بگذار دوست بدارم
+برای آنان که خود را گم کرده‌اند.
+و وقتی دعا می‌کنم،
+بگذار راهی از نور پدید آید،
+پلی از فیض
+که جانى را بازگرداند
+از تاریکی
+به قلب تو.
+خداوندا،
+مرا راهی کن
+که از طریق آن دیگران را به خانه می‌آوری.
+آمین.`
+      },
+
+      zh: {
+        htmlLang:"zh", dir:"ltr",
+        pageTitle:"Lampadēphóros – 灵修片段",
+        metaDescription:"灵修片段：短文、祈祷与光之路径 — 随身带走。",
+        brandMini:"火炬传递者",
+        h1:"灵修片段",
+        sub:"短文、祈祷与光之路径 — 随身带走。",
+        nav:{ start:"开始", about:"关于我们", films:"影片与章节", impulse:"灵修片段", workshop:"工作坊", offers:"活动与服务", shop:"商店", links:"找到我们" },
+        note:"无垃圾信息。无戏剧。只有作品。",
+        pTitle:"《架桥者的祈祷》",
+        pIntro:"为温柔的力量祈祷——愿光找到道路。",
+        moreT:"更多即将到来",
+        moreP:"我们会逐步收集更多片段：短祈祷、思考、通往光的小路。",
+        wsT:"工作坊",
+        wsP:"这些文字如何诞生（节奏、画面、转场）：",
+        wsA:"进入工作坊 →",
+        contactWord:"联系",
+        prayer:
+`主啊，
+你把光放进了我的心。
+不只为我，
+也为那些
+站在阴影里的人。
+教我成为架桥者。
+成为一个人，
+为那些
+不知道还能往哪里走的人，
+建造光的道路。
+使我的言语温柔，
+使我的双手敞开，
+使我的心宽广。
+赐给我的祈祷力量——
+不是我的力量，
+而是你的。
+让我替那些不能再呼喊的人呼喊。
+让我替那些没有盼望的人仍然盼望。
+让我替那些迷失自己的人仍然去爱。
+当我祈祷时，
+愿一条光之路诞生，
+一座恩典之桥
+把一颗灵魂带回
+离开黑暗，
+进入你的心。
+主啊，
+使我成为一条路，
+借着这条路，你把别人带回家。
+阿们。`
+      },
+
+      hi: {
+        htmlLang:"hi", dir:"ltr",
+        pageTitle:"Lampadēphóros – प्रेरणाएँ",
+        metaDescription:"प्रेरणाएँ: छोटे पाठ, प्रार्थनाएँ और प्रकाश के मार्ग — साथ ले जाने के लिए।",
+        brandMini:"मशालवाहक",
+        h1:"प्रेरणाएँ",
+        sub:"छोटे पाठ, प्रार्थनाएँ और प्रकाश के मार्ग — साथ ले जाने के लिए।",
+        nav:{ start:"शुरू", about:"हमारे बारे में", films:"फ़िल्में और अध्याय", impulse:"प्रेरणाएँ", workshop:"कार्यशाला", offers:"ऑफ़र", shop:"दुकान", links:"हमें खोजें" },
+        note:"न स्पैम। न ड्रामा। केवल कार्य।",
+        pTitle:"पुल बनाने वालों की प्रार्थना",
+        pIntro:"कोमल शक्ति के लिए प्रार्थना — ताकि प्रकाश रास्ते पा सके।",
+        moreT:"और आएगा",
+        moreP:"यहाँ हम धीरे-धीरे और प्रेरणाएँ जोड़ेंगे: छोटी प्रार्थनाएँ, विचार, प्रकाश की ओर छोटे रास्ते।",
+        wsT:"कार्यशाला",
+        wsP:"ये पाठ कैसे बनते हैं (लय, दृश्य, संक्रमण):",
+        wsA:"कार्यशाला पर जाएँ →",
+        contactWord:"संपर्क",
+        prayer:
+`हे प्रभु,
+आपने मेरे हृदय में प्रकाश रखा।
+केवल मेरे लिए नहीं,
+बल्कि उनके लिए
+जो छाया में खड़े हैं।
+मुझे पुल-निर्माता बनना सिखाइए।
+एक ऐसा व्यक्ति
+जो प्रकाश के रास्ते बनाता है
+उनके लिए
+जो अब नहीं जानते कि कहाँ जाएँ।
+मेरे शब्द कोमल करें,
+मेरे हाथ खुले रखें,
+मेरा हृदय विस्तृत करें।
+मेरी प्रार्थनाओं को शक्ति दें—
+मेरी शक्ति नहीं,
+आपकी।
+मुझे पुकारने दें
+उनके लिए जो अब पुकार नहीं सकते।
+मुझे आशा करने दें
+उनके लिए जिनके पास आशा नहीं।
+मुझे प्रेम करने दें
+उनके लिए जो खुद को खो चुके हैं।
+और जब मैं प्रार्थना करूँ,
+तो प्रकाश का मार्ग जन्म ले,
+अनुग्रह का पुल
+एक आत्मा को वापस ले आए
+अंधकार से
+आपके हृदय में।
+हे प्रभु,
+मुझे एक मार्ग बनाइए
+जिसके द्वारा आप दूसरों को घर ले आते हैं।
+आमेन।`
+      },
+
+      bn: {
+        htmlLang:"bn", dir:"ltr",
+        pageTitle:"Lampadēphóros – অনুপ্রেরণা",
+        metaDescription:"অনুপ্রেরণা: ছোট লেখা, প্রার্থনা ও আলোর পথ — সাথে নেওয়ার জন্য।",
+        brandMini:"মশালবাহক",
+        h1:"অনুপ্রেরণা",
+        sub:"ছোট লেখা, প্রার্থনা ও আলোর পথ — সাথে নেওয়ার জন্য।",
+        nav:{ start:"শুরু", about:"আমাদের সম্পর্কে", films:"ফিল্ম ও অধ্যায়", impulse:"অনুপ্রেরণা", workshop:"ওয়ার্কশপ", offers:"প্রস্তাব", shop:"দোকান", links:"আমাদের খুঁজুন" },
+        note:"স্প্যাম নয়। ড্রামা নয়। শুধু কাজ।",
+        pTitle:"সেতু নির্মাতাদের প্রার্থনা",
+        pIntro:"নরম শক্তির জন্য প্রার্থনা — যেন আলো পথ খুঁজে পায়।",
+        moreT:"আরও আসবে",
+        moreP:"এখানে আমরা ধীরে ধীরে আরও অনুপ্রেরণা যোগ করব: ছোট প্রার্থনা, ভাবনা, আলোর দিকে ছোট পথ।",
+        wsT:"ওয়ার্কশপ",
+        wsP:"এই লেখা কীভাবে তৈরি হয় (ছন্দ, ছবি, ট্রানজিশন):",
+        wsA:"ওয়ার্কশপে যান →",
+        contactWord:"যোগাযোগ",
+        prayer:
+`প্রভু,
+আপনি আমার হৃদয়ে আলো রেখেছেন।
+শুধু আমার জন্য নয়,
+বরং তাদের জন্য
+যারা ছায়ায় দাঁড়িয়ে আছে।
+আমাকে সেতু-নির্মাতা হতে শেখান।
+একজন মানুষ
+যে আলোর পথ তৈরি করে
+তাদের জন্য
+যারা আর জানে না কোথায় যাবে।
+আমার কথাগুলো কোমল করুন,
+আমার হাত খুলে দিন,
+আমার হৃদয় প্রশস্ত করুন।
+আমার প্রার্থনায় শক্তি দিন—
+আমার শক্তি নয়,
+আপনার।
+আমাকে ডাকতে দিন
+তাদের জন্য যারা আর ডাকতে পারে না।
+আমাকে আশা করতে দিন
+তাদের জন্য যাদের আশা নেই।
+আমাকে ভালোবাসতে দিন
+তাদের জন্য যারা নিজেকে হারিয়েছে।
+আর যখন আমি প্রার্থনা করি,
+একটি আলোর পথ জন্ম নিক,
+অনুগ্রহের একটি সেতু
+যা একটি প্রাণকে ফিরিয়ে আনে
+অন্ধকার থেকে
+আপনার হৃদয়ে।
+প্রভু,
+আমাকে একটি পথ বানান
+যার মাধ্যমে আপনি অন্যদের ঘরে ফেরান।
+আমেন।`
+      },
+
+      id: {
+        htmlLang:"id", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impuls",
+        metaDescription:"Impuls: teks singkat, doa, dan jalan terang — untuk dibawa pulang.",
+        brandMini:"Pembawa Obor",
+        h1:"Impuls",
+        sub:"Teks singkat, doa, dan jalan terang — untuk dibawa pulang.",
+        nav:{ start:"Mulai", about:"Tentang", films:"Film & bab", impulse:"Impuls", workshop:"Bengkel", offers:"Penawaran", shop:"Toko", links:"Temukan kami" },
+        note:"Tanpa spam. Tanpa drama. Hanya karya.",
+        pTitle:"Doa para pembangun jembatan",
+        pIntro:"Doa untuk kekuatan yang lembut — agar terang menemukan jalan.",
+        moreT:"Segera menyusul",
+        moreP:"Di sini kami akan mengumpulkan impuls lain pelan-pelan: doa singkat, renungan, jalan kecil menuju terang.",
+        wsT:"Bengkel",
+        wsP:"Bagaimana teks ini dibuat (ritme, visual, transisi):",
+        wsA:"Ke bengkel →",
+        contactWord:"Kontak",
+        prayer:
+`Tuhan,
+Engkau menaruh terang di dalam hatiku.
+Bukan hanya untukku,
+melainkan untuk mereka
+yang berdiri dalam bayang-bayang.
+Ajari aku menjadi pembangun jembatan.
+Seorang manusia
+yang membangun jalan-jalan terang
+bagi mereka
+yang tak lagi tahu ke mana harus pergi.
+Lembutkan kata-kataku,
+bukakan tanganku,
+luaskan hatiku.
+Berikan kekuatan pada doaku —
+bukan kekuatanku,
+melainkan kekuatan-Mu.
+Biarkan aku berseru
+bagi mereka yang tak bisa berseru lagi.
+Biarkan aku berharap
+bagi mereka yang tak punya harapan.
+Biarkan aku mengasihi
+bagi mereka yang kehilangan dirinya.
+Dan ketika aku berdoa,
+biarlah lahir sebuah jalan terang,
+jembatan rahmat
+yang membawa sebuah jiwa kembali
+dari kegelapan
+ke hati-Mu.
+Tuhan,
+jadikan aku sebuah jalan
+melalui jalan itu Engkau membawa orang lain pulang.
+Amin.`
+      },
+
+      fil: {
+        htmlLang:"fil", dir:"ltr",
+        pageTitle:"Lampadēphóros – Mga pagninilay",
+        metaDescription:"Mga pagninilay: maiikling teksto, panalangin, at mga landas ng liwanag — para dalhin.",
+        brandMini:"Tagapagdala ng Sulo",
+        h1:"Mga pagninilay",
+        sub:"Maiikling teksto, panalangin, at mga landas ng liwanag — para dalhin.",
+        nav:{ start:"Magsimula", about:"Tungkol sa amin", films:"Mga pelikula at kabanata", impulse:"Mga pagninilay", workshop:"Workshop", offers:"Mga alok", shop:"Tindahan", links:"Hanapin kami" },
+        note:"Walang spam. Walang drama. Gawa lang.",
+        pTitle:"Panalangin ng mga tagapagtayo ng tulay",
+        pIntro:"Panalangin para sa banayad na lakas — upang makahanap ng daan ang liwanag.",
+        moreT:"May susunod pa",
+        moreP:"Dito unti-unti naming titipunin ang iba pang pagninilay: maiikling panalangin, kaisipan, maliliit na daan patungo sa liwanag.",
+        wsT:"Workshop",
+        wsP:"Paano nabubuo ang mga tekstong ito (ritmo, imahe, transisyon):",
+        wsA:"Pumunta sa workshop →",
+        contactWord:"Kontak",
+        prayer:
+`Panginoon,
+naglagay Ka ng liwanag sa aking puso.
+Hindi para sa akin lamang,
+kundi para sa mga
+nasa anino.
+Turuan Mo akong maging tagapagtayo ng tulay.
+Isang tao
+na gumagawa ng mga daan ng liwanag
+para sa mga
+hindi na alam kung saan tutungo.
+Gawin Mong banayad ang aking mga salita,
+bukas ang aking mga kamay,
+malawak ang aking puso.
+Bigyan Mo ng lakas ang aking mga panalangin —
+hindi lakas ko,
+kundi Iyo.
+Hayaan Mo akong tumawag
+para sa mga hindi na makatawag.
+Hayaan Mo akong umasa
+para sa mga walang pag-asa.
+Hayaan Mo akong magmahal
+para sa mga nawala sa sarili.
+At kapag ako’y nananalangin,
+nawa’y may sumilang na daan ng liwanag,
+isang tulay ng biyaya
+na magbabalik ng isang kaluluwa
+mula sa kadiliman
+patungo sa Iyong puso.
+Panginoon,
+gawin Mo akong isang daan
+na sa pamamagitan nito ay iniuuwi Mo ang iba.
+Amen.`
+      },
+
+      ja: {
+        htmlLang:"ja", dir:"ltr",
+        pageTitle:"Lampadēphóros – インパルス",
+        metaDescription:"インパルス：短い文章、祈り、光への道 — 持ち帰るために。",
+        brandMini:"灯火を運ぶ者",
+        h1:"インパルス",
+        sub:"短い文章、祈り、光への道 — 持ち帰るために。",
+        nav:{ start:"開始", about:"私たちについて", films:"作品と章", impulse:"インパルス", workshop:"工房", offers:"案内", shop:"ショップ", links:"見つける" },
+        note:"スパムなし。ドラマなし。作品だけ。",
+        pTitle:"「橋を架ける人の祈り」",
+        pIntro:"やさしい強さを願う祈り — 光が道を見つけるために。",
+        moreT:"続きます",
+        moreP:"ここに少しずつ集めます：短い祈り、思い、光への小さな道。",
+        wsT:"工房",
+        wsP:"文章が生まれる場所（リズム、映像、切替）：",
+        wsA:"工房へ →",
+        contactWord:"連絡先",
+        prayer:
+`主よ、
+あなたは私の心に光を置かれました。
+私だけのためではなく、
+影の中に立つ人々のために。
+私に橋を架ける者となることを教えてください。
+光の道を築く人として、
+もうどこへ行けばよいかわからない人のために。
+私の言葉をやさしくし、
+手を開き、
+心を広くしてください。
+私の祈りに力を与えてください—
+私の力ではなく、
+あなたの力を。
+もう叫べない人のために、私が呼べるように。
+希望を持てない人のために、私が希望を持てるように。
+自分を失った人のために、私が愛せるように。
+そして祈るとき、
+光の道が生まれますように。
+恵みの橋が
+一つの魂を
+闇から
+あなたの御心へと連れ戻しますように。
+主よ、
+あなたが他の人々を家へ連れ帰るための道として、
+私を用いてください。
+アーメン。`
+      },
+
+      ko: {
+        htmlLang:"ko", dir:"ltr",
+        pageTitle:"Lampadēphóros – 묵상",
+        metaDescription:"묵상: 짧은 글, 기도, 빛의 길 — 가져갈 수 있도록.",
+        brandMini:"횃불을 든 이",
+        h1:"묵상",
+        sub:"짧은 글, 기도, 빛의 길 — 가져갈 수 있도록.",
+        nav:{ start:"시작", about:"소개", films:"영상과 장", impulse:"묵상", workshop:"작업실", offers:"안내", shop:"샵", links:"찾기" },
+        note:"스팸 없음. 드라마 없음. 오직 작업.",
+        pTitle:"다리 놓는 이들의 기도",
+        pIntro:"부드러운 힘을 구하는 기도 — 빛이 길을 찾도록.",
+        moreT:"더 올 예정",
+        moreP:"여기에는 짧은 기도, 생각, 빛으로 향하는 작은 길들을 차근차근 모아갑니다.",
+        wsT:"작업실",
+        wsP:"글이 만들어지는 과정(리듬, 이미지, 전환):",
+        wsA:"작업실로 →",
+        contactWord:"연락",
+        prayer:
+`주님,
+주님은 제 마음에 빛을 두셨습니다.
+저를 위해서만이 아니라,
+그늘에 서 있는 이들을 위해서입니다.
+제가 다리를 놓는 사람이 되게 가르쳐 주세요.
+길을 잃은 이들을 위해
+빛의 길을 세우는 사람이 되게 하소서.
+제 말은 부드럽게,
+제 손은 열려 있게,
+제 마음은 넓게 하소서.
+제 기도에 힘을 주소서 —
+제 힘이 아니라
+주님의 힘을.
+더는 부르지 못하는 이들을 위해
+제가 부르게 하소서.
+희망이 없는 이들을 위해
+제가 희망을 품게 하소서.
+자신을 잃어버린 이들을 위해
+제가 사랑하게 하소서.
+제가 기도할 때,
+빛의 길이 생겨나게 하시고,
+은총의 다리가
+한 영혼을
+어둠에서
+주님의 마음으로 되돌려 오게 하소서.
+주님,
+다른 이들을 집으로 데려오시는 길이 되도록
+저를 사용해 주소서.
+아멘.`
+      },
+
+      vi: {
+        htmlLang:"vi", dir:"ltr",
+        pageTitle:"Lampadēphóros – Gợi ý",
+        metaDescription:"Gợi ý: văn bản ngắn, lời cầu nguyện và con đường ánh sáng — mang theo.",
+        brandMini:"Người mang đuốc",
+        h1:"Gợi ý",
+        sub:"Văn bản ngắn, lời cầu nguyện và con đường ánh sáng — mang theo.",
+        nav:{ start:"Bắt đầu", about:"Về chúng tôi", films:"Phim & chương", impulse:"Gợi ý", workshop:"Xưởng", offers:"Đề nghị", shop:"Cửa hàng", links:"Tìm chúng tôi" },
+        note:"Không spam. Không drama. Chỉ là công việc.",
+        pTitle:"Lời nguyện của những người bắc cầu",
+        pIntro:"Lời nguyện xin sức mạnh dịu dàng — để ánh sáng tìm được lối đi.",
+        moreT:"Sẽ còn nữa",
+        moreP:"Ở đây chúng tôi sẽ dần dần gom thêm: lời nguyện ngắn, suy niệm, những lối nhỏ hướng về ánh sáng.",
+        wsT:"Xưởng",
+        wsP:"Các bài viết được tạo ra như thế nào (nhịp điệu, hình ảnh, chuyển cảnh):",
+        wsA:"Vào xưởng →",
+        contactWord:"Liên hệ",
+        prayer:
+`Lạy Chúa,
+Ngài đã đặt ánh sáng vào lòng con.
+Không chỉ cho riêng con,
+nhưng cho những người
+đang đứng trong bóng tối.
+Xin dạy con trở thành người bắc cầu.
+Một người
+xây những con đường ánh sáng
+cho những ai
+không còn biết phải đi đâu.
+Xin làm cho lời con dịu dàng,
+tay con rộng mở,
+trái tim con bao dung.
+Xin ban sức mạnh cho lời cầu nguyện của con —
+không phải sức con,
+mà là sức của Ngài.
+Xin cho con kêu gọi
+thay cho những ai không còn kêu gọi được.
+Xin cho con hy vọng
+thay cho những ai không còn hy vọng.
+Xin cho con yêu thương
+thay cho những ai đã đánh mất chính mình.
+Và khi con cầu nguyện,
+xin cho một con đường ánh sáng được sinh ra,
+một cây cầu ân sủng
+đưa một linh hồn trở về
+từ bóng tối
+vào trái tim Ngài.
+Lạy Chúa,
+xin làm con thành một con đường
+mà qua đó Ngài đưa người khác về nhà.
+Amen.`
+      },
+
+      ms: {
+        htmlLang:"ms", dir:"ltr",
+        pageTitle:"Lampadēphóros – Renungan",
+        metaDescription:"Renungan: teks ringkas, doa dan jalan cahaya — untuk dibawa bersama.",
+        brandMini:"Pembawa Obor",
+        h1:"Renungan",
+        sub:"Teks ringkas, doa dan jalan cahaya — untuk dibawa bersama.",
+        nav:{ start:"Mula", about:"Tentang kami", films:"Filem & bab", impulse:"Renungan", workshop:"Bengkel", offers:"Tawaran", shop:"Kedai", links:"Cari kami" },
+        note:"Tiada spam. Tiada drama. Hanya karya.",
+        pTitle:"Doa para pembina jambatan",
+        pIntro:"Doa untuk kekuatan yang lembut — agar cahaya menemukan jalan.",
+        moreT:"Akan menyusul",
+        moreP:"Di sini kami akan mengumpul renungan lain sedikit demi sedikit: doa ringkas, fikiran, jalan kecil menuju cahaya.",
+        wsT:"Bengkel",
+        wsP:"Bagaimana teks ini lahir (rentak, visual, peralihan):",
+        wsA:"Pergi ke bengkel →",
+        contactWord:"Hubungi",
+        prayer:
+`Tuhan,
+Engkau meletakkan cahaya dalam hatiku.
+Bukan untukku sahaja,
+tetapi untuk mereka
+yang berdiri dalam bayang-bayang.
+Ajar aku menjadi pembina jambatan.
+Seorang insan
+yang membina jalan cahaya
+untuk mereka
+yang tidak lagi tahu ke mana harus pergi.
+Jadikan kata-kataku lembut,
+tanganku terbuka,
+hatiku luas.
+Berikan kekuatan pada doaku —
+bukan kekuatanku,
+tetapi kekuatan-Mu.
+Biarkan aku berseru
+bagi mereka yang tidak lagi mampu berseru.
+Biarkan aku berharap
+bagi mereka yang tiada harapan.
+Biarkan aku mengasihi
+bagi mereka yang kehilangan diri.
+Dan ketika aku berdoa,
+biarlah lahir jalan cahaya,
+jambatan rahmat
+yang membawa satu jiwa kembali
+dari kegelapan
+ke hati-Mu.
+Tuhan,
+jadikan aku satu jalan
+melalui jalan itu Engkau membawa orang lain pulang.
+Amin.`
+      },
+
+      ta: {
+        htmlLang:"ta", dir:"ltr",
+        pageTitle:"Lampadēphóros – தூண்டுதல்கள்",
+        metaDescription:"தூண்டுதல்கள்: குறுந்தொடர்கள், பிரார்த்தனைகள், ஒளி வழிகள் — எடுத்துச் செல்ல.",
+        brandMini:"தீப்பந்தம் ஏந்துபவர்",
+        h1:"தூண்டுதல்கள்",
+        sub:"குறுந்தொடர்கள், பிரார்த்தனைகள், ஒளி வழிகள் — எடுத்துச் செல்ல.",
+        nav:{ start:"தொடங்கு", about:"எங்களைப் பற்றி", films:"திரைப்படங்கள் & அத்தியாயங்கள்", impulse:"தூண்டுதல்கள்", workshop:"பணிமனை", offers:"சலுகைகள்", shop:"கடை", links:"எங்களை காணுங்கள்" },
+        note:"ஸ்பாம் இல்லை. ட்ராமா இல்லை. வேலை மட்டும்.",
+        pTitle:"பாலம் கட்டுபவர்களின் பிரார்த்தனை",
+        pIntro:"மென்மையான வலிமைக்கான பிரார்த்தனை — ஒளி வழி கண்டடைய.",
+        moreT:"மேலும் வரும்",
+        moreP:"இங்கே மெதுவாக மேலும் தூண்டுதல்கள் சேர்க்கப்படும்: குறு பிரார்த்தனைகள், சிந்தனைகள், ஒளிக்குச் செல்லும் சிறு வழிகள்.",
+        wsT:"பணிமனை",
+        wsP:"இந்த உரைகள் எப்படி உருவாகின்றன (தாளம், படிமம், மாற்றங்கள்):",
+        wsA:"பணிமனைக்கு →",
+        contactWord:"தொடர்பு",
+        prayer:
+`ஆண்டவரே,
+நீங்கள் என் இதயத்தில் ஒளியை வைத்தீர்கள்.
+எனக்காக மட்டுமல்ல,
+நிழலில் நிற்பவர்களுக்காகவும்.
+என்னை பாலம் கட்டுபவராக கற்றுக்கொடுங்கள்.
+திசை தெரியாமல் நிற்பவர்களுக்கு
+ஒளியின் வழிகளை கட்டும் மனிதனாக.
+என் வார்த்தைகளை மென்மையாக்கு,
+என் கைகளைத் திற,
+என் இதயத்தை விசாலமாக்கு.
+என் பிரார்த்தனைகளுக்கு வலிமை அளி —
+என் வலிமை அல்ல,
+உமது வலிமை.
+இனி அழைக்க முடியாதவர்களுக்காக
+நான் அழைக்கச் செய்.
+நம்பிக்கையில்லாதவர்களுக்காக
+நான் நம்பிக்கை கொள்ளச் செய்.
+தங்களை இழந்தவர்களுக்காக
+நான் நேசிக்கச் செய்.
+நான் பிரார்த்திக்கும் போது,
+ஒளியின் ஒரு பாதை பிறக்கட்டும்,
+அருளின் ஒரு பாலம்
+ஒரு ஆன்மாவை மீட்டுக் கொண்டு வரட்டும்
+இருளிலிருந்து
+உமது இதயத்திற்குள்.
+ஆண்டவரே,
+மற்றவர்களை வீட்டிற்கு அழைத்து வர
+நீங்கள் பயன்படுத்தும் பாதையாக
+என்னை ஆக்குங்கள்.
+ஆமென்.`
+      },
+
+      ku: {
+        htmlLang:"ku", dir:"ltr",
+        pageTitle:"Lampadēphóros – Impuls",
+        metaDescription:"Impuls: nivîsên kurt, duayên û rêyên ronahiyê — ji bo birin.",
+        brandMini:"Fêkeldar",
+        h1:"Impuls",
+        sub:"Nivîsên kurt, duayên û rêyên ronahiyê — ji bo birin.",
+        nav:{ start:"Destpêk", about:"Derbarê me de", films:"Fîlm û beş", impulse:"Impuls", workshop:"Atelier", offers:"Pêşniyar", shop:"Firotgeh", links:"Me bibîne" },
+        note:"Ne spam. Ne drama. Tenê kar.",
+        pTitle:"Duaya çêkerên pirê",
+        pIntro:"Duayek ji bo hêza nerm — da ku ronahî rê bibîne.",
+        moreT:"Zêdetir dê were",
+        moreP:"Li vir em bi hêdî-hêdî impulsên din kom dikin: duayên kurt, ramîn, rêyên biçûk ber bi ronahiyê.",
+        wsT:"Atelier",
+        wsP:"Nivîs çawa tê çêkirin (ritm, wêne, derbasbûn):",
+        wsA:"Herin atelyeyê →",
+        contactWord:"Kontakt",
+        prayer:
+`Ya Xwedê,
+tu ronahî li dilê min danî.
+Ne tenê ji bo min,
+lê ji bo wan
+ku li siyê disekinin.
+Fêrî min bike ku ez bêm çêkerê pirê.
+Mirovek
+ku rêyên ronahiyê ava dike
+ji bo wan
+ku êdî nizanin kû derin.
+Bila gotinên min nerm bin,
+destên min vekirî,
+dilê min fireh.
+Hêz bide duayên min —
+ne hêza min,
+belê ya te.
+Bila ez bang bikim
+ji bo wan ku êdî nabangin.
+Bila ez hêvî bikim
+ji bo wan ku hêvî nîne.
+Bila ez hez bikim
+ji bo wan ku xwe windakirin.
+Û dema ez dua dikim,
+bila rêyek ji ronahiyê pêk were,
+pirek ji keremê
+ku canek vegerîne
+ji tarîtiyê
+ber bi dilê te.
+Ya Xwedê,
+min bike rêyek
+ku bi wê tu yên din vedigerînî malê.
+Amîn.`
+      }
+    };
+
+    const supported = new Set(Object.keys(T));
+
+    // ---------- Resolve & apply language ----------
+    const lang = getLang(supported);
+    setLang(lang);
+    ensureLangInUrl(lang);
+
+    const deUI = T.de;
+    const ui = T[lang] || deUI;
+
+    document.documentElement.lang = ui.htmlLang || lang;
+    document.documentElement.dir  = ui.dir || (RTL.has(lang) ? "rtl" : "ltr");
+
+    document.title = ui.pageTitle || deUI.pageTitle;
+    const metaDesc = document.getElementById("metaDesc");
+    if (metaDesc) metaDesc.setAttribute("content", ui.metaDescription || deUI.metaDescription);
+
+    const setText = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+
+    setText("brandMini", ui.brandMini || deUI.brandMini);
+    setText("h1", ui.h1 || deUI.h1);
+    setText("sub", ui.sub || deUI.sub);
+
+    setText("navStart",    ui.nav?.start   || deUI.nav.start);
+    setText("navAbout",    ui.nav?.about   || deUI.nav.about);
+    setText("navFilms",    ui.nav?.films   || deUI.nav.films);
+    setText("navImpulse",  ui.nav?.impulse || deUI.nav.impulse);
+    setText("navWorkshop", ui.nav?.workshop|| deUI.nav.workshop);
+    setText("navOffers",   ui.nav?.offers  || deUI.nav.offers);
+    setText("navShop",     ui.nav?.shop    || deUI.nav.shop);
+    setText("navLinks",    ui.nav?.links   || deUI.nav.links);
+
+    setText("note", ui.note || deUI.note);
+
+    setText("pTitle", ui.pTitle || deUI.pTitle);
+    setText("pIntro", ui.pIntro || deUI.pIntro);
+    setText("moreT", ui.moreT || deUI.moreT);
+    setText("moreP", ui.moreP || deUI.moreP);
+    setText("wsT", ui.wsT || deUI.wsT);
+    setText("wsP", ui.wsP || deUI.wsP);
+    setText("wsA", ui.wsA || deUI.wsA);
+    setText("contactWord", ui.contactWord || deUI.contactWord);
+
+    const prayerEl = document.getElementById("prayerText");
+    if (prayerEl) prayerEl.textContent = ui.prayer || deUI.prayer;
+
+    // Keep lang on ALL internal links
+    document.querySelectorAll("a[href]").forEach(a => {
+      const href = a.getAttribute("href") || "";
+      a.setAttribute("href", withLang(href, lang));
+    });
+
+  })();
+  </script>
 </body>
 </html>
