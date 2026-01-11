@@ -1,6 +1,6 @@
-<!-- FILE: start.html (FIXED) -->
+<!-- FILE: start.html (FINAL) -->
 <!doctype html>
-<html lang="de">
+<html lang="de" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,9 +29,10 @@
       <p class="sub" id="heroSub"></p>
 
       <nav class="nav" aria-label="Navigation">
-        <a class="btn primary" id="navStart" href="start.html?lang=de"></a>
+        <!-- Clean routes -->
+        <a class="btn primary" id="navStart" href="/start"></a>
         <a class="btn" id="navAbout" href="about.html"></a>
-        <a class="btn" id="navFilms" href="filme.html"></a>
+        <a class="btn" id="navFilms" href="/filme"></a>
         <a class="btn" id="navImpulses" href="impulse.html"></a>
         <a class="btn" id="navWorkshop" href="werkstatt.html"></a>
         <a class="btn" id="navOffers" href="angebote.html"></a>
@@ -52,7 +53,7 @@
       <article class="card">
         <h2 id="cFilmsH"></h2>
         <p id="cFilmsP"></p>
-        <a id="cFilmsA" href="filme.html"></a>
+        <a id="cFilmsA" href="/filme"></a>
       </article>
 
       <article class="card">
@@ -103,31 +104,35 @@
 
   <script>
   (function () {
-    const STORAGE_KEY = "lamp_lang"; // EIN Key für die ganze Seite/alle Seiten
+    "use strict";
 
-    const qs = new URLSearchParams(location.search);
-    const urlLang = (qs.get("lang") || "").toLowerCase();
+    const STORAGE_KEY = "lamp_lang";
 
+    const base = (tag) => String(tag || "").toLowerCase().split("-")[0];
+    const norm = (x) => String(x || "").trim().toLowerCase();
+
+    // Supported langs come from langs.js
     const supported = new Set((window.LANGS || []).map(x => x.code));
 
+    // URL lang
+    const qs = new URLSearchParams(location.search);
+    const urlLang = base(qs.get("lang"));
+
+    // browser prefs
     const browserPrefs = (navigator.languages && navigator.languages.length)
       ? navigator.languages
       : [navigator.language || "de"];
 
-    const base = (tag) => String(tag || "").toLowerCase().split("-")[0];
-
+    // Decide active lang: URL -> storage -> browser -> de
     let lang = "de";
 
-    // 1) URL
-    if (supported.has(urlLang)) {
+    if (urlLang && supported.has(urlLang)) {
       lang = urlLang;
     } else {
-      // 2) saved
-      const saved = (localStorage.getItem(STORAGE_KEY) || "").toLowerCase();
-      if (supported.has(saved)) {
+      const saved = base(localStorage.getItem(STORAGE_KEY));
+      if (saved && supported.has(saved)) {
         lang = saved;
       } else {
-        // 3) browser
         for (const t of browserPrefs) {
           const b = base(t);
           if (supported.has(b)) { lang = b; break; }
@@ -135,8 +140,17 @@
       }
     }
 
-    // persist
+    // Persist only ONE key
     try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
+
+    // Ensure URL has lang param (nice & consistent)
+    try {
+      const u = new URL(location.href);
+      if (base(u.searchParams.get("lang")) !== lang) {
+        u.searchParams.set("lang", lang);
+        history.replaceState({}, "", u.toString());
+      }
+    } catch(e){}
 
     // document direction
     const curObj = (window.LANGS || []).find(x => x.code === lang);
@@ -148,52 +162,63 @@
     const holder = document.querySelector(".lang[data-current]");
     if (holder) holder.setAttribute("data-current", lang);
 
-    // render menu
+    // render menu (existing function)
     if (typeof window.renderLangMenu === "function") window.renderLangMenu();
 
-    // helper: add ?lang=xx to internal links
+    // Helper: keep lang param on internal links (robust, no duplicates)
     const withLang = (href) => {
       if (!href) return href;
+      if (href.startsWith("#")) return href;
       if (/^https?:\/\//i.test(href) || href.startsWith("mailto:")) return href;
-      const hasQuery = href.includes("?");
-      const sep = hasQuery ? "&" : "?";
-      return `${href}${sep}lang=${encodeURIComponent(lang)}`;
+      try {
+        const u = new URL(href, location.origin);
+        u.searchParams.set("lang", lang);
+        return u.pathname + "?" + u.searchParams.toString();
+      } catch {
+        // fallback minimal
+        const sep = href.includes("?") ? "&" : "?";
+        return href + sep + "lang=" + encodeURIComponent(lang);
+      }
     };
 
-    // texts
+    // Apply lang to ALL internal anchors (so you don’t miss any)
+    document.querySelectorAll("a[href]").forEach(a => {
+      const href = a.getAttribute("href") || "";
+      a.setAttribute("href", withLang(href));
+    });
+
+    // Texts (DE fallback only)
     const dictAll = window.START_I18N || {};
     const dict = dictAll[lang] || dictAll["de"] || {};
 
-    document.getElementById("heroTitle").textContent = dict.title || "Lampadēphóros";
-    document.getElementById("heroSub").textContent = dict.sub || "";
-    document.getElementById("noteLine").textContent = dict.note || "";
-
     const nav = dict.nav || {};
-    document.getElementById("navStart").textContent = nav.start || "Start";
-    document.getElementById("navAbout").textContent = nav.about || "About";
-    document.getElementById("navFilms").textContent = nav.films || "Films";
-    document.getElementById("navImpulses").textContent = nav.impulses || "Impulses";
-    document.getElementById("navWorkshop").textContent = nav.workshop || "Workshop";
-    document.getElementById("navOffers").textContent = nav.offers || "Offers";
-    document.getElementById("navShop").textContent = nav.shop || "Shop";
-    document.getElementById("navLinks").textContent = nav.links || "Links";
+    const deNav = (dictAll["de"] || {}).nav || {};
 
-    // IMPORTANT: alle NAV-Links + Card-Links bekommen lang
-    const linkIds = [
-      "navStart","navAbout","navFilms","navImpulses","navWorkshop","navOffers","navShop","navLinks",
-      "cAboutA","cFilmsA","cImpA","cWorkA","cOffersA","cShopA"
-    ];
-    linkIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.setAttribute("href", withLang(el.getAttribute("href")));
-    });
+    const txt = (v, fallback) => (v != null && v !== "") ? v : fallback;
+
+    document.getElementById("heroTitle").textContent = txt(dict.title, "Lampadēphóros");
+    document.getElementById("heroSub").textContent   = txt(dict.sub, "");
+    document.getElementById("noteLine").textContent  = txt(dict.note, "");
+
+    // IMPORTANT: no EN fallbacks here; if missing -> DE
+    document.getElementById("navStart").textContent    = txt(nav.start,    deNav.start    || "Start");
+    document.getElementById("navAbout").textContent    = txt(nav.about,    deNav.about    || "Über uns");
+    document.getElementById("navFilms").textContent    = txt(nav.films,    deNav.films    || "Filme");
+    document.getElementById("navImpulses").textContent = txt(nav.impulses, deNav.impulses || "Impulse");
+    document.getElementById("navWorkshop").textContent = txt(nav.workshop, deNav.workshop || "Werkstatt");
+    document.getElementById("navOffers").textContent   = txt(nav.offers,   deNav.offers   || "Angebote");
+    document.getElementById("navShop").textContent     = txt(nav.shop,     deNav.shop     || "Shop");
+    document.getElementById("navLinks").textContent    = txt(nav.links,    deNav.links    || "Hier findest du uns");
 
     const c = dict.cards || {};
+    const deC = (dictAll["de"] || {}).cards || {};
     const setCard = (key, hId, pId, aId) => {
-      document.getElementById(hId).textContent = c[key]?.h || "";
-      document.getElementById(pId).textContent = c[key]?.p || "";
-      document.getElementById(aId).textContent = c[key]?.a || "";
+      const ch = c[key]?.h ?? deC[key]?.h ?? "";
+      const cp = c[key]?.p ?? deC[key]?.p ?? "";
+      const ca = c[key]?.a ?? deC[key]?.a ?? "";
+      document.getElementById(hId).textContent = ch;
+      document.getElementById(pId).textContent = cp;
+      document.getElementById(aId).textContent = ca;
     };
     setCard("about",    "cAboutH",  "cAboutP",  "cAboutA");
     setCard("films",    "cFilmsH",  "cFilmsP",  "cFilmsA");
@@ -203,9 +228,10 @@
     setCard("shop",     "cShopH",   "cShopP",   "cShopA");
 
     const f = dict.footer || {};
-    document.getElementById("fContact").textContent = f.contact || "Kontakt:";
-    document.getElementById("vVisitors").textContent = f.visitors || "Besucher";
-    document.getElementById("vTotal").textContent = f.total || "Gesamt";
+    const deF = (dictAll["de"] || {}).footer || {};
+    document.getElementById("fContact").textContent  = txt(f.contact,  deF.contact  || "Kontakt:");
+    document.getElementById("vVisitors").textContent = txt(f.visitors, deF.visitors || "Besucher");
+    document.getElementById("vTotal").textContent    = txt(f.total,    deF.total    || "Gesamt");
 
     // counter
     (async () => {
