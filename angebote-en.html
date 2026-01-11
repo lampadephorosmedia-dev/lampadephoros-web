@@ -1,116 +1,23 @@
-<!-- FILE: angebote-en.html (EN) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadēphóros – Offers</title>
-  <meta name="description" content="Offers by Lampadēphóros: retreat days, pilgrimages, workshops, talks and more." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Redirect…</title>
+
+  <!-- Sofort-Redirect (Fallback, falls JS blockiert ist) -->
+  <meta http-equiv="refresh" content="0; url=angebote.html?lang=en" />
+
+  <script>
+    // JS-Redirect (behält ggf. zusätzliche Query-Parameter bei)
+    (function () {
+      const base = "angebote.html?lang=en";
+      const extra = location.search ? "&" + location.search.replace(/^\?/, "") : "";
+      location.replace(base + extra);
+    })();
+  </script>
 </head>
-
 <body>
-  <main class="wrap">
-
-    <header class="hero">
-      <!-- Brand -->
-      <div class="brand">
-        <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
-        <div class="brand-meta">
-          <div class="badge">Lampadēphóros</div>
-          <div class="mini">The Torchbearer</div>
-        </div>
-      </div>
-
-      <h1>Offers</h1>
-      <p class="sub">Here you’ll find concrete dates — and everything that’s currently in preparation.</p>
-
-      <!-- NAV (no language switch here — only on start-*.html) -->
-      <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-en.html">Start</a>
-        <a class="btn" href="about-en.html">About</a>
-        <a class="btn" href="filme-en.html">Films &amp; chapters</a>
-        <a class="btn" href="impulse-en.html">Impulses</a>
-        <a class="btn" href="werkstatt.html">Workshop</a>
-        <a class="btn primary" href="angebote-en.html">Offers</a>
-        <a class="btn" href="shop-en.html">Shop</a>
-        <a class="btn" href="links-en.html">Find us</a>
-      </nav>
-
-      <div class="note">No spam. No drama. Just the work.</div>
-    </header>
-
-    <section class="grid" aria-label="Offers">
-      <!-- Concrete offer -->
-      <article class="card">
-        <h2>Retreat Day 2026 (ages 15–25)</h2>
-
-        <p>
-          <strong>From:</strong> Friday, February 13, 2026 – 19:00<br />
-          <strong>To:</strong> Saturday, February 14, 2026 – 17:00
-        </p>
-
-        <p>
-          Start with Holy Mass in the parish church in Gilsdorf, then travel (private cars) to Medernach.
-        </p>
-
-        <p>
-          <strong>Location:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />
-          33, rue de Larochette, L-7661 Medernach
-        </p>
-
-        <p>
-          <strong>Overnight stay:</strong> single room €35 / double room €30<br />
-          (expenses included)
-        </p>
-
-        <p>
-          <strong>Registration:</strong> <a href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a><br />
-          Subject / note: <em>GJCG Lastname Firstname</em><br />
-          <strong>Info:</strong> <a href="mailto:GJCG@eclipso.eu">GJCG@eclipso.eu</a> or Tel. <a href="tel:+352804967">+352 80 49 67</a>
-        </p>
-
-        <p>
-          <strong>Registration deadline:</strong> no later than January 27, 2026
-        </p>
-
-        <p>
-          <a class="btn primary" href="recollection-2026.pdf" target="_blank" rel="noopener">Open flyer (PDF)</a>
-          <a class="btn" href="recollection-2026.pdf" download>Download PDF</a>
-        </p>
-      </article>
-
-      <!-- In preparation -->
-      <article class="card">
-        <h2>Pilgrimages</h2>
-        <p>Planned pilgrim routes and spiritual journeys — with clear preparation and a calm rhythm.</p>
-        <p style="opacity:.8">Status: in progress</p>
-      </article>
-
-      <article class="card">
-        <h2>Workshops &amp; talks</h2>
-        <p>Concrete topics, usable tools, real encounter — for faith, daily life, and inner order.</p>
-        <p style="opacity:.8">Status: in progress</p>
-      </article>
-
-      <article class="card">
-        <h2>Bus trips (special days)</h2>
-        <p>Day trips for special occasions — spiritual events, “days of joy”, and more.</p>
-        <p style="opacity:.8">Status: in progress</p>
-      </article>
-
-      <article class="card">
-        <h2>Merch / Shop</h2>
-        <p>T-shirts, mugs &amp; more — with logo. (We start small, but clean.)</p>
-        <a href="shop-en.html">Go to shop →</a>
-      </article>
-    </section>
-
-    <footer class="footer">
-      © Lampadēphóros • Contact:
-      <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
-    </footer>
-
-  </main>
+  <p>Redirecting… <a href="angebote.html?lang=en">Click here</a></p>
 </body>
 </html>
