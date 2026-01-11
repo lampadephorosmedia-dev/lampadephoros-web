@@ -1,4 +1,4 @@
-<!-- FILE: filme.html (MULTI) — FIXED: missing languages + storage + navStart -->
+<!-- FILE: filme.html (FINAL) -->
 <!doctype html>
 <html lang="de" dir="ltr">
 <head>
@@ -27,9 +27,10 @@
 
       <!-- NAV -->
       <nav class="nav" aria-label="Navigation">
-        <a class="btn" id="navStart" href="start.html">Start</a>
+        <!-- Clean routes -->
+        <a class="btn" id="navStart" href="/start">Start</a>
         <a class="btn" id="navAbout" href="about.html">Über uns</a>
-        <a class="btn primary" id="navFilms" href="filme.html">Filme &amp; Kapitel</a>
+        <a class="btn primary" id="navFilms" href="/filme">Filme &amp; Kapitel</a>
         <a class="btn" id="navImpulse" href="impulse.html">Impulse</a>
         <a class="btn" id="navWorkshop" href="werkstatt.html">Werkstatt</a>
         <a class="btn" id="navOffers" href="angebote.html">Angebote</a>
@@ -85,40 +86,59 @@
 
   <script>
   (() => {
+    "use strict";
+
     // --------- Language core ----------
-    const STORAGE_KEY = "lamp_lang"; // EIN Key, wie auf start.html
+    const STORAGE_KEY = "lamp_lang";
     const RTL = new Set(["ar","ur","fa"]);
     const norm = (x) => (x || "").toString().trim().toLowerCase();
+    const base = (x) => norm(x).split("-")[0];
 
-    const getLang = () => {
-      const p = new URLSearchParams(location.search).get("lang");
-      if (p) return norm(p);
+    const getLang = (supported) => {
+      const p = base(new URLSearchParams(location.search).get("lang"));
+      if (p && supported.has(p)) return p;
 
-      // kompatibel: alte Keys lesen (falls du schon deployed hast)
-      const storedNew = localStorage.getItem(STORAGE_KEY);
-      if (storedNew) return norm(storedNew);
+      const storedNew = base(localStorage.getItem(STORAGE_KEY));
+      if (storedNew && supported.has(storedNew)) return storedNew;
 
-      const storedOld = localStorage.getItem("lp_lang");
-      if (storedOld) return norm(storedOld);
+      // legacy read (optional)
+      const storedOld = base(localStorage.getItem("lp_lang"));
+      if (storedOld && supported.has(storedOld)) return storedOld;
 
       return "de";
     };
 
     const setLang = (l) => {
       try { localStorage.setItem(STORAGE_KEY, l); } catch (e) {}
-      try { localStorage.setItem("lp_lang", l); } catch (e) {} // optional: legacy mitpflegen
     };
 
+    const ensureLangInUrl = (lang) => {
+      try {
+        const u = new URL(location.href);
+        if (base(u.searchParams.get("lang")) !== lang) {
+          u.searchParams.set("lang", lang);
+          history.replaceState({}, "", u.toString());
+        }
+      } catch(e){}
+    };
+
+    // Keep lang on internal links (robust, no duplicates)
     const withLang = (href, lang) => {
+      if (!href) return href;
+      if (href.startsWith("#")) return href;
       if (/^https?:\/\//i.test(href) || href.startsWith("mailto:")) return href;
-      const hasQuery = href.includes("?");
-      const sep = hasQuery ? "&" : "?";
-      return `${href}${sep}lang=${encodeURIComponent(lang)}`;
+
+      try {
+        const u = new URL(href, location.origin);
+        u.searchParams.set("lang", lang);
+        return u.pathname + "?" + u.searchParams.toString();
+      } catch {
+        const sep = href.includes("?") ? "&" : "?";
+        return `${href}${sep}lang=${encodeURIComponent(lang)}`;
+      }
     };
 
-    const pick = (lang, map) => map?.[lang] || map?.en || map?.de || "";
-
-    // --------- Translations ----------
+    // --------- Translations (DE fallback only in code logic) ----------
     const T = {
       de: {
         htmlLang: "de", dir: "ltr",
@@ -384,7 +404,6 @@
         privateHint:"Napomena: ako je video još privatan, pojaviće se nakon objave."
       },
 
-      // --- MISSING LANGUAGES (ADDED) ---
       ro: {
         htmlLang:"ro", dir:"ltr",
         pageTitle:"Lampadēphóros – Filme",
@@ -731,7 +750,7 @@
         nav:{ start:"Destpêk", about:"Derbarê me de", films:"Fîlm û beş", impulse:"Impuls", workshop:"Atelier", offers:"Pêşniyar", shop:"Firotgeh", links:"Me bibîne" },
         note:"Ne spam. Ne drama. Tenê kar.",
         c1t:"Di amadekariyê de",
-        c1p:"Ev beş bi hêdî-hêdî tê tije kirin. Bi zûyî dê bibînî: karên sereke, rûpelên beş û guhertoyên kurt yên hilbijartî — bi avahî û zelalî.",
+        c1p:"Ev beş bi hêdî-hêdî tê tije kirin. Bi rastî li wir gazîya Xwedê dikare bi nermî dest pê bike: ronahiyek ku te digire, hêviyek ku ji her barê mezintir e.",
         c2t:"Li vir dê çi bibe",
         c2p:"Fîlmên temam, beş, shorts û girêdanên platformên ku her tişt li wir tê weşandin.",
         c3t:"Li paş perde",
@@ -745,6 +764,9 @@
         privateHint:"Têbînî: heke vîdyo hîn taybet be, piştî weşanê dê xuya bibe."
       }
     };
+
+    // supported languages derived from translations
+    const supported = new Set(Object.keys(T));
 
     // --------- Videos ----------
     const VIDEOS = [
@@ -780,17 +802,14 @@
                bn:"কখনও রাত খুব ভারী লাগে—নীরব, অন্ধকার, ফাঁকা। ঠিক সেখানেই ঈশ্বরের ডাক ধীরে শুরু হতে পারে: এমন এক আলো যা বহন করে, এমন এক আশা যা সব চাপের চেয়েও বড়।",
                fil:"Minsan mabigat ang gabi—tahimik, madilim, walang laman. Doon mismo puwedeng magsimulang marahan ang tawag ng Diyos: liwanag na sumasalo, pag-asa na mas malaki kaysa sa anumang bigat.",
                ja:"夜が重く感じることがある—静かで、暗くて、空っぽ。まさにそこから神の呼びかけは静かに始まる：支える光、押しつぶすものより大きな希望。",
-               ko:"어떤 밤은 무겁게 느껴져—조용하고, 어둡고, 텅 빈 것처럼. 바로 그곳에서 하느님의 부르심이 조용히 시작될 수 있어: 너를 받쳐주는 빛, 모든 무게보다 큰 희망.",
-               vi:"Đôi khi đêm thật nặng nề — yên lặng, tối, trống rỗng. Ngay ở đó lời gọi của Thiên Chúa có thể bắt đầu thật nhẹ: một ánh sáng nâng đỡ, một hy vọng lớn hơn mọi gánh nặng.",
-               ms:"Kadang-kadang malam terasa berat — sunyi, gelap, kosong. Tepat di situlah panggilan Tuhan boleh bermula dengan lembut: cahaya yang menopang, harapan yang lebih besar daripada segala beban.",
-               ta:"சில நேரங்களில் இரவு கனமாகத் தோன்றும்—அமைதி, இருள், வெறுமை. அதே இடத்தில் கடவுளின் அழைப்பு மெதுவாகத் தொடங்கலாம்: தாங்கும் ஒளி, நம்மை அழுத்தும் அனைத்தையும் விட பெரிய நம்பிக்கை.",
+               ko:"어떤 밤은 무겁게 느껴져—조용하고, 어둡고, 텅 빈 것처럼. 바로 그곳에서 하느님의 부르심이 조용히 시작될 수 있어: 너를 받쳐주는 빛, 모든 무게보다 큰 희망。",
+               vi:"Đôi khi đêm thật nặng nề — yên lặng, tối, trống rỗng. Ngay ở đó lời gọi của Thiên Chúa có thể bắt đầu thật nhẹ: một ánh sáng nâng đỡ, một hy vọng lớn hơn mọi gánh nặng。",
+               ms:"Kadang-kadang malam terasa berat — sunyi, gelap, kosong. Tepat di situlah panggilan Tuhan boleh bermula dengan lembut: cahaya yang menopang, harapan yang lebih besar daripada segala beban。",
+               ta:"சில நேரங்களில் இரவு கனமாகத் தோன்றும்—அமைதி, இருள், வெறுமை. அதே இடத்தில் கடவுளின் அழைப்பு மெதுவாகத் தொடங்கலாம்: தாங்கும் ஒளி, நம்மை அழுத்தும் அனைத்தையும் விட பெரிய நம்பிக்கை。",
                ku:"Hinek şev giran xuya dibe — bêdeng, tarî, vala. Bi rastî li wir gazîya Xwedê dikare bi nermî dest pê bike: ronahiyek ku te digire, hêviyek ku ji her barê mezintir e."
         }
       },
 
-      // (Die restlichen VIDEOS bleiben wie bei dir; falls du auch deren Titel/Desc für alle Sprachen willst,
-      // sag "ja" und ich ergänze v2–v6 genauso vollständig.)
-      // Fürs UI-Problem reicht es schon, dass T.* vollständig ist + lang propagation stimmt.
       {
         key:"v2", type:"iframe", ytId:"lOgCjDfg7Y8",
         title:{ de:"Die Quelle des Heils", fr:"La Source du salut", en:"The Source of Salvation", pt:"A Fonte da salvação", it:"La Fonte della salvezza", es:"La Fuente de la salvación", pl:"Źródło zbawienia", ru:"Источник спасения", hr:"Izvor spasenja", bs:"Izvor spasenja", sr:"Izvor spasenja" },
@@ -802,69 +821,13 @@
       }
     ];
 
-    // --------- Apply language ----------
-    const lang = getLang();
-    setLang(lang);
-
-    const ui = (T[lang] || T.en || T.de);
-    document.documentElement.lang = ui.htmlLang || lang;
-    document.documentElement.dir = ui.dir || (RTL.has(lang) ? "rtl" : "ltr");
-
-    document.title = ui.pageTitle;
-    const metaDesc = document.getElementById("metaDesc");
-    if (metaDesc) metaDesc.setAttribute("content", ui.metaDescription);
-
-    const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-
-    setText("brandMini", ui.brandMini);
-    setText("h1", ui.h1);
-    setText("sub", ui.sub);
-
-    setText("navStart", ui.nav.start);
-    setText("navAbout", ui.nav.about);
-    setText("navFilms", ui.nav.films);
-    setText("navImpulse", ui.nav.impulse);
-    setText("navWorkshop", ui.nav.workshop);
-    setText("navOffers", ui.nav.offers);
-    setText("navShop", ui.nav.shop);
-    setText("navLinks", ui.nav.links);
-
-    setText("note", ui.note);
-
-    setText("c1t", ui.c1t);
-    setText("c1p", ui.c1p);
-    setText("c2t", ui.c2t);
-    setText("c2p", ui.c2p);
-    setText("c3t", ui.c3t);
-    setText("c3p", ui.c3p);
-    setText("c3a", ui.c3a);
-
-    setText("pubT", ui.pubT);
-    setText("pubP", ui.pubP);
-    setText("contactWord", ui.contactWord);
-
-    // --------- Fix NAV links to keep lang ----------
-    const navLinks = [
-      ["navStart", "start.html"],
-      ["navAbout", "about.html"],
-      ["navFilms", "filme.html"],
-      ["navImpulse", "impulse.html"],
-      ["navWorkshop", "werkstatt.html"],
-      ["navOffers", "angebote.html"],
-      ["navShop", "shop.html"],
-      ["navLinks", "links.html"],
-      ["c3a", "werkstatt.html"]
-    ];
-
-    navLinks.forEach(([id, href]) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.setAttribute("href", withLang(href, lang));
-    });
-
-    // --------- Render videos ----------
-    const grid = document.getElementById("videosGrid");
-    if (!grid) return;
+    // --------- Helpers (NO EN fallback, fallback = DE) ----------
+    const pickDE = (lang, map) => {
+      if (!map) return "";
+      if (Object.prototype.hasOwnProperty.call(map, lang)) return map[lang] || "";
+      if (Object.prototype.hasOwnProperty.call(map, "de")) return map.de || "";
+      return "";
+    };
 
     const escapeHTML = (s) => (s || "")
       .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
@@ -879,72 +842,133 @@
 
     const watchUrl = (ytId) => `https://www.youtube.com/watch?v=${ytId}`;
 
+    // --------- Apply language ----------
+    const lang = getLang(supported);
+    setLang(lang);
+    ensureLangInUrl(lang);
+
+    const deUI = T.de;
+    const ui = T[lang] || deUI; // NO EN fallback; if unknown -> DE
+
+    document.documentElement.lang = ui.htmlLang || lang;
+    document.documentElement.dir  = ui.dir || (RTL.has(lang) ? "rtl" : "ltr");
+
+    document.title = ui.pageTitle || deUI.pageTitle;
+    const metaDesc = document.getElementById("metaDesc");
+    if (metaDesc) metaDesc.setAttribute("content", ui.metaDescription || deUI.metaDescription);
+
+    const setText = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+
+    setText("brandMini", ui.brandMini || deUI.brandMini);
+    setText("h1", ui.h1 || deUI.h1);
+    setText("sub", ui.sub || deUI.sub);
+
+    setText("navStart",   ui.nav?.start    || deUI.nav.start);
+    setText("navAbout",   ui.nav?.about    || deUI.nav.about);
+    setText("navFilms",   ui.nav?.films    || deUI.nav.films);
+    setText("navImpulse", ui.nav?.impulse  || deUI.nav.impulse);
+    setText("navWorkshop",ui.nav?.workshop || deUI.nav.workshop);
+    setText("navOffers",  ui.nav?.offers   || deUI.nav.offers);
+    setText("navShop",    ui.nav?.shop     || deUI.nav.shop);
+    setText("navLinks",   ui.nav?.links    || deUI.nav.links);
+
+    setText("note", ui.note || deUI.note);
+
+    setText("c1t", ui.c1t || deUI.c1t);
+    setText("c1p", ui.c1p || deUI.c1p);
+    setText("c2t", ui.c2t || deUI.c2t);
+    setText("c2p", ui.c2p || deUI.c2p);
+    setText("c3t", ui.c3t || deUI.c3t);
+    setText("c3p", ui.c3p || deUI.c3p);
+    setText("c3a", ui.c3a || deUI.c3a);
+
+    setText("pubT", ui.pubT || deUI.pubT);
+    setText("pubP", ui.pubP || deUI.pubP);
+    setText("contactWord", ui.contactWord || deUI.contactWord);
+
+    // Add lang to ALL internal links (incl. nav + cards)
+    document.querySelectorAll("a[href]").forEach(a => {
+      const href = a.getAttribute("href") || "";
+      a.setAttribute("href", withLang(href, lang));
+    });
+
+    // --------- Render videos (defensive) ----------
+    const grid = document.getElementById("videosGrid");
+    if (!grid) return;
+
     VIDEOS.forEach(v => {
-      const title = pick(lang, v.title) || "";
-      const desc  = pick(lang, v.desc)  || "";
+      try {
+        const title = pickDE(lang, v.title);
+        const desc  = pickDE(lang, v.desc);
 
-      const card = document.createElement("article");
-      card.className = "card";
+        const card = document.createElement("article");
+        card.className = "card";
 
-      if (v.type === "iframe") {
-        const iframeSrc = makeIframeSrc(v.ytId, v.embedParams);
+        if (v.type === "iframe") {
+          const iframeSrc = makeIframeSrc(v.ytId, v.embedParams);
 
-        card.innerHTML = `
-          <div class="video-embed">
-            <iframe
-              src="${iframeSrc}"
-              title="${escapeHTML(title)}"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
+          card.innerHTML = `
+            <div class="video-embed">
+              <iframe
+                src="${iframeSrc}"
+                title="${escapeHTML(title)}"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
 
-          <div class="video-meta">
-            <div class="title">${escapeHTML(title)}</div>
-            <div class="desc">${nl2br(desc)}</div>
-          </div>
+            <div class="video-meta">
+              <div class="title">${escapeHTML(title)}</div>
+              <div class="desc">${nl2br(desc)}</div>
+            </div>
 
-          ${v.extraMuted ? `<p class="muted" style="margin-top:10px;">${escapeHTML(pick(lang, v.extraMuted) || "")}</p>` : ""}
+            ${v.extraMuted ? `<p class="muted" style="margin-top:10px;">${escapeHTML(pickDE(lang, v.extraMuted))}</p>` : ""}
 
-          <div class="video-actions">
-            <a class="btn" href="${watchUrl(v.ytId)}" target="_blank" rel="noopener">${escapeHTML(ui.watch)}</a>
-          </div>
+            <div class="video-actions">
+              <a class="btn" href="${watchUrl(v.ytId)}" target="_blank" rel="noopener">${escapeHTML(ui.watch || deUI.watch)}</a>
+            </div>
 
-          ${v.showPrivateHint ? `<p class="muted" style="margin-top:10px;">${escapeHTML(ui.privateHint)}</p>` : ""}
-        `;
+            ${v.showPrivateHint ? `<p class="muted" style="margin-top:10px;">${escapeHTML(ui.privateHint || deUI.privateHint)}</p>` : ""}
+          `;
+        }
+
+        if (v.type === "age_fallback") {
+          card.innerHTML = `
+            <div class="video-embed">
+              <a class="thumb" href="${watchUrl(v.ytId)}" target="_blank" rel="noopener"
+                 aria-label="${escapeHTML(ui.watch || deUI.watch)}: ${escapeHTML(title)}">
+                <img class="thumb-img"
+                     src="https://i.ytimg.com/vi/${v.ytId}/maxresdefault.jpg"
+                     onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${v.ytId}/hqdefault.jpg';"
+                     alt="${escapeHTML(title)}">
+                <span class="play-badge">▶</span>
+              </a>
+            </div>
+
+            <p class="muted" style="margin-top:10px;">
+              ${escapeHTML(ui.ageWarn || deUI.ageWarn)}
+            </p>
+
+            <div class="video-meta">
+              <div class="title">${escapeHTML(title)}</div>
+              <div class="desc">${nl2br(desc)}</div>
+            </div>
+
+            <div class="video-actions">
+              <a class="btn" href="${watchUrl(v.ytId)}" target="_blank" rel="noopener">${escapeHTML(ui.watch || deUI.watch)}</a>
+            </div>
+          `;
+        }
+
+        grid.appendChild(card);
+      } catch (e) {
+        console.warn("Video render skipped:", v?.key, e);
       }
-
-      if (v.type === "age_fallback") {
-        card.innerHTML = `
-          <div class="video-embed">
-            <a class="thumb" href="${watchUrl(v.ytId)}" target="_blank" rel="noopener"
-               aria-label="${escapeHTML(ui.watch)}: ${escapeHTML(title)}">
-              <img class="thumb-img"
-                   src="https://i.ytimg.com/vi/${v.ytId}/maxresdefault.jpg"
-                   onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${v.ytId}/hqdefault.jpg';"
-                   alt="${escapeHTML(title)}">
-              <span class="play-badge">▶</span>
-            </a>
-          </div>
-
-          <p class="muted" style="margin-top:10px;">
-            ${escapeHTML(ui.ageWarn)}
-          </p>
-
-          <div class="video-meta">
-            <div class="title">${escapeHTML(title)}</div>
-            <div class="desc">${nl2br(desc)}</div>
-          </div>
-
-          <div class="video-actions">
-            <a class="btn" href="${watchUrl(v.ytId)}" target="_blank" rel="noopener">${escapeHTML(ui.watch)}</a>
-          </div>
-        `;
-      }
-
-      grid.appendChild(card);
     });
   })();
   </script>
