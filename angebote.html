@@ -1,11 +1,10 @@
-<!-- FILE: angebote.html (DE) -->
 <!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lampadéphóros – Angebote</title>
-  <meta name="description" content="Angebote von Lampadéphóros: Einkehrtage, Pilgerreisen, Workshops, Vorträge und mehr." />
+  <meta id="metaDesc" name="description" content="Angebote von Lampadéphóros: Einkehrtage, Pilgerreisen, Workshops, Vorträge und mehr." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,34 +17,34 @@
         <img class="logo" src="logo.png" alt="Lampadéphóros Logo" />
         <div class="brand-meta">
           <div class="badge">Lampadéphóros</div>
-          <div class="mini">Der Fackelträger</div>
+          <div class="mini" id="brandMini">Der Fackelträger</div>
         </div>
       </div>
 
-      <h1>Angebote</h1>
-      <p class="sub">Hier findest du konkrete Termine – und alles, was gerade in Vorbereitung ist.</p>
+      <h1 id="h1">Angebote</h1>
+      <p class="sub" id="sub">Hier findest du konkrete Termine – und alles, was gerade in Vorbereitung ist.</p>
 
       <!-- NAV (keine Sprachwahl hier — nur auf start-*.html) -->
       <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-de.html">Start</a>
-        <a class="btn" href="about.html">Über uns</a>
-        <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
-        <a class="btn" href="impulse.html">Impulse</a>
-        <a class="btn" href="werkstatt.html">Werkstatt</a>
-        <a class="btn primary" href="angebote.html">Angebote</a>
-        <a class="btn" href="shop.html">Shop</a>
-        <a class="btn" href="links.html">Hier findest du uns</a>
+        <a class="btn" id="navStart" href="start-de.html">Start</a>
+        <a class="btn" id="navAbout" href="about.html">Über uns</a>
+        <a class="btn" id="navFilms" href="filme.html">Filme &amp; Kapitel</a>
+        <a class="btn" id="navImpulses" href="impulse.html">Impulse</a>
+        <a class="btn" id="navWorkshop" href="werkstatt.html">Werkstatt</a>
+        <a class="btn primary" id="navOffers" href="angebote.html">Angebote</a>
+        <a class="btn" id="navShop" href="shop.html">Shop</a>
+        <a class="btn" id="navContact" href="links.html">Hier findest du uns</a>
       </nav>
 
-      <div class="note">Kein Spam. Kein Drama. Nur Werk.</div>
+      <div class="note" id="motto">Kein Spam. Kein Drama. Nur Werk.</div>
     </header>
 
     <section class="grid" aria-label="Angebote">
 
       <!-- Konkretes Angebot -->
       <article class="card">
-        <h2>Einkehrtag 2026 (15–25 Jahre)</h2>
-
+        <h2 id="offer1Title">Einkehrtag 2026 (15–25 Jahre)</h2>
+        <div id="offer1Body">
         <p>
           <strong>Von:</strong> Freitag, 13. Februar 2026 – 19:00 Uhr<br />
           <strong>Bis:</strong> Samstag, 14. Februar 2026 – 17:00 Uhr
@@ -79,40 +78,1087 @@
           <a class="btn primary" href="einkehrtag-2026.pdf" target="_blank" rel="noopener">Flyer (PDF) öffnen</a>
           <a class="btn" href="einkehrtag-2026.pdf" download>PDF herunterladen</a>
         </p>
+        </div>
       </article>
 
       <!-- In Vorbereitung -->
       <article class="card">
-        <h2>Pilgerreisen</h2>
-        <p>Geplante Pilgerwege und geistliche Reisen – mit klarer Vorbereitung, ruhigem Rhythmus und Tiefe.</p>
-        <p style="opacity:.8">Status: in Vorbereitung</p>
+        <h2 id="offer2Title">Pilgerreisen</h2>
+        <div id="offer2Body">
+          <p>Geplante Pilgerwege und geistliche Reisen – mit klarer Vorbereitung, ruhigem Rhythmus und Tiefe.</p>
+          <p style="opacity:.8">Status: in Vorbereitung</p>
+        </div>
       </article>
 
       <article class="card">
-        <h2>Workshops &amp; Vorträge</h2>
-        <p>Konkrete Themen, greifbare Werkzeuge, echte Begegnung – für Glauben, Alltag und innere Ordnung.</p>
-        <p style="opacity:.8">Status: in Vorbereitung</p>
+        <h2 id="offer3Title">Workshops &amp; Vorträge</h2>
+        <div id="offer3Body">
+          <p>Konkrete Themen, greifbare Werkzeuge, echte Begegnung – für Glauben, Alltag und innere Ordnung.</p>
+          <p style="opacity:.8">Status: in Vorbereitung</p>
+        </div>
       </article>
 
       <article class="card">
-        <h2>Busreisen (besondere Tage)</h2>
-        <p>Tagesfahrten zu besonderen Anlässen – z. B. „Tage der Freude“ und andere geistliche Events.</p>
-        <p style="opacity:.8">Status: in Vorbereitung</p>
+        <h2 id="offer4Title">Busreisen (besondere Tage)</h2>
+        <div id="offer4Body">
+          <p>Tagesfahrten zu besonderen Anlässen – z. B. „Tage der Freude“ und andere geistliche Events.</p>
+          <p style="opacity:.8">Status: in Vorbereitung</p>
+        </div>
       </article>
 
       <article class="card">
-        <h2>Merch / Shop</h2>
-        <p>T-Shirts, Tassen &amp; mehr – mit Logo. (Wir starten klein, aber sauber.)</p>
-        <a href="shop.html">Zum Shop →</a>
+        <h2 id="offer5Title">Merch / Shop</h2>
+        <div id="offer5Body">
+          <p>T-Shirts, Tassen &amp; mehr – mit Logo. (Wir starten klein, aber sauber.)</p>
+          <a href="shop.html">Zum Shop →</a>
+        </div>
       </article>
 
     </section>
 
     <footer class="footer">
-      © Lampadéphóros • Kontakt:
+      <span id="footPrefix">© Lampadēphóros • Kontakt: </span>
       <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
     </footer>
 
   </main>
+
+  <script>
+  (() => {
+    "use strict";
+
+    const STORAGE_KEY = "lamp_lang";
+    const RTL = new Set(["ar","ur","fa"]);
+    const norm = (x) => (x || "").toString().trim().toLowerCase();
+    const base = (x) => norm(x).split("-")[0];
+
+    const T = {
+      "de": {
+        "htmlLang": "de",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Angebote",
+        "metaDescription": "Angebote von Lampadéphóros: Einkehrtage, Pilgerreisen, Workshops, Vorträge und mehr.",
+        "brandMini": "Der Fackelträger",
+        "h1": "Angebote",
+        "sub": "Hier findest du konkrete Termine – und alles, was gerade in Vorbereitung ist.",
+        "motto": "Kein Spam. Kein Drama. Nur Werk.",
+        "nav": {
+          "start": "Start",
+          "about": "Über uns",
+          "films": "Filme & Kapitel",
+          "impulses": "Impulse",
+          "workshop": "Werkstatt",
+          "offers": "Angebote",
+          "shop": "Shop",
+          "contact": "Hier findest du uns"
+        },
+        "offer1Title": "Einkehrtag 2026 (15–25 Jahre)",
+        "offer1Html": "<p>\n          <strong>Von:</strong> Freitag, 13. Februar 2026 – 19:00 Uhr<br />\n          <strong>Bis:</strong> Samstag, 14. Februar 2026 – 17:00 Uhr\n        </p>\n\n        <p>\n          Start mit der heiligen Messe in der Pfarrkirche in Gilsdorf, danach gemeinsame Fahrt (private Autos) nach Medernach.\n        </p>\n\n        <p>\n          <strong>Ort:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Übernachtung:</strong> Einzelzimmer 35 € / Doppelzimmer 30 €<br />\n          (Unkosten inklusive)\n        </p>\n\n        <p>\n          <strong>Anmeldung:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Betreff/Vermerk: <em>GJCG Name Vorname</em><br />\n          <strong>Infos:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Anmeldeschluss:</strong> spätestens am 27. Januar 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Flyer (PDF) öffnen</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>PDF herunterladen</a>\n        </p>",
+        "offer2Title": "Pilgerreisen",
+        "offer2Html": "<p>Geplante Pilgerwege und geistliche Reisen – mit klarer Vorbereitung, ruhigem Rhythmus und Tiefe.</p><p style=\"opacity:.8\">Status: in Vorbereitung</p>",
+        "offer3Title": "Workshops & Vorträge",
+        "offer3Html": "<p>Konkrete Themen, greifbare Werkzeuge, echte Begegnung – für Glauben, Alltag und innere Ordnung.</p><p style=\"opacity:.8\">Status: in Vorbereitung</p>",
+        "offer4Title": "Busreisen (besondere Tage)",
+        "offer4Html": "<p>Tagesfahrten zu besonderen Anlässen – z. B. „Tage der Freude“ und andere geistliche Events.</p><p style=\"opacity:.8\">Status: in Vorbereitung</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-Shirts, Tassen & mehr – mit Logo. (Wir starten klein, aber sauber.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Zum Shop →</a>",
+        "footer": "© Lampadēphóros • Kontakt: "
+      },
+      "en": {
+        "htmlLang": "en",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "The Torchbearer",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "No spam. No drama. Just the work.",
+        "nav": {
+          "start": "Home",
+          "about": "About",
+          "films": "Films & Chapters",
+          "impulses": "Impulses",
+          "workshop": "Workshop",
+          "offers": "Offers",
+          "shop": "Shop",
+          "contact": "Contact"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Contact: "
+      },
+      "fr": {
+        "htmlLang": "fr",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offres",
+        "metaDescription": "Offres de Lampadéphóros : retraites, pèlerinages, ateliers, conférences et plus.",
+        "brandMini": "Le Porte-flambeau",
+        "h1": "Offres",
+        "sub": "Ici tu trouves des dates concrètes — et tout ce qui est en préparation.",
+        "motto": "Pas de spam. Pas de drame. Juste le travail.",
+        "nav": {
+          "start": "Accueil",
+          "about": "À propos",
+          "films": "Films & chapitres",
+          "impulses": "Impulsions",
+          "workshop": "Atelier",
+          "offers": "Offres",
+          "shop": "Boutique",
+          "contact": "Contact"
+        },
+        "offer1Title": "Journée de retraite 2026 (15–25 ans)",
+        "offer1Html": "<p>\n          <strong>Du:</strong> Vendredi 13 février 2026 – 19:00<br />\n          <strong>Au:</strong> Samedi 14 février 2026 – 17:00\n        </p>\n\n        <p>\n          Départ avec la sainte messe à l’église paroissiale de Gilsdorf, puis départ ensemble (voitures privées) vers Medernach.\n        </p>\n\n        <p>\n          <strong>Lieu:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Hébergement:</strong> Chambre individuelle 35 € / Chambre double 30 €<br />\n          (frais inclus)\n        </p>\n\n        <p>\n          <strong>Inscription:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Objet/mention: <em>GJCG Name Vorname</em><br />\n          <strong>Infos:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Date limite d’inscription:</strong> au plus tard le 27 janvier 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Ouvrir le flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Télécharger le PDF</a>\n        </p>",
+        "offer2Title": "Pèlerinages",
+        "offer2Html": "<p>Itinéraires de pèlerinage et retraites spirituelles — préparation claire, rythme paisible, profondeur.</p><p style=\"opacity:.8\">Statut: en préparation</p>",
+        "offer3Title": "Ateliers & conférences",
+        "offer3Html": "<p>Thèmes concrets, outils pratiques, vraie rencontre — pour la foi, le quotidien et l’ordre intérieur.</p><p style=\"opacity:.8\">Statut: en préparation</p>",
+        "offer4Title": "Voyages en bus (jours spéciaux)",
+        "offer4Html": "<p>Excursions d’une journée pour des occasions particulières — p. ex. « jours de joie » et autres événements spirituels.</p><p style=\"opacity:.8\">Statut: en préparation</p>",
+        "offer5Title": "Merch / Boutique",
+        "offer5Html": "<p>T-shirts, tasses & plus — avec le logo. (On commence petit, mais propre.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Aller à la boutique →</a>",
+        "footer": "© Lampadēphóros • Contact : "
+      },
+      "pt": {
+        "htmlLang": "pt",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Ofertas",
+        "metaDescription": "Ofertas da Lampadēphóros: retiros, peregrinações, workshops, palestras e mais.",
+        "brandMini": "O Portador da Tocha",
+        "h1": "Ofertas",
+        "sub": "Aqui encontras datas concretas — e tudo o que está em preparação.",
+        "motto": "Sem spam. Sem drama. Só trabalho.",
+        "nav": {
+          "start": "Início",
+          "about": "Sobre",
+          "films": "Filmes & capítulos",
+          "impulses": "Impulsos",
+          "workshop": "Oficina",
+          "offers": "Ofertas",
+          "shop": "Loja",
+          "contact": "Contato"
+        },
+        "offer1Title": "Dia de retiro 2026 (15–25 anos)",
+        "offer1Html": "<p>\n          <strong>De:</strong> Sexta-feira, 13 de fevereiro de 2026 – 19:00<br />\n          <strong>Até:</strong> Sábado, 14 de fevereiro de 2026 – 17:00\n        </p>\n\n        <p>\n          Início com a Santa Missa na igreja paroquial de Gilsdorf; depois seguimos juntos (carros particulares) para Medernach.\n        </p>\n\n        <p>\n          <strong>Local:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Alojamento:</strong> Quarto individual 35 € / Quarto duplo 30 €<br />\n          (custos incluídos)\n        </p>\n\n        <p>\n          <strong>Inscrição:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Assunto/observação: <em>GJCG Name Vorname</em><br />\n          <strong>Infos:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Prazo de inscrição:</strong> até 27 de janeiro de 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Abrir flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Baixar PDF</a>\n        </p>",
+        "offer2Title": "Peregrinações",
+        "offer2Html": "<p>Caminhos de peregrinação e viagens espirituais — com preparação clara, ritmo calmo e profundidade.</p><p style=\"opacity:.8\">Estado: em preparação</p>",
+        "offer3Title": "Workshops & palestras",
+        "offer3Html": "<p>Temas concretos, ferramentas práticas, encontro verdadeiro — para a fé, o dia a dia e a ordem interior.</p><p style=\"opacity:.8\">Estado: em preparação</p>",
+        "offer4Title": "Viagens de ônibus (dias especiais)",
+        "offer4Html": "<p>Viagens de um dia para ocasiões especiais — por ex., “dias de alegria” e outros eventos espirituais.</p><p style=\"opacity:.8\">Estado: em preparação</p>",
+        "offer5Title": "Merch / Loja",
+        "offer5Html": "<p>Camisetas, canecas e mais — com o logo. (Começamos pequeno, mas bem feito.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Ir à loja →</a>",
+        "footer": "© Lampadēphóros • Contato: "
+      },
+      "it": {
+        "htmlLang": "it",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offerte",
+        "metaDescription": "Offerte di Lampadēphóros: giornate di ritiro, pellegrinaggi, workshop, conferenze e altro.",
+        "brandMini": "Il Portatore della Torcia",
+        "h1": "Offerte",
+        "sub": "Qui trovi date concrete — e tutto ciò che è in preparazione.",
+        "motto": "Niente spam. Niente drama. Solo lavoro.",
+        "nav": {
+          "start": "Start",
+          "about": "Chi siamo",
+          "films": "Film & capitoli",
+          "impulses": "Spunti",
+          "workshop": "Officina",
+          "offers": "Proposte",
+          "shop": "Shop",
+          "contact": "Contatti"
+        },
+        "offer1Title": "Giornata di ritiro 2026 (15–25 anni)",
+        "offer1Html": "<p>\n          <strong>Dal:</strong> Venerdì 13 febbraio 2026 – 19:00<br />\n          <strong>Al:</strong> Sabato 14 febbraio 2026 – 17:00\n        </p>\n\n        <p>\n          Inizio con la Santa Messa nella chiesa parrocchiale di Gilsdorf, poi partenza insieme (auto private) per Medernach.\n        </p>\n\n        <p>\n          <strong>Luogo:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Pernottamento:</strong> Camera singola 35 € / Camera doppia 30 €<br />\n          (spese incluse)\n        </p>\n\n        <p>\n          <strong>Iscrizione:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Oggetto/nota: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Termine iscrizione:</strong> entro il 27 gennaio 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Apri volantino (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Scarica PDF</a>\n        </p>",
+        "offer2Title": "Pellegrinaggi",
+        "offer2Html": "<p>Percorsi di pellegrinaggio e viaggi spirituali — con preparazione chiara, ritmo calmo e profondità.</p><p style=\"opacity:.8\">Stato: in preparazione</p>",
+        "offer3Title": "Workshop & conferenze",
+        "offer3Html": "<p>Temi concreti, strumenti pratici, vero incontro — per la fede, la vita quotidiana e l’ordine interiore.</p><p style=\"opacity:.8\">Stato: in preparazione</p>",
+        "offer4Title": "Viaggi in bus (giorni speciali)",
+        "offer4Html": "<p>Gite di un giorno per occasioni speciali — es. “giorni di gioia” e altri eventi spirituali.</p><p style=\"opacity:.8\">Stato: in preparazione</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirt, tazze & altro — con logo. (Partiamo in piccolo, ma bene.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Vai allo shop →</a>",
+        "footer": "© Lampadēphóros • Contatto: "
+      },
+      "es": {
+        "htmlLang": "es",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Ofertas",
+        "metaDescription": "Ofertas de Lampadēphóros: días de retiro, peregrinaciones, talleres, charlas y más.",
+        "brandMini": "El Portador de la Antorcha",
+        "h1": "Ofertas",
+        "sub": "Aquí encuentras fechas concretas — y todo lo que está en preparación.",
+        "motto": "Sin spam. Sin drama. Solo trabajo.",
+        "nav": {
+          "start": "Inicio",
+          "about": "Sobre nosotros",
+          "films": "Películas y capítulos",
+          "impulses": "Impulsos",
+          "workshop": "Taller",
+          "offers": "Ofertas",
+          "shop": "Tienda",
+          "contact": "Contacto"
+        },
+        "offer1Title": "Día de retiro 2026 (15–25 años)",
+        "offer1Html": "<p>\n          <strong>Desde:</strong> Viernes, 13 de febrero de 2026 – 19:00<br />\n          <strong>Hasta:</strong> Sábado, 14 de febrero de 2026 – 17:00\n        </p>\n\n        <p>\n          Comienzo con la Santa Misa en la iglesia parroquial de Gilsdorf; después salida juntos (coches privados) hacia Medernach.\n        </p>\n\n        <p>\n          <strong>Lugar:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Alojamiento:</strong> Habitación individual 35 € / Habitación doble 30 €<br />\n          (gastos incluidos)\n        </p>\n\n        <p>\n          <strong>Inscripción:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Asunto/nota: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Fecha límite de inscripción:</strong> a más tardar el 27 de enero de 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Abrir folleto (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Descargar PDF</a>\n        </p>",
+        "offer2Title": "Peregrinaciones",
+        "offer2Html": "<p>Caminos de peregrinación y viajes espirituales — con preparación clara, ritmo sereno y profundidad.</p><p style=\"opacity:.8\">Estado: en preparación</p>",
+        "offer3Title": "Talleres & charlas",
+        "offer3Html": "<p>Temas concretos, herramientas prácticas, encuentro real — para la fe, la vida cotidiana y el orden interior.</p><p style=\"opacity:.8\">Estado: en preparación</p>",
+        "offer4Title": "Viajes en bus (días especiales)",
+        "offer4Html": "<p>Excursiones de un día para ocasiones especiales — p. ej. “días de alegría” y otros eventos espirituales.</p><p style=\"opacity:.8\">Estado: en preparación</p>",
+        "offer5Title": "Merch / Tienda",
+        "offer5Html": "<p>Camisetas, tazas y más — con el logo. (Empezamos pequeño, pero bien.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Ir a la tienda →</a>",
+        "footer": "© Lampadēphóros • Contacto: "
+      },
+      "nl": {
+        "htmlLang": "nl",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Aanbod",
+        "metaDescription": "Aanbod van Lampadēphóros: bezinningsdagen, pelgrimstochten, workshops, lezingen en meer.",
+        "brandMini": "De Fakkeldrager",
+        "h1": "Aanbod",
+        "sub": "Hier vind je concrete data — en alles wat momenteel in voorbereiding is.",
+        "motto": "Geen spam. Geen drama. Gewoon werk.",
+        "nav": {
+          "start": "Start",
+          "about": "Over ons",
+          "films": "Films & hoofdstukken",
+          "impulses": "Impulsen",
+          "workshop": "Werkplaats",
+          "offers": "Aanbod",
+          "shop": "Shop",
+          "contact": "Contact"
+        },
+        "offer1Title": "Bezinning 2026 (15–25 jaar)",
+        "offer1Html": "<p>\n          <strong>Van:</strong> Vrijdag 13 februari 2026 – 19:00<br />\n          <strong>Tot:</strong> Zaterdag 14 februari 2026 – 17:00\n        </p>\n\n        <p>\n          Start met de heilige mis in de parochiekerk in Gilsdorf, daarna samen rijden (privéauto’s) naar Medernach.\n        </p>\n\n        <p>\n          <strong>Plaats:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Overnachting:</strong> Eenpersoonskamer 35 € / Tweepersoonskamer 30 €<br />\n          (kosten inbegrepen)\n        </p>\n\n        <p>\n          <strong>Aanmelding:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Onderwerp/opmerking: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Aanmelddeadline:</strong> uiterlijk op 27 januari 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Flyer (PDF) openen</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>PDF downloaden</a>\n        </p>",
+        "offer2Title": "Pelgrimstochten",
+        "offer2Html": "<p>Geplande pelgrimsroutes en spirituele reizen — met duidelijke voorbereiding, rustig ritme en diepgang.</p><p style=\"opacity:.8\">Status: in voorbereiding</p>",
+        "offer3Title": "Workshops & lezingen",
+        "offer3Html": "<p>Concrete thema’s, bruikbare tools, echte ontmoeting — voor geloof, dagelijks leven en innerlijke orde.</p><p style=\"opacity:.8\">Status: in voorbereiding</p>",
+        "offer4Title": "Busreizen (bijzondere dagen)",
+        "offer4Html": "<p>Dagtochten voor bijzondere dagen — bv. “dagen van vreugde” en andere spirituele events.</p><p style=\"opacity:.8\">Status: in voorbereiding</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mokken & meer — met logo. (We starten klein, maar netjes.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Naar de shop →</a>",
+        "footer": "© Lampadēphóros • Contact: "
+      },
+      "pl": {
+        "htmlLang": "pl",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Niosący Pochodnię",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Bez spamu. Bez dramy. Sama praca.",
+        "nav": {
+          "start": "Start",
+          "about": "O nas",
+          "films": "Filmy i rozdziały",
+          "impulses": "Impulsy",
+          "workshop": "Warsztat",
+          "offers": "Oferta",
+          "shop": "Sklep",
+          "contact": "Kontakt"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Kontakt: "
+      },
+      "ru": {
+        "htmlLang": "ru",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Несущий факел",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Без спама. Без драмы. Только дело.",
+        "nav": {
+          "start": "Старт",
+          "about": "О нас",
+          "films": "Фильмы и главы",
+          "impulses": "Импульсы",
+          "workshop": "Мастерская",
+          "offers": "Предложения",
+          "shop": "Магазин",
+          "contact": "Контакты"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Контакт: "
+      },
+      "uk": {
+        "htmlLang": "uk",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Носій смолоскипа",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Без спаму. Без драми. Лише праця.",
+        "nav": {
+          "start": "Старт",
+          "about": "Про нас",
+          "films": "Фільми та розділи",
+          "impulses": "Імпульси",
+          "workshop": "Майстерня",
+          "offers": "Пропозиції",
+          "shop": "Магазин",
+          "contact": "Контакти"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Контакт: "
+      },
+      "ro": {
+        "htmlLang": "ro",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Purtătorul Torței",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Fără spam. Fără dramă. Doar lucrarea.",
+        "nav": {
+          "start": "Start",
+          "about": "Despre noi",
+          "films": "Filme & capitole",
+          "impulses": "Impulsuri",
+          "workshop": "Atelier",
+          "offers": "Oferte",
+          "shop": "Magazin",
+          "contact": "Contact"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Contact: "
+      },
+      "tr": {
+        "htmlLang": "tr",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Meşale Taşıyıcısı",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Spam yok. Drama yok. Sadece emek.",
+        "nav": {
+          "start": "Başlangıç",
+          "about": "Hakkımızda",
+          "films": "Filmler ve bölümler",
+          "impulses": "İlhamlar",
+          "workshop": "Atölye",
+          "offers": "Teklifler",
+          "shop": "Mağaza",
+          "contact": "İletişim"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • İletişim: "
+      },
+      "hr": {
+        "htmlLang": "hr",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Nositelj baklje",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Bez spama. Bez drame. Samo rad.",
+        "nav": {
+          "start": "Početna",
+          "about": "O nama",
+          "films": "Filmovi i poglavlja",
+          "impulses": "Poticaji",
+          "workshop": "Radionica",
+          "offers": "Ponude",
+          "shop": "Trgovina",
+          "contact": "Kontakt"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Kontakt: "
+      },
+      "bs": {
+        "htmlLang": "bs",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Nosilac baklje",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Bez spama. Bez drame. Samo rad.",
+        "nav": {
+          "start": "Početak",
+          "about": "O nama",
+          "films": "Filmovi i poglavlja",
+          "impulses": "Impulsi",
+          "workshop": "Radionica",
+          "offers": "Ponude",
+          "shop": "Shop",
+          "contact": "Kontakt"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Kontakt: "
+      },
+      "sr": {
+        "htmlLang": "sr",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Носилац бакље",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Без спама. Без драме. Само рад.",
+        "nav": {
+          "start": "Почетна",
+          "about": "О нама",
+          "films": "Филмови и поглавља",
+          "impulses": "Импулси",
+          "workshop": "Радионица",
+          "offers": "Понуде",
+          "shop": "Продавница",
+          "contact": "Контакт"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Контакт: "
+      },
+      "el": {
+        "htmlLang": "el",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Ο Λαμπαδηφόρος",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Χωρίς spam. Χωρίς δράμα. Μόνο έργο.",
+        "nav": {
+          "start": "Αρχική",
+          "about": "Σχετικά",
+          "films": "Ταινίες & κεφάλαια",
+          "impulses": "Εμπνεύσεις",
+          "workshop": "Εργαστήριο",
+          "offers": "Προσφορές",
+          "shop": "Κατάστημα",
+          "contact": "Επικοινωνία"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Επικοινωνία: "
+      },
+      "zh": {
+        "htmlLang": "zh",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "火炬使者",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "不刷屏。不狗血。只做事。",
+        "nav": {
+          "start": "首页",
+          "about": "关于我们",
+          "films": "影片与章节",
+          "impulses": "灵修短思",
+          "workshop": "工坊",
+          "offers": "提供",
+          "shop": "商店",
+          "contact": "联系我们"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • 联系： "
+      },
+      "ja": {
+        "htmlLang": "ja",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "たいまつを担う者",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "スパムなし。ドラマなし。ひたすら制作。",
+        "nav": {
+          "start": "ホーム",
+          "about": "私たちについて",
+          "films": "映画と章",
+          "impulses": "インパルス",
+          "workshop": "工房",
+          "offers": "提供",
+          "shop": "ショップ",
+          "contact": "連絡先"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • 連絡： "
+      },
+      "ko": {
+        "htmlLang": "ko",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "횃불을 든 이",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "스팸 없음. 드라마 없음. 오직 작업.",
+        "nav": {
+          "start": "홈",
+          "about": "소개",
+          "films": "영화 & 챕터",
+          "impulses": "임펄스",
+          "workshop": "작업실",
+          "offers": "제안",
+          "shop": "샵",
+          "contact": "연락"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • 연락: "
+      },
+      "vi": {
+        "htmlLang": "vi",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Người mang đuốc",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Không spam. Không drama. Chỉ làm việc.",
+        "nav": {
+          "start": "Trang chủ",
+          "about": "Giới thiệu",
+          "films": "Phim & chương",
+          "impulses": "Gợi hứng",
+          "workshop": "Xưởng",
+          "offers": "Đề nghị",
+          "shop": "Cửa hàng",
+          "contact": "Liên hệ"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Liên hệ: "
+      },
+      "ms": {
+        "htmlLang": "ms",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Pembawa Obor",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Tiada spam. Tiada drama. Hanya kerja.",
+        "nav": {
+          "start": "Utama",
+          "about": "Tentang",
+          "films": "Filem & bab",
+          "impulses": "Ilham",
+          "workshop": "Bengkel",
+          "offers": "Tawaran",
+          "shop": "Kedai",
+          "contact": "Hubungi"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Hubungi: "
+      },
+      "fil": {
+        "htmlLang": "fil",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Tagapagdala ng Sulo",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Walang spam. Walang drama. Trabaho lang.",
+        "nav": {
+          "start": "Home",
+          "about": "Tungkol",
+          "films": "Mga pelikula at kabanata",
+          "impulses": "Mga pahiwatig",
+          "workshop": "Pagawaan",
+          "offers": "Alok",
+          "shop": "Shop",
+          "contact": "Kontak"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Kontak: "
+      },
+      "hi": {
+        "htmlLang": "hi",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "मशाल-वाहक",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "ना स्पैम। ना ड्रामा। बस काम।",
+        "nav": {
+          "start": "होम",
+          "about": "परिचय",
+          "films": "फ़िल्में व अध्याय",
+          "impulses": "प्रेरणाएँ",
+          "workshop": "कार्यशाला",
+          "offers": "प्रस्ताव",
+          "shop": "दुकान",
+          "contact": "संपर्क"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • संपर्क: "
+      },
+      "bn": {
+        "htmlLang": "bn",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "মশালবাহক",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "স্প্যাম নয়। নাটক নয়। শুধু কাজ।",
+        "nav": {
+          "start": "হোম",
+          "about": "পরিচিতি",
+          "films": "ফিল্ম ও অধ্যায়",
+          "impulses": "প্রেরণা",
+          "workshop": "কর্মশালা",
+          "offers": "প্রস্তাব",
+          "shop": "দোকান",
+          "contact": "যোগাযোগ"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • যোগাযোগ: "
+      },
+      "ta": {
+        "htmlLang": "ta",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "தீப்பந்தம் தாங்குபவர்",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "ஸ்பாம் இல்லை. நாடகம் இல்லை. வேலை மட்டும்.",
+        "nav": {
+          "start": "முகப்பு",
+          "about": "எங்களைப் பற்றி",
+          "films": "திரைப்படங்கள் & அத்தியாயங்கள்",
+          "impulses": "ஊக்கங்கள்",
+          "workshop": "பணிமனை",
+          "offers": "வழங்கல்கள்",
+          "shop": "கடை",
+          "contact": "தொடர்பு"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • தொடர்பு: "
+      },
+      "ku": {
+        "htmlLang": "ku",
+        "dir": "ltr",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "Berdayê Îştê",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "Ne spam. Ne drama. Tenê kar.",
+        "nav": {
+          "start": "Destpêk",
+          "about": "Derbarê me",
+          "films": "Fîlm & beş",
+          "impulses": "Îlham",
+          "workshop": "Atolye",
+          "offers": "Pêşniyar",
+          "shop": "Dikan",
+          "contact": "Têkilî"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • Têkilî: "
+      },
+      "ar": {
+        "htmlLang": "ar",
+        "dir": "rtl",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "حامل المشعل",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "لا سبام. لا دراما. فقط عمل.",
+        "nav": {
+          "start": "الرئيسية",
+          "about": "من نحن",
+          "films": "أفلام وفصول",
+          "impulses": "إلهامات",
+          "workshop": "الورشة",
+          "offers": "عروض",
+          "shop": "المتجر",
+          "contact": "تواصل"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • تواصل: "
+      },
+      "ur": {
+        "htmlLang": "ur",
+        "dir": "rtl",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "مشعل بردار",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "نہ اسپام۔ نہ ڈرامہ۔ بس کام۔",
+        "nav": {
+          "start": "ہوم",
+          "about": "ہمارے بارے میں",
+          "films": "فلمیں اور ابواب",
+          "impulses": "ترغیبات",
+          "workshop": "ورکشاپ",
+          "offers": "پیشکشیں",
+          "shop": "دکان",
+          "contact": "رابطہ"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • رابطہ: "
+      },
+      "fa": {
+        "htmlLang": "fa",
+        "dir": "rtl",
+        "pageTitle": "Lampadēphóros – Offers",
+        "metaDescription": "Offers by Lampadēphóros: retreats, pilgrimages, workshops, talks and more.",
+        "brandMini": "مشعل‌دار",
+        "h1": "Offers",
+        "sub": "Here you’ll find concrete dates — and everything that’s currently in preparation.",
+        "motto": "نه اسپم. نه دراما. فقط کار.",
+        "nav": {
+          "start": "خانه",
+          "about": "درباره ما",
+          "films": "فیلم‌ها و فصل‌ها",
+          "impulses": "الهامات",
+          "workshop": "کارگاه",
+          "offers": "پیشنهادها",
+          "shop": "فروشگاه",
+          "contact": "تماس"
+        },
+        "offer1Title": "Retreat day 2026 (15–25)",
+        "offer1Html": "<p>\n          <strong>From:</strong> Friday, 13 February 2026 – 19:00<br />\n          <strong>To:</strong> Saturday, 14 February 2026 – 17:00\n        </p>\n\n        <p>\n          Starts with Holy Mass in the parish church in Gilsdorf, then we drive together (private cars) to Medernach.\n        </p>\n\n        <p>\n          <strong>Place:</strong> Centre Arendt-Fixmer – LES ÉTANGS<br />\n          33, rue de Larochette, L-7661 Medernach\n        </p>\n\n        <p>\n          <strong>Accommodation:</strong> Single room 35 € / Double room 30 €<br />\n          (costs included)\n        </p>\n\n        <p>\n          <strong>Registration:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a><br />\n          Subject/note: <em>GJCG Name Vorname</em><br />\n          <strong>Info:</strong> <a href=\"mailto:GJCG@eclipso.eu\">GJCG@eclipso.eu</a> • Tel. <a href=\"tel:+352804967\">+352 80 49 67</a>\n        </p>\n\n        <p>\n          <strong>Registration deadline:</strong> no later than 27 January 2026\n        </p>\n\n        <p>\n          <a class=\"btn primary\" href=\"einkehrtag-2026.pdf\" target=\"_blank\" rel=\"noopener\">Open flyer (PDF)</a>\n          <a class=\"btn\" href=\"einkehrtag-2026.pdf\" download>Download PDF</a>\n        </p>",
+        "offer2Title": "Pilgrimages",
+        "offer2Html": "<p>Planned pilgrim paths and spiritual journeys — with clear preparation, a calm rhythm, and depth.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer3Title": "Workshops & Talks",
+        "offer3Html": "<p>Concrete topics, practical tools, real encounter — for faith, everyday life, and inner order.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer4Title": "Bus trips (special days)",
+        "offer4Html": "<p>Day trips for special occasions — e.g. “days of joy” and other spiritual events.</p><p style=\"opacity:.8\">Status: in preparation</p>",
+        "offer5Title": "Merch / Shop",
+        "offer5Html": "<p>T-shirts, mugs & more — with the logo. (We start small, but clean.)</p><a id=\"shopLinkInner\" href=\"shop.html\">Go to shop →</a>",
+        "footer": "© Lampadēphóros • تماس: "
+      }
+    };
+
+    const supported = new Set(Object.keys(T));
+    
+    const getLang = () => {
+      const fromUrl = base(new URL(location.href).searchParams.get("lang"));
+      if (fromUrl && supported.has(fromUrl)) return fromUrl;
+    
+      try {
+        const stored = base(localStorage.getItem(STORAGE_KEY));
+        if (stored && supported.has(stored)) return stored;
+      } catch (e) {}
+    
+      // legacy key (older pages)
+      try {
+        const storedOld = base(localStorage.getItem("lp_lang"));
+        if (storedOld && supported.has(storedOld)) return storedOld;
+      } catch (e) {}
+    
+      return "de";
+    };
+    
+    const setLang = (l) => {
+      try { localStorage.setItem(STORAGE_KEY, l); } catch (e) {}
+    };
+    
+    const ensureLangInUrl = (lang) => {
+      try {
+        const u = new URL(location.href);
+        if (base(u.searchParams.get("lang")) !== lang) {
+          u.searchParams.set("lang", lang);
+          history.replaceState(null, "", u.toString());
+        }
+      } catch (e) {}
+    };
+    
+    const rewriteNavLinks = (lang) => {
+      const anchors = document.querySelectorAll("a[href]");
+      for (const a of anchors) {
+        const href = a.getAttribute("href");
+        if (!href) continue;
+    
+        // skip external / special links
+        if (href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("http") || href.startsWith("#")) continue;
+    
+        try {
+          const u = new URL(href, location.href);
+    
+          // only rewrite same-origin links
+          if (u.origin !== location.origin) continue;
+    
+          // rewrite typical html files AND "pretty" links without extension
+          const last = u.pathname.split("/").pop() || "";
+          const isHtml = last.endsWith(".html");
+          const hasExt = last.includes(".");
+          const isPretty = !hasExt; // e.g. /werkstatt, /about, /filme
+          if (!isHtml && !isPretty) continue;
+    
+          u.searchParams.set("lang", lang);
+    
+          // keep relative-ish
+          const outName = last || "index.html";
+          a.setAttribute("href", outName + "?" + u.searchParams.toString());
+        } catch (e) {}
+      }
+    };
+    
+    const setText = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = val;
+    };
+    
+    const setHTML = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = val;
+    };
+    
+    const apply = (lang) => {
+      const deUI = T.de || {};
+      const ui = T[lang] || deUI;
+    
+      document.documentElement.lang = ui.htmlLang || lang;
+      document.documentElement.dir = ui.dir || (RTL.has(lang) ? "rtl" : "ltr");
+    
+      document.title = ui.pageTitle || deUI.pageTitle;
+      const metaDesc = document.getElementById("metaDesc");
+      if (metaDesc) metaDesc.setAttribute("content", ui.metaDescription || deUI.metaDescription);
+    
+      setText("brandMini", ui.brandMini || deUI.brandMini);
+      setText("h1", ui.h1 || deUI.h1);
+      setText("sub", ui.sub || deUI.sub);
+      setText("motto", ui.motto || deUI.motto);
+    
+      setText("navStart", ui.nav?.start || deUI.nav?.start || "");
+      setText("navAbout", ui.nav?.about || deUI.nav?.about || "");
+      setText("navFilms", ui.nav?.films || deUI.nav?.films || "");
+      setText("navImpulses", ui.nav?.impulses || deUI.nav?.impulses || "");
+      setText("navWorkshop", ui.nav?.workshop || deUI.nav?.workshop || "");
+      setText("navOffers", ui.nav?.offers || deUI.nav?.offers || "");
+      setText("navShop", ui.nav?.shop || deUI.nav?.shop || "");
+      setText("navContact", ui.nav?.contact || deUI.nav?.contact || "");
+    
+      setText("offer1Title", ui.offer1Title || deUI.offer1Title);
+      setHTML("offer1Body", ui.offer1Html || deUI.offer1Html);
+    
+      setText("offer2Title", ui.offer2Title || deUI.offer2Title);
+      setHTML("offer2Body", ui.offer2Html || deUI.offer2Html);
+    
+      setText("offer3Title", ui.offer3Title || deUI.offer3Title);
+      setHTML("offer3Body", ui.offer3Html || deUI.offer3Html);
+    
+      setText("offer4Title", ui.offer4Title || deUI.offer4Title);
+      setHTML("offer4Body", ui.offer4Html || deUI.offer4Html);
+    
+      setText("offer5Title", ui.offer5Title || deUI.offer5Title);
+      setHTML("offer5Body", ui.offer5Html || deUI.offer5Html);
+    
+      setText("footPrefix", ui.footer || deUI.footer || "");
+    };
+    
+    const lang = getLang();
+    setLang(lang);
+    ensureLangInUrl(lang);
+    apply(lang);
+    rewriteNavLinks(lang);
+  })();
+  </script>
+
 </body>
 </html>
