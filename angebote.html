@@ -1135,7 +1135,10 @@
       setText("navContact", ui.nav?.contact || deUI.nav?.contact || "");
     
       setText("offer1Title", ui.offer1Title || deUI.offer1Title);
-      setHTML("offer1Body", ui.offer1Html || deUI.offer1Html);
+      // Flyer-PDF je nach Sprache (DE bleibt DE; FR + romanische Sprachen nutzen FR-PDF)
+      const flyerPdf = (["fr","it","pt","es"].includes(lang)) ? "recollection-2026.pdf" : "einkehrtag-2026.pdf";
+      const offer1Html = (ui.offer1Html || deUI.offer1Html || "").replaceAll("einkehrtag-2026.pdf", flyerPdf);
+      setHTML("offer1Body", offer1Html);
     
       setText("offer2Title", ui.offer2Title || deUI.offer2Title);
       setHTML("offer2Body", ui.offer2Html || deUI.offer2Html);
