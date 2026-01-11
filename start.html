@@ -109,23 +109,17 @@
     const STORAGE_KEY = "lamp_lang";
 
     const base = (tag) => String(tag || "").toLowerCase().split("-")[0];
-    const norm = (x) => String(x || "").trim().toLowerCase();
-
-    // Supported langs come from langs.js
     const supported = new Set((window.LANGS || []).map(x => x.code));
 
-    // URL lang
     const qs = new URLSearchParams(location.search);
     const urlLang = base(qs.get("lang"));
 
-    // browser prefs
     const browserPrefs = (navigator.languages && navigator.languages.length)
       ? navigator.languages
       : [navigator.language || "de"];
 
-    // Decide active lang: URL -> storage -> browser -> de
+    // 1) URL -> 2) storage -> 3) browser -> de
     let lang = "de";
-
     if (urlLang && supported.has(urlLang)) {
       lang = urlLang;
     } else {
@@ -140,10 +134,10 @@
       }
     }
 
-    // Persist only ONE key
+    // Persist ONE key
     try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
 
-    // Ensure URL has lang param (nice & consistent)
+    // Ensure URL has lang param (stable)
     try {
       const u = new URL(location.href);
       if (base(u.searchParams.get("lang")) !== lang) {
@@ -152,20 +146,20 @@
       }
     } catch(e){}
 
-    // document direction
+    // Dir/lang
     const curObj = (window.LANGS || []).find(x => x.code === lang);
     const dir = curObj?.dir || "ltr";
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", lang);
 
-    // set current
+    // Mark current for menu
     const holder = document.querySelector(".lang[data-current]");
     if (holder) holder.setAttribute("data-current", lang);
 
-    // render menu (existing function)
+    // Render menu
     if (typeof window.renderLangMenu === "function") window.renderLangMenu();
 
-    // Helper: keep lang param on internal links (robust, no duplicates)
+    // Add/replace lang on internal links (robust, no duplicates)
     const withLang = (href) => {
       if (!href) return href;
       if (href.startsWith("#")) return href;
@@ -175,24 +169,23 @@
         u.searchParams.set("lang", lang);
         return u.pathname + "?" + u.searchParams.toString();
       } catch {
-        // fallback minimal
         const sep = href.includes("?") ? "&" : "?";
         return href + sep + "lang=" + encodeURIComponent(lang);
       }
     };
 
-    // Apply lang to ALL internal anchors (so you don’t miss any)
+    // Apply to ALL anchors so nothing is missed
     document.querySelectorAll("a[href]").forEach(a => {
-      const href = a.getAttribute("href") || "";
-      a.setAttribute("href", withLang(href));
+      a.setAttribute("href", withLang(a.getAttribute("href") || ""));
     });
 
     // Texts (DE fallback only)
     const dictAll = window.START_I18N || {};
     const dict = dictAll[lang] || dictAll["de"] || {};
+    const dictDE = dictAll["de"] || {};
 
     const nav = dict.nav || {};
-    const deNav = (dictAll["de"] || {}).nav || {};
+    const navDE = dictDE.nav || {};
 
     const txt = (v, fallback) => (v != null && v !== "") ? v : fallback;
 
@@ -200,26 +193,23 @@
     document.getElementById("heroSub").textContent   = txt(dict.sub, "");
     document.getElementById("noteLine").textContent  = txt(dict.note, "");
 
-    // IMPORTANT: no EN fallbacks here; if missing -> DE
-    document.getElementById("navStart").textContent    = txt(nav.start,    deNav.start    || "Start");
-    document.getElementById("navAbout").textContent    = txt(nav.about,    deNav.about    || "Über uns");
-    document.getElementById("navFilms").textContent    = txt(nav.films,    deNav.films    || "Filme");
-    document.getElementById("navImpulses").textContent = txt(nav.impulses, deNav.impulses || "Impulse");
-    document.getElementById("navWorkshop").textContent = txt(nav.workshop, deNav.workshop || "Werkstatt");
-    document.getElementById("navOffers").textContent   = txt(nav.offers,   deNav.offers   || "Angebote");
-    document.getElementById("navShop").textContent     = txt(nav.shop,     deNav.shop     || "Shop");
-    document.getElementById("navLinks").textContent    = txt(nav.links,    deNav.links    || "Hier findest du uns");
+    document.getElementById("navStart").textContent    = txt(nav.start,    navDE.start    || "Start");
+    document.getElementById("navAbout").textContent    = txt(nav.about,    navDE.about    || "Über uns");
+    document.getElementById("navFilms").textContent    = txt(nav.films,    navDE.films    || "Filme & Kapitel");
+    document.getElementById("navImpulses").textContent = txt(nav.impulses, navDE.impulses || "Impulse");
+    document.getElementById("navWorkshop").textContent = txt(nav.workshop, navDE.workshop || "Werkstatt");
+    document.getElementById("navOffers").textContent   = txt(nav.offers,   navDE.offers   || "Angebote");
+    document.getElementById("navShop").textContent     = txt(nav.shop,     navDE.shop     || "Shop");
+    document.getElementById("navLinks").textContent    = txt(nav.links,    navDE.links    || "Hier findest du uns");
 
     const c = dict.cards || {};
-    const deC = (dictAll["de"] || {}).cards || {};
+    const cDE = dictDE.cards || {};
     const setCard = (key, hId, pId, aId) => {
-      const ch = c[key]?.h ?? deC[key]?.h ?? "";
-      const cp = c[key]?.p ?? deC[key]?.p ?? "";
-      const ca = c[key]?.a ?? deC[key]?.a ?? "";
-      document.getElementById(hId).textContent = ch;
-      document.getElementById(pId).textContent = cp;
-      document.getElementById(aId).textContent = ca;
+      document.getElementById(hId).textContent = c[key]?.h ?? cDE[key]?.h ?? "";
+      document.getElementById(pId).textContent = c[key]?.p ?? cDE[key]?.p ?? "";
+      document.getElementById(aId).textContent = c[key]?.a ?? cDE[key]?.a ?? "";
     };
+
     setCard("about",    "cAboutH",  "cAboutP",  "cAboutA");
     setCard("films",    "cFilmsH",  "cFilmsP",  "cFilmsA");
     setCard("impulses", "cImpH",    "cImpP",    "cImpA");
@@ -228,10 +218,10 @@
     setCard("shop",     "cShopH",   "cShopP",   "cShopA");
 
     const f = dict.footer || {};
-    const deF = (dictAll["de"] || {}).footer || {};
-    document.getElementById("fContact").textContent  = txt(f.contact,  deF.contact  || "Kontakt:");
-    document.getElementById("vVisitors").textContent = txt(f.visitors, deF.visitors || "Besucher");
-    document.getElementById("vTotal").textContent    = txt(f.total,    deF.total    || "Gesamt");
+    const fDE = dictDE.footer || {};
+    document.getElementById("fContact").textContent  = txt(f.contact,  fDE.contact  || "Kontakt:");
+    document.getElementById("vVisitors").textContent = txt(f.visitors, fDE.visitors || "Besucher");
+    document.getElementById("vTotal").textContent    = txt(f.total,    fDE.total    || "Gesamt");
 
     // counter
     (async () => {
