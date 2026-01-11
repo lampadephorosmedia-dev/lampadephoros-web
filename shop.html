@@ -1,11 +1,11 @@
-<!-- FILE: shop.html (DE) -->
+<!-- FILE: shop.html (FINAL – Goldstandard: ?lang + lamp_lang + DE-only fallback + old DE content 1:1 + keep ?lang on links) -->
 <!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadēphóros – Shop</title>
-  <meta name="description" content="Shop Lampadēphóros: Merch (T-Shirts, Tassen, etc.) – in Vorbereitung." />
+  <title id="pageTitle">Lampadēphóros – Shop</title>
+  <meta id="metaDesc" name="description" content="Shop Lampadēphóros: Merch (T-Shirts, Tassen, etc.) – in Vorbereitung." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,54 +18,329 @@
         <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">Der Fackelträger</div>
+          <div class="mini" id="brandMini">Der Fackelträger</div>
         </div>
       </div>
 
-      <h1>Shop</h1>
-      <p class="sub">Merch von Anfang an: schlicht, sauber und treu zum Projekt.</p>
+      <h1 id="h1">Shop</h1>
+      <p class="sub" id="sub">Merch von Anfang an: schlicht, sauber und treu zum Projekt.</p>
 
       <!-- NAV (keine Sprachwahl hier — nur auf start-*.html) -->
       <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-de.html">Start</a>
-        <a class="btn" href="about.html">Über uns</a>
-        <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
-        <a class="btn" href="impulse.html">Impulse</a>
-        <a class="btn" href="werkstatt.html">Werkstatt</a>
-        <a class="btn" href="angebote.html">Angebote</a>
-        <a class="btn primary" href="shop.html">Shop</a>
-        <a class="btn" href="links.html">Hier findest du uns</a>
+        <a class="btn" href="start-de.html" data-i18n="navStart">Start</a>
+        <a class="btn" href="about.html" data-i18n="navAbout">Über uns</a>
+        <a class="btn" href="filme.html" data-i18n="navFilms">Filme &amp; Kapitel</a>
+        <a class="btn" href="impulse.html" data-i18n="navImpulses">Impulse</a>
+        <a class="btn" href="werkstatt.html" data-i18n="navWorkshop">Werkstatt</a>
+        <a class="btn" href="angebote.html" data-i18n="navOffers">Angebote</a>
+        <a class="btn primary" href="shop.html" data-i18n="navShop">Shop</a>
+        <a class="btn" href="links.html" data-i18n="navLinks">Hier findest du uns</a>
       </nav>
 
-      <div class="note">Kein Spam. Kein Drama. Nur Werk.</div>
+      <div class="note" id="note">Kein Spam. Kein Drama. Nur Werk.</div>
     </header>
 
     <section class="grid" aria-label="Shop Inhalte">
       <article class="card">
-        <h2>In Vorbereitung</h2>
-        <p>
+        <h2 id="c1h">In Vorbereitung</h2>
+        <p id="c1p">
           Der Shop kommt bald. Wir starten klein, aber sauber:
           klare Designs, gute Qualität und einfache Logistik.
         </p>
       </article>
 
       <article class="card">
-        <h2>Was kommt</h2>
-        <p>T-Shirts, Tassen, Sticker und ein paar minimalistische Items – mit dem Lampadēphóros-Logo.</p>
+        <h2 id="c2h">Was kommt</h2>
+        <p id="c2p">T-Shirts, Tassen, Sticker und ein paar minimalistische Items – mit dem Lampadēphóros-Logo.</p>
       </article>
 
       <article class="card">
-        <h2>Info / Kontakt</h2>
-        <p>Wenn du informiert werden willst, sobald der Shop öffnet, schreib uns kurz eine Mail.</p>
+        <h2 id="c3h">Info / Kontakt</h2>
+        <p id="c3p">Wenn du informiert werden willst, sobald der Shop öffnet, schreib uns kurz eine Mail.</p>
         <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com →</a>
       </article>
     </section>
 
     <footer class="footer">
-      © Lampadēphóros • Kontakt:
+      <span id="footerLead">© Lampadēphóros • Kontakt:</span>
       <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
     </footer>
 
   </main>
+
+  <script>
+    // --- Goldstandard language logic: ?lang= + lamp_lang + DE-only fallback ---
+    (function () {
+      const SUPPORTED = new Set([
+        "de","en","fr","it","es","pt","nl","lb","pl","ru","uk","ro","bg","sr","hr","bs","cs","sk",
+        "sl","hu","el","tr","ar","he","hi","ta","th","vi","id","fil"
+      ]);
+
+      function normLang(x) {
+        if (!x) return "";
+        x = String(x).trim().toLowerCase();
+        // accept forms like "pt-BR" -> "pt"
+        if (x.includes("-")) x = x.split("-")[0];
+        return x;
+      }
+
+      function getLang() {
+        const url = new URL(window.location.href);
+        const qLang = normLang(url.searchParams.get("lang"));
+
+        // optional global map from other pages (if present)
+        // e.g. window.lamp_lang = { it:"it", pt:"pt", ... } or current language string
+        let lamp = "";
+        if (typeof window.lamp_lang === "string") {
+          lamp = normLang(window.lamp_lang);
+        } else if (window.lamp_lang && typeof window.lamp_lang === "object") {
+          // try common keys
+          lamp = normLang(window.lamp_lang.current || window.lamp_lang.lang || window.lamp_lang.value || "");
+        }
+
+        const chosen = (SUPPORTED.has(qLang) ? qLang : (SUPPORTED.has(lamp) ? lamp : "de"));
+        return chosen || "de";
+      }
+
+      const lang = getLang();
+
+      // reflect lang in <html lang="">
+      document.documentElement.setAttribute("lang", lang);
+
+      // --- UI translations (DE is the source / fallback) ---
+      const I18N = {
+        de: {
+          brandMini: "Der Fackelträger",
+          h1: "Shop",
+          sub: "Merch von Anfang an: schlicht, sauber und treu zum Projekt.",
+          note: "Kein Spam. Kein Drama. Nur Werk.",
+          c1h: "In Vorbereitung",
+          c1p: "Der Shop kommt bald. Wir starten klein, aber sauber:\n          klare Designs, gute Qualität und einfache Logistik.",
+          c2h: "Was kommt",
+          c2p: "T-Shirts, Tassen, Sticker und ein paar minimalistische Items – mit dem Lampadēphóros-Logo.",
+          c3h: "Info / Kontakt",
+          c3p: "Wenn du informiert werden willst, sobald der Shop öffnet, schreib uns kurz eine Mail.",
+          footerLead: "© Lampadēphóros • Kontakt:",
+          metaDesc: "Shop Lampadēphóros: Merch (T-Shirts, Tassen, etc.) – in Vorbereitung.",
+          title: "Lampadēphóros – Shop",
+          nav: {
+            navStart: "Start",
+            navAbout: "Über uns",
+            navFilms: "Filme & Kapitel",
+            navImpulses: "Impulse",
+            navWorkshop: "Werkstatt",
+            navOffers: "Angebote",
+            navShop: "Shop",
+            navLinks: "Hier findest du uns"
+          }
+        },
+
+        en: {
+          brandMini: "The Torchbearer",
+          h1: "Shop",
+          sub: "Merch from the start: simple, clean, faithful to the project.",
+          note: "No spam. No drama. Just work.",
+          c1h: "In preparation",
+          c1p: "The shop is coming soon. We start small, but clean:\n          clear designs, good quality, and simple logistics.",
+          c2h: "What’s coming",
+          c2p: "T-shirts, mugs, stickers, and a few minimalist items — with the Lampadēphóros logo.",
+          c3h: "Info / Contact",
+          c3p: "If you want to be informed when the shop opens, just send us a short email.",
+          footerLead: "© Lampadēphóros • Contact:",
+          metaDesc: "Lampadēphóros shop: merch (T-shirts, mugs, etc.) — in preparation.",
+          title: "Lampadēphóros – Shop",
+          nav: {
+            navStart: "Start",
+            navAbout: "About",
+            navFilms: "Films & Chapters",
+            navImpulses: "Impulses",
+            navWorkshop: "Workshop",
+            navOffers: "Offers",
+            navShop: "Shop",
+            navLinks: "Find us here"
+          }
+        },
+
+        fr: {
+          brandMini: "Le Porte-Flambeau",
+          h1: "Boutique",
+          sub: "Du merch dès le début : simple, propre et fidèle au projet.",
+          note: "Pas de spam. Pas de drama. Juste du travail.",
+          c1h: "En préparation",
+          c1p: "La boutique arrive bientôt. On commence petit, mais propre :\n          des designs clairs, une bonne qualité et une logistique simple.",
+          c2h: "À venir",
+          c2p: "T-shirts, mugs, stickers et quelques articles minimalistes — avec le logo Lampadēphóros.",
+          c3h: "Infos / Contact",
+          c3p: "Si tu veux être informé dès l’ouverture, envoie-nous juste un petit mail.",
+          footerLead: "© Lampadēphóros • Contact :",
+          metaDesc: "Boutique Lampadēphóros : merch (t-shirts, mugs, etc.) — en préparation.",
+          title: "Lampadēphóros – Boutique",
+          nav: {
+            navStart: "Accueil",
+            navAbout: "À propos",
+            navFilms: "Films & Chapitres",
+            navImpulses: "Impulsions",
+            navWorkshop: "Atelier",
+            navOffers: "Offres",
+            navShop: "Boutique",
+            navLinks: "Nous trouver"
+          }
+        },
+
+        it: {
+          brandMini: "Il Portatore della Torcia",
+          h1: "Shop",
+          sub: "Merch fin dall’inizio: semplice, pulito e fedele al progetto.",
+          note: "Niente spam. Niente drama. Solo lavoro.",
+          c1h: "In preparazione",
+          c1p: "Lo shop arriverà presto. Partiamo piccoli, ma puliti:\n          design chiari, buona qualità e logistica semplice.",
+          c2h: "Cosa arriva",
+          c2p: "T-shirt, tazze, sticker e alcuni articoli minimal — con il logo Lampadēphóros.",
+          c3h: "Info / Contatto",
+          c3p: "Se vuoi essere avvisato quando apriamo, scrivici una breve email.",
+          footerLead: "© Lampadēphóros • Contatto:",
+          metaDesc: "Shop Lampadēphóros: merch (t-shirt, tazze, ecc.) — in preparazione.",
+          title: "Lampadēphóros – Shop",
+          nav: {
+            navStart: "Inizio",
+            navAbout: "Chi siamo",
+            navFilms: "Film & Capitoli",
+            navImpulses: "Impulsi",
+            navWorkshop: "Laboratorio",
+            navOffers: "Offerte",
+            navShop: "Shop",
+            navLinks: "Dove trovarci"
+          }
+        },
+
+        es: {
+          brandMini: "El Portador de la Antorcha",
+          h1: "Tienda",
+          sub: "Merch desde el inicio: simple, limpio y fiel al proyecto.",
+          note: "Sin spam. Sin drama. Solo trabajo.",
+          c1h: "En preparación",
+          c1p: "La tienda llega pronto. Empezamos pequeño, pero bien:\n          diseños claros, buena calidad y logística sencilla.",
+          c2h: "Qué viene",
+          c2p: "Camisetas, tazas, pegatinas y algunos artículos minimalistas — con el logo de Lampadēphóros.",
+          c3h: "Info / Contacto",
+          c3p: "Si quieres que te avisemos cuando abramos, envíanos un correo breve.",
+          footerLead: "© Lampadēphóros • Contacto:",
+          metaDesc: "Tienda Lampadēphóros: merch (camisetas, tazas, etc.) — en preparación.",
+          title: "Lampadēphóros – Tienda",
+          nav: {
+            navStart: "Inicio",
+            navAbout: "Sobre nosotros",
+            navFilms: "Películas y capítulos",
+            navImpulses: "Impulsos",
+            navWorkshop: "Taller",
+            navOffers: "Ofertas",
+            navShop: "Tienda",
+            navLinks: "Dónde encontrarnos"
+          }
+        },
+
+        pt: {
+          brandMini: "O Portador da Tocha",
+          h1: "Loja",
+          sub: "Merch desde o início: simples, limpo e fiel ao projeto.",
+          note: "Sem spam. Sem drama. Só trabalho.",
+          c1h: "Em preparação",
+          c1p: "A loja chega em breve. Começamos pequeno, mas bem:\n          designs claros, boa qualidade e logística simples.",
+          c2h: "O que vem aí",
+          c2p: "Camisetas, canecas, autocolantes e alguns itens minimalistas — com o logo Lampadēphóros.",
+          c3h: "Info / Contato",
+          c3p: "Se quiser ser avisado quando abrirmos, envie-nos um e-mail rápido.",
+          footerLead: "© Lampadēphóros • Contato:",
+          metaDesc: "Loja Lampadēphóros: merch (camisetas, canecas, etc.) — em preparação.",
+          title: "Lampadēphóros – Loja",
+          nav: {
+            navStart: "Início",
+            navAbout: "Sobre nós",
+            navFilms: "Filmes e capítulos",
+            navImpulses: "Impulsos",
+            navWorkshop: "Oficina",
+            navOffers: "Ofertas",
+            navShop: "Loja",
+            navLinks: "Onde nos encontrar"
+          }
+        }
+      };
+
+      function applyText(id, value) {
+        const el = document.getElementById(id);
+        if (!el || value == null) return;
+        // keep original formatting: allow line breaks in strings
+        el.textContent = String(value);
+      }
+
+      function applyI18n() {
+        const base = I18N.de;
+        const pack = I18N[lang] || {};
+        const t = (k) => (pack[k] != null ? pack[k] : base[k]);
+
+        // Core texts
+        applyText("brandMini", t("brandMini"));
+        applyText("h1", t("h1"));
+        applyText("sub", t("sub"));
+        applyText("note", t("note"));
+        applyText("c1h", t("c1h"));
+        applyText("c1p", t("c1p"));
+        applyText("c2h", t("c2h"));
+        applyText("c2p", t("c2p"));
+        applyText("c3h", t("c3h"));
+        applyText("c3p", t("c3p"));
+        applyText("footerLead", t("footerLead"));
+
+        // Title + Meta
+        const title = t("title");
+        const desc = t("metaDesc");
+        if (title) document.title = title;
+        const meta = document.getElementById("metaDesc");
+        if (meta && desc) meta.setAttribute("content", desc);
+
+        // Nav labels
+        const navBase = base.nav || {};
+        const navPack = (pack.nav || {});
+        document.querySelectorAll("[data-i18n]").forEach(a => {
+          const key = a.getAttribute("data-i18n");
+          const label = (navPack[key] != null ? navPack[key] : navBase[key]);
+          if (label != null) a.textContent = label;
+        });
+      }
+
+      // --- Keep ?lang on internal links (ONLY for non-DE, so DE stays 1:1) ---
+      function isInternalHref(href) {
+        if (!href) return false;
+        // ignore mailto, tel, hash-only, absolute external URLs
+        if (href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("#")) return false;
+        if (/^https?:\/\//i.test(href)) return false;
+        return true;
+      }
+
+      function toCentralPath(href) {
+        // Convert start-de.html -> start.html (and also start-en.html etc.)
+        // Convert shop-en.html -> shop.html etc.
+        return href.replace(/-([a-z]{2,3})\.html$/i, ".html");
+      }
+
+      function keepLangOnLinks() {
+        if (lang === "de") return; // DE stays untouched (1:1)
+        const links = document.querySelectorAll("a[href]");
+        links.forEach(a => {
+          const href = a.getAttribute("href");
+          if (!isInternalHref(href)) return;
+
+          const clean = toCentralPath(href);
+          // append/replace ?lang=
+          const url = new URL(clean, window.location.href);
+          url.searchParams.set("lang", lang);
+          a.setAttribute("href", url.pathname + url.search);
+        });
+      }
+
+      applyI18n();
+      keepLangOnLinks();
+    })();
+  </script>
 </body>
 </html>
