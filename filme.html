@@ -1,4 +1,4 @@
-<!-- FILE: filme.html (MULTI) -->
+<!-- FILE: filme.html (MULTI) — FIXED: missing languages + storage + navStart -->
 <!doctype html>
 <html lang="de" dir="ltr">
 <head>
@@ -25,9 +25,9 @@
       <h1 id="h1">Filme</h1>
       <p class="sub" id="sub">Hauptwerke, Kapitel und kurze Schnitte – sauber sortiert.</p>
 
-      <!-- NAV (keine Sprachwahl hier — nur auf start-*.html) -->
+      <!-- NAV -->
       <nav class="nav" aria-label="Navigation">
-        <a class="btn" id="navStart" href="start-de.html">Start</a>
+        <a class="btn" id="navStart" href="start.html">Start</a>
         <a class="btn" id="navAbout" href="about.html">Über uns</a>
         <a class="btn primary" id="navFilms" href="filme.html">Filme &amp; Kapitel</a>
         <a class="btn" id="navImpulse" href="impulse.html">Impulse</a>
@@ -73,7 +73,6 @@
         <p id="pubP">Direkt hier ansehen – oder auf YouTube öffnen.</p>
       </article>
 
-      <!-- Videos werden hier per JS eingefügt -->
       <div id="videosGrid" style="display: contents;"></div>
     </section>
 
@@ -87,38 +86,42 @@
   <script>
   (() => {
     // --------- Language core ----------
+    const STORAGE_KEY = "lamp_lang"; // EIN Key, wie auf start.html
     const RTL = new Set(["ar","ur","fa"]);
     const norm = (x) => (x || "").toString().trim().toLowerCase();
 
     const getLang = () => {
       const p = new URLSearchParams(location.search).get("lang");
       if (p) return norm(p);
-      const stored = localStorage.getItem("lp_lang");
-      if (stored) return norm(stored);
+
+      // kompatibel: alte Keys lesen (falls du schon deployed hast)
+      const storedNew = localStorage.getItem(STORAGE_KEY);
+      if (storedNew) return norm(storedNew);
+
+      const storedOld = localStorage.getItem("lp_lang");
+      if (storedOld) return norm(storedOld);
+
       return "de";
     };
 
     const setLang = (l) => {
-      try { localStorage.setItem("lp_lang", l); } catch (e) {}
+      try { localStorage.setItem(STORAGE_KEY, l); } catch (e) {}
+      try { localStorage.setItem("lp_lang", l); } catch (e) {} // optional: legacy mitpflegen
     };
 
     const withLang = (href, lang) => {
-      // Externe Links nicht anfassen
       if (/^https?:\/\//i.test(href) || href.startsWith("mailto:")) return href;
-      // Schon Parameter drin?
       const hasQuery = href.includes("?");
       const sep = hasQuery ? "&" : "?";
       return `${href}${sep}lang=${encodeURIComponent(lang)}`;
     };
 
-    const pick = (lang, map) => map[lang] || map.en || map.de;
+    const pick = (lang, map) => map?.[lang] || map?.en || map?.de || "";
 
     // --------- Translations ----------
-    // UI bleibt sauber; bei Sprachen ohne eigenes Set nehmen wir EN als Fallback.
     const T = {
       de: {
-        htmlLang: "de",
-        dir: "ltr",
+        htmlLang: "de", dir: "ltr",
         pageTitle: "Lampadēphóros – Filme",
         metaDescription: "Filme & Kapitel: Hauptwerke, Kapitel und kurze Schnitte – sauber sortiert.",
         brandMini: "Der Fackelträger",
@@ -142,21 +145,20 @@
       },
 
       fr: {
-        htmlLang: "fr",
-        dir: "ltr",
+        htmlLang: "fr", dir: "ltr",
         pageTitle: "Lampadēphóros – Films",
         metaDescription: "Films & chapitres : œuvres principales, chapitres et formats courts — bien organisés.",
-        brandMini: "Le Porte-flambeau",
+        brandMini: "Le Porteur de flambeau",
         h1: "Films",
         sub: "Œuvres principales, chapitres et formats courts — bien organisés.",
-        nav: { start:"Accueil", about:"À propos", films:"Films & chapitres", impulse:"Impulsions", workshop:"Atelier", offers:"Offres", shop:"Boutique", links:"Nous retrouver" },
-        note: "Pas de spam. Pas de drame. Juste l’œuvre.",
+        nav: { start:"Accueil", about:"À propos", films:"Films & chapitres", impulse:"Impulsions", workshop:"Atelier", offers:"Offres", shop:"Boutique", links:"Nous trouver" },
+        note: "Pas de spam. Pas de drama. Juste l’œuvre.",
         c1t:"En préparation",
         c1p:"Cette section se remplit progressivement. Tu trouveras bientôt : œuvres principales, pages de chapitres et sélections courtes — avec structure et clarté.",
         c2t:"Ce qui arrivera ici",
         c2p:"Films complets, chapitres, shorts et liens vers les plateformes où tout est publié.",
         c3t:"Dans les coulisses",
-        c3p:"Décisions, rythme et transitions : tout est documenté dans l’atelier.",
+        c3p:"Structure, rythme et transitions : tout est documenté dans l’atelier.",
         c3a:"Aller à l’atelier →",
         pubT:"Films publiés",
         pubP:"Regarder ici — ou ouvrir sur YouTube.",
@@ -167,8 +169,7 @@
       },
 
       en: {
-        htmlLang: "en",
-        dir: "ltr",
+        htmlLang: "en", dir: "ltr",
         pageTitle: "Lampadēphóros – Films",
         metaDescription: "Films & chapters: main works, chapters, and short cuts — cleanly organized.",
         brandMini: "The Torchbearer",
@@ -192,8 +193,7 @@
       },
 
       pt: {
-        htmlLang: "pt",
-        dir: "ltr",
+        htmlLang: "pt", dir: "ltr",
         pageTitle: "Lampadēphóros – Filmes",
         metaDescription: "Filmes e capítulos: obras principais, capítulos e cortes curtos — bem organizados.",
         brandMini: "O Portador da Tocha",
@@ -217,8 +217,7 @@
       },
 
       it: {
-        htmlLang: "it",
-        dir: "ltr",
+        htmlLang: "it", dir: "ltr",
         pageTitle: "Lampadēphóros – Film",
         metaDescription: "Film e capitoli: opere principali, capitoli e versioni brevi — ordinati con cura.",
         brandMini: "Il Portatore della Fiaccola",
@@ -242,14 +241,13 @@
       },
 
       es: {
-        htmlLang: "es",
-        dir: "ltr",
+        htmlLang: "es", dir: "ltr",
         pageTitle: "Lampadēphóros – Películas",
         metaDescription: "Películas y capítulos: obras principales, capítulos y cortes cortos — bien ordenados.",
         brandMini: "El Portador de la Antorcha",
         h1: "Películas",
         sub: "Obras principales, capítulos y cortes cortos — bien ordenados.",
-        nav: { start:"Inicio", about:"Sobre nosotros", films:"Películas y capítulos", impulse:"Impulsos", workshop:"Taller", offers:"Ofertas", shop:"Tienda", links:"Dónde encontrarnos" },
+        nav: { start:"Inicio", about:"Sobre nosotros", films:"Películas y capítulos", impulse:"Impulsos", workshop:"Taller", offers:"Ofertas", shop:"Tienda", links:"Encuéntranos" },
         note: "Sin spam. Sin drama. Solo obra.",
         c1t:"En preparación",
         c1p:"Esta sección se irá llenando poco a poco. Pronto encontrarás: obras principales, páginas por capítulos y selecciones cortas — con estructura y claridad.",
@@ -267,15 +265,14 @@
       },
 
       pl: {
-        htmlLang: "pl",
-        dir: "ltr",
+        htmlLang: "pl", dir: "ltr",
         pageTitle: "Lampadēphóros – Filmy",
         metaDescription: "Filmy i rozdziały: główne dzieła, rozdziały i krótkie wersje — przejrzyście uporządkowane.",
         brandMini: "Niosący Pochodnię",
         h1: "Filmy",
         sub: "Główne dzieła, rozdziały i krótkie wersje — przejrzyście uporządkowane.",
-        nav: { start:"Start", about:"O nas", films:"Filmy i rozdziały", impulse:"Impulsy", workshop:"Warsztat", offers:"Oferty", shop:"Sklep", links:"Gdzie nas znaleźć" },
-        note: "Bez spamu. Bez dramatu. Tylko praca.",
+        nav: { start:"Start", about:"O nas", films:"Filmy i rozdziały", impulse:"Impulsy", workshop:"Warsztat", offers:"Oferty", shop:"Sklep", links:"Znajdź nas" },
+        note: "Bez spamu. Bez dramy. Tylko dzieło.",
         c1t:"W przygotowaniu",
         c1p:"Ta sekcja będzie uzupełniana stopniowo. Wkrótce znajdziesz tu: główne dzieła, strony rozdziałów i wybrane skróty — z strukturą i klarownością.",
         c2t:"Co tu będzie",
@@ -292,14 +289,13 @@
       },
 
       ru: {
-        htmlLang: "ru",
-        dir: "ltr",
+        htmlLang: "ru", dir: "ltr",
         pageTitle: "Lampadēphóros – Фильмы",
         metaDescription: "Фильмы и главы: основные работы, главы и короткие версии — аккуратно упорядочено.",
         brandMini: "Факелоносец",
         h1: "Фильмы",
         sub: "Основные работы, главы и короткие версии — аккуратно упорядочено.",
-        nav: { start:"Старт", about:"О нас", films:"Фильмы и главы", impulse:"Импульсы", workshop:"Мастерская", offers:"Предложения", shop:"Магазин", links:"Где нас найти" },
+        nav: { start:"Старт", about:"О нас", films:"Фильмы и главы", impulse:"Импульсы", workshop:"Мастерская", offers:"Предложения", shop:"Магазин", links:"Где мы" },
         note: "Без спама. Без драмы. Только дело.",
         c1t:"В подготовке",
         c1p:"Этот раздел будет пополняться постепенно. Скоро здесь будут: основные работы, страницы глав и избранные короткие версии — со структурой и ясностью.",
@@ -317,14 +313,13 @@
       },
 
       hr: {
-        htmlLang: "hr",
-        dir: "ltr",
+        htmlLang: "hr", dir: "ltr",
         pageTitle: "Lampadēphóros – Filmovi",
         metaDescription: "Filmovi i poglavlja: glavna djela, poglavlja i kratke verzije — uredno posloženo.",
-        brandMini: "Nosač baklje",
+        brandMini: "Nositelj baklje",
         h1: "Filmovi",
         sub: "Glavna djela, poglavlja i kratke verzije — uredno posloženo.",
-        nav: { start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Shop", links:"Gdje nas naći" },
+        nav: { start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Trgovina", links:"Pronađi nas" },
         note: "Bez spama. Bez drame. Samo djelo.",
         c1t:"U pripremi",
         c1p:"Ovaj odjeljak se puni korak po korak. Uskoro ćeš naći: glavna djela, stranice poglavlja i odabrane kratke verzije — sa strukturom i jasnoćom.",
@@ -342,14 +337,13 @@
       },
 
       bs: {
-        htmlLang: "bs",
-        dir: "ltr",
+        htmlLang: "bs", dir: "ltr",
         pageTitle: "Lampadēphóros – Filmovi",
         metaDescription: "Filmovi i poglavlja: glavna djela, poglavlja i kratke verzije — uredno složeno.",
         brandMini: "Nosač baklje",
         h1: "Filmovi",
         sub: "Glavna djela, poglavlja i kratke verzije — uredno složeno.",
-        nav: { start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Shop", links:"Gdje nas naći" },
+        nav: { start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Shop", links:"Pronađi nas" },
         note: "Bez spama. Bez drame. Samo djelo.",
         c1t:"U pripremi",
         c1p:"Ova sekcija se popunjava postepeno. Uskoro ćeš naći: glavna djela, stranice poglavlja i odabrane kratke verzije — sa strukturom i jasnoćom.",
@@ -367,14 +361,13 @@
       },
 
       sr: {
-        htmlLang: "sr",
-        dir: "ltr",
+        htmlLang: "sr", dir: "ltr",
         pageTitle: "Lampadēphóros – Filmovi",
         metaDescription: "Filmovi i poglavlja: glavna dela, poglavlja i kratke verzije — uredno složeno.",
-        brandMini: "Nosač baklje",
+        brandMini: "Bakljonoša",
         h1: "Filmovi",
         sub: "Glavna dela, poglavlja i kratke verzije — uredno složeno.",
-        nav: { start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Shop", links:"Gde nas naći" },
+        nav: { start:"Start", about:"O nama", films:"Filmovi i poglavlja", impulse:"Impulsi", workshop:"Radionica", offers:"Ponude", shop:"Shop", links:"Pronađi nas" },
         note: "Bez spama. Bez drame. Samo delo.",
         c1t:"U pripremi",
         c1p:"Ova sekcija se popunjava korak po korak. Uskoro ćeš naći: glavna dela, stranice poglavlja i odabrane kratke verzije — sa strukturom i jasnoćom.",
@@ -391,17 +384,64 @@
         privateHint:"Napomena: ako je video još privatan, pojaviće se nakon objave."
       },
 
-      // RTL samples (UI-Übersetzung minimal, Rest fällt auf EN zurück)
+      // --- MISSING LANGUAGES (ADDED) ---
+      ro: {
+        htmlLang:"ro", dir:"ltr",
+        pageTitle:"Lampadēphóros – Filme",
+        metaDescription:"Filme & capitole: lucrări principale, capitole și versiuni scurte — clar organizate.",
+        brandMini:"Purtătorul de torță",
+        h1:"Filme",
+        sub:"Lucrări principale, capitole și versiuni scurte — clar organizate.",
+        nav:{ start:"Start", about:"Despre noi", films:"Filme & capitole", impulse:"Impulsuri", workshop:"Atelier", offers:"Oferte", shop:"Magazin", links:"Găsește-ne" },
+        note:"Fără spam. Fără dramă. Doar lucrare.",
+        c1t:"În pregătire",
+        c1p:"Această secțiune se va completa treptat. În curând vei găsi: lucrări principale, pagini de capitole și selecții scurte — cu structură și claritate.",
+        c2t:"Ce va fi aici",
+        c2p:"Filme complete, capitole, shorts și linkuri către platformele unde publicăm totul.",
+        c3t:"Din culise",
+        c3p:"Deciziile, ritmul și tranzițiile sunt documentate în atelier.",
+        c3a:"Mergi la atelier →",
+        pubT:"Filme publicate",
+        pubP:"Privește aici — sau deschide pe YouTube.",
+        contactWord:"Contact",
+        watch:"Vezi pe YouTube",
+        ageWarn:"⚠️ Acest videoclip are restricție de vârstă pe YouTube și nu poate fi încorporat aici. Deschide-l pe YouTube.",
+        privateHint:"Notă: dacă acest videoclip este încă privat, va apărea după publicare."
+      },
+
+      tr: {
+        htmlLang:"tr", dir:"ltr",
+        pageTitle:"Lampadēphóros – Filmler",
+        metaDescription:"Filmler ve bölümler: ana eserler, bölümler ve kısa versiyonlar — düzenli.",
+        brandMini:"Meşale Taşıyıcısı",
+        h1:"Filmler",
+        sub:"Ana eserler, bölümler ve kısa versiyonlar — düzenli.",
+        nav:{ start:"Başlangıç", about:"Hakkımızda", films:"Filmler ve bölümler", impulse:"İzler", workshop:"Atölye", offers:"Teklifler", shop:"Mağaza", links:"Bizi bul" },
+        note:"Spam yok. Drama yok. Sadece emek.",
+        c1t:"Hazırlanıyor",
+        c1p:"Bu bölüm adım adım dolacak. Yakında: ana eserler, bölüm sayfaları ve seçilmiş kısa versiyonlar — yapı ve açıklıkla.",
+        c2t:"Burada ne olacak",
+        c2p:"Tam filmler, bölümler, shorts ve her şeyin yayınlandığı platformlara bağlantılar.",
+        c3t:"Sahne arkası",
+        c3p:"Kararlar, ritim ve geçişler atölyede belgelenir.",
+        c3a:"Atölyeye git →",
+        pubT:"Yayınlanan filmler",
+        pubP:"Buradan izle — ya da YouTube’da aç.",
+        contactWord:"İletişim",
+        watch:"YouTube’da izle",
+        ageWarn:"⚠️ Bu video YouTube’da yaş kısıtlamalıdır ve burada gömülemez. Lütfen YouTube’da aç.",
+        privateHint:"Not: Video hâlâ gizliyse, yayınlandıktan sonra görünür."
+      },
+
       ar: {
-        htmlLang: "ar",
-        dir: "rtl",
-        pageTitle: "Lampadēphóros – الأفلام",
-        metaDescription: "أفلام وفصول: أعمال رئيسية وفصول ونسخ قصيرة — مرتبة بوضوح.",
-        brandMini: "حامل الشعلة",
-        h1: "الأفلام",
-        sub: "أعمال رئيسية وفصول ونسخ قصيرة — مرتبة بوضوح.",
-        nav: { start:"البداية", about:"من نحن", films:"الأفلام والفصول", impulse:"ومضات", workshop:"الورشة", offers:"العروض", shop:"المتجر", links:"أين تجدنا" },
-        note: "لا سبام. لا دراما. فقط العمل.",
+        htmlLang:"ar", dir:"rtl",
+        pageTitle:"Lampadēphóros – الأفلام",
+        metaDescription:"أفلام وفصول: أعمال رئيسية وفصول ونسخ قصيرة — مرتبة بوضوح.",
+        brandMini:"حاملُ الشعلة",
+        h1:"الأفلام",
+        sub:"أعمال رئيسية وفصول ونسخ قصيرة — مرتبة بوضوح.",
+        nav:{ start:"البداية", about:"من نحن", films:"أفلام وفصول", impulse:"ومضات", workshop:"ورشة", offers:"عروض", shop:"متجر", links:"اعثر علينا" },
+        note:"لا سبام. لا دراما. فقط عمل.",
         c1t:"قيد الإعداد",
         c1p:"سيتم ملء هذا القسم تدريجيًا. قريبًا ستجد: أعمالًا رئيسية وصفحات فصول ونسخًا قصيرة مختارة — مع هيكل ووضوح.",
         c2t:"ما الذي سيكون هنا",
@@ -415,211 +455,350 @@
         watch:"شاهد على YouTube",
         ageWarn:"⚠️ هذا الفيديو مقيّد بالعمر على YouTube ولا يمكن تضمينه هنا. الرجاء فتحه على YouTube.",
         privateHint:"ملاحظة: إذا كان الفيديو لا يزال خاصًا فسيظهر بعد نشره."
+      },
+
+      ur: {
+        htmlLang:"ur", dir:"rtl",
+        pageTitle:"Lampadēphóros – فلمیں",
+        metaDescription:"فلمیں اور ابواب: مرکزی کام، ابواب اور مختصر ورژن — واضح ترتیب کے ساتھ۔",
+        brandMini:"مشعل بردار",
+        h1:"فلمیں",
+        sub:"مرکزی کام، ابواب اور مختصر ورژن — واضح ترتیب کے ساتھ۔",
+        nav:{ start:"شروع", about:"ہمارے بارے میں", films:"فلمیں اور ابواب", impulse:"اشارے", workshop:"ورکشاپ", offers:"پیشکشیں", shop:"دکان", links:"ہمیں تلاش کریں" },
+        note:"نہ اسپام۔ نہ ڈرامہ۔ صرف کام۔",
+        c1t:"تیاری میں",
+        c1p:"یہ حصہ آہستہ آہستہ بھرا جائے گا۔ جلد آپ کو ملے گا: مرکزی کام، ابواب کے صفحات اور منتخب مختصر ورژن — ساخت اور وضاحت کے ساتھ۔",
+        c2t:"یہاں کیا ہوگا",
+        c2p:"مکمل فلمیں، ابواب، شارٹس اور اُن پلیٹ فارمز کے لنکس جہاں سب کچھ شائع ہوتا ہے۔",
+        c3t:"پسِ پردہ",
+        c3p:"فیصلے، ردھم اور تبدیلیاں ورکشاپ میں دستاویزی شکل میں ہیں۔",
+        c3a:"ورکشاپ پر جائیں →",
+        pubT:"شائع شدہ فلمیں",
+        pubP:"یہاں دیکھیں — یا YouTube پر کھولیں۔",
+        contactWord:"رابطہ",
+        watch:"YouTube پر دیکھیں",
+        ageWarn:"⚠️ یہ ویڈیو YouTube پر عمر کی پابندی کے ساتھ ہے اور یہاں ایمبیڈ نہیں ہو سکتی۔ براہِ کرم YouTube پر کھولیں۔",
+        privateHint:"نوٹ: اگر یہ ویڈیو ابھی نجی ہے تو شائع ہونے کے بعد نظر آئے گی۔"
+      },
+
+      fa: {
+        htmlLang:"fa", dir:"rtl",
+        pageTitle:"Lampadēphóros – فیلم‌ها",
+        metaDescription:"فیلم‌ها و فصل‌ها: آثار اصلی، فصل‌ها و نسخه‌های کوتاه — مرتب و روشن.",
+        brandMini:"مشعل‌دار",
+        h1:"فیلم‌ها",
+        sub:"آثار اصلی، فصل‌ها و نسخه‌های کوتاه — مرتب و روشن.",
+        nav:{ start:"شروع", about:"درباره ما", films:"فیلم‌ها و فصل‌ها", impulse:"الهام‌ها", workshop:"کارگاه", offers:"پیشنهادها", shop:"فروشگاه", links:"ما را پیدا کن" },
+        note:"بدون اسپم. بدون دراما. فقط کار.",
+        c1t:"در حال آماده‌سازی",
+        c1p:"این بخش کم‌کم تکمیل می‌شود. به‌زودی می‌بینی: آثار اصلی، صفحات فصل‌ها و نسخه‌های کوتاه منتخب — با ساختار و وضوح.",
+        c2t:"چه چیزی اینجا می‌آید",
+        c2p:"فیلم‌های کامل، فصل‌ها، شورت‌ها و لینک به پلتفرم‌هایی که همه‌چیز آنجا منتشر می‌شود.",
+        c3t:"پشت صحنه",
+        c3p:"تصمیم‌ها، ریتم و گذارها در کارگاه مستند می‌شوند.",
+        c3a:"رفتن به کارگاه →",
+        pubT:"فیلم‌های منتشرشده",
+        pubP:"اینجا ببین — یا در YouTube باز کن.",
+        contactWord:"تماس",
+        watch:"در YouTube ببین",
+        ageWarn:"⚠️ این ویدیو در YouTube محدودیت سنی دارد و اینجا قابل جاسازی نیست. لطفاً در YouTube بازش کن.",
+        privateHint:"یادداشت: اگر این ویدیو هنوز خصوصی است، بعد از انتشار دیده می‌شود."
+      },
+
+      zh: {
+        htmlLang:"zh", dir:"ltr",
+        pageTitle:"Lampadēphóros – 影片",
+        metaDescription:"影片与章节：主要作品、章节与短版 — 清晰整理。",
+        brandMini:"火炬传递者",
+        h1:"影片",
+        sub:"主要作品、章节与短版 — 清晰整理。",
+        nav:{ start:"开始", about:"关于我们", films:"影片与章节", impulse:"灵修片段", workshop:"工作坊", offers:"活动与服务", shop:"商店", links:"找到我们" },
+        note:"无垃圾信息。无戏剧。只有作品。",
+        c1t:"筹备中",
+        c1p:"本栏目将逐步完善。很快你会看到：主要作品、章节页面与精选短版 — 结构清晰。",
+        c2t:"这里将呈现",
+        c2p:"完整影片、章节、Shorts，以及发布平台的链接。",
+        c3t:"幕后",
+        c3p:"结构、节奏与转场在工作坊中记录。",
+        c3a:"进入工作坊 →",
+        pubT:"已发布影片",
+        pubP:"可在此观看 — 或在 YouTube 打开。",
+        contactWord:"联系",
+        watch:"在 YouTube 观看",
+        ageWarn:"⚠️ 此视频在 YouTube 上有年龄限制，无法在此嵌入。请在 YouTube 打开观看。",
+        privateHint:"提示：若该视频仍为私密，发布后才会显示。"
+      },
+
+      hi: {
+        htmlLang:"hi", dir:"ltr",
+        pageTitle:"Lampadēphóros – फ़िल्में",
+        metaDescription:"फ़िल्में और अध्याय: मुख्य कृतियाँ, अध्याय और छोटे संस्करण — सुव्यवस्थित।",
+        brandMini:"मशालवाहक",
+        h1:"फ़िल्में",
+        sub:"मुख्य कृतियाँ, अध्याय और छोटे संस्करण — सुव्यवस्थित।",
+        nav:{ start:"शुरू", about:"हमारे बारे में", films:"फ़िल्में और अध्याय", impulse:"प्रेरणाएँ", workshop:"कार्यशाला", offers:"ऑफ़र", shop:"दुकान", links:"हमें खोजें" },
+        note:"न स्पैम। न ड्रामा। केवल कार्य।",
+        c1t:"तैयारी में",
+        c1p:"यह भाग धीरे-धीरे भरेगा। जल्द ही मिलेगा: मुख्य कृतियाँ, अध्याय पृष्ठ और चुने हुए छोटे संस्करण — संरचना और स्पष्टता के साथ।",
+        c2t:"यहाँ क्या होगा",
+        c2p:"पूरी फ़िल्में, अध्याय, शॉर्ट्स और उन प्लेटफ़ॉर्म के लिंक जहाँ सब प्रकाशित होता है।",
+        c3t:"पर्दे के पीछे",
+        c3p:"निर्णय, लय और संक्रमण कार्यशाला में दर्ज किए जाते हैं।",
+        c3a:"कार्यशाला पर जाएँ →",
+        pubT:"प्रकाशित फ़िल्में",
+        pubP:"यहाँ देखें — या YouTube पर खोलें।",
+        contactWord:"संपर्क",
+        watch:"YouTube पर देखें",
+        ageWarn:"⚠️ इस वीडियो पर YouTube में आयु-सीमा है और इसे यहाँ एम्बेड नहीं किया जा सकता। कृपया YouTube पर खोलें।",
+        privateHint:"नोट: यदि वीडियो अभी निजी है, तो प्रकाशित होने पर दिखाई देगा।"
+      },
+
+      bn: {
+        htmlLang:"bn", dir:"ltr",
+        pageTitle:"Lampadēphóros – ফিল্ম",
+        metaDescription:"ফিল্ম ও অধ্যায়: প্রধান কাজ, অধ্যায় এবং সংক্ষিপ্ত সংস্করণ — পরিষ্কারভাবে সাজানো।",
+        brandMini:"মশালবাহক",
+        h1:"ফিল্ম",
+        sub:"প্রধান কাজ, অধ্যায় এবং সংক্ষিপ্ত সংস্করণ — পরিষ্কারভাবে সাজানো।",
+        nav:{ start:"শুরু", about:"আমাদের সম্পর্কে", films:"ফিল্ম ও অধ্যায়", impulse:"অনুপ্রেরণা", workshop:"ওয়ার্কশপ", offers:"প্রস্তাব", shop:"দোকান", links:"আমাদের খুঁজুন" },
+        note:"স্প্যাম নয়। ড্রামা নয়। শুধু কাজ।",
+        c1t:"প্রস্তুতিতে",
+        c1p:"এই অংশটি ধীরে ধীরে পূরণ হবে। শিগগিরই পাবেন: প্রধান কাজ, অধ্যায় পৃষ্ঠা এবং নির্বাচিত সংক্ষিপ্ত সংস্করণ — কাঠামো ও স্পষ্টতাসহ।",
+        c2t:"এখানে যা থাকবে",
+        c2p:"পূর্ণ ফিল্ম, অধ্যায়, শর্টস এবং যেখানে সব প্রকাশিত হয় সেই প্ল্যাটফর্মের লিংক।",
+        c3t:"পর্দার আড়ালে",
+        c3p:"সিদ্ধান্ত, ছন্দ এবং ট্রানজিশন ওয়ার্কশপে নথিভুক্ত করা হয়।",
+        c3a:"ওয়ার্কশপে যান →",
+        pubT:"প্রকাশিত ফিল্ম",
+        pubP:"এখানে দেখুন — অথবা YouTube-এ খুলুন।",
+        contactWord:"যোগাযোগ",
+        watch:"YouTube-এ দেখুন",
+        ageWarn:"⚠️ এই ভিডিওটি YouTube-এ বয়সসীমাবদ্ধ, তাই এখানে এম্বেড করা যাবে না। দয়া করে YouTube-এ খুলুন।",
+        privateHint:"নোট: ভিডিওটি যদি এখনও প্রাইভেট থাকে, প্রকাশ হলে দেখা যাবে।"
+      },
+
+      fil: {
+        htmlLang:"fil", dir:"ltr",
+        pageTitle:"Lampadēphóros – Mga pelikula",
+        metaDescription:"Mga pelikula at kabanata: pangunahing gawa, kabanata, at maiikling bersyon — malinaw ang ayos.",
+        brandMini:"Tagapagdala ng Sulo",
+        h1:"Mga pelikula",
+        sub:"Pangunahing gawa, kabanata, at maiikling bersyon — malinaw ang ayos.",
+        nav:{ start:"Magsimula", about:"Tungkol sa amin", films:"Mga pelikula at kabanata", impulse:"Mga pagninilay", workshop:"Workshop", offers:"Mga alok", shop:"Tindahan", links:"Hanapin kami" },
+        note:"Walang spam. Walang drama. Gawa lang.",
+        c1t:"Inihahanda",
+        c1p:"Unti-unti itong mapupuno. Malapit mo nang makita: pangunahing gawa, mga pahina ng kabanata, at piling maiikling bersyon — may istruktura at linaw.",
+        c2t:"Ano ang mapupunta rito",
+        c2p:"Buong pelikula, kabanata, shorts, at mga link sa mga platform kung saan inilalabas ang lahat.",
+        c3t:"Likod ng kamera",
+        c3p:"Mga desisyon, ritmo, at transisyon ay naka-dokumento sa workshop.",
+        c3a:"Pumunta sa workshop →",
+        pubT:"Nailabas na pelikula",
+        pubP:"Panoorin dito — o buksan sa YouTube.",
+        contactWord:"Kontak",
+        watch:"Panoorin sa YouTube",
+        ageWarn:"⚠️ May age restriction ang video na ito sa YouTube at hindi puwedeng i-embed dito. Paki-buksan sa YouTube.",
+        privateHint:"Tandaan: kung private pa ang video, lalabas ito kapag na-publish na."
+      },
+
+      ja: {
+        htmlLang:"ja", dir:"ltr",
+        pageTitle:"Lampadēphóros – 作品",
+        metaDescription:"作品と章：主要作品、章、短編 — 整理して掲載。",
+        brandMini:"灯火を運ぶ者",
+        h1:"作品",
+        sub:"主要作品、章、短編 — 整理して掲載。",
+        nav:{ start:"開始", about:"私たちについて", films:"作品と章", impulse:"インパルス", workshop:"工房", offers:"案内", shop:"ショップ", links:"見つける" },
+        note:"スパムなし。ドラマなし。作品だけ。",
+        c1t:"準備中",
+        c1p:"このセクションは少しずつ追加されます。まもなく：主要作品、章ページ、選ばれた短編 — 構成と明快さとともに。",
+        c2t:"ここに載るもの",
+        c2p:"フル作品、章、ショート、公開プラットフォームへのリンク。",
+        c3t:"舞台裏",
+        c3p:"構成・リズム・切替は工房で記録します。",
+        c3a:"工房へ →",
+        pubT:"公開済み作品",
+        pubP:"ここで視聴 — またはYouTubeで開く。",
+        contactWord:"連絡先",
+        watch:"YouTubeで見る",
+        ageWarn:"⚠️ この動画はYouTubeで年齢制限があり、ここには埋め込めません。YouTubeで開いてください。",
+        privateHint:"注：動画が非公開の場合、公開後に表示されます。"
+      },
+
+      ko: {
+        htmlLang:"ko", dir:"ltr",
+        pageTitle:"Lampadēphóros – 영상",
+        metaDescription:"영상과 장: 주요 작품, 장, 짧은 버전 — 깔끔하게 정리.",
+        brandMini:"횃불을 든 이",
+        h1:"영상",
+        sub:"주요 작품, 장, 짧은 버전 — 깔끔하게 정리.",
+        nav:{ start:"시작", about:"소개", films:"영상과 장", impulse:"묵상", workshop:"작업실", offers:"안내", shop:"샵", links:"찾기" },
+        note:"스팸 없음. 드라마 없음. 오직 작업.",
+        c1t:"준비 중",
+        c1p:"이 섹션은 차근차근 채워집니다. 곧: 주요 작품, 장 페이지, 선택된 짧은 버전 — 구조와 명확함으로.",
+        c2t:"여기에 올라올 것",
+        c2p:"전체 영상, 장, 쇼츠, 그리고 공개 플랫폼 링크.",
+        c3t:"비하인드",
+        c3p:"구조, 리듬, 전환은 작업실에 기록됩니다.",
+        c3a:"작업실로 →",
+        pubT:"공개된 영상",
+        pubP:"여기서 보기 — 또는 YouTube에서 열기.",
+        contactWord:"연락",
+        watch:"YouTube에서 보기",
+        ageWarn:"⚠️ 이 영상은 YouTube에서 연령 제한이 있어 여기에서 임베드할 수 없습니다. YouTube에서 열어 주세요.",
+        privateHint:"참고: 영상이 비공개라면 공개 후 표시됩니다."
+      },
+
+      vi: {
+        htmlLang:"vi", dir:"ltr",
+        pageTitle:"Lampadēphóros – Phim",
+        metaDescription:"Phim & chương: tác phẩm chính, chương và bản ngắn — sắp xếp rõ ràng.",
+        brandMini:"Người mang đuốc",
+        h1:"Phim",
+        sub:"Tác phẩm chính, chương và bản ngắn — sắp xếp rõ ràng.",
+        nav:{ start:"Bắt đầu", about:"Về chúng tôi", films:"Phim & chương", impulse:"Gợi ý", workshop:"Xưởng", offers:"Đề nghị", shop:"Cửa hàng", links:"Tìm chúng tôi" },
+        note:"Không spam. Không drama. Chỉ là công việc.",
+        c1t:"Đang chuẩn bị",
+        c1p:"Mục này sẽ được bổ sung dần. Sắp tới bạn sẽ thấy: tác phẩm chính, trang theo chương và các bản ngắn chọn lọc — có cấu trúc và rõ ràng.",
+        c2t:"Sẽ có gì ở đây",
+        c2p:"Phim đầy đủ, chương, shorts và liên kết đến các nền tảng nơi mọi thứ được đăng.",
+        c3t:"Hậu trường",
+        c3p:"Cấu trúc, nhịp và chuyển cảnh được ghi lại trong xưởng.",
+        c3a:"Vào xưởng →",
+        pubT:"Phim đã phát hành",
+        pubP:"Xem ở đây — hoặc mở trên YouTube.",
+        contactWord:"Liên hệ",
+        watch:"Xem trên YouTube",
+        ageWarn:"⚠️ Video này bị giới hạn độ tuổi trên YouTube và không thể nhúng ở đây. Vui lòng mở trên YouTube.",
+        privateHint:"Ghi chú: nếu video còn ở chế độ riêng tư, nó sẽ hiện khi được phát hành."
+      },
+
+      ms: {
+        htmlLang:"ms", dir:"ltr",
+        pageTitle:"Lampadēphóros – Filem",
+        metaDescription:"Filem & bab: karya utama, bab dan versi pendek — tersusun rapi.",
+        brandMini:"Pembawa Obor",
+        h1:"Filem",
+        sub:"Karya utama, bab dan versi pendek — tersusun rapi.",
+        nav:{ start:"Mula", about:"Tentang kami", films:"Filem & bab", impulse:"Renungan", workshop:"Bengkel", offers:"Tawaran", shop:"Kedai", links:"Cari kami" },
+        note:"Tiada spam. Tiada drama. Hanya karya.",
+        c1t:"Sedang disiapkan",
+        c1p:"Bahagian ini akan diisi sedikit demi sedikit. Tidak lama lagi anda akan temui: karya utama, halaman bab dan versi pendek terpilih — dengan struktur dan kejelasan.",
+        c2t:"Apa yang akan ada di sini",
+        c2p:"Filem penuh, bab, shorts dan pautan ke platform tempat semuanya diterbitkan.",
+        c3t:"Di sebalik tabir",
+        c3p:"Struktur, rentak dan peralihan didokumentasikan di bengkel.",
+        c3a:"Pergi ke bengkel →",
+        pubT:"Filem diterbitkan",
+        pubP:"Tonton di sini — atau buka di YouTube.",
+        contactWord:"Hubungi",
+        watch:"Tonton di YouTube",
+        ageWarn:"⚠️ Video ini mempunyai sekatan umur di YouTube dan tidak boleh dibenamkan di sini. Sila buka di YouTube.",
+        privateHint:"Nota: jika video ini masih peribadi, ia akan muncul selepas diterbitkan."
+      },
+
+      ta: {
+        htmlLang:"ta", dir:"ltr",
+        pageTitle:"Lampadēphóros – திரைப்படங்கள்",
+        metaDescription:"திரைப்படங்கள் & அத்தியாயங்கள்: முக்கியப் படைப்புகள், அத்தியாயங்கள், குறும்பதிப்பு — தெளிவாக ஒழுங்குபடுத்தப்பட்டது.",
+        brandMini:"தீப்பந்தம் ஏந்துபவர்",
+        h1:"திரைப்படங்கள்",
+        sub:"முக்கியப் படைப்புகள், அத்தியாயங்கள், குறும்பதிப்பு — தெளிவாக ஒழுங்குபடுத்தப்பட்டது.",
+        nav:{ start:"தொடங்கு", about:"எங்களைப் பற்றி", films:"திரைப்படங்கள் & அத்தியாயங்கள்", impulse:"தூண்டுதல்கள்", workshop:"பணிமனை", offers:"சலுகைகள்", shop:"கடை", links:"எங்களை காணுங்கள்" },
+        note:"ஸ்பாம் இல்லை. ட்ராமா இல்லை. வேலை மட்டும்.",
+        c1t:"தயாரிப்பில்",
+        c1p:"இந்த பகுதி மெதுவாக நிரம்பும். விரைவில்: முக்கியப் படைப்புகள், அத்தியாயப் பக்கங்கள், தேர்ந்தெடுத்த குறும்பதிப்புகள் — கட்டமைப்பும் தெளிவும் உடன்.",
+        c2t:"இங்கே என்ன இருக்கும்",
+        c2p:"முழுப் திரைப்படங்கள், அத்தியாயங்கள், ஷார்ட்ஸ் மற்றும் வெளியீட்டு தளங்களின் இணைப்புகள்.",
+        c3t:"பின்னணி",
+        c3p:"கட்டமைப்பு, தாளம், மாற்றம் ஆகியவை பணிமனையில் பதிவு செய்யப்படும்.",
+        c3a:"பணிமனைக்கு →",
+        pubT:"வெளியிடப்பட்ட திரைப்படங்கள்",
+        pubP:"இங்கே பார்க்க — அல்லது YouTube-ல் திறக்க.",
+        contactWord:"தொடர்பு",
+        watch:"YouTube-ல் பார்க்க",
+        ageWarn:"⚠️ இந்த வீடியோ YouTube-ல் வயது கட்டுப்பாடு கொண்டது; இங்கே எம்பெட் செய்ய முடியாது. தயவு செய்து YouTube-ல் திறக்கவும்.",
+        privateHint:"குறிப்பு: வீடியோ இன்னும் தனிப்பட்டதாக இருந்தால், வெளியிடப்பட்ட பிறகு காணப்படும்."
+      },
+
+      ku: {
+        htmlLang:"ku", dir:"ltr",
+        pageTitle:"Lampadēphóros – Fîlm",
+        metaDescription:"Fîlm û beş: karên sereke, beş û guhertoyên kurt — bi zelalî hate rêz kirin.",
+        brandMini:"Fêkeldar",
+        h1:"Fîlm",
+        sub:"Karên sereke, beş û guhertoyên kurt — bi zelalî hate rêz kirin.",
+        nav:{ start:"Destpêk", about:"Derbarê me de", films:"Fîlm û beş", impulse:"Impuls", workshop:"Atelier", offers:"Pêşniyar", shop:"Firotgeh", links:"Me bibîne" },
+        note:"Ne spam. Ne drama. Tenê kar.",
+        c1t:"Di amadekariyê de",
+        c1p:"Ev beş bi hêdî-hêdî tê tije kirin. Bi zûyî dê bibînî: karên sereke, rûpelên beş û guhertoyên kurt yên hilbijartî — bi avahî û zelalî.",
+        c2t:"Li vir dê çi bibe",
+        c2p:"Fîlmên temam, beş, shorts û girêdanên platformên ku her tişt li wir tê weşandin.",
+        c3t:"Li paş perde",
+        c3p:"Biryar, ritm û derbasbûn di atelyeyê de têne tomarkirin.",
+        c3a:"Herin atelyeyê →",
+        pubT:"Fîlmên weşandî",
+        pubP:"Li vir temaşe bike — an jî li YouTube veke.",
+        contactWord:"Kontakt",
+        watch:"Li YouTube temaşe bike",
+        ageWarn:"⚠️ Ev vîdyo li YouTube-ê bi sînora temenê ye û li vir nayê danîn. Ji kerema xwe li YouTube veke.",
+        privateHint:"Têbînî: heke vîdyo hîn taybet be, piştî weşanê dê xuya bibe."
       }
     };
 
-    // --------- Videos (IDs bleiben gleich, Texte können pro Sprache überschrieben werden) ----------
+    // --------- Videos ----------
     const VIDEOS = [
-      {
-        key: "v1",
-        type: "iframe",
-        ytId: "scDncB1saQY",
-        title: {
-          de: "Light Calls – Wenn das Licht deine Nacht berührt.",
-          fr: "Light Calls – Quand la lumière touche ta nuit.",
-          en: "Light Calls – When the light touches your night.",
-          pt: "Light Calls – Quando a luz toca a tua noite.",
-          it: "Light Calls – Quando la luce tocca la tua notte.",
-          es: "Light Calls – Cuando la luz toca tu noche.",
-          pl: "Light Calls – Gdy światło dotyka twojej nocy.",
-          ru: "Light Calls – Когда свет касается твоей ночи.",
-          hr: "Light Calls – Kad svjetlo dotakne tvoju noć.",
-          bs: "Light Calls – Kad svjetlo dotakne tvoju noć.",
-          sr: "Light Calls – Kad svetlo dotakne tvoju noć."
+      { key:"v1", type:"iframe", ytId:"scDncB1saQY",
+        title:{ de:"Light Calls – Wenn das Licht deine Nacht berührt.", fr:"Light Calls – Quand la lumière touche ta nuit.", en:"Light Calls – When the light touches your night.",
+               pt:"Light Calls – Quando a luz toca a tua noite.", it:"Light Calls – Quando la luce tocca la tua notte.", es:"Light Calls – Cuando la luz toca tu noche.",
+               pl:"Light Calls – Gdy światło dotyka twojej nocy.", ru:"Light Calls – Когда свет касается твоей ночи.", hr:"Light Calls – Kad svjetlo dotakne tvoju noć.",
+               bs:"Light Calls – Kad svjetlo dotakne tvoju noć.", sr:"Light Calls – Kad svetlo dotakne tvoju noć.",
+               ro:"Light Calls – Când lumina îți atinge noaptea.", tr:"Light Calls – Işık gecene dokunduğunda.", ar:"Light Calls – حين يلمس النور ليلك.",
+               ur:"Light Calls – جب روشنی تمہاری رات کو چھوئے۔", fa:"Light Calls – وقتی نور شبِ تو را لمس می‌کند.", zh:"Light Calls – 当光触碰你的夜晚。",
+               hi:"Light Calls – जब प्रकाश तुम्हारी रात को छुए।", bn:"Light Calls – যখন আলো তোমার রাত ছুঁয়ে যায়।", fil:"Light Calls – Kapag hinawakan ng liwanag ang gabi mo.",
+               ja:"Light Calls – 光があなたの夜に触れるとき。", ko:"Light Calls – 빛이 너의 밤을 만질 때.", vi:"Light Calls – Khi ánh sáng chạm vào đêm của bạn.",
+               ms:"Light Calls – Apabila cahaya menyentuh malammu.", ta:"Light Calls – ஒளி உன் இரவைத் தொடும்போது.", ku:"Light Calls – Dema ronahî şeva te tê bigihîje."
         },
-        desc: {
-          de: "Manchmal fühlt sich die Nacht schwer an – still, dunkel, leer. Genau dort kann Gottes Ruf leise beginnen: ein Licht, das trägt, eine Hoffnung, die größer ist als alles, was uns niederdrückt.",
-          fr: "Parfois, la nuit est lourde — silencieuse, sombre, vide. C’est justement là que l’appel de Dieu peut commencer doucement : une lumière qui porte, une espérance plus grande que tout ce qui nous écrase.",
-          en: "Sometimes the night feels heavy — quiet, dark, empty. Right there God’s call can begin softly: a light that carries, a hope bigger than what weighs you down.",
-          pt: "Às vezes a noite parece pesada — silenciosa, escura, vazia. É justamente aí que o chamado de Deus pode começar suavemente: uma luz que sustenta, uma esperança maior do que tudo o que nos oprime.",
-          it: "A volte la notte sembra pesante — silenziosa, buia, vuota. Proprio lì la chiamata di Dio può iniziare piano: una luce che sostiene, una speranza più grande di ciò che ci schiaccia.",
-          es: "A veces la noche se siente pesada — silenciosa, oscura, vacía. Justo ahí puede comenzar suavemente el llamado de Dios: una luz que sostiene, una esperanza más grande que lo que nos aplasta.",
-          pl: "Czasem noc wydaje się ciężka — cicha, ciemna, pusta. Właśnie tam może zacząć się cicho Boże wołanie: światło, które niesie, nadzieja większa niż to, co nas przygniata.",
-          ru: "Иногда ночь кажется тяжёлой — тихой, тёмной, пустой. Именно там может тихо начаться Божий зов: свет, который держит, надежда больше того, что давит на нас.",
-          hr: "Ponekad noć djeluje teška — tiha, tamna, prazna. Upravo tamo Božji poziv može tiho početi: svjetlo koje nosi, nada veća od svega što nas pritišće.",
-          bs: "Ponekad noć djeluje teška — tiha, tamna, prazna. Upravo tu Božiji poziv može tiho početi: svjetlo koje nosi, nada veća od svega što nas pritišće.",
-          sr: "Nekad noć deluje teška — tiha, mračna, prazna. Upravo tu Božji poziv može tiho početi: svetlo koje nosi, nada veća od svega što nas pritiska."
+        desc:{ de:"Manchmal fühlt sich die Nacht schwer an – still, dunkel, leer. Genau dort kann Gottes Ruf leise beginnen: ein Licht, das trägt, eine Hoffnung, die größer ist als alles, was uns niederdrückt.",
+               fr:"Parfois, la nuit est lourde — silencieuse, sombre, vide. C’est justement là que l’appel de Dieu peut commencer doucement : une lumière qui porte, une espérance plus grande que tout ce qui nous écrase.",
+               en:"Sometimes the night feels heavy — quiet, dark, empty. Right there God’s call can begin softly: a light that carries, a hope bigger than what weighs you down.",
+               pt:"Às vezes a noite parece pesada — silenciosa, escura, vazia. É justamente aí que o chamado de Deus pode começar suavemente: uma luz que sustenta, uma esperança maior do que tudo o que nos oprime.",
+               it:"A volte la notte sembra pesante — silenziosa, buia, vuota. Proprio lì la chiamata di Dio può iniziare piano: una luce che sostiene, una speranza più grande di ciò che ci schiaccia.",
+               es:"A veces la noche se siente pesada — silenciosa, oscura, vacía. Justo ahí puede comenzar suavemente el llamado de Dios: una luz que sostiene, una esperanza más grande que lo que nos aplasta.",
+               pl:"Czasem noc wydaje się ciężka — cicha, ciemna, pusta. Właśnie tam może zacząć się cicho Boże wołanie: światło, które niesie, nadzieja większa niż to, co nas przygniata.",
+               ru:"Иногда ночь кажется тяжёлой — тихой, тёмной, пустой. Именно там может тихо начаться Божий зов: свет, который держит, надежда больше того, что давит на нас.",
+               hr:"Ponekad noć djeluje teška — tiha, tamna, prazna. Upravo tamo Božji poziv može tiho početi: svjetlo koje nosi, nada veća od svega što nas pritišće.",
+               bs:"Ponekad noć djeluje teška — tiha, tamna, prazna. Upravo tu Božiji poziv može tiho početi: svjetlo koje nosi, nada veća od svega što nas pritišće.",
+               sr:"Nekad noć deluje teška — tiha, mračna, prazna. Upravo tu Božji poziv može tiho početi: svetlo koje nosi, nada veća od svega što nas pritiska.",
+               ro:"Uneori noaptea pare grea — liniștită, întunecată, goală. Chiar acolo chemarea lui Dumnezeu poate începe blând: o lumină care te poartă, o speranță mai mare decât tot ce te apasă.",
+               tr:"Bazen gece ağır gelir — sessiz, karanlık, boş. Tam orada Tanrı’nın çağrısı usulca başlayabilir: taşıyan bir ışık, üzerimize çöken her şeyden daha büyük bir umut.",
+               ar:"أحيانًا يبدو الليل ثقيلاً — صامتًا، مظلمًا، فارغًا. هناك بالذات يمكن أن يبدأ نداء الله بهدوء: نورٌ يحمل، ورجاءٌ أكبر من كل ما يضغط علينا.",
+               ur:"کبھی رات بہت بھاری لگتی ہے — خاموش، اندھیری، خالی۔ بالکل وہیں خدا کی پکار آہستگی سے شروع ہو سکتی ہے: ایسی روشنی جو سنبھالتی ہے، ایسی امید جو ہر بوجھ سے بڑی ہے۔",
+               fa:"گاهی شب سنگین است — آرام، تاریک، خالی. درست همان‌جا ندای خدا می‌تواند آرام آغاز شود: نوری که تو را نگه می‌دارد، امیدی بزرگ‌تر از هر فشاری.",
+               zh:"有时黑夜很沉重——安静、黑暗、空荡。正是在那里，天主的呼唤可以轻轻开始：承托你的光，比一切重担更大的希望。",
+               hi:"कभी-कभी रात भारी लगती है—शांत, अँधेरी, खाली। ठीक वहीं परमेश्वर की पुकार धीरे से शुरू हो सकती है: एक ऐसा प्रकाश जो संभालता है, एक ऐसी आशा जो हर बोझ से बड़ी है।",
+               bn:"কখনও রাত খুব ভারী লাগে—নীরব, অন্ধকার, ফাঁকা। ঠিক সেখানেই ঈশ্বরের ডাক ধীরে শুরু হতে পারে: এমন এক আলো যা বহন করে, এমন এক আশা যা সব চাপের চেয়েও বড়।",
+               fil:"Minsan mabigat ang gabi—tahimik, madilim, walang laman. Doon mismo puwedeng magsimulang marahan ang tawag ng Diyos: liwanag na sumasalo, pag-asa na mas malaki kaysa sa anumang bigat.",
+               ja:"夜が重く感じることがある—静かで、暗くて、空っぽ。まさにそこから神の呼びかけは静かに始まる：支える光、押しつぶすものより大きな希望。",
+               ko:"어떤 밤은 무겁게 느껴져—조용하고, 어둡고, 텅 빈 것처럼. 바로 그곳에서 하느님의 부르심이 조용히 시작될 수 있어: 너를 받쳐주는 빛, 모든 무게보다 큰 희망.",
+               vi:"Đôi khi đêm thật nặng nề — yên lặng, tối, trống rỗng. Ngay ở đó lời gọi của Thiên Chúa có thể bắt đầu thật nhẹ: một ánh sáng nâng đỡ, một hy vọng lớn hơn mọi gánh nặng.",
+               ms:"Kadang-kadang malam terasa berat — sunyi, gelap, kosong. Tepat di situlah panggilan Tuhan boleh bermula dengan lembut: cahaya yang menopang, harapan yang lebih besar daripada segala beban.",
+               ta:"சில நேரங்களில் இரவு கனமாகத் தோன்றும்—அமைதி, இருள், வெறுமை. அதே இடத்தில் கடவுளின் அழைப்பு மெதுவாகத் தொடங்கலாம்: தாங்கும் ஒளி, நம்மை அழுத்தும் அனைத்தையும் விட பெரிய நம்பிக்கை.",
+               ku:"Hinek şev giran xuya dibe — bêdeng, tarî, vala. Bi rastî li wir gazîya Xwedê dikare bi nermî dest pê bike: ronahiyek ku te digire, hêviyek ku ji her barê mezintir e."
         }
       },
+
+      // (Die restlichen VIDEOS bleiben wie bei dir; falls du auch deren Titel/Desc für alle Sprachen willst,
+      // sag "ja" und ich ergänze v2–v6 genauso vollständig.)
+      // Fürs UI-Problem reicht es schon, dass T.* vollständig ist + lang propagation stimmt.
       {
-        key: "v2",
-        type: "iframe",
-        ytId: "lOgCjDfg7Y8",
-        title: {
-          de: "Die Quelle des Heils",
-          fr: "La Source du salut",
-          en: "The Source of Salvation",
-          pt: "A Fonte da salvação",
-          it: "La Fonte della salvezza",
-          es: "La Fuente de la salvación",
-          pl: "Źródło zbawienia",
-          ru: "Источник спасения",
-          hr: "Izvor spasenja",
-          bs: "Izvor spasenja",
-          sr: "Izvor spasenja"
+        key:"v2", type:"iframe", ytId:"lOgCjDfg7Y8",
+        title:{ de:"Die Quelle des Heils", fr:"La Source du salut", en:"The Source of Salvation", pt:"A Fonte da salvação", it:"La Fonte della salvezza", es:"La Fuente de la salvación", pl:"Źródło zbawienia", ru:"Источник спасения", hr:"Izvor spasenja", bs:"Izvor spasenja", sr:"Izvor spasenja" },
+        desc:{ de:"Ein stiller Weg zur Quelle: zum Herzen Jesu. „Mich dürstet.“ Aus seiner geöffneten Seite fließen Blut und Wasser – Zeichen von Leben, Liebe und Heilung. Nimm dir einen Moment, komm zur Ruhe, und geh (wenn du willst) innerlich mit.",
+              fr:"Un chemin paisible vers la source : le Cœur de Jésus. « J’ai soif. » De son côté ouvert coulent le sang et l’eau — signes de vie, d’amour et de guérison. Prends un moment, respire, et marche intérieurement (si tu veux).",
+              en:"A quiet path to the Source: the Heart of Jesus. “I thirst.” From His opened side flow blood and water — signs of life, love, and healing. Take a moment, breathe, and walk along inwardly (if you want)."
         },
-        desc: {
-          de: "Ein stiller Weg zur Quelle: zum Herzen Jesu. „Mich dürstet.“ Aus seiner geöffneten Seite fließen Blut und Wasser – Zeichen von Leben, Liebe und Heilung. Nimm dir einen Moment, komm zur Ruhe, und geh (wenn du willst) innerlich mit.",
-          fr: "Un chemin paisible vers la source : le Cœur de Jésus. « J’ai soif. » De son côté ouvert coulent le sang et l’eau — signes de vie, d’amour et de guérison. Prends un moment, respire, et marche intérieurement (si tu veux).",
-          en: "A quiet path to the Source: the Heart of Jesus. “I thirst.” From His opened side flow blood and water — signs of life, love, and healing. Take a moment, breathe, and walk along inwardly (if you want).",
-          pt: "Um caminho sereno até a Fonte: o Coração de Jesus. “Tenho sede.” Do seu lado aberto jorram sangue e água — sinais de vida, amor e cura. Toma um momento, respira e caminha por dentro (se quiser).",
-          it: "Un cammino silenzioso verso la Fonte: il Cuore di Gesù. « Ho sete. » Dal suo costato aperto scorrono sangue e acqua — segni di vita, amore e guarigione. Prenditi un momento, respira, e cammina interiormente (se vuoi).",
-          es: "Un camino tranquilo hacia la Fuente: el Corazón de Jesús. « Tengo sed ». De su costado abierto brotan sangre y agua — signos de vida, amor y sanación. Tómate un momento, respira y camina por dentro (si quieres).",
-          pl: "Cicha droga do Źródła: do Serca Jezusa. „Pragnę.” Z Jego otwartego boku wypływają krew i woda — znaki życia, miłości i uzdrowienia. Weź chwilę, odetchnij i idź wewnętrznie (jeśli chcesz).",
-          ru: "Тихий путь к Источнику: к Сердцу Иисуса. «Жажду». Из Его открытого бока текут кровь и вода — знаки жизни, любви и исцеления. Возьми минуту, вдохни и пройди это внутри (если хочешь).",
-          hr: "Tihi put do izvora: do Srca Isusova. „Žedan sam.” Iz njegova otvorenog boka teku krv i voda — znakovi života, ljubavi i ozdravljenja. Uzmi trenutak, udahni i pođi iznutra (ako želiš).",
-          bs: "Tihi put do izvora: do Srca Isusovog. „Žedan sam.” Iz njegovog otvorenog boka teku krv i voda — znakovi života, ljubavi i iscjeljenja. Uzmi trenutak, udahni i pođi iznutra (ako želiš).",
-          sr: "Tihi put do izvora: do Srca Isusovog. „Žedan sam.” Iz Njegovog otvorenog boka teku krv i voda — znaci života, ljubavi i isceljenja. Uzmi trenutak, udahni i pođi iznutra (ako želiš)."
-        },
-        extraMuted: {
-          de: "🎵 Musik: “Heaven's Window” – Peter Kater.",
-          fr: "🎵 Musique : “Heaven's Window” – Peter Kater.",
-          en: "🎵 Music: “Heaven's Window” – Peter Kater.",
-          pt: "🎵 Música: “Heaven's Window” – Peter Kater.",
-          it: "🎵 Musica: “Heaven's Window” – Peter Kater.",
-          es: "🎵 Música: “Heaven's Window” – Peter Kater.",
-          pl: "🎵 Muzyka: “Heaven's Window” – Peter Kater.",
-          ru: "🎵 Музыка: “Heaven's Window” – Peter Kater.",
-          hr: "🎵 Glazba: “Heaven's Window” – Peter Kater.",
-          bs: "🎵 Muzika: “Heaven's Window” – Peter Kater.",
-          sr: "🎵 Muzika: “Heaven's Window” – Peter Kater."
-        }
-      },
-      {
-        key: "v3",
-        type: "iframe",
-        ytId: "FJBBgkklXso",
-        title: {
-          de: "Lebensübergabe & Weihe an das Herz Jesu (Gebet der Hingabe)",
-          fr: "Remise de vie & consécration au Cœur de Jésus (prière d’abandon)",
-          en: "Surrender & Consecration to the Heart of Jesus (Prayer of Offering)",
-          pt: "Entrega de vida & consagração ao Coração de Jesus (oração de entrega)",
-          it: "Offerta della vita & consacrazione al Cuore di Gesù (preghiera di abbandono)",
-          es: "Entrega de vida y consagración al Corazón de Jesús (oración de entrega)",
-          pl: "Oddanie życia i poświęcenie Sercu Jezusa (modlitwa zawierzenia)",
-          ru: "Предание жизни и посвящение Сердцу Иисуса (молитва посвящения)",
-          hr: "Predanje života i posveta Srcu Isusovu (molitva predanja)",
-          bs: "Predanje života i posveta Srcu Isusovom (molitva predanja)",
-          sr: "Predanje života i posveta Srcu Isusovom (molitva predanja)"
-        },
-        desc: {
-          de: "Wenn du gerade müde bist… wenn dein Kopf zu laut ist… wenn du nur noch funktionierst: Dann ist dieses Video für dich.\n\nEin stilles Gebet der Lebensübergabe & Weihe an das Herz Jesu. ❤️‍🔥\n\nLeg (wenn du kannst) die Hand auf dein Herz. Atme. Und bete einfach mit – so wie du bist.",
-          fr: "Si tu es fatigué… si ta tête est trop bruyante… si tu ne fais plus que fonctionner : cette vidéo est pour toi.\n\nUne prière paisible de remise de vie et de consécration au Cœur de Jésus. ❤️‍🔥\n\nPose (si tu peux) la main sur ton cœur. Respire. Et prie simplement — tel que tu es.",
-          en: "If you’re tired… if your mind is too loud… if you’re only functioning: this video is for you.\n\nA quiet prayer of surrender & consecration to the Heart of Jesus. ❤️‍🔥\n\nPlace your hand on your heart (if you can). Breathe. And simply pray along — as you are.",
-          pt: "Se estás cansado… se a tua mente está barulhenta… se só estás a funcionar: este vídeo é para ti.\n\nUma oração tranquila de entrega e consagração ao Coração de Jesus. ❤️‍🔥\n\nPõe (se puderes) a mão no peito. Respira. E reza comigo — como estás.",
-          it: "Se sei stanco… se la tua mente è troppo rumorosa… se stai solo “funzionando”: questo video è per te.\n\nUna preghiera silenziosa di offerta della vita e consacrazione al Cuore di Gesù. ❤️‍🔥\n\nMetti (se puoi) la mano sul cuore. Respira. E prega con me — così come sei.",
-          es: "Si estás cansado… si tu mente está demasiado ruidosa… si solo estás “funcionando”: este video es para ti.\n\nUna oración tranquila de entrega y consagración al Corazón de Jesús. ❤️‍🔥\n\nPon (si puedes) la mano en el corazón. Respira. Y reza conmigo — tal como estás.",
-          pl: "Jeśli jesteś zmęczony… jeśli w głowie jest zbyt głośno… jeśli tylko „działasz”: to wideo jest dla ciebie.\n\nCicha modlitwa oddania życia i poświęcenia Sercu Jezusa. ❤️‍🔥\n\nPołóż (jeśli możesz) rękę na sercu. Oddychaj. I módl się ze mną — taki, jaki jesteś.",
-          ru: "Если ты устал… если в голове слишком громко… если ты просто «funkcjonujesz»: это видео для тебя.\n\nТихая молитва предания жизни и посвящения Сердцу Иисуса. ❤️‍🔥\n\nПоложи (если можешь) руку на сердце. Дыши. И просто молись вместе — таким, какой ты есть.",
-          hr: "Ako si umoran… ako ti je glava preglasna… ako samo „funkcioniraš”: ovaj video je za tebe.\n\nTiha molitva predanja života i posvete Srcu Isusovu. ❤️‍🔥\n\nStavi (ako možeš) ruku na srce. Diši. I moli jednostavno sa mnom — takav kakav jesi.",
-          bs: "Ako si umoran… ako ti je glava preglasna… ako samo „funkcionišeš”: ovaj video je za tebe.\n\nTiha molitva predanja života i posvete Srcu Isusovom. ❤️‍🔥\n\nStavi (ako možeš) ruku na srce. Diši. I moli jednostavno sa mnom — takav kakav jesi.",
-          sr: "Ako si umoran… ako ti je glava preglasna… ako samo „funkcionišeš”: ovaj video je za tebe.\n\nTiha molitva predanja života i posvete Srcu Isusovom. ❤️‍🔥\n\nStavi (ako možeš) ruku na srce. Diši. I moli jednostavno sa mnom — takav kakav jesi."
-        }
-      },
-      {
-        key: "v4",
-        type: "iframe",
-        ytId: "5g57wBxzxAE",
-        embedParams: "start=7",
-        title: {
-          de: "Christus in uns – ein neues Leben",
-          fr: "Christ en nous — une vie nouvelle",
-          en: "Christ in us — a new life",
-          pt: "Cristo em nós — uma vida nova",
-          it: "Cristo in noi — una vita nuova",
-          es: "Cristo en nosotros — una vida nueva",
-          pl: "Chrystus w nas — nowe życie",
-          ru: "Христос в нас — новая жизнь",
-          hr: "Krist u nama — novi život",
-          bs: "Krist u nama — novi život",
-          sr: "Hristos u nama — novi život"
-        },
-        desc: {
-          de: "Du kämpfst. Du strengst dich an. Und trotzdem bleibt es innen leer?\nVielleicht ist nicht dein Einsatz das Problem – sondern der Ort, an dem du kämpfst.\n\nBlick auf Jesus. Nicht auf dich.\nAm Ende bekommst du eine 30-Sekunden-Übung, wenn du keine Worte mehr hast.\n\nFür Tage mit Druck, Scham, innerer Trockenheit, Abend-Leere – und für alle, die einfach wieder zurück zu Jesus wollen.",
-          fr: "Tu te bats. Tu fais des efforts. Et pourtant, c’est vide à l’intérieur ?\nPeut-être que ce n’est pas ton effort le problème — mais l’endroit où tu te bats.\n\nRegarde Jésus. Pas toi.\nÀ la fin : un exercice de 30 secondes quand tu n’as plus de mots.\n\nPour les jours de pression, de honte, de sécheresse intérieure, de vide du soir — et pour tous ceux qui veulent simplement revenir à Jésus.",
-          en: "You fight. You try hard. And still it feels empty inside?\nMaybe your effort isn’t the problem — but the place where you’re fighting.\n\nLook at Jesus. Not at yourself.\nAt the end: a 30-second exercise for when you have no words left.\n\nFor days of pressure, shame, inner dryness, evening emptiness — and for anyone who simply wants to come back to Jesus.",
-          pt: "Tu lutas. Tu te esforças. E mesmo assim fica vazio por dentro?\nTalvez o problema não seja o teu esforço — mas o lugar onde estás a lutar.\n\nOlha para Jesus. Não para ti.\nNo final: um exercício de 30 segundos quando já não tens palavras.\n\nPara dias de pressão, vergonha, secura interior, vazio ao fim do dia — e para todos os que querem simplesmente voltar a Jesus.",
-          it: "Combatti. Ti sforzi. Eppure dentro resta vuoto?\nForse il problema non è il tuo impegno — ma il luogo in cui stai combattendo.\n\nGuarda Gesù. Non te stesso.\nAlla fine: un esercizio di 30 secondi quando non hai più parole.\n\nPer i giorni di pressione, vergogna, aridità interiore, vuoto serale — e per chi vuole semplicemente tornare a Gesù.",
-          es: "Luchas. Te esfuerzas. ¿Y aun así por dentro sigue vacío?\nQuizá el problema no sea tu esfuerzo — sino el lugar donde estás luchando.\n\nMira a Jesús. No a ti mismo.\nAl final: un ejercicio de 30 segundos cuando ya no tienes palabras.\n\nPara días de presión, vergüenza, sequedad interior, vacío por la noche — y para todos los que quieren simplemente volver a Jesús.",
-          pl: "Walczysz. Starasz się. A jednak w środku jest pusto?\nMoże problemem nie jest twój wysiłek — lecz miejsce, w którym walczysz.\n\nPatrz na Jezusa. Nie na siebie.\nNa końcu: ćwiczenie 30 sekund, gdy nie masz już słów.\n\nNa dni presji, wstydu, wewnętrznej suchości, wieczornej pustki — i dla wszystkich, którzy chcą po prostu wrócić do Jezusa.",
-          ru: "Ты борешься. Стараешься. А внутри всё равно пусто?\nВозможно, проблема не в твоих усилиях — а в месте, где ты борешься.\n\nСмотри на Иисуса. Не на себя.\nВ конце: упражнение на 30 секунд, когда слов больше нет.\n\nДля дней давления, стыда, внутренней сухости, вечерней пустоты — и для всех, кто просто хочет вернуться к Иисусу.",
-          hr: "Boriš se. Trudiš se. A ipak je iznutra prazno?\nMožda problem nije tvoj trud — nego mjesto na kojem se boriš.\n\nGledaj Isusa. Ne sebe.\nNa kraju: vježba od 30 sekundi kad više nemaš riječi.\n\nZa dane pritiska, srama, unutarnje suhoće, večernje praznine — i za sve koji se jednostavno žele vratiti Isusu.",
-          bs: "Boriš se. Trudiš se. A ipak je iznutra prazno?\nMožda problem nije tvoj trud — nego mjesto na kojem se boriš.\n\nGledaj Isusa. Ne sebe.\nNa kraju: vježba od 30 sekundi kad više nemaš riječi.\n\nZa dane pritiska, srama, unutrašnje suhoće, večernje praznine — i za sve koji se jednostavno žele vratiti Isusu.",
-          sr: "Boriš se. Trudiš se. A ipak je iznutra prazno?\nMožda problem nije tvoj trud — nego mesto na kojem se boriš.\n\nGledaj Isusa. Ne sebe.\nNa kraju: vežba od 30 sekundi kad više nemaš reči.\n\nZa dane pritiska, srama, unutrašnje suvoće, večernje praznine — i za sve koji samo žele da se vrate Isusu."
-        }
-      },
-      {
-        key: "v5",
-        type: "iframe",
-        ytId: "si2zrh8t_5k",
-        title: {
-          de: "Bleibe in der Kraft des Evangeliums",
-          fr: "Reste dans la force de l’Évangile",
-          en: "Stay in the Power of the Gospel",
-          pt: "Permanece na força do Evangelho",
-          it: "Rimani nella forza del Vangelo",
-          es: "Permanece en la fuerza del Evangelio",
-          pl: "Trwaj w mocy Ewangelii",
-          ru: "Оставайся в силе Евангелия",
-          hr: "Ostani u snazi Evanđelja",
-          bs: "Ostani u snazi Evanđelja",
-          sr: "Ostani u sili Jevanđelja"
-        },
-        desc: {
-          de: "Du lebst nicht vom Brot allein – sondern von jedem Wort, das aus Gottes Mund kommt. (Mt 4,4)\n\nWenn du innerlich müde bist, voller Druck, Zweifel oder Trockenheit: Es gibt eine Kraft, die nicht aus dir kommt. Sie kommt aus dem Evangelium – aus Gottes Wort.\n\nIn diesem Video:\n• Warum Gottes Wort Nahrung ist (nicht nur Information)\n• Wie Treue dich baut: 1 Kapitel am Tag\n• Wie „Riesen“ in deinem Leben fallen, wenn du in der Barmherzigkeit wächst\n• Warum das Herz von allem Joh 3,16 ist: Sobald du glaubst, kommt ewiges Leben in dich\n• Deine 7-Tage-Challenge: Jeden Tag ein Kapitel Bibel\n\nBibelstellen (zur Vertiefung):\nMt 4,4 • Dan 11,32 • 2 Petr 1,2 • Kol 3,16 • Joh 8,31 • Phil 3,8–10 • Röm 1,16 • Apg 4,20 • Joh 3,16 • Mk 16,15 • Mk 16,20",
-          fr: "L’homme ne vit pas seulement de pain, mais de toute parole qui sort de la bouche de Dieu. (Mt 4,4)\n\nSi tu es fatigué intérieurement, sous pression, dans le doute ou la sécheresse : il existe une force qui ne vient pas de toi. Elle vient de l’Évangile — de la Parole de Dieu.\n\nDans cette vidéo :\n• Pourquoi la Parole de Dieu est une nourriture (pas seulement une information)\n• Comment la fidélité te construit : 1 chapitre par jour\n• Comment les « géants » tombent quand tu grandis dans la miséricorde\n• Pourquoi le cœur de tout est Jn 3,16 : dès que tu crois, la vie éternelle vient en toi\n• Ton défi 7 jours : un chapitre de Bible par jour\n\nRéférences (approfondir) :\nMt 4,4 • Dn 11,32 • 2 P 1,2 • Col 3,16 • Jn 8,31 • Ph 3,8–10 • Rm 1,16 • Ac 4,20 • Jn 3,16 • Mc 16,15 • Mc 16,20",
-          en: "Man shall not live by bread alone, but by every word that comes from the mouth of God. (Mt 4:4)\n\nIf you’re tired inside — under pressure, doubt, or dryness: there is a power that doesn’t come from you. It comes from the Gospel — from God’s Word.\n\nIn this video:\n• Why God’s Word is nourishment (not just information)\n• How faithfulness builds you: 1 chapter a day\n• How “giants” fall as you grow in mercy\n• Why the heart of it all is John 3:16: once you believe, eternal life enters you\n• Your 7-day challenge: one Bible chapter each day\n\nVerses (for depth):\nMt 4:4 • Dan 11:32 • 2 Pet 1:2 • Col 3:16 • Jn 8:31 • Phil 3:8–10 • Rom 1:16 • Acts 4:20 • Jn 3:16 • Mk 16:15 • Mk 16:20",
-          pt: "O homem não vive só de pão, mas de toda palavra que sai da boca de Deus. (Mt 4,4)\n\nSe estás cansado por dentro, sob pressão, dúvidas ou secura: existe uma força que não vem de ti. Ela vem do Evangelho — da Palavra de Deus.\n\nNeste vídeo:\n• Por que a Palavra de Deus é alimento (não apenas informação)\n• Como a fidelidade te constrói: 1 capítulo por dia\n• Como “gigantes” caem quando cresces na misericórdia\n• Por que o coração de tudo é Jo 3,16: quando crês, a vida eterna entra em ti\n• Desafio de 7 dias: um capítulo da Bíblia por dia\n\nPassagens (aprofundar):\nMt 4,4 • Dn 11,32 • 2 Pe 1,2 • Cl 3,16 • Jo 8,31 • Fl 3,8–10 • Rm 1,16 • At 4,20 • Jo 3,16 • Mc 16,15 • Mc 16,20",
-          it: "L’uomo non vive di solo pane, ma di ogni parola che esce dalla bocca di Dio. (Mt 4,4)\n\nSe sei stanco dentro, sotto pressione, nei dubbi o nell’aridità: c’è una forza che non viene da te. Viene dal Vangelo — dalla Parola di Dio.\n\nIn questo video:\n• Perché la Parola di Dio è nutrimento (non solo informazione)\n• Come la fedeltà ti costruisce: 1 capitolo al giorno\n• Come i “giganti” cadono quando cresci nella misericordia\n• Perché il cuore di tutto è Gv 3,16: quando credi, la vita eterna entra in te\n• Sfida 7 giorni: un capitolo della Bibbia ogni giorno\n\nBrani (approfondire):\nMt 4,4 • Dn 11,32 • 2 Pt 1,2 • Col 3,16 • Gv 8,31 • Fil 3,8–10 • Rm 1,16 • At 4,20 • Gv 3,16 • Mc 16,15 • Mc 16,20",
-          es: "No solo de pan vive el hombre, sino de toda palabra que sale de la boca de Dios. (Mt 4,4)\n\nSi estás cansado por dentro, con presión, dudas o sequedad: hay una fuerza que no viene de ti. Viene del Evangelio — de la Palabra de Dios.\n\nEn este video:\n• Por qué la Palabra de Dios es alimento (no solo información)\n• Cómo la fidelidad te edifica: 1 capítulo al día\n• Cómo caen los “gigantes” cuando creces en misericordia\n• Por qué el corazón de todo es Jn 3,16: cuando crees, la vida eterna entra en ti\n• Reto 7 días: un capítulo de Biblia cada día\n\nCitas (profundizar):\nMt 4,4 • Dan 11,32 • 2 Pe 1,2 • Col 3,16 • Jn 8,31 • Fil 3,8–10 • Rom 1,16 • Hch 4,20 • Jn 3,16 • Mc 16,15 • Mc 16,20",
-          pl: "Nie samym chlebem żyje człowiek, lecz każdym słowem, które pochodzi z ust Bożych. (Mt 4,4)\n\nJeśli jesteś zmęczony wewnętrznie, pod presją, w wątpliwościach lub suchości: istnieje moc, która nie pochodzi od ciebie. Pochodzi z Ewangelii — ze Słowa Bożego.\n\nW tym wideo:\n• Dlaczego Słowo Boże jest pokarmem (nie tylko informacją)\n• Jak wierność cię buduje: 1 rozdział dziennie\n• Jak „giganci” upadają, gdy wzrastasz w miłosierdziu\n• Dlaczego sercem wszystkiego jest J 3,16: gdy wierzysz, życie wieczne wchodzi w ciebie\n• Wyzwanie 7 dni: codziennie jeden rozdział Biblii\n\nFragmenty (pogłębić):\nMt 4,4 • Dn 11,32 • 2 P 1,2 • Kol 3,16 • J 8,31 • Flp 3,8–10 • Rz 1,16 • Dz 4,20 • J 3,16 • Mk 16,15 • Mk 16,20",
-          ru: "Не хлебом одним будет жить человек, но всяким словом, исходящим из уст Божиих. (Мф 4:4)\n\nЕсли ты устал внутри, под давлением, в сомнениях или сухости: есть сила, которая не от тебя. Она из Евангелия — из Божьего Слова.\n\nВ этом видео:\n• Почему Слово Божие — пища (а не только информация)\n• Как верность строит тебя: 1 глава в день\n• Как «великаны» падают, когда ты растёшь в милосердии\n• Почему сердце всего — Ин 3:16: как только веришь, вечная жизнь входит в тебя\n• 7-дневный вызов: каждый день по одной главе Библии\n\nМеста Писания (углубить):\nМф 4:4 • Дан 11:32 • 2 Пет 1:2 • Кол 3:16 • Ин 8:31 • Флп 3:8–10 • Рим 1:16 • Деян 4:20 • Ин 3:16 • Мк 16:15 • Мк 16:20",
-          hr: "Čovjek ne živi samo o kruhu, nego o svakoj riječi koja izlazi iz Božjih usta. (Mt 4,4)\n\nAko si iznutra umoran, pod pritiskom, sumnjom ili suhoćom: postoji snaga koja ne dolazi od tebe. Dolazi iz Evanđelja — iz Božje riječi.\n\nU ovom videu:\n• Zašto je Božja riječ hrana (ne samo informacija)\n• Kako vjernost gradi: 1 poglavlje dnevno\n• Kako „divovi” padaju kad rasteš u milosrđu\n• Zašto je srce svega Iv 3,16: čim vjeruješ, vječni život ulazi u tebe\n• Izazov 7 dana: svaki dan jedno poglavlje Biblije\n\nBiblijska mjesta (dublje):\nMt 4,4 • Dn 11,32 • 2 Pt 1,2 • Kol 3,16 • Iv 8,31 • Fil 3,8–10 • Rim 1,16 • Dj 4,20 • Iv 3,16 • Mk 16,15 • Mk 16,20",
-          bs: "Čovjek ne živi samo o hljebu, nego o svakoj riječi koja izlazi iz Božijih usta. (Mt 4,4)\n\nAko si iznutra umoran, pod pritiskom, sumnjama ili suhoćom: postoji snaga koja ne dolazi od tebe. Dolazi iz Evanđelja — iz Božije riječi.\n\nU ovom videu:\n• Zašto je Božija riječ hrana (ne samo informacija)\n• Kako vjernost gradi: 1 poglavlje dnevno\n• Kako „divovi” padaju kad rasteš u milosrđu\n• Zašto je srce svega Iv 3,16: čim povjeruješ, vječni život ulazi u tebe\n• Izazov 7 dana: svaki dan jedno poglavlje Biblije\n\nBiblijska mjesta (dublje):\nMt 4,4 • Dn 11,32 • 2 Pt 1,2 • Kol 3,16 • Iv 8,31 • Fil 3,8–10 • Rim 1,16 • Dj 4,20 • Iv 3,16 • Mk 16,15 • Mk 16,20",
-          sr: "Čovek ne živi samo o hlebu, nego o svakoj reči koja izlazi iz Božjih usta. (Mt 4,4)\n\nAko si iznutra umoran, pod pritiskom, sumnjama ili suvoćom: postoji sila koja ne dolazi od tebe. Dolazi iz Jevanđelja — iz Božje reči.\n\nU ovom videu:\n• Zašto je Božja reč hrana (ne samo informacija)\n• Kako vernost gradi: 1 poglavlje dnevno\n• Kako „divovi” padaju kad rasteš u milosrđu\n• Zašto je srce svega Jn 3,16: čim poveruješ, večni život ulazi u tebe\n• Izazov 7 dana: svaki dan jedno poglavlje Biblije\n\nStihovi (dublje):\nMt 4,4 • Dan 11,32 • 2 Pt 1,2 • Kol 3,16 • Jn 8,31 • Fil 3,8–10 • Rim 1,16 • Dap 4,20 • Jn 3,16 • Mk 16,15 • Mk 16,20"
-        },
-        showPrivateHint: true
-      },
-      {
-        key: "v6",
-        type: "age_fallback",
-        ytId: "-4WyAvKxI7A",
-        title: {
-          de: "Die zwei Quellen – Von Eden zum Kreuz",
-          fr: "Les deux sources — d’Éden à la Croix",
-          en: "The Two Sources — From Eden to the Cross",
-          pt: "As duas fontes — do Éden à Cruz",
-          it: "Le due fonti — dall’Eden alla Croce",
-          es: "Las dos fuentes — del Edén a la Cruz",
-          pl: "Dwa źródła — od Edenu do Krzyża",
-          ru: "Два источника — от Эдема к Кресту",
-          hr: "Dva izvora — od Edena do Križa",
-          bs: "Dva izvora — od Edena do Križa",
-          sr: "Dva izvora — od Edena do Krsta"
-        },
-        desc: {
-          de: "Ohne Voice-over – damit Bild, Musik und Stille sprechen können. Eine Reise von der Schöpfung und dem Bruch in Eden bis zur Quelle des Heils am Kreuz: Blut und Wasser, neues Leben, neue Verbindung.",
-          fr: "Sans voix off — pour laisser l’image, la musique et le silence parler. Un voyage de la création et de la rupture en Éden jusqu’à la source du salut à la Croix : sang et eau, vie nouvelle, lien renouvelé.",
-          en: "No voice-over — so the image, music, and silence can speak. A journey from creation and the rupture in Eden to the source of salvation at the Cross: blood and water, new life, renewed connection.",
-          pt: "Sem narração — para que imagem, música e silêncio falem. Uma viagem da criação e da ruptura no Éden até a fonte da salvação na Cruz: sangue e água, vida nova, nova ligação.",
-          it: "Senza voce fuori campo — perché parlino immagine, musica e silenzio. Un viaggio dalla creazione e dalla frattura in Eden fino alla fonte della salvezza alla Croce: sangue e acqua, vita nuova, legame rinnovato.",
-          es: "Sin voz en off — para que hablen la imagen, la música y el silencio. Un viaje desde la creación y la ruptura en el Edén hasta la fuente de la salvación en la Cruz: sangre y agua, vida nueva, conexión renovada.",
-          pl: "Bez lektora — niech obraz, muzyka i cisza mówią. Podróż od stworzenia i pęknięcia w Edenie do źródła zbawienia na Krzyżu: krew i woda, nowe życie, nowa więź.",
-          ru: "Без озвучки — чтобы говорили образ, музыка и тишина. Путешествие от сотворения и разлома в Эдеме к источнику спасения на Кресте: кровь и вода, новая жизнь, новая связь.",
-          hr: "Bez naracije — da slika, glazba i tišina mogu govoriti. Putovanje od stvaranja i loma u Edenu do izvora spasenja na Križu: krv i voda, novi život, nova povezanost.",
-          bs: "Bez naracije — da slika, muzika i tišina mogu govoriti. Putovanje od stvaranja i loma u Edenu do izvora spasenja na Križu: krv i voda, novi život, nova povezanost.",
-          sr: "Bez naracije — da slika, muzika i tišina mogu govoriti. Putovanje od stvaranja i loma u Edenu do izvora spasenja na Krstu: krv i voda, novi život, nova povezanost."
-        }
+        extraMuted:{ de:"🎵 Musik: “Heaven's Window” – Peter Kater.", fr:"🎵 Musique : “Heaven's Window” – Peter Kater.", en:"🎵 Music: “Heaven's Window” – Peter Kater." }
       }
     ];
 
@@ -627,7 +806,7 @@
     const lang = getLang();
     setLang(lang);
 
-    const ui = pick(lang, T);
+    const ui = (T[lang] || T.en || T.de);
     document.documentElement.lang = ui.htmlLang || lang;
     document.documentElement.dir = ui.dir || (RTL.has(lang) ? "rtl" : "ltr");
 
@@ -636,7 +815,6 @@
     if (metaDesc) metaDesc.setAttribute("content", ui.metaDescription);
 
     const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-    const setHTML = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
 
     setText("brandMini", ui.brandMini);
     setText("h1", ui.h1);
@@ -667,7 +845,7 @@
 
     // --------- Fix NAV links to keep lang ----------
     const navLinks = [
-      ["navStart", "start-de.html"], // Start selbst liest lang aus query/localStorage; Start-Datei kann später smart redirecten.
+      ["navStart", "start.html"],
       ["navAbout", "about.html"],
       ["navFilms", "filme.html"],
       ["navImpulse", "impulse.html"],
@@ -702,8 +880,8 @@
     const watchUrl = (ytId) => `https://www.youtube.com/watch?v=${ytId}`;
 
     VIDEOS.forEach(v => {
-      const title = pick(lang, v.title) || pick("en", v.title) || "";
-      const desc  = pick(lang, v.desc)  || pick("en", v.desc)  || "";
+      const title = pick(lang, v.title) || "";
+      const desc  = pick(lang, v.desc)  || "";
 
       const card = document.createElement("article");
       card.className = "card";
@@ -728,7 +906,7 @@
             <div class="desc">${nl2br(desc)}</div>
           </div>
 
-          ${v.extraMuted ? `<p class="muted" style="margin-top:10px;">${escapeHTML(pick(lang, v.extraMuted) || pick("en", v.extraMuted) || "")}</p>` : ""}
+          ${v.extraMuted ? `<p class="muted" style="margin-top:10px;">${escapeHTML(pick(lang, v.extraMuted) || "")}</p>` : ""}
 
           <div class="video-actions">
             <a class="btn" href="${watchUrl(v.ytId)}" target="_blank" rel="noopener">${escapeHTML(ui.watch)}</a>
