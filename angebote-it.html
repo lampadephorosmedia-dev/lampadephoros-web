@@ -1,8 +1,23 @@
-<!-- FILE: filme-fr.html -->
-<!doctype html><html lang="fr"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="refresh" content="0; url=filme.html?lang=fr">
-<script>window.location.replace("filme.html?lang=fr");</script>
-<title>Redirection…</title></head><body>
-<p>Redirection… <a href="filme.html?lang=fr">Continuer</a></p>
-</body></html>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reindirizzamento…</title>
+
+  <!-- Sofort-Redirect (Fallback, falls JS blockiert ist) -->
+  <meta http-equiv="refresh" content="0; url=angebote.html?lang=it" />
+
+  <script>
+    // JS-Redirect (behält ggf. zusätzliche Query-Parameter bei)
+    (function () {
+      const base = "angebote.html?lang=it";
+      const extra = location.search ? "&" + location.search.replace(/^\?/, "") : "";
+      location.replace(base + extra);
+    })();
+  </script>
+</head>
+<body>
+  <p>Reindirizzamento… <a href="angebote.html?lang=it">Clicca qui</a></p>
+</body>
+</html>
