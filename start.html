@@ -1,4 +1,4 @@
-<!-- FILE: start.html -->
+<!-- FILE: start.html --> 
 <!doctype html>
 <html lang="de">
 <head>
@@ -133,12 +133,13 @@
       }
     }
 
-    // persist
+    // persist (wichtig: beide Keys setzen!)
     try { localStorage.setItem("lamp_lang", lang); } catch(e){}
+    try { localStorage.setItem("lp_lang",   lang); } catch(e){}
 
     // document direction
     const curObj = (window.LANGS || []).find(x => x.code === lang);
-    const dir = curObj?.dir || "ltr";
+    const dir = (curObj && curObj.dir) ? curObj.dir : "ltr";
     document.documentElement.setAttribute("dir", dir);
     document.documentElement.setAttribute("lang", lang);
 
@@ -167,13 +168,11 @@
     document.getElementById("navShop").textContent = nav.shop || "Shop";
     document.getElementById("navLinks").textContent = nav.links || "Links";
 
-    document.getElementById("navStart").setAttribute("href", `start.html?lang=${encodeURIComponent(lang)}`);
-
     const c = dict.cards || {};
     const setCard = (key, hId, pId, aId) => {
-      document.getElementById(hId).textContent = c[key]?.h || "";
-      document.getElementById(pId).textContent = c[key]?.p || "";
-      document.getElementById(aId).textContent = c[key]?.a || "";
+      document.getElementById(hId).textContent = (c[key] && c[key].h) ? c[key].h : "";
+      document.getElementById(pId).textContent = (c[key] && c[key].p) ? c[key].p : "";
+      document.getElementById(aId).textContent = (c[key] && c[key].a) ? c[key].a : "";
     };
     setCard("about",    "cAboutH",  "cAboutP",  "cAboutA");
     setCard("films",    "cFilmsH",  "cFilmsP",  "cFilmsA");
@@ -186,6 +185,42 @@
     document.getElementById("fContact").textContent = f.contact || "Kontakt:";
     document.getElementById("vVisitors").textContent = f.visitors || "Besucher";
     document.getElementById("vTotal").textContent = f.total || "Gesamt";
+
+    // --- helper: internal links keep lang (und Cloudflare-Pages clean routes) ---
+    const withLang = (href) => {
+      if (!href) return href;
+
+      // don't touch anchors / external / mailto / tel
+      if (href.startsWith("#") || href.startsWith("javascript:")) return href;
+      if (/^(https?:)?\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:")) return href;
+
+      const u = new URL(href, location.origin);
+
+      if (!u.searchParams.get("lang")) u.searchParams.set("lang", lang);
+
+      // clean route: /filme statt /filme.html
+      u.pathname = u.pathname.replace(/\.html$/i, "");
+
+      return `${u.pathname}?${u.searchParams.toString()}${u.hash || ""}`;
+    };
+
+    // set ALL nav hrefs
+    document.getElementById("navStart").setAttribute("href", withLang("start.html"));
+    document.getElementById("navAbout").setAttribute("href", withLang("about.html"));
+    document.getElementById("navFilms").setAttribute("href", withLang("filme.html"));
+    document.getElementById("navImpulses").setAttribute("href", withLang("impulse.html"));
+    document.getElementById("navWorkshop").setAttribute("href", withLang("werkstatt.html"));
+    document.getElementById("navOffers").setAttribute("href", withLang("angebote.html"));
+    document.getElementById("navShop").setAttribute("href", withLang("shop.html"));
+    document.getElementById("navLinks").setAttribute("href", withLang("links.html"));
+
+    // set ALL card hrefs
+    document.getElementById("cAboutA").setAttribute("href", withLang("about.html"));
+    document.getElementById("cFilmsA").setAttribute("href", withLang("filme.html"));
+    document.getElementById("cImpA").setAttribute("href", withLang("impulse.html"));
+    document.getElementById("cWorkA").setAttribute("href", withLang("werkstatt.html"));
+    document.getElementById("cOffersA").setAttribute("href", withLang("angebote.html"));
+    document.getElementById("cShopA").setAttribute("href", withLang("shop.html"));
 
     // counter
     (async () => {
@@ -201,7 +236,7 @@
         fetch(urlTotal, { cache: "no-store" }).then(r => r.json())
       ]);
 
-      const pick = (obj) => (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? obj.data?.count)) ?? "—";
+      const pick = (obj) => (obj && (obj.count ?? obj.value ?? obj.total ?? obj.result ?? (obj.data && obj.data.count))) ?? "—";
       document.getElementById("countPage").textContent  = pick(pageData);
       document.getElementById("countTotal").textContent = pick(totalData);
     })().catch(() => {
