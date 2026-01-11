@@ -1,4 +1,4 @@
-<!-- FILE: werkstatt-pt.html (PT) -->
+<!-- FILE: werkstatt-pt.html (PT) — redirect to unified werkstatt.html -->
 <!doctype html>
 <html lang="pt">
 <head>
@@ -6,111 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lampadēphóros – Oficina</title>
   <meta name="description" content="Oficina: um olhar nos bastidores — decisões, ritmo, transições." />
+  <meta http-equiv="refresh" content="0; url=werkstatt.html?lang=pt" />
+  <link rel="canonical" href="werkstatt.html?lang=pt" />
   <link rel="stylesheet" href="style.css" />
+  <script>
+    (function () {
+      try {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", "pt");
+
+        const target = new URL("werkstatt.html", url);
+        target.search = url.searchParams.toString();
+
+        window.location.replace(target.toString());
+      } catch (e) {
+        // meta refresh will still work
+      }
+    })();
+  </script>
 </head>
 
-<body>
-  <header class="wrap hero">
-    <div class="brand">
-      <img class="logo" src="logo.png" alt="Logo Lampadēphóros" />
-      <div class="brand-text">
-        <div class="badge">Lampadēphóros</div>
-        <div class="kicker">O Portador da Tocha</div>
-      </div>
-    </div>
-
-    <h1>Oficina</h1>
-    <p class="sub">
-      Bastidores: decisões, ritmo, transições — e porquê construímos devagar, mas com limpeza.
-    </p>
-
-    <div class="cta">
-      <a class="btn" href="start-pt.html">Início</a>
-
-      <a class="btn ghost" href="about-pt.html">Sobre nós</a>
-      <a class="btn ghost" href="filme-pt.html">Filmes &amp; capítulos</a>
-      <a class="btn ghost" href="impulse-pt.html">Impulsos</a>
-      <a class="btn ghost active" href="werkstatt-pt.html">Oficina</a>
-      <a class="btn ghost" href="angebote-pt.html">Ofertas</a>
-      <a class="btn ghost" href="shop-pt.html">Loja</a>
-
-      <div class="dropdown">
-        <button class="btn ghost" type="button">Onde nos encontras ▾</button>
-        <div class="menu">
-          <a href="links-pt.html">Links &amp; plataformas</a>
-          <a href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube</a>
-        </div>
-      </div>
-    </div>
-
-    <p class="note">Sem spam. Sem drama. Só obra.</p>
-  </header>
-
-  <main class="wrap">
-    <h2 class="section-title">Como trabalhamos</h2>
-    <p class="section-sub">
-      Sem pressa, sem clickbait — apenas passos claros, qualidade consistente e um estilo calmo.
-    </p>
-
-    <section class="grid">
-      <article class="card featured">
-        <h3>Princípio</h3>
-        <p>
-          Criamos conteúdo que sustenta: visível, mas não barulhento. Belo, sem manipulação.
-          Lento o suficiente para permanecer verdadeiro.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Ritmo</h3>
-        <p>
-          Ciclos curtos. Iterações limpas. Quando está certo, congelamos — e só depois avançamos.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Qualidade</h3>
-        <p>
-          Consistência vence perfeição: luz, edição, som e língua devem combinar — sem caos.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Transparência</h3>
-        <p>
-          Explicamos escolhas: o que é símbolo, o que é história, o que é oração — e o que é design.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Ferramentas</h3>
-        <p>
-          IA como ferramenta: imagem, vídeo, montagem — tudo serve a mensagem, não o contrário.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Próximos passos</h3>
-        <p>
-          A oficina cresce com o projeto: novos capítulos, novas notas — sempre no mesmo estilo.
-        </p>
-      </article>
-    </section>
-  </main>
-
-  <footer class="wrap footer">
-    <p>© Lampadēphóros • Contacto: <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a></p>
-  </footer>
-
-  <script>
-    // Dropdown "Onde nos encontras"
-    document.querySelectorAll(".dropdown").forEach(d => {
-      const btn = d.querySelector("button");
-      btn.addEventListener("click", () => d.classList.toggle("open"));
-      document.addEventListener("click", (e) => {
-        if (!d.contains(e.target)) d.classList.remove("open");
-      });
-    });
-  </script>
+<body class="wrap">
+  <p style="padding:16px;">
+    A redirecionar para a página Oficina…<br />
+    Se nada acontecer, clica aqui:
+    <a href="werkstatt.html?lang=pt">werkstatt.html?lang=pt</a>
+  </p>
 </body>
 </html>
