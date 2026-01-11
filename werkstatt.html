@@ -916,13 +916,28 @@
       for (const a of anchors) {
         const href = a.getAttribute("href");
         if (!href) continue;
+
+        // skip external / special links
         if (href.startsWith("mailto:") || href.startsWith("http") || href.startsWith("#")) continue;
-        if (!href.endsWith(".html") && !href.includes(".html?")) continue;
 
         try {
           const u = new URL(href, location.href);
+
+          // only rewrite same-origin links
+          if (u.origin !== location.origin) continue;
+
+          // rewrite typical html files AND "pretty" links without extension
+          const last = u.pathname.split("/").pop() || "";
+          const isHtml = last.endsWith(".html");
+          const hasExt = last.includes(".");
+          const isPretty = !hasExt; // e.g. /werkstatt, /about, /filme
+          if (!isHtml && !isPretty) continue;
+
           u.searchParams.set("lang", lang);
-          a.setAttribute("href", u.pathname.split("/").pop() + "?" + u.searchParams.toString());
+
+          // keep relative-ish
+          const outName = last || "index.html";
+          a.setAttribute("href", outName + "?" + u.searchParams.toString());
         } catch (e) {}
       }
     };
