@@ -1,11 +1,11 @@
-<!-- FILE: links.html (DE) -->
 <!doctype html>
-<html lang="de">
+<!-- FILE: kontakt.html (FINAL – Goldstandard: ?lang + lamp_lang + DE fallback + keep ?lang on links) -->
+<html lang="de" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lampadēphóros – Hier findest du uns</title>
-  <meta name="description" content="Alle offiziellen Links: Website, YouTube, TikTok, Instagram, X sowie Kontakt." />
+  <title id="pageTitle">Lampadēphóros – Hier findest du uns</title>
+  <meta id="metaDesc" name="description" content="Alle offiziellen Links: Website, YouTube, TikTok, Instagram, X sowie Kontakt." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -13,90 +13,1405 @@
   <main class="wrap">
 
     <header class="hero">
-      <!-- Brand -->
       <div class="brand">
         <img class="logo" src="logo.png" alt="Lampadēphóros Logo" />
         <div class="brand-meta">
           <div class="badge">Lampadēphóros</div>
-          <div class="mini">Der Fackelträger</div>
+          <div class="mini" id="brandMini">Der Fackelträger</div>
         </div>
       </div>
 
-      <h1>Hier findest du uns</h1>
-      <p class="sub">Alle offiziellen Links – sauber gebündelt.</p>
+      <h1 id="h1">Hier findest du uns</h1>
+      <p class="sub" id="sub">Alle offiziellen Links – sauber gebündelt.</p>
 
-      <!-- NAV (keine Sprachwahl hier — nur auf start-*.html) -->
       <nav class="nav" aria-label="Navigation">
-        <a class="btn" href="start-de.html">Start</a>
-        <a class="btn" href="about.html">Über uns</a>
-        <a class="btn" href="filme.html">Filme &amp; Kapitel</a>
-        <a class="btn" href="impulse.html">Impulse</a>
-        <a class="btn" href="werkstatt.html">Werkstatt</a>
-        <a class="btn" href="angebote.html">Angebote</a>
-        <a class="btn" href="shop.html">Shop</a>
-        <a class="btn primary" href="links.html">Hier findest du uns</a>
+        <a class="btn" id="navStart" href="start.html">Start</a>
+        <a class="btn" id="navAbout" href="about.html">Über uns</a>
+        <a class="btn" id="navFilms" href="filme.html">Filme &amp; Kapitel</a>
+        <a class="btn" id="navImpulses" href="impulse.html">Impulse</a>
+        <a class="btn" id="navWorkshop" href="werkstatt.html">Werkstatt</a>
+        <a class="btn" id="navOffers" href="angebote.html">Angebote</a>
+        <a class="btn" id="navShop" href="shop.html">Shop</a>
+        <a class="btn active" id="navContact" href="kontakt.html">Hier findest du uns</a>
       </nav>
 
-      <div class="note">Kein Spam. Kein Drama. Nur Werk.</div>
+      <div class="note" id="note">Kein Spam. Kein Drama. Nur Werk.</div>
     </header>
 
     <section class="grid" aria-label="Offizielle Links">
 
       <article class="card">
-        <h2>Website</h2>
-        <p>Startseite (DE):</p>
+        <h2 id="websiteTitle">Website</h2>
+        <p id="websiteDesc">Startseite (DE):</p>
         <div class="video-actions">
-          <a class="btn primary" href="https://lampadephoros-web.pages.dev/start-de" target="_blank" rel="noopener">Website öffnen</a>
+          <a class="btn primary" id="websiteBtn" href="https://lampadephoros-web.pages.dev/start-de" target="_blank" rel="noopener">Website öffnen</a>
         </div>
       </article>
 
       <article class="card">
-        <h2>YouTube</h2>
-        <p>Filme & Updates:</p>
+        <h2 id="youtubeTitle">YouTube</h2>
+        <p id="youtubeDesc">Filme & Updates:</p>
         <div class="video-actions">
-          <a class="btn primary" href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube-Kanal öffnen</a>
+          <a class="btn primary" id="youtubeBtn" href="https://www.youtube.com/@Lampad%C4%93ph%C3%B3ros" target="_blank" rel="noopener">YouTube-Kanal öffnen</a>
         </div>
       </article>
 
       <article class="card">
-        <h2>TikTok</h2>
-        <p>Shorts & Clips:</p>
+        <h2 id="tiktokTitle">TikTok</h2>
+        <p id="tiktokDesc">Shorts & Clips:</p>
         <div class="video-actions">
-          <a class="btn primary" href="https://www.tiktok.com/@lampadephoros_media" target="_blank" rel="noopener">TikTok öffnen</a>
+          <a class="btn primary" id="tiktokBtn" href="https://www.tiktok.com/@lampadephoros_media" target="_blank" rel="noopener">TikTok öffnen</a>
         </div>
       </article>
 
       <article class="card">
-        <h2>Instagram</h2>
-        <p>Reels, Bilder & Updates:</p>
+        <h2 id="instagramTitle">Instagram</h2>
+        <p id="instagramDesc">Reels, Bilder & Updates:</p>
         <div class="video-actions">
-          <a class="btn primary" href="https://www.instagram.com/lampademedia/" target="_blank" rel="noopener">Instagram öffnen</a>
+          <a class="btn primary" id="instagramBtn" href="https://www.instagram.com/lampademedia/" target="_blank" rel="noopener">Instagram öffnen</a>
         </div>
       </article>
 
       <article class="card">
-        <h2>X</h2>
-        <p>News & Updates:</p>
+        <h2 id="xTitle">X</h2>
+        <p id="xDesc">News & Updates:</p>
         <div class="video-actions">
-          <a class="btn primary" href="https://x.com/LampadeMedia" target="_blank" rel="noopener">X-Profil öffnen</a>
+          <a class="btn primary" id="xBtn" href="https://x.com/LampadeMedia" target="_blank" rel="noopener">X-Profil öffnen</a>
         </div>
       </article>
 
       <article class="card">
-        <h2>Kontakt</h2>
-        <p>Schreib uns direkt:</p>
+        <h2 id="contactTitle">Kontakt</h2>
+        <p id="contactDesc">Schreib uns direkt:</p>
         <div class="video-actions">
-          <a class="btn primary" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
+          <a class="btn primary" id="contactBtn" href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
         </div>
       </article>
 
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
       © Lampadēphóros • Kontakt:
       <a href="mailto:lampadephoros.media@gmail.com">lampadephoros.media@gmail.com</a>
     </footer>
 
   </main>
+
+<script>
+(() => {
+  "use strict";
+
+  const STORAGE_KEY = "lamp_lang";
+  const RTL = new Set(["ar","he","fa","ur"]);
+  const norm = (x) => (x || "").toString().trim().toLowerCase();
+  const base = (x) => norm(x).split("-")[0];
+
+  const T = {
+  "de": {
+    "htmlLang": "de",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Hier findest du uns",
+    "metaDescription": "Alle offiziellen Links: Website, YouTube, TikTok, Instagram, X sowie Kontakt.",
+    "brandMini": "Der Fackelträger",
+    "h1": "Hier findest du uns",
+    "sub": "Alle offiziellen Links – sauber gebündelt.",
+    "note": "Kein Spam. Kein Drama. Nur Werk.",
+    "nav": {
+      "start": "Start",
+      "about": "Über uns",
+      "films": "Filme & Kapitel",
+      "impulses": "Impulse",
+      "workshop": "Werkstatt",
+      "offers": "Angebote",
+      "shop": "Shop",
+      "contact": "Hier findest du uns"
+    },
+    "cards": {
+      "website_title": "Website",
+      "website_desc": "Startseite (DE):",
+      "website_btn": "Website öffnen",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Filme & Updates:",
+      "youtube_btn": "YouTube-Kanal öffnen",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & Clips:",
+      "tiktok_btn": "TikTok öffnen",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, Bilder & Updates:",
+      "instagram_btn": "Instagram öffnen",
+      "x_title": "X",
+      "x_desc": "News & Updates:",
+      "x_btn": "X-Profil öffnen",
+      "contact_title": "Kontakt",
+      "contact_desc": "Schreib uns direkt:",
+      "contact_btn": "lampadephoros.media@gmail.com"
+    },
+    "footer": "© Lampadēphóros • Kontakt: "
+  },
+  "en": {
+    "htmlLang": "en",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Find us here",
+    "metaDescription": "Official links: website, YouTube, TikTok, Instagram, X and contact.",
+    "brandMini": "The Torchbearer",
+    "h1": "Find us here",
+    "sub": "All official links — neatly in one place.",
+    "note": "No spam. No drama. Just the work.",
+    "nav": {
+      "start": "Start",
+      "about": "About",
+      "films": "Films & Chapters",
+      "impulses": "Impulses",
+      "workshop": "Workshop",
+      "offers": "Offers",
+      "shop": "Shop",
+      "contact": "Find us here"
+    },
+    "cards": {
+      "website_title": "Website",
+      "website_desc": "Homepage (DE):",
+      "website_btn": "Open website",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Films & updates:",
+      "youtube_btn": "Open YouTube channel",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & clips:",
+      "tiktok_btn": "Open TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, photos & updates:",
+      "instagram_btn": "Open Instagram",
+      "x_title": "X",
+      "x_desc": "News & updates:",
+      "x_btn": "Open X profile",
+      "contact_title": "Contact",
+      "contact_desc": "Write to us directly:",
+      "contact_btn": "Send email"
+    },
+    "footer": "© Lampadēphóros • Contact: "
+  },
+  "fr": {
+    "htmlLang": "fr",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Nous trouver",
+    "metaDescription": "Liens officiels : site, YouTube, TikTok, Instagram, X et contact.",
+    "brandMini": "Le Porte-Flambeau",
+    "h1": "Nous trouver",
+    "sub": "Tous les liens officiels — regroupés clairement.",
+    "note": "Pas de spam. Pas de drama. Juste l’œuvre.",
+    "nav": {
+      "start": "Accueil",
+      "about": "À propos",
+      "films": "Films & chapitres",
+      "impulses": "Impulsions",
+      "workshop": "Atelier",
+      "offers": "Offres",
+      "shop": "Boutique",
+      "contact": "Nous trouver"
+    },
+    "cards": {
+      "website_title": "Site web",
+      "website_desc": "Page d’accueil (DE) :",
+      "website_btn": "Ouvrir le site",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Films & actus :",
+      "youtube_btn": "Ouvrir la chaîne YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & extraits :",
+      "tiktok_btn": "Ouvrir TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, photos & actus :",
+      "instagram_btn": "Ouvrir Instagram",
+      "x_title": "X",
+      "x_desc": "Infos & actus :",
+      "x_btn": "Ouvrir le profil X",
+      "contact_title": "Contact",
+      "contact_desc": "Écris-nous directement :",
+      "contact_btn": "Envoyer un e-mail"
+    },
+    "footer": "© Lampadēphóros • Contact : "
+  },
+  "pt": {
+    "htmlLang": "pt",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Encontra-nos aqui",
+    "metaDescription": "Links oficiais: site, YouTube, TikTok, Instagram, X e contacto.",
+    "brandMini": "O Portador da Tocha",
+    "h1": "Encontra-nos aqui",
+    "sub": "Todos os links oficiais — bem organizados.",
+    "note": "Sem spam. Sem drama. Só o trabalho.",
+    "nav": {
+      "start": "Início",
+      "about": "Sobre",
+      "films": "Filmes & capítulos",
+      "impulses": "Impulsos",
+      "workshop": "Oficina",
+      "offers": "Ofertas",
+      "shop": "Loja",
+      "contact": "Encontra-nos aqui"
+    },
+    "cards": {
+      "website_title": "Website",
+      "website_desc": "Página inicial (DE):",
+      "website_btn": "Abrir website",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Filmes & novidades:",
+      "youtube_btn": "Abrir canal do YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & clips:",
+      "tiktok_btn": "Abrir TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, fotos & novidades:",
+      "instagram_btn": "Abrir Instagram",
+      "x_title": "X",
+      "x_desc": "Notícias & novidades:",
+      "x_btn": "Abrir perfil no X",
+      "contact_title": "Contacto",
+      "contact_desc": "Escreve-nos diretamente:",
+      "contact_btn": "Enviar e-mail"
+    },
+    "footer": "© Lampadēphóros • Contacto: "
+  },
+  "it": {
+    "htmlLang": "it",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Dove trovarci",
+    "metaDescription": "Link ufficiali: sito, YouTube, TikTok, Instagram, X e contatto.",
+    "brandMini": "Il Portatore della Torcia",
+    "h1": "Dove trovarci",
+    "sub": "Tutti i link ufficiali — raccolti in modo chiaro.",
+    "note": "Niente spam. Niente drama. Solo lavoro.",
+    "nav": {
+      "start": "Home",
+      "about": "Chi siamo",
+      "films": "Film & capitoli",
+      "impulses": "Spunti",
+      "workshop": "Laboratorio",
+      "offers": "Offerte",
+      "shop": "Shop",
+      "contact": "Dove trovarci"
+    },
+    "cards": {
+      "website_title": "Sito web",
+      "website_desc": "Homepage (DE):",
+      "website_btn": "Apri sito",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Film & aggiornamenti:",
+      "youtube_btn": "Apri canale YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & clip:",
+      "tiktok_btn": "Apri TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, foto & aggiornamenti:",
+      "instagram_btn": "Apri Instagram",
+      "x_title": "X",
+      "x_desc": "Notizie & aggiornamenti:",
+      "x_btn": "Apri profilo X",
+      "contact_title": "Contatto",
+      "contact_desc": "Scrivici direttamente:",
+      "contact_btn": "Invia email"
+    },
+    "footer": "© Lampadēphóros • Contatto: "
+  },
+  "es": {
+    "htmlLang": "es",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Encuéntranos aquí",
+    "metaDescription": "Enlaces oficiales: web, YouTube, TikTok, Instagram, X y contacto.",
+    "brandMini": "El Portador de la Antorcha",
+    "h1": "Encuéntranos aquí",
+    "sub": "Todos los enlaces oficiales — bien ordenados.",
+    "note": "Sin spam. Sin drama. Solo obra.",
+    "nav": {
+      "start": "Inicio",
+      "about": "Sobre nosotros",
+      "films": "Películas y capítulos",
+      "impulses": "Impulsos",
+      "workshop": "Taller",
+      "offers": "Ofertas",
+      "shop": "Tienda",
+      "contact": "Encuéntranos aquí"
+    },
+    "cards": {
+      "website_title": "Sitio web",
+      "website_desc": "Página de inicio (DE):",
+      "website_btn": "Abrir web",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Películas y novedades:",
+      "youtube_btn": "Abrir canal de YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts y clips:",
+      "tiktok_btn": "Abrir TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, fotos y novedades:",
+      "instagram_btn": "Abrir Instagram",
+      "x_title": "X",
+      "x_desc": "Noticias y novedades:",
+      "x_btn": "Abrir perfil de X",
+      "contact_title": "Contacto",
+      "contact_desc": "Escríbenos directamente:",
+      "contact_btn": "Enviar correo"
+    },
+    "footer": "© Lampadēphóros • Contacto: "
+  },
+  "nl": {
+    "htmlLang": "nl",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Je vindt ons hier",
+    "metaDescription": "Officiële links: website, YouTube, TikTok, Instagram, X en contact.",
+    "brandMini": "De Fakkeldrager",
+    "h1": "Je vindt ons hier",
+    "sub": "Alle officiële links — netjes gebundeld.",
+    "note": "Geen spam. Geen drama. Alleen werk.",
+    "nav": {
+      "start": "Start",
+      "about": "Over ons",
+      "films": "Films & hoofdstukken",
+      "impulses": "Impulsen",
+      "workshop": "Werkplaats",
+      "offers": "Aanbod",
+      "shop": "Shop",
+      "contact": "Je vindt ons hier"
+    },
+    "cards": {
+      "website_title": "Website",
+      "website_desc": "Startpagina (DE):",
+      "website_btn": "Website openen",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Films & updates:",
+      "youtube_btn": "YouTube-kanaal openen",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & clips:",
+      "tiktok_btn": "TikTok openen",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, foto’s & updates:",
+      "instagram_btn": "Instagram openen",
+      "x_title": "X",
+      "x_desc": "Nieuws & updates:",
+      "x_btn": "X-profiel openen",
+      "contact_title": "Contact",
+      "contact_desc": "Schrijf ons direct:",
+      "contact_btn": "E-mail sturen"
+    },
+    "footer": "© Lampadēphóros • Contact: "
+  },
+  "pl": {
+    "htmlLang": "pl",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Znajdziesz nas tutaj",
+    "metaDescription": "Oficjalne linki: strona, YouTube, TikTok, Instagram, X oraz kontakt.",
+    "brandMini": "Niosący Pochodnię",
+    "h1": "Znajdziesz nas tutaj",
+    "sub": "Wszystkie oficjalne linki — jasno zebrane.",
+    "note": "Bez spamu. Bez dram. Tylko dzieło.",
+    "nav": {
+      "start": "Start",
+      "about": "O nas",
+      "films": "Filmy i rozdziały",
+      "impulses": "Impulsy",
+      "workshop": "Warsztat",
+      "offers": "Oferty",
+      "shop": "Sklep",
+      "contact": "Znajdziesz nas tutaj"
+    },
+    "cards": {
+      "website_title": "Strona WWW",
+      "website_desc": "Strona startowa (DE):",
+      "website_btn": "Otwórz stronę",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Filmy i aktualności:",
+      "youtube_btn": "Otwórz kanał YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shortsy i klipy:",
+      "tiktok_btn": "Otwórz TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reelsy, zdjęcia i aktualności:",
+      "instagram_btn": "Otwórz Instagram",
+      "x_title": "X",
+      "x_desc": "Wiadomości i aktualności:",
+      "x_btn": "Otwórz profil X",
+      "contact_title": "Kontakt",
+      "contact_desc": "Napisz do nas:",
+      "contact_btn": "Wyślij e-mail"
+    },
+    "footer": "© Lampadēphóros • Kontakt: "
+  },
+  "ru": {
+    "htmlLang": "ru",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros — Наши ссылки",
+    "metaDescription": "Официальные ссылки: сайт, YouTube, TikTok, Instagram, X и контакт.",
+    "brandMini": "Факелоносец",
+    "h1": "Наши ссылки",
+    "sub": "Все официальные ссылки — аккуратно в одном месте.",
+    "note": "Без спама. Без драмы. Только дело.",
+    "nav": {
+      "start": "Старт",
+      "about": "О нас",
+      "films": "Фильмы и главы",
+      "impulses": "Импульсы",
+      "workshop": "Мастерская",
+      "offers": "Предложения",
+      "shop": "Магазин",
+      "contact": "Наши ссылки"
+    },
+    "cards": {
+      "website_title": "Сайт",
+      "website_desc": "Главная (DE):",
+      "website_btn": "Открыть сайт",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Фильмы и обновления:",
+      "youtube_btn": "Открыть канал YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Шорты и клипы:",
+      "tiktok_btn": "Открыть TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, фото и обновления:",
+      "instagram_btn": "Открыть Instagram",
+      "x_title": "X",
+      "x_desc": "Новости и обновления:",
+      "x_btn": "Открыть профиль X",
+      "contact_title": "Контакт",
+      "contact_desc": "Напишите нам:",
+      "contact_btn": "Написать письмо"
+    },
+    "footer": "© Lampadēphóros • Контакт: "
+  },
+  "uk": {
+    "htmlLang": "uk",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros — Де нас знайти",
+    "metaDescription": "Офіційні посилання: сайт, YouTube, TikTok, Instagram, X та контакт.",
+    "brandMini": "Смолоскипоносець",
+    "h1": "Де нас знайти",
+    "sub": "Усі офіційні посилання — зібрані в одному місці.",
+    "note": "Без спаму. Без драм. Лише справа.",
+    "nav": {
+      "start": "Старт",
+      "about": "Про нас",
+      "films": "Фільми та розділи",
+      "impulses": "Імпульси",
+      "workshop": "Майстерня",
+      "offers": "Пропозиції",
+      "shop": "Магазин",
+      "contact": "Де нас знайти"
+    },
+    "cards": {
+      "website_title": "Сайт",
+      "website_desc": "Головна (DE):",
+      "website_btn": "Відкрити сайт",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Фільми та оновлення:",
+      "youtube_btn": "Відкрити канал YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Шорти та кліпи:",
+      "tiktok_btn": "Відкрити TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, фото та оновлення:",
+      "instagram_btn": "Відкрити Instagram",
+      "x_title": "X",
+      "x_desc": "Новини та оновлення:",
+      "x_btn": "Відкрити профіль X",
+      "contact_title": "Контакт",
+      "contact_desc": "Напишіть нам:",
+      "contact_btn": "Надіслати e‑mail"
+    },
+    "footer": "© Lampadēphóros • Контакт: "
+  },
+  "ro": {
+    "htmlLang": "ro",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Ne găsești aici",
+    "metaDescription": "Linkuri oficiale: site, YouTube, TikTok, Instagram, X și contact.",
+    "brandMini": "Purtătorul Torței",
+    "h1": "Ne găsești aici",
+    "sub": "Toate linkurile oficiale — clar, într-un singur loc.",
+    "note": "Fără spam. Fără dramă. Doar lucrarea.",
+    "nav": {
+      "start": "Start",
+      "about": "Despre",
+      "films": "Filme și capitole",
+      "impulses": "Impulsuri",
+      "workshop": "Atelier",
+      "offers": "Oferte",
+      "shop": "Magazin",
+      "contact": "Ne găsești aici"
+    },
+    "cards": {
+      "website_title": "Website",
+      "website_desc": "Pagina principală (DE):",
+      "website_btn": "Deschide site-ul",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Filme și noutăți:",
+      "youtube_btn": "Deschide canalul YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts și clipuri:",
+      "tiktok_btn": "Deschide TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, poze și noutăți:",
+      "instagram_btn": "Deschide Instagram",
+      "x_title": "X",
+      "x_desc": "Știri și noutăți:",
+      "x_btn": "Deschide profilul X",
+      "contact_title": "Contact",
+      "contact_desc": "Scrie-ne direct:",
+      "contact_btn": "Trimite e-mail"
+    },
+    "footer": "© Lampadēphóros • Contact: "
+  },
+  "tr": {
+    "htmlLang": "tr",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Bizi burada bul",
+    "metaDescription": "Resmî bağlantılar: web sitesi, YouTube, TikTok, Instagram, X ve iletişim.",
+    "brandMini": "Meşale Taşıyıcısı",
+    "h1": "Bizi burada bul",
+    "sub": "Tüm resmî bağlantılar — düzenli bir şekilde.",
+    "note": "Spam yok. Drama yok. Sadece iş.",
+    "nav": {
+      "start": "Başlangıç",
+      "about": "Hakkımızda",
+      "films": "Filmler ve bölümler",
+      "impulses": "İlhamlar",
+      "workshop": "Atölye",
+      "offers": "Teklifler",
+      "shop": "Mağaza",
+      "contact": "Bizi burada bul"
+    },
+    "cards": {
+      "website_title": "Web sitesi",
+      "website_desc": "Ana sayfa (DE):",
+      "website_btn": "Siteyi aç",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Filmler ve güncellemeler:",
+      "youtube_btn": "YouTube kanalını aç",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts ve klipler:",
+      "tiktok_btn": "TikTok’u aç",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, fotoğraflar ve güncellemeler:",
+      "instagram_btn": "Instagram’ı aç",
+      "x_title": "X",
+      "x_desc": "Haberler ve güncellemeler:",
+      "x_btn": "X profilini aç",
+      "contact_title": "İletişim",
+      "contact_desc": "Bize doğrudan yaz:",
+      "contact_btn": "E‑posta gönder"
+    },
+    "footer": "© Lampadēphóros • İletişim: "
+  },
+  "hr": {
+    "htmlLang": "hr",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Ovdje nas pronađi",
+    "metaDescription": "Službene poveznice: web, YouTube, TikTok, Instagram, X i kontakt.",
+    "brandMini": "Nositelj Baklje",
+    "h1": "Ovdje nas pronađi",
+    "sub": "Sve službene poveznice — uredno na jednom mjestu.",
+    "note": "Bez spama. Bez drame. Samo djelo.",
+    "nav": {
+      "start": "Početak",
+      "about": "O nama",
+      "films": "Filmovi i poglavlja",
+      "impulses": "Poticaji",
+      "workshop": "Radionica",
+      "offers": "Ponude",
+      "shop": "Trgovina",
+      "contact": "Ovdje nas pronađi"
+    },
+    "cards": {
+      "website_title": "Web stranica",
+      "website_desc": "Početna (DE):",
+      "website_btn": "Otvori web",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Filmovi i novosti:",
+      "youtube_btn": "Otvori YouTube kanal",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts i isječci:",
+      "tiktok_btn": "Otvori TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, slike i novosti:",
+      "instagram_btn": "Otvori Instagram",
+      "x_title": "X",
+      "x_desc": "Vijesti i novosti:",
+      "x_btn": "Otvori X profil",
+      "contact_title": "Kontakt",
+      "contact_desc": "Piši nam izravno:",
+      "contact_btn": "Pošalji e‑mail"
+    },
+    "footer": "© Lampadēphóros • Kontakt: "
+  },
+  "bs": {
+    "htmlLang": "bs",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Ovdje nas možeš naći",
+    "metaDescription": "Zvanični linkovi: web, YouTube, TikTok, Instagram, X i kontakt.",
+    "brandMini": "Nosač Baklje",
+    "h1": "Ovdje nas možeš naći",
+    "sub": "Svi zvanični linkovi — uredno na jednom mjestu.",
+    "note": "Bez spama. Bez drame. Samo djelo.",
+    "nav": {
+      "start": "Početak",
+      "about": "O nama",
+      "films": "Filmovi i poglavlja",
+      "impulses": "Impulsi",
+      "workshop": "Radionica",
+      "offers": "Ponude",
+      "shop": "Shop",
+      "contact": "Ovdje nas možeš naći"
+    },
+    "cards": {
+      "website_title": "Web stranica",
+      "website_desc": "Početna (DE):",
+      "website_btn": "Otvori web",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Filmovi i novosti:",
+      "youtube_btn": "Otvori YouTube kanal",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts i klipovi:",
+      "tiktok_btn": "Otvori TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, slike i novosti:",
+      "instagram_btn": "Otvori Instagram",
+      "x_title": "X",
+      "x_desc": "Vijesti i novosti:",
+      "x_btn": "Otvori X profil",
+      "contact_title": "Kontakt",
+      "contact_desc": "Piši nam direktno:",
+      "contact_btn": "Pošalji e‑mail"
+    },
+    "footer": "© Lampadēphóros • Kontakt: "
+  },
+  "sr": {
+    "htmlLang": "sr",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Овде нас можеш наћи",
+    "metaDescription": "Званични линкови: сајт, YouTube, TikTok, Instagram, X и контакт.",
+    "brandMini": "Носилац бакље",
+    "h1": "Овде нас можеш наћи",
+    "sub": "Сви званични линкови — уредно на једном месту.",
+    "note": "Без спама. Без драме. Само дело.",
+    "nav": {
+      "start": "Почетак",
+      "about": "О нама",
+      "films": "Филмови и поглавља",
+      "impulses": "Импулси",
+      "workshop": "Радионица",
+      "offers": "Понуде",
+      "shop": "Продавница",
+      "contact": "Овде нас можеш наћи"
+    },
+    "cards": {
+      "website_title": "Сајт",
+      "website_desc": "Почетна (DE):",
+      "website_btn": "Отвори сајт",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Филмови и новости:",
+      "youtube_btn": "Отвори YouTube канал",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts и клипови:",
+      "tiktok_btn": "Отвори TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, слике и новости:",
+      "instagram_btn": "Отвори Instagram",
+      "x_title": "X",
+      "x_desc": "Вести и новости:",
+      "x_btn": "Отвори X профил",
+      "contact_title": "Контакт",
+      "contact_desc": "Пиши нам директно:",
+      "contact_btn": "Пошаљи е‑пошту"
+    },
+    "footer": "© Lampadēphóros • Контакт: "
+  },
+  "el": {
+    "htmlLang": "el",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Θα μας βρεις εδώ",
+    "metaDescription": "Επίσημοι σύνδεσμοι: ιστότοπος, YouTube, TikTok, Instagram, X και επικοινωνία.",
+    "brandMini": "Ο Φορέας της Δάδας",
+    "h1": "Θα μας βρεις εδώ",
+    "sub": "Όλοι οι επίσημοι σύνδεσμοι — συγκεντρωμένοι καθαρά.",
+    "note": "Χωρίς spam. Χωρίς δράμα. Μόνο έργο.",
+    "nav": {
+      "start": "Αρχή",
+      "about": "Σχετικά",
+      "films": "Ταινίες & κεφάλαια",
+      "impulses": "Έμπνευση",
+      "workshop": "Εργαστήριο",
+      "offers": "Προσφορές",
+      "shop": "Κατάστημα",
+      "contact": "Θα μας βρεις εδώ"
+    },
+    "cards": {
+      "website_title": "Ιστότοπος",
+      "website_desc": "Αρχική (DE):",
+      "website_btn": "Άνοιγμα ιστότοπου",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Ταινίες & ενημερώσεις:",
+      "youtube_btn": "Άνοιγμα καναλιού YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & clips:",
+      "tiktok_btn": "Άνοιγμα TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, εικόνες & ενημερώσεις:",
+      "instagram_btn": "Άνοιγμα Instagram",
+      "x_title": "X",
+      "x_desc": "Νέα & ενημερώσεις:",
+      "x_btn": "Άνοιγμα προφίλ X",
+      "contact_title": "Επικοινωνία",
+      "contact_desc": "Γράψε μας απευθείας:",
+      "contact_btn": "Αποστολή email"
+    },
+    "footer": "© Lampadēphóros • Επικοινωνία: "
+  },
+  "zh": {
+    "htmlLang": "zh",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – 在这里找到我们",
+    "metaDescription": "官方链接：网站、YouTube、TikTok、Instagram、X 以及联系邮箱。",
+    "brandMini": "火炬携带者",
+    "h1": "在这里找到我们",
+    "sub": "所有官方链接——清晰汇总。",
+    "note": "不刷屏。不撕裂。只做工。",
+    "nav": {
+      "start": "开始",
+      "about": "关于我们",
+      "films": "影片与章节",
+      "impulses": "启发",
+      "workshop": "工作坊",
+      "offers": "提供",
+      "shop": "商店",
+      "contact": "在这里找到我们"
+    },
+    "cards": {
+      "website_title": "网站",
+      "website_desc": "主页（德语）：",
+      "website_btn": "打开网站",
+      "youtube_title": "YouTube",
+      "youtube_desc": "影片与更新：",
+      "youtube_btn": "打开 YouTube 频道",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "短视频与片段：",
+      "tiktok_btn": "打开 TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels、图片与更新：",
+      "instagram_btn": "打开 Instagram",
+      "x_title": "X",
+      "x_desc": "新闻与更新：",
+      "x_btn": "打开 X 主页",
+      "contact_title": "联系",
+      "contact_desc": "直接给我们写信：",
+      "contact_btn": "发送邮件"
+    },
+    "footer": "© Lampadēphóros • 联系："
+  },
+  "ja": {
+    "htmlLang": "ja",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – ここで見つかります",
+    "metaDescription": "公式リンク：ウェブサイト、YouTube、TikTok、Instagram、X、連絡先。",
+    "brandMini": "たいまつを運ぶ者",
+    "h1": "ここで見つかります",
+    "sub": "公式リンクを分かりやすくまとめました。",
+    "note": "スパムなし。ドラマなし。作品だけ。",
+    "nav": {
+      "start": "スタート",
+      "about": "私たちについて",
+      "films": "映画と章",
+      "impulses": "インパルス",
+      "workshop": "ワークショップ",
+      "offers": "提供",
+      "shop": "ショップ",
+      "contact": "ここで見つかります"
+    },
+    "cards": {
+      "website_title": "ウェブサイト",
+      "website_desc": "トップページ（DE）：",
+      "website_btn": "サイトを開く",
+      "youtube_title": "YouTube",
+      "youtube_desc": "映画と更新：",
+      "youtube_btn": "YouTubeチャンネルを開く",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "ショート＆クリップ：",
+      "tiktok_btn": "TikTokを開く",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels・画像・更新：",
+      "instagram_btn": "Instagramを開く",
+      "x_title": "X",
+      "x_desc": "ニュース＆更新：",
+      "x_btn": "Xプロフィールを開く",
+      "contact_title": "連絡先",
+      "contact_desc": "直接メッセージ：",
+      "contact_btn": "メールを送る"
+    },
+    "footer": "© Lampadēphóros • 連絡先："
+  },
+  "ko": {
+    "htmlLang": "ko",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – 여기에서 찾을 수 있어요",
+    "metaDescription": "공식 링크: 웹사이트, YouTube, TikTok, Instagram, X 및 연락처.",
+    "brandMini": "횃불을 든 이",
+    "h1": "여기에서 찾을 수 있어요",
+    "sub": "모든 공식 링크를 깔끔하게 모았습니다.",
+    "note": "스팸 없음. 드라마 없음. 작업만.",
+    "nav": {
+      "start": "시작",
+      "about": "소개",
+      "films": "영화 & 챕터",
+      "impulses": "임펄스",
+      "workshop": "워크숍",
+      "offers": "제안",
+      "shop": "샵",
+      "contact": "여기에서 찾을 수 있어요"
+    },
+    "cards": {
+      "website_title": "웹사이트",
+      "website_desc": "홈페이지(DE):",
+      "website_btn": "웹사이트 열기",
+      "youtube_title": "YouTube",
+      "youtube_desc": "영상 & 업데이트:",
+      "youtube_btn": "유튜브 채널 열기",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "쇼츠 & 클립:",
+      "tiktok_btn": "틱톡 열기",
+      "instagram_title": "Instagram",
+      "instagram_desc": "릴스, 사진 & 업데이트:",
+      "instagram_btn": "인스타그램 열기",
+      "x_title": "X",
+      "x_desc": "뉴스 & 업데이트:",
+      "x_btn": "X 프로필 열기",
+      "contact_title": "연락처",
+      "contact_desc": "바로 메일 보내기:",
+      "contact_btn": "이메일 보내기"
+    },
+    "footer": "© Lampadēphóros • 연락: "
+  },
+  "vi": {
+    "htmlLang": "vi",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Bạn có thể tìm chúng tôi ở đây",
+    "metaDescription": "Liên kết chính thức: website, YouTube, TikTok, Instagram, X và liên hệ.",
+    "brandMini": "Người mang đuốc",
+    "h1": "Bạn có thể tìm chúng tôi ở đây",
+    "sub": "Tất cả liên kết chính thức — gọn gàng trong một chỗ.",
+    "note": "Không spam. Không drama. Chỉ công việc.",
+    "nav": {
+      "start": "Bắt đầu",
+      "about": "Về chúng tôi",
+      "films": "Phim & chương",
+      "impulses": "Gợi ý",
+      "workshop": "Xưởng",
+      "offers": "Đề nghị",
+      "shop": "Cửa hàng",
+      "contact": "Bạn có thể tìm chúng tôi ở đây"
+    },
+    "cards": {
+      "website_title": "Website",
+      "website_desc": "Trang chủ (DE):",
+      "website_btn": "Mở website",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Phim & cập nhật:",
+      "youtube_btn": "Mở kênh YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & clip:",
+      "tiktok_btn": "Mở TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, ảnh & cập nhật:",
+      "instagram_btn": "Mở Instagram",
+      "x_title": "X",
+      "x_desc": "Tin tức & cập nhật:",
+      "x_btn": "Mở hồ sơ X",
+      "contact_title": "Liên hệ",
+      "contact_desc": "Viết cho chúng tôi:",
+      "contact_btn": "Gửi email"
+    },
+    "footer": "© Lampadēphóros • Liên hệ: "
+  },
+  "ms": {
+    "htmlLang": "ms",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Temui kami di sini",
+    "metaDescription": "Pautan rasmi: laman web, YouTube, TikTok, Instagram, X dan hubungan.",
+    "brandMini": "Pembawa Obor",
+    "h1": "Temui kami di sini",
+    "sub": "Semua pautan rasmi — tersusun kemas.",
+    "note": "Tiada spam. Tiada drama. Hanya kerja.",
+    "nav": {
+      "start": "Mula",
+      "about": "Tentang kami",
+      "films": "Filem & bab",
+      "impulses": "Ilham",
+      "workshop": "Bengkel",
+      "offers": "Tawaran",
+      "shop": "Kedai",
+      "contact": "Temui kami di sini"
+    },
+    "cards": {
+      "website_title": "Laman web",
+      "website_desc": "Halaman utama (DE):",
+      "website_btn": "Buka laman web",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Filem & kemas kini:",
+      "youtube_btn": "Buka saluran YouTube",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & klip:",
+      "tiktok_btn": "Buka TikTok",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, foto & kemas kini:",
+      "instagram_btn": "Buka Instagram",
+      "x_title": "X",
+      "x_desc": "Berita & kemas kini:",
+      "x_btn": "Buka profil X",
+      "contact_title": "Hubungan",
+      "contact_desc": "Tulis kepada kami:",
+      "contact_btn": "Hantar e-mel"
+    },
+    "footer": "© Lampadēphóros • Hubungan: "
+  },
+  "hi": {
+    "htmlLang": "hi",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – यहाँ हमें पाएं",
+    "metaDescription": "आधिकारिक लिंक: वेबसाइट, YouTube, TikTok, Instagram, X और संपर्क।",
+    "brandMini": "मशाल-वाहक",
+    "h1": "यहाँ हमें पाएं",
+    "sub": "सभी आधिकारिक लिंक — साफ़ तौर पर एक जगह।",
+    "note": "कोई स्पैम नहीं। कोई ड्रामा नहीं। सिर्फ़ काम।",
+    "nav": {
+      "start": "शुरू",
+      "about": "हमारे बारे में",
+      "films": "फ़िल्में व अध्याय",
+      "impulses": "प्रेरणाएँ",
+      "workshop": "वर्कशॉप",
+      "offers": "ऑफ़र",
+      "shop": "शॉप",
+      "contact": "यहाँ हमें पाएं"
+    },
+    "cards": {
+      "website_title": "वेबसाइट",
+      "website_desc": "मुखपृष्ठ (DE):",
+      "website_btn": "वेबसाइट खोलें",
+      "youtube_title": "YouTube",
+      "youtube_desc": "फ़िल्में व अपडेट:",
+      "youtube_btn": "YouTube चैनल खोलें",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "शॉर्ट्स व क्लिप:",
+      "tiktok_btn": "TikTok खोलें",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, फ़ोटो व अपडेट:",
+      "instagram_btn": "Instagram खोलें",
+      "x_title": "X",
+      "x_desc": "खबरें व अपडेट:",
+      "x_btn": "X प्रोफ़ाइल खोलें",
+      "contact_title": "संपर्क",
+      "contact_desc": "सीधे लिखें:",
+      "contact_btn": "ईमेल भेजें"
+    },
+    "footer": "© Lampadēphóros • संपर्क: "
+  },
+  "bn": {
+    "htmlLang": "bn",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – এখানে আমাদের পাবেন",
+    "metaDescription": "আধিকারিক লিংক: ওয়েবসাইট, YouTube, TikTok, Instagram, X এবং যোগাযোগ।",
+    "brandMini": "মশালবাহক",
+    "h1": "এখানে আমাদের পাবেন",
+    "sub": "সব অফিসিয়াল লিংক — এক জায়গায় গুছানো।",
+    "note": "কোনো স্প্যাম নেই। কোনো নাটক নেই। শুধু কাজ।",
+    "nav": {
+      "start": "শুরু",
+      "about": "আমাদের সম্পর্কে",
+      "films": "ফিল্ম ও অধ্যায়",
+      "impulses": "অনুপ্রেরণা",
+      "workshop": "ওয়ার্কশপ",
+      "offers": "অফার",
+      "shop": "শপ",
+      "contact": "এখানে আমাদের পাবেন"
+    },
+    "cards": {
+      "website_title": "ওয়েবসাইট",
+      "website_desc": "হোমপেজ (DE):",
+      "website_btn": "ওয়েবসাইট খুলুন",
+      "youtube_title": "YouTube",
+      "youtube_desc": "ফিল্ম ও আপডেট:",
+      "youtube_btn": "YouTube চ্যানেল খুলুন",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "শর্টস ও ক্লিপ:",
+      "tiktok_btn": "TikTok খুলুন",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, ছবি ও আপডেট:",
+      "instagram_btn": "Instagram খুলুন",
+      "x_title": "X",
+      "x_desc": "খবর ও আপডেট:",
+      "x_btn": "X প্রোফাইল খুলুন",
+      "contact_title": "যোগাযোগ",
+      "contact_desc": "সরাসরি লিখুন:",
+      "contact_btn": "ইমেইল পাঠান"
+    },
+    "footer": "© Lampadēphóros • যোগাযোগ: "
+  },
+  "ta": {
+    "htmlLang": "ta",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – எங்களை இங்கே காணலாம்",
+    "metaDescription": "அதிகாரப்பூர்வ இணைப்புகள்: வலைத்தளம், YouTube, TikTok, Instagram, X மற்றும் தொடர்பு.",
+    "brandMini": "தீவாள் தாங்குபவர்",
+    "h1": "எங்களை இங்கே காணலாம்",
+    "sub": "அனைத்து அதிகாரப்பூர்வ இணைப்புகளும் — ஒரு இடத்தில்.",
+    "note": "ஸ்பாம் இல்லை. ட்ராமா இல்லை. வேலை மட்டும்.",
+    "nav": {
+      "start": "தொடக்கம்",
+      "about": "எங்களை பற்றி",
+      "films": "திரைப்படங்கள் & அத்தியாயங்கள்",
+      "impulses": "உந்துதல்கள்",
+      "workshop": "பணிமனை",
+      "offers": "வழங்கல்கள்",
+      "shop": "கடை",
+      "contact": "எங்களை இங்கே காணலாம்"
+    },
+    "cards": {
+      "website_title": "வலைத்தளம்",
+      "website_desc": "முகப்பு (DE):",
+      "website_btn": "வலைத்தளத்தை திற",
+      "youtube_title": "YouTube",
+      "youtube_desc": "திரைப்படங்கள் & புதுப்பிப்புகள்:",
+      "youtube_btn": "YouTube சேனலை திற",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts & கிளிப்புகள்:",
+      "tiktok_btn": "TikTok திற",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, படங்கள் & புதுப்பிப்புகள்:",
+      "instagram_btn": "Instagram திற",
+      "x_title": "X",
+      "x_desc": "செய்திகள் & புதுப்பிப்புகள்:",
+      "x_btn": "X சுயவிவரத்தை திற",
+      "contact_title": "தொடர்பு",
+      "contact_desc": "நேராக எழுதுங்கள்:",
+      "contact_btn": "மின்னஞ்சல் அனுப்பு"
+    },
+    "footer": "© Lampadēphóros • தொடர்பு: "
+  },
+  "ku": {
+    "htmlLang": "ku",
+    "dir": "ltr",
+    "pageTitle": "Lampadēphóros – Li vir em dibînî",
+    "metaDescription": "Girêdanên fermî: malper, YouTube, TikTok, Instagram, X û têkilî.",
+    "brandMini": "Fêkelbar",
+    "h1": "Li vir em dibînî",
+    "sub": "Hemû girêdanên fermî — li yek cihê bi rêkûpêk.",
+    "note": "Ne spam. Ne drama. Tenê kar.",
+    "nav": {
+      "start": "Destpêk",
+      "about": "Derbarê me",
+      "films": "Fîlm û beş",
+      "impulses": "Împuls",
+      "workshop": "Atelye",
+      "offers": "Pêşniyar",
+      "shop": "Shop",
+      "contact": "Li vir em dibînî"
+    },
+    "cards": {
+      "website_title": "Malper",
+      "website_desc": "Destpêk (DE):",
+      "website_btn": "Malper vekin",
+      "youtube_title": "YouTube",
+      "youtube_desc": "Fîlm û nûvekirin:",
+      "youtube_btn": "Kanala YouTube vekin",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts û klîp:",
+      "tiktok_btn": "TikTok vekin",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels, wêne û nûvekirin:",
+      "instagram_btn": "Instagram vekin",
+      "x_title": "X",
+      "x_desc": "Nûçe û nûvekirin:",
+      "x_btn": "Profîla X vekin",
+      "contact_title": "Têkilî",
+      "contact_desc": "Rasterast nivîse:",
+      "contact_btn": "E-name bişîne"
+    },
+    "footer": "© Lampadēphóros • Têkilî: "
+  },
+  "ar": {
+    "htmlLang": "ar",
+    "dir": "rtl",
+    "pageTitle": "Lampadēphóros – تجدنا هنا",
+    "metaDescription": "روابط رسمية: الموقع، يوتيوب، تيك توك، إنستغرام، X ووسائل التواصل.",
+    "brandMini": "حامل الشعلة",
+    "h1": "تجدنا هنا",
+    "sub": "كل الروابط الرسمية — في مكان واحد وبشكل واضح.",
+    "note": "لا سبام. لا دراما. فقط عمل.",
+    "nav": {
+      "start": "البداية",
+      "about": "من نحن",
+      "films": "أفلام وفصول",
+      "impulses": "إلهامات",
+      "workshop": "ورشة",
+      "offers": "عروض",
+      "shop": "المتجر",
+      "contact": "تجدنا هنا"
+    },
+    "cards": {
+      "website_title": "الموقع",
+      "website_desc": "الصفحة الرئيسية (DE):",
+      "website_btn": "فتح الموقع",
+      "youtube_title": "YouTube",
+      "youtube_desc": "أفلام وتحديثات:",
+      "youtube_btn": "فتح قناة يوتيوب",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts ومقاطع:",
+      "tiktok_btn": "فتح تيك توك",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels، صور وتحديثات:",
+      "instagram_btn": "فتح إنستغرام",
+      "x_title": "X",
+      "x_desc": "أخبار وتحديثات:",
+      "x_btn": "فتح حساب X",
+      "contact_title": "التواصل",
+      "contact_desc": "اكتب لنا مباشرة:",
+      "contact_btn": "إرسال بريد"
+    },
+    "footer": "© Lampadēphóros • تواصل: "
+  },
+  "ur": {
+    "htmlLang": "ur",
+    "dir": "rtl",
+    "pageTitle": "Lampadēphóros – ہمیں یہاں پائیں",
+    "metaDescription": "سرکاری روابط: ویب سائٹ، YouTube، TikTok، Instagram، X اور رابطہ۔",
+    "brandMini": "مشعل بردار",
+    "h1": "ہمیں یہاں پائیں",
+    "sub": "تمام سرکاری لنکس — ایک جگہ پر۔",
+    "note": "نہ اسپام۔ نہ ڈرامہ۔ بس کام۔",
+    "nav": {
+      "start": "شروع",
+      "about": "ہمارے بارے میں",
+      "films": "فلمیں اور ابواب",
+      "impulses": "تحریکات",
+      "workshop": "ورکشاپ",
+      "offers": "پیشکشیں",
+      "shop": "شاپ",
+      "contact": "ہمیں یہاں پائیں"
+    },
+    "cards": {
+      "website_title": "ویب سائٹ",
+      "website_desc": "ہوم پیج (DE):",
+      "website_btn": "ویب سائٹ کھولیں",
+      "youtube_title": "YouTube",
+      "youtube_desc": "فلمیں اور اپڈیٹس:",
+      "youtube_btn": "YouTube چینل کھولیں",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "شارٹس اور کلپس:",
+      "tiktok_btn": "TikTok کھولیں",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels، تصاویر اور اپڈیٹس:",
+      "instagram_btn": "Instagram کھولیں",
+      "x_title": "X",
+      "x_desc": "خبریں اور اپڈیٹس:",
+      "x_btn": "X پروفائل کھولیں",
+      "contact_title": "رابطہ",
+      "contact_desc": "ہمیں سیدھا لکھیں:",
+      "contact_btn": "ای میل بھیجیں"
+    },
+    "footer": "© Lampadēphóros • رابطہ: "
+  },
+  "fa": {
+    "htmlLang": "fa",
+    "dir": "rtl",
+    "pageTitle": "Lampadēphóros – اینجا ما را پیدا کنید",
+    "metaDescription": "لینک‌های رسمی: وب‌سایت، یوتیوب، تیک‌تاک، اینستاگرام، X و تماس.",
+    "brandMini": "مشعل‌دار",
+    "h1": "اینجا ما را پیدا کنید",
+    "sub": "همهٔ لینک‌های رسمی — مرتب و یک‌جا.",
+    "note": "بدون اسپم. بدون جنجال. فقط کار.",
+    "nav": {
+      "start": "شروع",
+      "about": "درباره ما",
+      "films": "فیلم‌ها و فصل‌ها",
+      "impulses": "الهام‌ها",
+      "workshop": "کارگاه",
+      "offers": "پیشنهادها",
+      "shop": "فروشگاه",
+      "contact": "اینجا ما را پیدا کنید"
+    },
+    "cards": {
+      "website_title": "وب‌سایت",
+      "website_desc": "صفحهٔ اصلی (DE):",
+      "website_btn": "باز کردن وب‌سایت",
+      "youtube_title": "YouTube",
+      "youtube_desc": "فیلم‌ها و به‌روزرسانی‌ها:",
+      "youtube_btn": "باز کردن کانال یوتیوب",
+      "tiktok_title": "TikTok",
+      "tiktok_desc": "Shorts و کلیپ‌ها:",
+      "tiktok_btn": "باز کردن تیک‌تاک",
+      "instagram_title": "Instagram",
+      "instagram_desc": "Reels، تصاویر و به‌روزرسانی‌ها:",
+      "instagram_btn": "باز کردن اینستاگرام",
+      "x_title": "X",
+      "x_desc": "خبرها و به‌روزرسانی‌ها:",
+      "x_btn": "باز کردن پروفایل X",
+      "contact_title": "تماس",
+      "contact_desc": "مستقیم برای ما بنویسید:",
+      "contact_btn": "ارسال ایمیل"
+    },
+    "footer": "© Lampadēphóros • تماس: "
+  }
+};
+
+  const supported = new Set(Object.keys(T));
+
+  const getLang = () => {
+    const fromUrl = base(new URL(location.href).searchParams.get("lang"));
+    if (fromUrl && supported.has(fromUrl)) return fromUrl;
+
+    const fromWindow = base(window.lamp_lang);
+    if (fromWindow && supported.has(fromWindow)) return fromWindow;
+
+    try {
+      const stored = base(localStorage.getItem(STORAGE_KEY));
+      if (stored && supported.has(stored)) return stored;
+    } catch (e) {}
+
+    return "de";
+  };
+
+  const setLang = (l) => {
+    try { localStorage.setItem(STORAGE_KEY, l); } catch (e) {}
+  };
+
+  const ensureLangInUrl = (lang) => {
+    try {
+      const u = new URL(location.href);
+      if (base(u.searchParams.get("lang")) !== lang) {
+        u.searchParams.set("lang", lang);
+        history.replaceState(null, "", u.toString());
+      }
+    } catch (e) {}
+  };
+
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = value;
+  };
+
+  const setAttr = (id, attr, value) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.setAttribute(attr, value);
+  };
+
+  const setMeta = (nameOrId, value) => {
+    const el = document.getElementById(nameOrId) || document.querySelector(`meta[name="${nameOrId}"]`);
+    if (!el) return;
+    el.setAttribute("content", value);
+  };
+
+  const keepLangOnLinks = (lang) => {
+    if (!lang || lang === "de") return;
+
+    document.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href) return;
+
+      // ignore anchors, mailto, tel, absolute links
+      if (href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+      if (/^[a-z]+:/i.test(href)) return;
+
+      try {
+        const u = new URL(href, location.origin);
+        const cur = base(u.searchParams.get("lang"));
+        if (!cur) {
+          u.searchParams.set("lang", lang);
+          // keep it relative if originally relative
+          const rel = u.pathname.replace(/^\//,"") + (u.search ? u.search : "") + (u.hash ? u.hash : "");
+          a.setAttribute("href", rel);
+        }
+      } catch (e) {}
+    });
+  };
+
+  const apply = (lang) => {
+    const deUI = T.de;
+    const ui = T[lang] || deUI;
+
+    // html lang + dir
+    document.documentElement.lang = ui.htmlLang || lang || "de";
+    document.documentElement.dir = RTL.has(lang) ? "rtl" : (ui.dir || "ltr");
+
+    // title + meta
+    const title = ui.pageTitle || deUI.pageTitle;
+    document.title = title;
+    const titleEl = document.getElementById("pageTitle");
+    if (titleEl) titleEl.textContent = title;
+
+    setMeta("metaDesc", ui.metaDescription || deUI.metaDescription);
+
+    // hero
+    setText("brandMini", ui.brandMini || deUI.brandMini);
+    setText("h1", ui.h1 || deUI.h1);
+    setText("sub", ui.sub || deUI.sub);
+    setText("note", ui.note || deUI.note);
+
+    // nav
+    setText("navStart", ui.nav?.start || deUI.nav.start);
+    setText("navAbout", ui.nav?.about || deUI.nav.about);
+    setText("navFilms", ui.nav?.films || deUI.nav.films);
+    setText("navImpulses", ui.nav?.impulses || deUI.nav.impulses);
+    setText("navWorkshop", ui.nav?.workshop || deUI.nav.workshop);
+    setText("navOffers", ui.nav?.offers || deUI.nav.offers);
+    setText("navShop", ui.nav?.shop || deUI.nav.shop);
+    setText("navContact", ui.nav?.contact || deUI.nav.contact);
+
+    // cards
+    const c = ui.cards || deUI.cards;
+
+    setText("websiteTitle", c.website_title || deUI.cards.website_title);
+    setText("websiteDesc", c.website_desc || deUI.cards.website_desc);
+    setText("websiteBtn", c.website_btn || deUI.cards.website_btn);
+
+    setText("youtubeTitle", c.youtube_title || deUI.cards.youtube_title);
+    setText("youtubeDesc", c.youtube_desc || deUI.cards.youtube_desc);
+    setText("youtubeBtn", c.youtube_btn || deUI.cards.youtube_btn);
+
+    setText("tiktokTitle", c.tiktok_title || deUI.cards.tiktok_title);
+    setText("tiktokDesc", c.tiktok_desc || deUI.cards.tiktok_desc);
+    setText("tiktokBtn", c.tiktok_btn || deUI.cards.tiktok_btn);
+
+    setText("instagramTitle", c.instagram_title || deUI.cards.instagram_title);
+    setText("instagramDesc", c.instagram_desc || deUI.cards.instagram_desc);
+    setText("instagramBtn", c.instagram_btn || deUI.cards.instagram_btn);
+
+    setText("xTitle", c.x_title || deUI.cards.x_title);
+    setText("xDesc", c.x_desc || deUI.cards.x_desc);
+    setText("xBtn", c.x_btn || deUI.cards.x_btn);
+
+    setText("contactTitle", c.contact_title || deUI.cards.contact_title);
+    setText("contactDesc", c.contact_desc || deUI.cards.contact_desc);
+    // button: keep email visible; just label optionally
+    const contactBtn = document.getElementById("contactBtn");
+    if (contactBtn) {
+      contactBtn.textContent = (c.contact_btn || deUI.cards.contact_btn);
+    }
+
+    // footer
+    const footer = document.getElementById("footer");
+    if (footer) {
+      const mail = "lampadephoros.media@gmail.com";
+      footer.innerHTML = `${ui.footer || deUI.footer}<a href="mailto:${mail}">${mail}</a>`;
+    }
+
+    // goldstandard: remember + keep ?lang on internal links
+    setLang(lang);
+    ensureLangInUrl(lang);
+    keepLangOnLinks(lang);
+  };
+
+  // init
+  const lang = getLang();
+  apply(lang);
+
+})();
+</script>
+
 </body>
 </html>
