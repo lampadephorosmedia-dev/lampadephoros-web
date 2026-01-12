@@ -71,8 +71,10 @@
     // --- Goldstandard language logic: ?lang= + lamp_lang + DE-only fallback ---
     (function () {
       const SUPPORTED = new Set([
-        "de","en","fr","it","es","pt","nl","lb","pl","ru","uk","ro","bg","sr","hr","bs","cs","sk",
-        "sl","hu","el","tr","ar","he","hi","ta","th","vi","id","fil"
+        "de", "en", "fr", "it", "es", "pt", "nl", "lb", "pl", "ru",
+        "uk", "ro", "bg", "sr", "hr", "bs", "cs", "sk", "sl", "hu",
+        "el", "tr", "ar", "he", "hi", "ta", "th", "vi", "id", "fil",
+        "bn", "ms", "ko", "ja", "zh", "fa", "ur"
       ]);
 
       function normLang(x) {
@@ -105,6 +107,11 @@
 
       // reflect lang in <html lang="">
       document.documentElement.setAttribute("lang", lang);
+
+
+      // reflect dir (rtl / ltr)
+      const RTL = new Set(["ar","he","fa","ur"]); // add more if needed
+      document.documentElement.setAttribute("dir", RTL.has(lang) ? "rtl" : "ltr");
 
       // --- UI translations (DE is the source / fallback) ---
       const I18N = {
@@ -857,7 +864,190 @@
                         "navShop": "Shop",
                         "navLinks": "Kontak"
                 }
+        },
+
+bn: {
+          brandMini: "মশালবাহক",
+          h1: "দোকান",
+          sub: "শুরু থেকেই মার্চ: সহজ, পরিষ্কার এবং প্রকল্পের প্রতি বিশ্বস্ত।",
+          note: "কোনও স্প্যাম নয়। কোনও ড্রামা নয়। শুধু কাজ।",
+          c1h: "প্রস্তুত হচ্ছে",
+          c1p: "দোকানটি শীঘ্রই আসছে। আমরা ছোট করে শুরু করছি, কিন্তু গোছানোভাবে:\n          স্পষ্ট ডিজাইন, ভালো মান এবং সহজ লজিস্টিকস।",
+          c2h: "যা আসছে",
+          c2p: "টি-শার্ট, মগ, স্টিকার এবং কয়েকটি মিনিমাল আইটেম — Lampadēphóros লোগো সহ।",
+          c3h: "তথ্য / যোগাযোগ",
+          c3p: "দোকান খুললেই জানাতে চাইলে, আমাদের একটি ছোট ইমেইল পাঠাও।",
+          footerLead: "© Lampadēphóros • যোগাযোগ:",
+          metaDesc: "Lampadēphóros দোকান: মার্চ (টি-শার্ট, মগ ইত্যাদি) — প্রস্তুত হচ্ছে।",
+          title: "Lampadēphóros – দোকান",
+          nav: {
+            navStart: "শুরু",
+            navAbout: "আমাদের সম্পর্কে",
+            navFilms: "ফিল্ম ও অধ্যায়",
+            navImpulses: "অনুপ্রেরণা",
+            navWorkshop: "ওয়ার্কশপ",
+            navOffers: "অফার",
+            navShop: "দোকান",
+            navLinks: "এখানে পাবেন"
+          }
+        },
+
+ms: {
+          brandMini: "Pembawa Obor",
+          h1: "Kedai",
+          sub: "Merch dari awal: ringkas, kemas, setia pada projek.",
+          note: "Tiada spam. Tiada drama. Hanya kerja.",
+          c1h: "Dalam persiapan",
+          c1p: "Kedai akan dibuka tidak lama lagi. Kami bermula kecil, tetapi kemas:\n          reka bentuk jelas, kualiti baik dan logistik mudah.",
+          c2h: "Akan datang",
+          c2p: "T‑shirt, mug, pelekat dan beberapa item minimal — dengan logo Lampadēphóros.",
+          c3h: "Info / Hubungi",
+          c3p: "Jika anda mahu dimaklumkan apabila kedai dibuka, hantarkan emel ringkas kepada kami.",
+          footerLead: "© Lampadēphóros • Hubungi:",
+          metaDesc: "Kedai Lampadēphóros: merch (t‑shirt, mug, dll.) — dalam persiapan.",
+          title: "Lampadēphóros – Kedai",
+          nav: {
+            navStart: "Mula",
+            navAbout: "Tentang",
+            navFilms: "Filem & Bab",
+            navImpulses: "Dorongan",
+            navWorkshop: "Bengkel",
+            navOffers: "Tawaran",
+            navShop: "Kedai",
+            navLinks: "Di sini kami"
+          }
+        },
+
+ko: {
+          brandMini: "횃불지기",
+          h1: "상점",
+          sub: "처음부터 굿즈: 단순하게, 깔끔하게, 프로젝트에 충실하게.",
+          note: "스팸 없음. 드라마 없음. 오직 작업.",
+          c1h: "준비 중",
+          c1p: "상점은 곧 오픈합니다. 우리는 작게 시작하지만 제대로 준비합니다:\n          명확한 디자인, 좋은 품질, 간단한 물류.",
+          c2h: "예정 상품",
+          c2p: "티셔츠, 머그, 스티커 그리고 몇 가지 미니멀 아이템 — Lampadēphóros 로고와 함께.",
+          c3h: "안내 / 연락",
+          c3p: "오픈 소식을 받고 싶다면, 짧게 이메일을 보내 주세요.",
+          footerLead: "© Lampadēphóros • 연락처:",
+          metaDesc: "Lampadēphóros 상점: 굿즈(티셔츠, 머그 등) — 준비 중.",
+          title: "Lampadēphóros – 상점",
+          nav: {
+            navStart: "시작",
+            navAbout: "소개",
+            navFilms: "영상 & 챕터",
+            navImpulses: "임펄스",
+            navWorkshop: "워크숍",
+            navOffers: "제안",
+            navShop: "상점",
+            navLinks: "여기에서"
+          }
+        },
+
+ja: {
+          brandMini: "たいまつを担う者",
+          h1: "ショップ",
+          sub: "最初からグッズ：シンプルに、きれいに、プロジェクトに忠実に。",
+          note: "スパムなし。ドラマなし。ただ積み上げる。",
+          c1h: "準備中",
+          c1p: "ショップはまもなく。小さく始めますが、丁寧に:\n          明確なデザイン、良い品質、シンプルな物流。",
+          c2h: "登場予定",
+          c2p: "Tシャツ、マグカップ、ステッカー、ミニマルなアイテム — Lampadēphóros ロゴ付き。",
+          c3h: "情報 / 連絡",
+          c3p: "オープン時にお知らせが欲しい方は、短いメールを送ってください。",
+          footerLead: "© Lampadēphóros • 連絡先:",
+          metaDesc: "Lampadēphóros ショップ：グッズ（Tシャツ、マグ等）— 準備中。",
+          title: "Lampadēphóros – ショップ",
+          nav: {
+            navStart: "スタート",
+            navAbout: "私たちについて",
+            navFilms: "映像 & 章",
+            navImpulses: "インパルス",
+            navWorkshop: "ワークショップ",
+            navOffers: "提供",
+            navShop: "ショップ",
+            navLinks: "見つける"
+          }
+        },
+
+zh: {
+          brandMini: "持炬者",
+          h1: "商店",
+          sub: "从一开始的周边：简洁、干净、忠于项目。",
+          note: "无垃圾信息。无狗血。只做事。",
+          c1h: "筹备中",
+          c1p: "商店即将上线。我们从小做起，但会做得扎实：\n          清晰设计、良好品质、简单物流。",
+          c2h: "即将推出",
+          c2p: "T恤、马克杯、贴纸以及一些极简单品——带 Lampadēphóros 标志。",
+          c3h: "信息 / 联系",
+          c3p: "想在开店时收到通知？给我们发一封简短邮件即可。",
+          footerLead: "© Lampadēphóros • 联系方式：",
+          metaDesc: "Lampadēphóros 商店：周边（T恤、马克杯等）——筹备中。",
+          title: "Lampadēphóros – 商店",
+          nav: {
+            navStart: "开始",
+            navAbout: "关于我们",
+            navFilms: "影片与章节",
+            navImpulses: "灵感",
+            navWorkshop: "工作坊",
+            navOffers: "提供",
+            navShop: "商店",
+            navLinks: "在这里找到我们"
+          }
+        },
+
+fa: {
+          brandMini: "مشعل‌دار",
+          h1: "فروشگاه",
+          sub: "مرچ از همان ابتدا: ساده، تمیز و وفادار به پروژه.",
+          note: "بدون اسپم. بدون جنجال. فقط کار.",
+          c1h: "در حال آماده‌سازی",
+          c1p: "فروشگاه به‌زودی می‌آید. کوچک شروع می‌کنیم، اما درست و تمیز:\n          طراحی‌های روشن، کیفیت خوب و لجستیک ساده.",
+          c2h: "چه چیزهایی می‌آید",
+          c2p: "تی‌شرت، ماگ، استیکر و چند آیتم مینیمال — با لوگوی Lampadēphóros.",
+          c3h: "اطلاعات / تماس",
+          c3p: "اگر می‌خواهی با باز شدن فروشگاه خبرت کنیم، یک ایمیل کوتاه بفرست.",
+          footerLead: "© Lampadēphóros • تماس:",
+          metaDesc: "فروشگاه Lampadēphóros: مرچ (تی‌شرت، ماگ و …) — در حال آماده‌سازی.",
+          title: "Lampadēphóros – فروشگاه",
+          nav: {
+            navStart: "شروع",
+            navAbout: "درباره ما",
+            navFilms: "فیلم‌ها و فصل‌ها",
+            navImpulses: "الهامات",
+            navWorkshop: "کارگاه",
+            navOffers: "پیشنهادها",
+            navShop: "فروشگاه",
+            navLinks: "اینجا ما را پیدا کن"
+          }
+        },
+
+ur: {
+          brandMini: "مشعل بردار",
+          h1: "دکان",
+          sub: "ابتدا سے مرچ: سادہ، صاف اور منصوبے کے ساتھ وفادار۔",
+          note: "نہ اسپام۔ نہ ڈرامہ۔ بس کام۔",
+          c1h: "تیاری میں",
+          c1p: "دکان جلد آ رہی ہے۔ ہم چھوٹا شروع کرتے ہیں مگر صاف ستھرا:\n          واضح ڈیزائن، اچھی کوالٹی اور سادہ لاجسٹکس۔",
+          c2h: "کیا آئے گا",
+          c2p: "ٹی شرٹس، مگ، اسٹیکرز اور چند منیمل آئٹمز — Lampadēphóros لوگو کے ساتھ۔",
+          c3h: "معلومات / رابطہ",
+          c3p: "جب دکان کھلے تو اطلاع چاہیے؟ ہمیں ایک مختصر ای میل بھیج دیں۔",
+          footerLead: "© Lampadēphóros • رابطہ:",
+          metaDesc: "Lampadēphóros دکان: مرچ (ٹی شرٹس، مگ وغیرہ) — تیاری میں۔",
+          title: "Lampadēphóros – دکان",
+          nav: {
+            navStart: "شروع",
+            navAbout: "ہمارے بارے میں",
+            navFilms: "فلمیں اور ابواب",
+            navImpulses: "ترغیبات",
+            navWorkshop: "ورکشاپ",
+            navOffers: "پیشکشیں",
+            navShop: "دکان",
+            navLinks: "یہاں ملیں"
+          }
         }
+
 };
 
       function applyText(id, value) {
