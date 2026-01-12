@@ -1,4 +1,3 @@
-<!-- FILE: shop.html (FINAL – Goldstandard: ?lang + lamp_lang + DE-only fallback + old DE content 1:1 + keep ?lang on links) -->
 <!doctype html>
 <html lang="de">
 <head>
@@ -109,167 +108,761 @@
 
       // --- UI translations (DE is the source / fallback) ---
       const I18N = {
-        de: {
-          brandMini: "Der Fackelträger",
-          h1: "Shop",
-          sub: "Merch von Anfang an: schlicht, sauber und treu zum Projekt.",
-          note: "Kein Spam. Kein Drama. Nur Werk.",
-          c1h: "In Vorbereitung",
-          c1p: "Der Shop kommt bald. Wir starten klein, aber sauber:\n          klare Designs, gute Qualität und einfache Logistik.",
-          c2h: "Was kommt",
-          c2p: "T-Shirts, Tassen, Sticker und ein paar minimalistische Items – mit dem Lampadēphóros-Logo.",
-          c3h: "Info / Kontakt",
-          c3p: "Wenn du informiert werden willst, sobald der Shop öffnet, schreib uns kurz eine Mail.",
-          footerLead: "© Lampadēphóros • Kontakt:",
-          metaDesc: "Shop Lampadēphóros: Merch (T-Shirts, Tassen, etc.) – in Vorbereitung.",
-          title: "Lampadēphóros – Shop",
-          nav: {
-            navStart: "Start",
-            navAbout: "Über uns",
-            navFilms: "Filme & Kapitel",
-            navImpulses: "Impulse",
-            navWorkshop: "Werkstatt",
-            navOffers: "Angebote",
-            navShop: "Shop",
-            navLinks: "Hier findest du uns"
-          }
+        "de": {
+                "brandMini": "Der Fackelträger",
+                "h1": "Shop",
+                "sub": "Merch von Anfang an: schlicht, sauber und treu zum Projekt.",
+                "note": "Kein Spam. Kein Drama. Nur Werk.",
+                "c1h": "In Vorbereitung",
+                "c1p": "Der Shop kommt bald. Wir starten klein, aber sauber:\nklare Designs, gute Qualität und einfache Logistik.",
+                "c2h": "Was kommt",
+                "c2p": "T-Shirts, Tassen, Sticker und ein paar minimalistische Items – mit dem Lampadēphóros-Logo.",
+                "c3h": "Info / Kontakt",
+                "c3p": "Wenn du informiert werden willst, sobald der Shop öffnet, schreib uns kurz eine Mail.",
+                "footerLead": "© Lampadēphóros • Kontakt:",
+                "metaDesc": "Shop Lampadēphóros: Merch (T-Shirts, Tassen, etc.) – in Vorbereitung.",
+                "title": "Lampadēphóros – Shop",
+                "nav": {
+                        "navStart": "Start",
+                        "navAbout": "Über uns",
+                        "navFilms": "Filme & Kapitel",
+                        "navImpulses": "Impulse",
+                        "navWorkshop": "Werkstatt",
+                        "navOffers": "Angebote",
+                        "navShop": "Shop",
+                        "navLinks": "Hier findest du uns"
+                }
         },
-
-        en: {
-          brandMini: "The Torchbearer",
-          h1: "Shop",
-          sub: "Merch from the start: simple, clean, faithful to the project.",
-          note: "No spam. No drama. Just work.",
-          c1h: "In preparation",
-          c1p: "The shop is coming soon. We start small, but clean:\n          clear designs, good quality, and simple logistics.",
-          c2h: "What’s coming",
-          c2p: "T-shirts, mugs, stickers, and a few minimalist items — with the Lampadēphóros logo.",
-          c3h: "Info / Contact",
-          c3p: "If you want to be informed when the shop opens, just send us a short email.",
-          footerLead: "© Lampadēphóros • Contact:",
-          metaDesc: "Lampadēphóros shop: merch (T-shirts, mugs, etc.) — in preparation.",
-          title: "Lampadēphóros – Shop",
-          nav: {
-            navStart: "Start",
-            navAbout: "About",
-            navFilms: "Films & Chapters",
-            navImpulses: "Impulses",
-            navWorkshop: "Workshop",
-            navOffers: "Offers",
-            navShop: "Shop",
-            navLinks: "Find us here"
-          }
+        "en": {
+                "brandMini": "The Torchbearer",
+                "h1": "Shop",
+                "sub": "Merch from the start: simple, clean, faithful to the project.",
+                "note": "No spam. No drama. Just work.",
+                "c1h": "In preparation",
+                "c1p": "The shop is coming soon. We start small, but clean:\nclear designs, good quality, and simple logistics.",
+                "c2h": "What’s coming",
+                "c2p": "T-shirts, mugs, stickers, and a few minimalist items — with the Lampadēphóros logo.",
+                "c3h": "Info / Contact",
+                "c3p": "If you want to be informed when the shop opens, just send us a short email.",
+                "footerLead": "© Lampadēphóros • Contact:",
+                "metaDesc": "Lampadēphóros shop: merch (T-shirts, mugs, etc.) — in preparation.",
+                "title": "Lampadēphóros – Shop",
+                "nav": {
+                        "navStart": "Home",
+                        "navAbout": "About",
+                        "navFilms": "Films & Chapters",
+                        "navImpulses": "Impulses",
+                        "navWorkshop": "Workshop",
+                        "navOffers": "Offers",
+                        "navShop": "Shop",
+                        "navLinks": "Contact"
+                }
         },
-
-        fr: {
-          brandMini: "Le Porte-Flambeau",
-          h1: "Boutique",
-          sub: "Du merch dès le début : simple, propre et fidèle au projet.",
-          note: "Pas de spam. Pas de drama. Juste du travail.",
-          c1h: "En préparation",
-          c1p: "La boutique arrive bientôt. On commence petit, mais propre :\n          des designs clairs, une bonne qualité et une logistique simple.",
-          c2h: "À venir",
-          c2p: "T-shirts, mugs, stickers et quelques articles minimalistes — avec le logo Lampadēphóros.",
-          c3h: "Infos / Contact",
-          c3p: "Si tu veux être informé dès l’ouverture, envoie-nous juste un petit mail.",
-          footerLead: "© Lampadēphóros • Contact :",
-          metaDesc: "Boutique Lampadēphóros : merch (t-shirts, mugs, etc.) — en préparation.",
-          title: "Lampadēphóros – Boutique",
-          nav: {
-            navStart: "Accueil",
-            navAbout: "À propos",
-            navFilms: "Films & Chapitres",
-            navImpulses: "Impulsions",
-            navWorkshop: "Atelier",
-            navOffers: "Offres",
-            navShop: "Boutique",
-            navLinks: "Nous trouver"
-          }
+        "fr": {
+                "brandMini": "Le Porte-flambeau",
+                "h1": "Boutique",
+                "sub": "Du merch dès le début : simple, propre et fidèle au projet.",
+                "note": "Pas de spam. Pas de drama. Juste du travail.",
+                "c1h": "En préparation",
+                "c1p": "La boutique arrive bientôt. On commence petit, mais propre :\ndes designs clairs, une bonne qualité et une logistique simple.",
+                "c2h": "À venir",
+                "c2p": "T-shirts, mugs, stickers et quelques articles minimalistes — avec le logo Lampadēphóros.",
+                "c3h": "Infos / Contact",
+                "c3p": "Si tu veux être informé dès l’ouverture, envoie-nous juste un petit mail.",
+                "footerLead": "© Lampadēphóros • Contact :",
+                "metaDesc": "Boutique Lampadēphóros : merch (t-shirts, mugs, etc.) — en préparation.",
+                "title": "Lampadēphóros – Boutique",
+                "nav": {
+                        "navStart": "Accueil",
+                        "navAbout": "À propos",
+                        "navFilms": "Films & chapitres",
+                        "navImpulses": "Impulsions",
+                        "navWorkshop": "Atelier",
+                        "navOffers": "Offres",
+                        "navShop": "Boutique",
+                        "navLinks": "Contact"
+                }
         },
-
-        it: {
-          brandMini: "Il Portatore della Torcia",
-          h1: "Shop",
-          sub: "Merch fin dall’inizio: semplice, pulito e fedele al progetto.",
-          note: "Niente spam. Niente drama. Solo lavoro.",
-          c1h: "In preparazione",
-          c1p: "Lo shop arriverà presto. Partiamo piccoli, ma puliti:\n          design chiari, buona qualità e logistica semplice.",
-          c2h: "Cosa arriva",
-          c2p: "T-shirt, tazze, sticker e alcuni articoli minimal — con il logo Lampadēphóros.",
-          c3h: "Info / Contatto",
-          c3p: "Se vuoi essere avvisato quando apriamo, scrivici una breve email.",
-          footerLead: "© Lampadēphóros • Contatto:",
-          metaDesc: "Shop Lampadēphóros: merch (t-shirt, tazze, ecc.) — in preparazione.",
-          title: "Lampadēphóros – Shop",
-          nav: {
-            navStart: "Inizio",
-            navAbout: "Chi siamo",
-            navFilms: "Film & Capitoli",
-            navImpulses: "Impulsi",
-            navWorkshop: "Laboratorio",
-            navOffers: "Offerte",
-            navShop: "Shop",
-            navLinks: "Dove trovarci"
-          }
+        "it": {
+                "brandMini": "Il Portatore della Torcia",
+                "h1": "Shop",
+                "sub": "Merch fin dall’inizio: semplice, pulito e fedele al progetto.",
+                "note": "Niente spam. Niente drama. Solo lavoro.",
+                "c1h": "In preparazione",
+                "c1p": "Lo shop arriverà presto. Partiamo piccoli, ma bene:\ndesign chiari, buona qualità e logistica semplice.",
+                "c2h": "In arrivo",
+                "c2p": "T-shirt, tazze, sticker e alcuni articoli minimal — con il logo Lampadēphóros.",
+                "c3h": "Info / Contatto",
+                "c3p": "Se vuoi essere avvisato quando apriamo, scrivici una breve email.",
+                "footerLead": "© Lampadēphóros • Contatto:",
+                "metaDesc": "Shop Lampadēphóros: merch (t-shirt, tazze, ecc.) — in preparazione.",
+                "title": "Lampadēphóros – Shop",
+                "nav": {
+                        "navStart": "Start",
+                        "navAbout": "Chi siamo",
+                        "navFilms": "Film & capitoli",
+                        "navImpulses": "Spunti",
+                        "navWorkshop": "Officina",
+                        "navOffers": "Proposte",
+                        "navShop": "Shop",
+                        "navLinks": "Contatti"
+                }
         },
-
-        es: {
-          brandMini: "El Portador de la Antorcha",
-          h1: "Tienda",
-          sub: "Merch desde el inicio: simple, limpio y fiel al proyecto.",
-          note: "Sin spam. Sin drama. Solo trabajo.",
-          c1h: "En preparación",
-          c1p: "La tienda llega pronto. Empezamos pequeño, pero bien:\n          diseños claros, buena calidad y logística sencilla.",
-          c2h: "Qué viene",
-          c2p: "Camisetas, tazas, pegatinas y algunos artículos minimalistas — con el logo de Lampadēphóros.",
-          c3h: "Info / Contacto",
-          c3p: "Si quieres que te avisemos cuando abramos, envíanos un correo breve.",
-          footerLead: "© Lampadēphóros • Contacto:",
-          metaDesc: "Tienda Lampadēphóros: merch (camisetas, tazas, etc.) — en preparación.",
-          title: "Lampadēphóros – Tienda",
-          nav: {
-            navStart: "Inicio",
-            navAbout: "Sobre nosotros",
-            navFilms: "Películas y capítulos",
-            navImpulses: "Impulsos",
-            navWorkshop: "Taller",
-            navOffers: "Ofertas",
-            navShop: "Tienda",
-            navLinks: "Dónde encontrarnos"
-          }
+        "es": {
+                "brandMini": "El Portador de la Antorcha",
+                "h1": "Tienda",
+                "sub": "Merch desde el inicio: simple, limpio y fiel al proyecto.",
+                "note": "Sin spam. Sin drama. Solo trabajo.",
+                "c1h": "En preparación",
+                "c1p": "La tienda llega pronto. Empezamos pequeño, pero bien:\ndiseños claros, buena calidad y logística sencilla.",
+                "c2h": "Qué viene",
+                "c2p": "Camisetas, tazas, pegatinas y algunos artículos minimalistas — con el logo de Lampadēphóros.",
+                "c3h": "Info / Contacto",
+                "c3p": "Si quieres que te avisemos cuando abramos, envíanos un correo breve.",
+                "footerLead": "© Lampadēphóros • Contacto:",
+                "metaDesc": "Tienda Lampadēphóros: merch (camisetas, tazas, etc.) — en preparación.",
+                "title": "Lampadēphóros – Tienda",
+                "nav": {
+                        "navStart": "Inicio",
+                        "navAbout": "Sobre nosotros",
+                        "navFilms": "Películas y capítulos",
+                        "navImpulses": "Impulsos",
+                        "navWorkshop": "Taller",
+                        "navOffers": "Ofertas",
+                        "navShop": "Tienda",
+                        "navLinks": "Contacto"
+                }
         },
-
-        pt: {
-          brandMini: "O Portador da Tocha",
-          h1: "Loja",
-          sub: "Merch desde o início: simples, limpo e fiel ao projeto.",
-          note: "Sem spam. Sem drama. Só trabalho.",
-          c1h: "Em preparação",
-          c1p: "A loja chega em breve. Começamos pequeno, mas bem:\n          designs claros, boa qualidade e logística simples.",
-          c2h: "O que vem aí",
-          c2p: "Camisetas, canecas, autocolantes e alguns itens minimalistas — com o logo Lampadēphóros.",
-          c3h: "Info / Contato",
-          c3p: "Se quiser ser avisado quando abrirmos, envie-nos um e-mail rápido.",
-          footerLead: "© Lampadēphóros • Contato:",
-          metaDesc: "Loja Lampadēphóros: merch (camisetas, canecas, etc.) — em preparação.",
-          title: "Lampadēphóros – Loja",
-          nav: {
-            navStart: "Início",
-            navAbout: "Sobre nós",
-            navFilms: "Filmes e capítulos",
-            navImpulses: "Impulsos",
-            navWorkshop: "Oficina",
-            navOffers: "Ofertas",
-            navShop: "Loja",
-            navLinks: "Onde nos encontrar"
-          }
+        "pt": {
+                "brandMini": "O Portador da Tocha",
+                "h1": "Loja",
+                "sub": "Merch desde o início: simples, limpo e fiel ao projeto.",
+                "note": "Sem spam. Sem drama. Só trabalho.",
+                "c1h": "Em preparação",
+                "c1p": "A loja chega em breve. Começamos pequeno, mas bem:\ndesigns claros, boa qualidade e logística simples.",
+                "c2h": "O que vem aí",
+                "c2p": "Camisetas, canecas, autocolantes e alguns itens minimalistas — com o logo Lampadēphóros.",
+                "c3h": "Info / Contato",
+                "c3p": "Se quiser ser avisado quando abrirmos, envie-nos um e-mail rápido.",
+                "footerLead": "© Lampadēphóros • Contato:",
+                "metaDesc": "Loja Lampadēphóros: merch (camisetas, canecas, etc.) — em preparação.",
+                "title": "Lampadēphóros – Loja",
+                "nav": {
+                        "navStart": "Início",
+                        "navAbout": "Sobre",
+                        "navFilms": "Filmes & capítulos",
+                        "navImpulses": "Impulsos",
+                        "navWorkshop": "Oficina",
+                        "navOffers": "Ofertas",
+                        "navShop": "Loja",
+                        "navLinks": "Contato"
+                }
+        },
+        "nl": {
+                "brandMini": "De Fakkeldrager",
+                "h1": "Shop",
+                "sub": "Merch vanaf het begin: simpel, clean en trouw aan het project.",
+                "note": "Geen spam. Geen drama. Gewoon werk.",
+                "c1h": "In voorbereiding",
+                "c1p": "De shop komt binnenkort. We starten klein, maar netjes:\nduidelijke designs, goede kwaliteit en eenvoudige logistiek.",
+                "c2h": "Wat komt er",
+                "c2p": "T-shirts, mokken, stickers en een paar minimalistische items — met het Lampadēphóros‑logo.",
+                "c3h": "Info / Contact",
+                "c3p": "Wil je een seintje zodra de shop opent? Stuur ons even een mail.",
+                "footerLead": "© Lampadēphóros • Contact:",
+                "metaDesc": "Lampadēphóros shop: merch (t-shirts, mokken, enz.) — in voorbereiding.",
+                "title": "Lampadēphóros – Shop",
+                "nav": {
+                        "navStart": "Start",
+                        "navAbout": "Over ons",
+                        "navFilms": "Films & hoofdstukken",
+                        "navImpulses": "Impulsen",
+                        "navWorkshop": "Werkplaats",
+                        "navOffers": "Aanbod",
+                        "navShop": "Shop",
+                        "navLinks": "Contact"
+                }
+        },
+        "lb": {
+                "brandMini": "Den Fackeldréier",
+                "h1": "Shop",
+                "sub": "Merch vun Ufank un: einfach, propper a trei dem Projet.",
+                "note": "Keen Spam. Keng Drama. Nëmmen Aarbecht.",
+                "c1h": "An der Virbereedung",
+                "c1p": "De Shop kënnt geschwënn. Mir starten kleng, mee propper:\nkloer Designen, gutt Qualitéit an einfach Logistik.",
+                "c2h": "Wat kënnt",
+                "c2p": "T‑Shirten, Taassen, Sticker an e puer minimalistesch Saachen — mam Lampadēphóros‑Logo.",
+                "c3h": "Info / Kontakt",
+                "c3p": "Wann s du informéiert wëlls ginn, soubal de Shop op geet, schreiw eis kuerz eng Mail.",
+                "footerLead": "© Lampadēphóros • Kontakt:",
+                "metaDesc": "Lampadēphóros Shop: Merch (T‑Shirten, Taassen, etc.) — an der Virbereedung.",
+                "title": "Lampadēphóros – Shop",
+                "nav": {
+                        "navStart": "Start",
+                        "navAbout": "Iwwer eis",
+                        "navFilms": "Filmer & Kapitelen",
+                        "navImpulses": "Impulser",
+                        "navWorkshop": "Werkstatt",
+                        "navOffers": "Offeren",
+                        "navShop": "Shop",
+                        "navLinks": "Hei fënns du eis"
+                }
+        },
+        "pl": {
+                "brandMini": "Niosący Pochodnię",
+                "h1": "Sklep",
+                "sub": "Merch od początku: prosto, czysto i wiernie projektowi.",
+                "note": "Bez spamu. Bez dram. Tylko praca.",
+                "c1h": "W przygotowaniu",
+                "c1p": "Sklep już wkrótce. Zaczynamy skromnie, ale porządnie:\njasne projekty, dobra jakość i prosta logistyka.",
+                "c2h": "Co będzie",
+                "c2p": "Koszulki, kubki, naklejki i kilka minimalistycznych rzeczy — z logo Lampadēphóros.",
+                "c3h": "Info / Kontakt",
+                "c3p": "Jeśli chcesz dostać informację, gdy sklep ruszy, napisz do nas krótkiego maila.",
+                "footerLead": "© Lampadēphóros • Kontakt:",
+                "metaDesc": "Sklep Lampadēphóros: merch (koszulki, kubki itd.) — w przygotowaniu.",
+                "title": "Lampadēphóros – Sklep",
+                "nav": {
+                        "navStart": "Start",
+                        "navAbout": "O nas",
+                        "navFilms": "Filmy i rozdziały",
+                        "navImpulses": "Impulsy",
+                        "navWorkshop": "Warsztat",
+                        "navOffers": "Oferta",
+                        "navShop": "Sklep",
+                        "navLinks": "Kontakt"
+                }
+        },
+        "ru": {
+                "brandMini": "Носитель факела",
+                "h1": "Магазин",
+                "sub": "Мерч с самого начала: просто, чисто и верно проекту.",
+                "note": "Без спама. Без драмы. Только дело.",
+                "c1h": "В подготовке",
+                "c1p": "Магазин скоро откроется. Начинаем скромно, но качественно:\nчёткие дизайны, хорошее качество и простая логистика.",
+                "c2h": "Что будет",
+                "c2p": "Футболки, кружки, стикеры и несколько минималистичных вещей — с логотипом Lampadēphóros.",
+                "c3h": "Инфо / Контакт",
+                "c3p": "Если хочешь узнать, когда магазин откроется, напиши нам короткое письмо.",
+                "footerLead": "© Lampadēphóros • Контакт:",
+                "metaDesc": "Магазин Lampadēphóros: мерч (футболки, кружки и т. д.) — в подготовке.",
+                "title": "Lampadēphóros – Магазин",
+                "nav": {
+                        "navStart": "Старт",
+                        "navAbout": "О нас",
+                        "navFilms": "Фильмы и главы",
+                        "navImpulses": "Импульсы",
+                        "navWorkshop": "Мастерская",
+                        "navOffers": "Предложения",
+                        "navShop": "Магазин",
+                        "navLinks": "Контакты"
+                }
+        },
+        "uk": {
+                "brandMini": "Факелоносець",
+                "h1": "Магазин",
+                "sub": "Мерч від самого початку: просто, чисто й вірно проєкту.",
+                "note": "Без спаму. Без драми. Лише праця.",
+                "c1h": "У підготовці",
+                "c1p": "Магазин скоро відкриється. Починаємо скромно, але якісно:\nчіткі дизайни, добра якість і проста логістика.",
+                "c2h": "Що буде",
+                "c2p": "Футболки, горнятка, наліпки та кілька мінімалістичних речей — з логотипом Lampadēphóros.",
+                "c3h": "Інфо / Контакт",
+                "c3p": "Якщо хочеш дізнатися, коли магазин відкриється, напиши нам короткого листа.",
+                "footerLead": "© Lampadēphóros • Контакт:",
+                "metaDesc": "Магазин Lampadēphóros: мерч (футболки, горнятка тощо) — у підготовці.",
+                "title": "Lampadēphóros – Магазин",
+                "nav": {
+                        "navStart": "Старт",
+                        "navAbout": "Про нас",
+                        "navFilms": "Фільми та розділи",
+                        "navImpulses": "Імпульси",
+                        "navWorkshop": "Майстерня",
+                        "navOffers": "Пропозиції",
+                        "navShop": "Магазин",
+                        "navLinks": "Контакти"
+                }
+        },
+        "ro": {
+                "brandMini": "Purtătorul Torței",
+                "h1": "Magazin",
+                "sub": "Merch de la început: simplu, curat și fidel proiectului.",
+                "note": "Fără spam. Fără dramă. Doar lucru.",
+                "c1h": "În pregătire",
+                "c1p": "Magazinul vine curând. Începem mic, dar bine:\ndesignuri clare, calitate bună și logistică simplă.",
+                "c2h": "Ce urmează",
+                "c2p": "Tricouri, căni, stickere și câteva articole minimaliste — cu logo-ul Lampadēphóros.",
+                "c3h": "Info / Contact",
+                "c3p": "Dacă vrei să fii anunțat când deschidem, trimite-ne un email scurt.",
+                "footerLead": "© Lampadēphóros • Contact:",
+                "metaDesc": "Magazin Lampadēphóros: merch (tricouri, căni etc.) — în pregătire.",
+                "title": "Lampadēphóros – Magazin",
+                "nav": {
+                        "navStart": "Start",
+                        "navAbout": "Despre noi",
+                        "navFilms": "Filme & capitole",
+                        "navImpulses": "Impulsuri",
+                        "navWorkshop": "Atelier",
+                        "navOffers": "Oferte",
+                        "navShop": "Magazin",
+                        "navLinks": "Contact"
+                }
+        },
+        "bg": {
+                "brandMini": "Носителят на факела",
+                "h1": "Магазин",
+                "sub": "Мърч от самото начало: прост, чист и верен на проекта.",
+                "note": "Без спам. Без драма. Само работа.",
+                "c1h": "В подготовка",
+                "c1p": "Магазинът идва скоро. Започваме малко, но качествено:\nясни дизайни, добро качество и проста логистика.",
+                "c2h": "Какво предстои",
+                "c2p": "Тениски, чаши, стикери и няколко минималистични артикула — с логото на Lampadēphóros.",
+                "c3h": "Инфо / Контакт",
+                "c3p": "Ако искаш да разбереш когато отворим, изпрати ни кратък имейл.",
+                "footerLead": "© Lampadēphóros • Контакт:",
+                "metaDesc": "Магазин Lampadēphóros: мърч (тениски, чаши и др.) — в подготовка.",
+                "title": "Lampadēphóros – Магазин",
+                "nav": {
+                        "navStart": "Начало",
+                        "navAbout": "За нас",
+                        "navFilms": "Филми и глави",
+                        "navImpulses": "Импулси",
+                        "navWorkshop": "Работилница",
+                        "navOffers": "Оферти",
+                        "navShop": "Магазин",
+                        "navLinks": "Къде сме"
+                }
+        },
+        "sr": {
+                "brandMini": "Носилац бакље",
+                "h1": "Продавница",
+                "sub": "Мерч од почетка: једноставно, чисто и верно пројекту.",
+                "note": "Без спама. Без драме. Само рад.",
+                "c1h": "У припреми",
+                "c1p": "Продавница стиже ускоро. Почињемо мало, али уредно:\nјасни дизајни, добар квалитет и једноставна логистика.",
+                "c2h": "Шта долази",
+                "c2p": "Мајице, шоље, налепнице и неколико минималистичких ствари — са Lampadēphóros логом.",
+                "c3h": "Инфо / Контакт",
+                "c3p": "Ако желиш обавештење кад отворимо, пошаљи нам кратак мејл.",
+                "footerLead": "© Lampadēphóros • Контакт:",
+                "metaDesc": "Lampadēphóros продавница: мерч (мајице, шоље итд.) — у припреми.",
+                "title": "Lampadēphóros – Продавница",
+                "nav": {
+                        "navStart": "Почетна",
+                        "navAbout": "О нама",
+                        "navFilms": "Филмови и поглавља",
+                        "navImpulses": "Импулси",
+                        "navWorkshop": "Радионица",
+                        "navOffers": "Понуде",
+                        "navShop": "Продавница",
+                        "navLinks": "Контакт"
+                }
+        },
+        "hr": {
+                "brandMini": "Nositelj Baklje",
+                "h1": "Trgovina",
+                "sub": "Merch od početka: jednostavno, čisto i vjerno projektu.",
+                "note": "Bez spama. Bez drame. Samo rad.",
+                "c1h": "U pripremi",
+                "c1p": "Trgovina stiže uskoro. Krećemo malo, ali uredno:\njasni dizajni, dobra kvaliteta i jednostavna logistika.",
+                "c2h": "Što dolazi",
+                "c2p": "Majice, šalice, naljepnice i nekoliko minimalističkih stvari — s Lampadēphóros logom.",
+                "c3h": "Info / Kontakt",
+                "c3p": "Ako želiš obavijest kad se otvori, pošalji nam kratki email.",
+                "footerLead": "© Lampadēphóros • Kontakt:",
+                "metaDesc": "Lampadēphóros trgovina: merch (majice, šalice itd.) — u pripremi.",
+                "title": "Lampadēphóros – Trgovina",
+                "nav": {
+                        "navStart": "Početna",
+                        "navAbout": "O nama",
+                        "navFilms": "Filmovi i poglavlja",
+                        "navImpulses": "Poticaji",
+                        "navWorkshop": "Radionica",
+                        "navOffers": "Ponude",
+                        "navShop": "Trgovina",
+                        "navLinks": "Kontakt"
+                }
+        },
+        "bs": {
+                "brandMini": "Nosilac Baklje",
+                "h1": "Shop",
+                "sub": "Merch od početka: jednostavno, čisto i vjerno projektu.",
+                "note": "Bez spama. Bez drame. Samo rad.",
+                "c1h": "U pripremi",
+                "c1p": "Shop uskoro dolazi. Krećemo malo, ali uredno:\njasni dizajni, dobra kvaliteta i jednostavna logistika.",
+                "c2h": "Šta dolazi",
+                "c2p": "Majice, šolje, stikeri i nekoliko minimalističkih stvari — sa Lampadēphóros logom.",
+                "c3h": "Info / Kontakt",
+                "c3p": "Ako želiš obavijest kad otvorimo, pošalji nam kratak email.",
+                "footerLead": "© Lampadēphóros • Kontakt:",
+                "metaDesc": "Lampadēphóros shop: merch (majice, šolje itd.) — u pripremi.",
+                "title": "Lampadēphóros – Shop",
+                "nav": {
+                        "navStart": "Početak",
+                        "navAbout": "O nama",
+                        "navFilms": "Filmovi i poglavlja",
+                        "navImpulses": "Impulsi",
+                        "navWorkshop": "Radionica",
+                        "navOffers": "Ponude",
+                        "navShop": "Shop",
+                        "navLinks": "Kontakt"
+                }
+        },
+        "cs": {
+                "brandMini": "Nositel pochodně",
+                "h1": "Obchod",
+                "sub": "Merch od začátku: jednoduchý, čistý a věrný projektu.",
+                "note": "Žádný spam. Žádné drama. Jen práce.",
+                "c1h": "V přípravě",
+                "c1p": "Obchod brzy spustíme. Začínáme v malém, ale poctivě:\njasné designy, dobrá kvalita a jednoduchá logistika.",
+                "c2h": "Co bude",
+                "c2p": "Trička, hrnky, samolepky a pár minimalistických věcí — s logem Lampadēphóros.",
+                "c3h": "Info / Kontakt",
+                "c3p": "Chceš-li vědět, až otevřeme, napiš nám krátký e‑mail.",
+                "footerLead": "© Lampadēphóros • Kontakt:",
+                "metaDesc": "Obchod Lampadēphóros: merch (trička, hrnky atd.) — v přípravě.",
+                "title": "Lampadēphóros – Obchod",
+                "nav": {
+                        "navStart": "Start",
+                        "navAbout": "O nás",
+                        "navFilms": "Filmy a kapitoly",
+                        "navImpulses": "Impulzy",
+                        "navWorkshop": "Dílna",
+                        "navOffers": "Nabídky",
+                        "navShop": "Obchod",
+                        "navLinks": "Kde nás najdete"
+                }
+        },
+        "sk": {
+                "brandMini": "Nositeľ fakle",
+                "h1": "Obchod",
+                "sub": "Merch od začiatku: jednoduchý, čistý a verný projektu.",
+                "note": "Žiadny spam. Žiadna dráma. Len práca.",
+                "c1h": "V príprave",
+                "c1p": "Obchod príde čoskoro. Začíname malí, ale poctivo:\njasné dizajny, dobrá kvalita a jednoduchá logistika.",
+                "c2h": "Čo príde",
+                "c2p": "Tričká, hrnčeky, nálepky a pár minimalistických vecí — s logom Lampadēphóros.",
+                "c3h": "Info / Kontakt",
+                "c3p": "Ak chceš vedieť, keď otvoríme, pošli nám krátky e‑mail.",
+                "footerLead": "© Lampadēphóros • Kontakt:",
+                "metaDesc": "Obchod Lampadēphóros: merch (tričká, hrnčeky atď.) — v príprave.",
+                "title": "Lampadēphóros – Obchod",
+                "nav": {
+                        "navStart": "Štart",
+                        "navAbout": "O nás",
+                        "navFilms": "Filmy a kapitoly",
+                        "navImpulses": "Impulzy",
+                        "navWorkshop": "Dielňa",
+                        "navOffers": "Ponuky",
+                        "navShop": "Obchod",
+                        "navLinks": "Kde nás nájdeš"
+                }
+        },
+        "sl": {
+                "brandMini": "Nosilec bakle",
+                "h1": "Trgovina",
+                "sub": "Merch od začetka: preprosto, čisto in zvesto projektu.",
+                "note": "Brez spama. Brez drame. Samo delo.",
+                "c1h": "V pripravi",
+                "c1p": "Trgovina prihaja kmalu. Začnemo majhno, a urejeno:\njasni dizajni, dobra kakovost in enostavna logistika.",
+                "c2h": "Kaj prihaja",
+                "c2p": "Majice, skodelice, nalepke in nekaj minimalističnih izdelkov — z logotipom Lampadēphóros.",
+                "c3h": "Info / Kontakt",
+                "c3p": "Če želiš obvestilo ob odprtju, nam pošlji kratko e‑pošto.",
+                "footerLead": "© Lampadēphóros • Kontakt:",
+                "metaDesc": "Trgovina Lampadēphóros: merch (majice, skodelice itd.) — v pripravi.",
+                "title": "Lampadēphóros – Trgovina",
+                "nav": {
+                        "navStart": "Začetek",
+                        "navAbout": "O nas",
+                        "navFilms": "Filmi in poglavja",
+                        "navImpulses": "Impulzi",
+                        "navWorkshop": "Delavnica",
+                        "navOffers": "Ponudbe",
+                        "navShop": "Trgovina",
+                        "navLinks": "Kje nas najdeš"
+                }
+        },
+        "hu": {
+                "brandMini": "A Fáklyahordozó",
+                "h1": "Bolt",
+                "sub": "Merch a kezdetektől: egyszerű, tiszta és hű a projekthez.",
+                "note": "Nincs spam. Nincs dráma. Csak munka.",
+                "c1h": "Készülőben",
+                "c1p": "A bolt hamarosan indul. Kicsiben kezdünk, de rendesen:\ntiszta dizájnok, jó minőség és egyszerű logisztika.",
+                "c2h": "Mi jön",
+                "c2p": "Pólók, bögrék, matricák és pár minimalista darab — Lampadēphóros logóval.",
+                "c3h": "Infó / Kapcsolat",
+                "c3p": "Ha szeretnél értesítést a nyitásról, írj nekünk egy rövid e‑mailt.",
+                "footerLead": "© Lampadēphóros • Kapcsolat:",
+                "metaDesc": "Lampadēphóros bolt: merch (pólók, bögrék stb.) — készülőben.",
+                "title": "Lampadēphóros – Bolt",
+                "nav": {
+                        "navStart": "Kezdőlap",
+                        "navAbout": "Rólunk",
+                        "navFilms": "Filmek és fejezetek",
+                        "navImpulses": "Impulzusok",
+                        "navWorkshop": "Műhely",
+                        "navOffers": "Ajánlatok",
+                        "navShop": "Bolt",
+                        "navLinks": "Hol találsz meg"
+                }
+        },
+        "el": {
+                "brandMini": "Ο Φορέας της Δάδας",
+                "h1": "Κατάστημα",
+                "sub": "Merch από την αρχή: απλό, καθαρό και πιστό στο έργο.",
+                "note": "Χωρίς spam. Χωρίς δράμα. Μόνο δουλειά.",
+                "c1h": "Σε προετοιμασία",
+                "c1p": "Το κατάστημα έρχεται σύντομα. Ξεκινάμε μικρά αλλά σωστά:\nκαθαρά σχέδια, καλή ποιότητα και απλή διαχείριση.",
+                "c2h": "Τι έρχεται",
+                "c2p": "Μπλουζάκια, κούπες, αυτοκόλλητα και λίγα μίνιμαλ αντικείμενα — με το λογότυπο Lampadēphóros.",
+                "c3h": "Πληροφορίες / Επικοινωνία",
+                "c3p": "Αν θέλεις ενημέρωση όταν ανοίξουμε, στείλε μας ένα σύντομο email.",
+                "footerLead": "© Lampadēphóros • Επικοινωνία:",
+                "metaDesc": "Κατάστημα Lampadēphóros: merch (μπλουζάκια, κούπες κ.λπ.) — σε προετοιμασία.",
+                "title": "Lampadēphóros – Κατάστημα",
+                "nav": {
+                        "navStart": "Αρχική",
+                        "navAbout": "Σχετικά",
+                        "navFilms": "Ταινίες & κεφάλαια",
+                        "navImpulses": "Εμπνεύσεις",
+                        "navWorkshop": "Εργαστήριο",
+                        "navOffers": "Προσφορές",
+                        "navShop": "Κατάστημα",
+                        "navLinks": "Επικοινωνία"
+                }
+        },
+        "tr": {
+                "brandMini": "Meşale Taşıyıcısı",
+                "h1": "Mağaza",
+                "sub": "En baştan merch: sade, temiz ve projeye sadık.",
+                "note": "Spam yok. Drama yok. Sadece emek.",
+                "c1h": "Hazırlanıyor",
+                "c1p": "Mağaza yakında geliyor. Küçük başlıyoruz ama düzgün:\naçık tasarımlar, iyi kalite ve basit lojistik.",
+                "c2h": "Neler gelecek",
+                "c2p": "Tişörtler, kupalar, sticker’lar ve birkaç minimalist ürün — Lampadēphóros logosuyla.",
+                "c3h": "Bilgi / İletişim",
+                "c3p": "Açıldığında haber almak istersen, bize kısa bir e‑posta at.",
+                "footerLead": "© Lampadēphóros • İletişim:",
+                "metaDesc": "Lampadēphóros mağazası: merch (tişört, kupa vb.) — hazırlanıyor.",
+                "title": "Lampadēphóros – Mağaza",
+                "nav": {
+                        "navStart": "Başlangıç",
+                        "navAbout": "Hakkımızda",
+                        "navFilms": "Filmler ve bölümler",
+                        "navImpulses": "İlhamlar",
+                        "navWorkshop": "Atölye",
+                        "navOffers": "Teklifler",
+                        "navShop": "Mağaza",
+                        "navLinks": "İletişim"
+                }
+        },
+        "ar": {
+                "brandMini": "حامل المشعل",
+                "h1": "المتجر",
+                "sub": "منتجات منذ البداية: بسيطة، نظيفة، وأمينة للمشروع.",
+                "note": "لا سبام. لا دراما. فقط عمل.",
+                "c1h": "قيد التحضير",
+                "c1p": "المتجر قادم قريبًا. نبدأ صغيرًا لكن بشكل مرتب:\nتصاميم واضحة، جودة جيدة، ولوجستيات بسيطة.",
+                "c2h": "ما القادم",
+                "c2p": "قمصان، أكواب، ملصقات وبعض القطع البسيطة — بشعار Lampadēphóros.",
+                "c3h": "معلومات / تواصل",
+                "c3p": "إذا أردت أن نخبرك عند الافتتاح، أرسل لنا بريدًا قصيرًا.",
+                "footerLead": "© Lampadēphóros • تواصل:",
+                "metaDesc": "متجر Lampadēphóros: منتجات (قمصان، أكواب، إلخ) — قيد التحضير.",
+                "title": "Lampadēphóros – المتجر",
+                "nav": {
+                        "navStart": "الرئيسية",
+                        "navAbout": "من نحن",
+                        "navFilms": "أفلام وفصول",
+                        "navImpulses": "إلهامات",
+                        "navWorkshop": "الورشة",
+                        "navOffers": "عروض",
+                        "navShop": "المتجر",
+                        "navLinks": "تواصل"
+                }
+        },
+        "he": {
+                "brandMini": "נושא הלפיד",
+                "h1": "חנות",
+                "sub": "מרצ׳ מההתחלה: פשוט, נקי ונאמן לפרויקט.",
+                "note": "בלי ספאם. בלי דרמה. רק עבודה.",
+                "c1h": "בהכנה",
+                "c1p": "החנות תגיע בקרוב. מתחילים קטן אבל מסודר:\nעיצובים ברורים, איכות טובה ולוגיסטיקה פשוטה.",
+                "c2h": "מה מגיע",
+                "c2p": "חולצות, ספלים, מדבקות ועוד כמה פריטים מינימליסטיים — עם לוגו Lampadēphóros.",
+                "c3h": "מידע / קשר",
+                "c3p": "אם תרצה לקבל עדכון כשנפתח, שלח לנו מייל קצר.",
+                "footerLead": "© Lampadēphóros • קשר:",
+                "metaDesc": "חנות Lampadēphóros: מרצ׳ (חולצות, ספלים וכו׳) — בהכנה.",
+                "title": "Lampadēphóros – חנות",
+                "nav": {
+                        "navStart": "דף הבית",
+                        "navAbout": "אודות",
+                        "navFilms": "סרטים ופרקים",
+                        "navImpulses": "אימפולסים",
+                        "navWorkshop": "סדנה",
+                        "navOffers": "הצעות",
+                        "navShop": "חנות",
+                        "navLinks": "איפה למצוא אותנו"
+                }
+        },
+        "hi": {
+                "brandMini": "मशाल-वाहक",
+                "h1": "शॉप",
+                "sub": "शुरू से ही मर्च: सरल, साफ़ और परियोजना के प्रति वफादार।",
+                "note": "कोई स्पैम नहीं। कोई ड्रामा नहीं। बस काम।",
+                "c1h": "तैयारी में",
+                "c1p": "शॉप जल्द आ रहा है। हम छोटा शुरू करते हैं, लेकिन साफ़-सुथरा:\nस्पष्ट डिज़ाइन, अच्छी गुणवत्ता और सरल लॉजिस्टिक्स।",
+                "c2h": "क्या आएगा",
+                "c2p": "टी‑शर्ट, मग, स्टिकर और कुछ मिनिमल आइटम — Lampadēphóros लोगो के साथ।",
+                "c3h": "जानकारी / संपर्क",
+                "c3p": "अगर आप दुकान खुलते ही सूचना चाहते हैं, हमें एक छोटा ईमेल भेजें।",
+                "footerLead": "© Lampadēphóros • संपर्क:",
+                "metaDesc": "Lampadēphóros शॉप: मर्च (टी‑शर्ट, मग, आदि) — तैयारी में।",
+                "title": "Lampadēphóros – Shop",
+                "nav": {
+                        "navStart": "होम",
+                        "navAbout": "परिचय",
+                        "navFilms": "फ़िल्में व अध्याय",
+                        "navImpulses": "प्रेरणाएँ",
+                        "navWorkshop": "कार्यशाला",
+                        "navOffers": "प्रस्ताव",
+                        "navShop": "दुकान",
+                        "navLinks": "संपर्क"
+                }
+        },
+        "ta": {
+                "brandMini": "தீவட்டத் தூக்குபவர்",
+                "h1": "கடை",
+                "sub": "ஆரம்பத்திலிருந்தே மெர்ச்: எளிது, சுத்தம், திட்டத்திற்கு உண்மையாக.",
+                "note": "ஸ்பாம் இல்லை. டிராமா இல்லை. வேலை மட்டும்.",
+                "c1h": "தயாரிப்பில்",
+                "c1p": "கடை விரைவில் வருகிறது. சிறிதாகத் தொடங்குகிறோம், ஆனால் சீராக:\nதெளிவான வடிவங்கள், நல்ல தரம், எளிய விநியோகம்.",
+                "c2h": "என்ன வரும்",
+                "c2p": "டி‑ஷர்ட்கள், மக்குகள், ஸ்டிக்கர்கள் மற்றும் சில மினிமல் பொருட்கள் — Lampadēphóros லோகோவுடன்.",
+                "c3h": "தகவல் / தொடர்பு",
+                "c3p": "கடை திறக்கும் போது தெரிவிக்க வேண்டுமெனில், ஒரு சுருக்கமான மெயிலை அனுப்புங்கள்.",
+                "footerLead": "© Lampadēphóros • தொடர்பு:",
+                "metaDesc": "Lampadēphóros கடை: மெர்ச் (டி‑ஷர்ட்கள், மக்குகள், முதலியவை) — தயாரிப்பில்.",
+                "title": "Lampadēphóros – கடை",
+                "nav": {
+                        "navStart": "முகப்பு",
+                        "navAbout": "எங்களைப் பற்றி",
+                        "navFilms": "திரைப்படங்கள் & அத்தியாயங்கள்",
+                        "navImpulses": "ஊக்கங்கள்",
+                        "navWorkshop": "பணிமனை",
+                        "navOffers": "வழங்கல்கள்",
+                        "navShop": "கடை",
+                        "navLinks": "தொடர்பு"
+                }
+        },
+        "th": {
+                "brandMini": "ผู้ถือคบเพลิง",
+                "h1": "ร้านค้า",
+                "sub": "เมอร์ชตั้งแต่เริ่มต้น: เรียบง่าย สะอาด และซื่อสัตย์ต่อโครงการ",
+                "note": "ไม่สแปม ไม่ดราม่า แค่งานล้วนๆ",
+                "c1h": "อยู่ระหว่างเตรียมการ",
+                "c1p": "ร้านค้าจะมาเร็วๆ นี้ เราเริ่มเล็กๆ แต่เป็นระเบียบ:\nดีไซน์ชัดเจน คุณภาพดี และโลจิสติกส์ง่ายๆ",
+                "c2h": "อะไรจะมา",
+                "c2p": "เสื้อยืด แก้ว สติ๊กเกอร์ และไอเท็มมินิมอลบางอย่าง — พร้อมโลโก้ Lampadēphóros",
+                "c3h": "ข้อมูล / ติดต่อ",
+                "c3p": "ถ้าต้องการให้แจ้งเมื่อร้านเปิด ส่งอีเมลสั้นๆ มาหาเราได้เลย",
+                "footerLead": "© Lampadēphóros • ติดต่อ:",
+                "metaDesc": "ร้านค้า Lampadēphóros: เมอร์ช (เสื้อยืด แก้ว ฯลฯ) — อยู่ระหว่างเตรียมการ",
+                "title": "Lampadēphóros – ร้านค้า",
+                "nav": {
+                        "navStart": "หน้าแรก",
+                        "navAbout": "เกี่ยวกับเรา",
+                        "navFilms": "วิดีโอและบท",
+                        "navImpulses": "แรงบันดาลใจ",
+                        "navWorkshop": "เวิร์กช็อป",
+                        "navOffers": "ข้อเสนอ",
+                        "navShop": "ร้านค้า",
+                        "navLinks": "พบเราได้ที่นี่"
+                }
+        },
+        "vi": {
+                "brandMini": "Người Mang Đuốc",
+                "h1": "Cửa hàng",
+                "sub": "Merch ngay từ đầu: đơn giản, sạch và trung thành với dự án.",
+                "note": "Không spam. Không drama. Chỉ làm việc.",
+                "c1h": "Đang chuẩn bị",
+                "c1p": "Cửa hàng sắp ra mắt. Chúng tôi bắt đầu nhỏ nhưng gọn:\nthiết kế rõ ràng, chất lượng tốt và hậu cần đơn giản.",
+                "c2h": "Sắp có gì",
+                "c2p": "Áo thun, cốc, sticker và vài món tối giản — với logo Lampadēphóros.",
+                "c3h": "Thông tin / Liên hệ",
+                "c3p": "Nếu bạn muốn được báo khi cửa hàng mở, hãy gửi cho chúng tôi một email ngắn.",
+                "footerLead": "© Lampadēphóros • Liên hệ:",
+                "metaDesc": "Cửa hàng Lampadēphóros: merch (áo thun, cốc, v.v.) — đang chuẩn bị.",
+                "title": "Lampadēphóros – Cửa hàng",
+                "nav": {
+                        "navStart": "Trang chủ",
+                        "navAbout": "Giới thiệu",
+                        "navFilms": "Phim & chương",
+                        "navImpulses": "Gợi hứng",
+                        "navWorkshop": "Xưởng",
+                        "navOffers": "Đề nghị",
+                        "navShop": "Cửa hàng",
+                        "navLinks": "Liên hệ"
+                }
+        },
+        "id": {
+                "brandMini": "Pembawa Obor",
+                "h1": "Toko",
+                "sub": "Merch sejak awal: sederhana, rapi, dan setia pada proyek.",
+                "note": "Tanpa spam. Tanpa drama. Hanya karya.",
+                "c1h": "Dalam persiapan",
+                "c1p": "Toko akan segera hadir. Kami mulai kecil, tapi rapi:\ndesain jelas, kualitas baik, dan logistik sederhana.",
+                "c2h": "Yang akan datang",
+                "c2p": "Kaos, mug, stiker, dan beberapa item minimalis — dengan logo Lampadēphóros.",
+                "c3h": "Info / Kontak",
+                "c3p": "Jika ingin diberi tahu saat toko dibuka, kirim email singkat kepada kami.",
+                "footerLead": "© Lampadēphóros • Kontak:",
+                "metaDesc": "Toko Lampadēphóros: merch (kaos, mug, dll.) — dalam persiapan.",
+                "title": "Lampadēphóros – Toko",
+                "nav": {
+                        "navStart": "Beranda",
+                        "navAbout": "Tentang",
+                        "navFilms": "Film & Bab",
+                        "navImpulses": "Impuls",
+                        "navWorkshop": "Workshop",
+                        "navOffers": "Penawaran",
+                        "navShop": "Toko",
+                        "navLinks": "Temukan kami"
+                }
+        },
+        "fil": {
+                "brandMini": "Tagapagdala ng Sulo",
+                "h1": "Shop",
+                "sub": "Merch mula pa sa simula: simple, malinis, at tapat sa proyekto.",
+                "note": "Walang spam. Walang drama. Trabaho lang.",
+                "c1h": "Inihahanda",
+                "c1p": "Darating na ang shop. Magsisimula kami nang maliit pero maayos:\nmalilinaw na disenyo, magandang kalidad, at simpleng logistics.",
+                "c2h": "Ano ang darating",
+                "c2p": "T‑shirts, mugs, stickers at ilang minimalist items — kasama ang Lampadēphóros logo.",
+                "c3h": "Info / Contact",
+                "c3p": "Kung gusto mong maabisuhan kapag bukas na, magpadala lang ng maikling email.",
+                "footerLead": "© Lampadēphóros • Contact:",
+                "metaDesc": "Lampadēphóros shop: merch (t‑shirts, mugs, atbp.) — inihahanda.",
+                "title": "Lampadēphóros – Shop",
+                "nav": {
+                        "navStart": "Home",
+                        "navAbout": "Tungkol",
+                        "navFilms": "Mga pelikula at kabanata",
+                        "navImpulses": "Mga pahiwatig",
+                        "navWorkshop": "Pagawaan",
+                        "navOffers": "Alok",
+                        "navShop": "Shop",
+                        "navLinks": "Kontak"
+                }
         }
-      };
+};
 
       function applyText(id, value) {
         const el = document.getElementById(id);
         if (!el || value == null) return;
-        // keep original formatting: allow line breaks in strings
         el.textContent = String(value);
       }
 
@@ -299,19 +892,25 @@
         if (meta && desc) meta.setAttribute("content", desc);
 
         // Nav labels
-        const navBase = base.nav || {};
+        const navBase = (base.nav || {});
         const navPack = (pack.nav || {});
         document.querySelectorAll("[data-i18n]").forEach(a => {
           const key = a.getAttribute("data-i18n");
           const label = (navPack[key] != null ? navPack[key] : navBase[key]);
           if (label != null) a.textContent = label;
         });
+
+        // RTL support for Arabic/Hebrew
+        if (lang === "ar" || lang === "he") {
+          document.documentElement.setAttribute("dir", "rtl");
+        } else {
+          document.documentElement.setAttribute("dir", "ltr");
+        }
       }
 
       // --- Keep ?lang on internal links (ONLY for non-DE, so DE stays 1:1) ---
       function isInternalHref(href) {
         if (!href) return false;
-        // ignore mailto, tel, hash-only, absolute external URLs
         if (href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("#")) return false;
         if (/^https?:\/\//i.test(href)) return false;
         return true;
@@ -331,7 +930,6 @@
           if (!isInternalHref(href)) return;
 
           const clean = toCentralPath(href);
-          // append/replace ?lang=
           const url = new URL(clean, window.location.href);
           url.searchParams.set("lang", lang);
           a.setAttribute("href", url.pathname + url.search);
