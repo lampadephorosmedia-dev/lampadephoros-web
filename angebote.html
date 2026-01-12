@@ -1104,9 +1104,22 @@
       setText("navContact", ui.nav?.contact || deUI.nav?.contact || "");
     
       setText("offer1Title", ui.offer1Title || deUI.offer1Title);
-      setHTML("offer1Body", ui.offer1Html || deUI.offer1Html);
-    
-      setText("offer2Title", ui.offer2Title || deUI.offer2Title);
+
+      // Offer 1: some translations still contained a few DE fragments (weekday/month/Uhr/Betreff).
+      // To keep DE as the only fallback *without* leaking German into other languages, we normalize
+      // those fragments to a neutral numeric format for all non-DE languages.
+      let offer1 = (ui.offer1Html || deUI.offer1Html || "");
+      if (lang !== "de") {
+        offer1 = offer1
+          .replace(/Freitag,\s*13\.\s*Februar\s*2026\s*–\s*19:00\s*Uhr/g, '<span dir="ltr">2026-02-13 – 19:00</span>')
+          .replace(/Samstag,\s*14\.\s*Februar\s*2026\s*–\s*17:00\s*Uhr/g, '<span dir="ltr">2026-02-14 – 17:00</span>')
+          .replace(/spätestens\s+am\s*27\.\s*Januar\s*2026/g, '<span dir="ltr">27.01.2026</span>')
+          .replace(/Betreff\/Vermerk:/g, 'Subject:')
+          .replace(/oder\s+Tel\.:/g, 'or Tel.:')
+          .replace(/\bUhr\b/g, '');
+      }
+      setHTML("offer1Body", offer1);
+setText("offer2Title", ui.offer2Title || deUI.offer2Title);
       setHTML("offer2Body", ui.offer2Html || deUI.offer2Html);
     
       setText("offer3Title", ui.offer3Title || deUI.offer3Title);
