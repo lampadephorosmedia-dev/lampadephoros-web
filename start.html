@@ -27,6 +27,8 @@
 
       <h1 id="heroTitle">Lampadēphóros</h1>
       <p class="sub" id="heroSub"></p>
+<p class="sub" id="heroFocus"></p>
+<p class="sub" id="heroKing"></p>
 
       <nav class="nav" aria-label="Navigation">
         <!-- GitHub Pages: keine Clean Routes ohne extra Setup -> .html -->
@@ -187,6 +189,8 @@
     safeSet("brandMini", dict.brandMini || "Der Fackelträger");
     safeSet("heroTitle", dict.title || "Lampadēphóros");
     safeSet("heroSub", dict.sub || "");
+    safeSet("heroFocus", dict.heroFocus || "");
+    safeSet("heroKing", dict.heroKing || "");
     safeSet("noteLine", dict.note || "");
 
     const nav = dict.nav || {};
