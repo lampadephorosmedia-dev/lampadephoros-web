@@ -1,7 +1,7 @@
 /* FILE: start-i18n.js */
 window.START_I18N = {
  de:{ title:"Der Fackelträger",
-  sub:"Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Ein Weg aus Licht, Liebe – und dem Herzen Jesu.",
+  sub:"Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Ein Weg aus Licht und Liebe.",
   heroFocus:"Wir schauen auf das Herz-Jesu – nicht auf uns.",
   heroKing:"Wir bekennen: Jesus ist der Herr.",
   nav:{start:"Beginne hier",about:"Über uns",films:"Filme & Kapitel",impulses:"Impulse",workshop:"Werkstatt",offers:"Angebote",shop:"Shop",links:"Hier findest du uns ▾"},
