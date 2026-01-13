@@ -78,7 +78,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Contatto:",visitors:"Visitatori",total:"Totale"}
   },
 
-  es:{ title:"El Portador de la Antorcha", sub:"Visibilidad sin ruido. Profundidad sin miedo. Un camino de luz, agua, corazón y silencio.", note:"Sin spam. Sin drama. Solo obra.",
+  es:{ title:"El Portador de la Antorcha", sub:"Visibilidad sin ruido. Profundidad sin miedo. Un camino de luz y amor.",
+    heroFocus:"Miramos al Corazón de Jesús — no a nosotros mismos.",
+    heroKing:"Confesamos: Jesús es el Señor.",
     nav:{start:"Empieza aquí",about:"Sobre nosotros",films:"Películas y capítulos",impulses:"Impulsos",workshop:"Taller",offers:"Ofertas",shop:"Tienda",links:"Encuéntranos ▾"},
     cards:{
       about:{h:"Sobre nosotros",p:"Quiénes somos — y hacia dónde vamos.",a:"Ver →"},
@@ -104,7 +106,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Kontakt:",visitors:"Odwiedziny",total:"Razem"}
   },
 
-  ru:{ title:"Факелоносец", sub:"Видимость без шума. Глубина без страха. Путь света, воды, сердца и тишины.", note:"Без спама. Без драмы. Только дело.",
+  ru:{ title:"Факелоносец", sub:"Видимость без шума. Глубина без страха. Путь света и любви.",
+heroFocus:"Мы смотрим на Сердце Иисуса — не на самих себя.",
+heroKing:"Мы исповедуем: Иисус есть Господь.",
     nav:{start:"Начать здесь",about:"О нас",films:"Фильмы и главы",impulses:"Импульсы",workshop:"Мастерская",offers:"Предложения",shop:"Магазин",links:"Где мы ▾"},
     cards:{
       about:{h:"О нас",p:"Кто мы — и куда идём.",a:"Смотреть →"},
@@ -117,7 +121,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Контакт:",visitors:"Посетители",total:"Всего"}
   },
 
-  nl:{ title:"De Fakkeldrager", sub:"Zichtbaarheid zonder lawaai. Diepte zonder angst. Een weg van licht, water, hart en stilte.", note:"Geen spam. Geen drama. Alleen werk.",
+  nl:{ title:"De Fakkeldrager", sub:"Zichtbaarheid zonder lawaai. Diepte zonder angst. Een weg van licht en liefde.",
+heroFocus:"Wij kijken naar het Hart van Jezus — niet naar onszelf.",
+heroKing:"Wij belijden: Jezus is de Heer.",
     nav:{start:"Begin hier",about:"Over ons",films:"Films & hoofdstukken",impulses:"Impulsen",workshop:"Werkplaats",offers:"Aanbod",shop:"Shop",links:"Vind ons ▾"},
     cards:{
       about:{h:"Over ons",p:"Wie we zijn — en waar we naartoe gaan.",a:"Lees →"},
@@ -130,7 +136,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Contact:",visitors:"Bezoekers",total:"Totaal"}
   },
 
-  ro:{ title:"Purtătorul de torță", sub:"Vizibilitate fără zgomot. Profunzime fără frică. Un drum de lumină, apă, inimă și tăcere.", note:"Fără spam. Fără dramă. Doar lucrare.",
+  ro:{ title:"Purtătorul de torță", sub:"Vizibilitate fără zgomot. Profunzime fără frică. Un drum de lumină și iubire.",
+heroFocus:"Privim spre Inima lui Isus — nu spre noi înșine.",
+heroKing:"Mărturisim: Isus este Domnul.",
     nav:{start:"Începe aici",about:"Despre noi",films:"Filme & capitole",impulses:"Impulsuri",workshop:"Atelier",offers:"Oferte",shop:"Magazin",links:"Găsește-ne ▾"},
     cards:{
       about:{h:"Despre noi",p:"Cine suntem — și unde mergem.",a:"Vezi →"},
@@ -143,7 +151,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Contact:",visitors:"Vizitatori",total:"Total"}
   },
 
-  uk:{ title:"Факелоносець", sub:"Видимість без шуму. Глибина без страху. Шлях світла, води, серця й тиші.", note:"Без спаму. Без драми. Лише справа.",
+  uk:{ title:"Факелоносець", sub:"Видимість без шуму. Глибина без страху. Шлях світла і любові.",
+heroFocus:"Ми дивимося на Серце Ісуса — не на самих себе.",
+heroKing:"Ми визнаємо: Ісус є Господь.",
     nav:{start:"Почати тут",about:"Про нас",films:"Фільми та розділи",impulses:"Імпульси",workshop:"Майстерня",offers:"Пропозиції",shop:"Магазин",links:"Знайти нас ▾"},
     cards:{
       about:{h:"Про нас",p:"Хто ми — і куди йдемо.",a:"Дивитись →"},
@@ -156,7 +166,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Контакт:",visitors:"Відвідувачі",total:"Всього"}
   },
 
-  hr:{ title:"Nositelj baklje", sub:"Vidljivost bez buke. Dubina bez straha. Put svjetla, vode, srca i tišine.", note:"Bez spama. Bez drame. Samo djelo.",
+  hr:{ title:"Nositelj baklje", sub:"Vidljivost bez buke. Dubina bez straha. Put svjetla i ljubavi.",
+heroFocus:"Gledamo u Srce Isusovo — ne u same sebe.",
+heroKing:"Ispovijedamo: Isus je Gospodin.",
     nav:{start:"Kreni ovdje",about:"O nama",films:"Filmovi i poglavlja",impulses:"Impulsi",workshop:"Radionica",offers:"Ponude",shop:"Trgovina",links:"Pronađi nas ▾"},
     cards:{
       about:{h:"O nama",p:"Tko smo — i kamo idemo.",a:"Pogledaj →"},
@@ -169,7 +181,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Kontakt:",visitors:"Posjetitelji",total:"Ukupno"}
   },
 
-  bs:{ title:"Nosač baklje", sub:"Vidljivost bez buke. Dubina bez straha. Put svjetla, vode, srca i tišine.", note:"Bez spama. Bez drame. Samo djelo.",
+  bs:{ title:"Nosač baklje", sub:"Vidljivost bez buke. Dubina bez straha. Put svjetla i ljubavi.",
+heroFocus:"Gledamo u Srce Isusovo — ne u same sebe.",
+heroKing:"Ispovijedamo: Isus je Gospodin.",
     nav:{start:"Počni ovdje",about:"O nama",films:"Filmovi i poglavlja",impulses:"Impulsi",workshop:"Radionica",offers:"Ponude",shop:"Shop",links:"Pronađi nas ▾"},
     cards:{
       about:{h:"O nama",p:"Ko smo — i kuda idemo.",a:"Pogledaj →"},
@@ -182,7 +196,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Kontakt:",visitors:"Posjetioci",total:"Ukupno"}
   },
 
-  sr:{ title:"Bakljonoša", sub:"Vidljivost bez buke. Dubina bez straha. Put svetla, vode, srca i tišine.", note:"Bez spama. Bez drame. Samo delo.",
+  sr:{ title:"Bakljonoša", sub:"Vidljivost bez buke. Dubina bez straha. Put svetla i ljubavi.",
+heroFocus:"Gledamo u Srce Isusovo — ne u same sebe.",
+heroKing:"Ispovedamo: Isus je Gospod.",
     nav:{start:"Počni ovde",about:"O nama",films:"Filmovi i poglavlja",impulses:"Impulsi",workshop:"Radionica",offers:"Ponude",shop:"Shop",links:"Pronađi nas ▾"},
     cards:{
       about:{h:"O nama",p:"Ko smo — i kuda idemo.",a:"Pogledaj →"},
@@ -195,7 +211,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Kontakt:",visitors:"Posetioci",total:"Ukupno"}
   },
 
-  tr:{ title:"Meşale Taşıyıcısı", sub:"Gürültüsüz görünürlük. Korkusuz derinlik. Işık, su, yürek ve sükûnet yolu.", note:"Spam yok. Drama yok. Sadece emek.",
+  tr:{ title:"Meşale Taşıyıcısı", sub:"Gürültüsüz görünürlük. Korkusuz derinlik. Işık ve sevgi yolu.",
+heroFocus:"İsa’nın Kalbine bakıyoruz — kendimize değil.",
+heroKing:"İkrar ediyoruz: İsa Rab’dir.",
     nav:{start:"Buradan başla",about:"Hakkımızda",films:"Filmler ve bölümler",impulses:"İzler",workshop:"Atölye",offers:"Teklifler",shop:"Mağaza",links:"Bizi bul ▾"},
     cards:{
       about:{h:"Hakkımızda",p:"Biz kimiz — nereye gidiyoruz.",a:"Oku →"},
@@ -208,7 +226,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"İletişim:",visitors:"Ziyaretçi",total:"Toplam"}
   },
 
-  ar:{ title:"حاملُ الشعلة", sub:"حضورٌ بلا ضجيج. عمقٌ بلا خوف. طريقٌ من نورٍ وماءٍ وقلبٍ وصمت.", note:"لا سبام. لا دراما. فقط عمل.",
+  ar:{ title:"حاملُ الشعلة", sub:"حضور بلا ضجيج. عمق بلا خوف. طريق من نور ومحبة.",
+     heroFocus:"ننظر إلى قلب يسوع — لا إلى أنفسنا.",
+     heroKing:"نعلن: يسوع هو الرب.",
+      note:"لا سبام. لا دراما. فقط عمل.",
     nav:{start:"ابدأ من هنا",about:"من نحن",films:"أفلام وفصول",impulses:"ومضات",workshop:"ورشة",offers:"عروض",shop:"متجر",links:"اعثر علينا ▾"},
     cards:{
       about:{h:"من نحن",p:"من نحن — وإلى أين نمضي.",a:"اقرأ →"},
@@ -221,7 +242,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"تواصل:",visitors:"زوار",total:"الإجمالي"}
   },
 
-  ur:{ title:"مشعل بردار", sub:"بغیر شور کے ظہور۔ بغیر خوف کے گہرائی۔ روشنی، پانی، دل اور خاموشی کا راستہ۔", note:"نہ اسپام۔ نہ ڈرامہ۔ صرف کام۔",
+  ur:{ title:"مشعل بردار", sub:"بغیر شور کے نمایاں ہونا۔ بغیر خوف کے گہرائی۔ روشنی اور محبت کا راستہ۔",
+heroFocus:"ہم یسوع کے دل کی طرف دیکھتے ہیں — خود کی طرف نہیں۔",
+heroKing:"ہم اقرار کرتے ہیں: یسوع خداوند ہے۔",
+ note:"نہ اسپام۔ نہ ڈرامہ۔ صرف کام۔",
     nav:{start:"یہاں سے شروع کریں",about:"ہمارے بارے میں",films:"فلمیں اور ابواب",impulses:"اشارے",workshop:"ورکشاپ",offers:"پیشکشیں",shop:"دکان",links:"ہمیں تلاش کریں ▾"},
     cards:{
       about:{h:"ہمارے بارے میں",p:"ہم کون ہیں — اور کہاں جا رہے ہیں۔",a:"دیکھیں →"},
@@ -234,7 +258,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"رابطہ:",visitors:"زائرین",total:"کل"}
   },
 
-  fa:{ title:"مشعل‌دار", sub:"دیده‌شدن بدون هیاهو. عمق بدون ترس. راهی از نور، آب، دل و سکوت.", note:"بدون اسپم. بدون دراما. فقط کار.",
+  fa:{ title:"مشعل‌دار", sub:"دیده‌شدن بدون هیاهو. عمق بدون ترس. راهی از نور و محبت.",
+heroFocus:"به قلب عیسی می‌نگریم — نه به خودمان.",
+heroKing:"اقرار می‌کنیم: عیسی خداوند است.",
+ note:"بدون اسپم. بدون دراما. فقط کار.",
     nav:{start:"از اینجا شروع کن",about:"درباره ما",films:"فیلم‌ها و فصل‌ها",impulses:"الهام‌ها",workshop:"کارگاه",offers:"پیشنهادها",shop:"فروشگاه",links:"ما را پیدا کن ▾"},
     cards:{
       about:{h:"درباره ما",p:"ما که هستیم — و کجا می‌رویم.",a:"ببین →"},
@@ -247,7 +274,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"تماس:",visitors:"بازدیدکننده",total:"مجموع"}
   },
 
-  zh:{ title:"火炬传递者", sub:"无噪声的可见度。无惧的深度。光、水、心与静默之路。", note:"无垃圾信息。无戏剧。只有作品。",
+  zh:{ title:"火炬传递者", sub:"无噪声的可见度。无惧的深度。光与爱的道路。",
+heroFocus:"我们注视耶稣的圣心——而不是自己。",
+heroKing:"我们宣认：耶稣是主。",
+ note:"无垃圾信息。无戏剧。只有作品。",
     nav:{start:"从这里开始",about:"关于我们",films:"影片与章节",impulses:"灵修片段",workshop:"工作坊",offers:"活动与服务",shop:"商店",links:"找到我们 ▾"},
     cards:{
       about:{h:"关于我们",p:"我们是谁 — 要去向何处。",a:"查看 →"},
@@ -260,7 +290,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"联系：",visitors:"访客",total:"总计"}
   },
 
-  hi:{ title:"मशालवाहक", sub:"बिना शोर के दृश्यता। बिना डर के गहराई। प्रकाश, जल, हृदय और मौन का मार्ग।", note:"न स्पैम। न ड्रामा। केवल कार्य।",
+  hi:{ title:"मशालवाहक", sub:"बिना शोर के दृश्यता। बिना भय के गहराई। प्रकाश और प्रेम का मार्ग।",
+heroFocus:"हम यीशु के हृदय की ओर देखते हैं — स्वयं की ओर नहीं।",
+heroKing:"हम अंगीकार करते हैं: यीशु प्रभु हैं।",
+ note:"न स्पैम। न ड्रामा। केवल कार्य।",
     nav:{start:"यहीं से शुरू करें",about:"हमारे बारे में",films:"फ़िल्में और अध्याय",impulses:"प्रेरणाएँ",workshop:"कार्यशाला",offers:"ऑफ़र",shop:"दुकान",links:"हमें खोजें ▾"},
     cards:{
       about:{h:"हमारे बारे में",p:"हम कौन हैं — और कहाँ जा रहे हैं।",a:"देखें →"},
@@ -273,7 +306,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"संपर्क:",visitors:"आगंतुक",total:"कुल"}
   },
 
-  bn:{ title:"মশালবাহক", sub:"শব্দহীন দৃশ্যমানতা। ভয়হীন গভীরতা। আলো, জল, হৃদয় ও নীরবতার পথ।", note:"স্প্যাম নয়। ড্রামা নয়। শুধু কাজ।",
+  bn:{ title:"মশালবাহক", sub:"শব্দহীন দৃশ্যমানতা। ভয়হীন গভীরতা। আলো ও ভালোবাসার পথ।",
+heroFocus:"আমরা যীশুর হৃদয়ের দিকে তাকাই — নিজের দিকে নয়।",
+heroKing:"আমরা স্বীকার করি: যীশু প্রভু।",
+ note:"স্প্যাম নয়। ড্রামা নয়। শুধু কাজ।",
     nav:{start:"এখান থেকে শুরু",about:"আমাদের সম্পর্কে",films:"ফিল্ম ও অধ্যায়",impulses:"অনুপ্রেরণা",workshop:"ওয়ার্কশপ",offers:"প্রস্তাব",shop:"দোকান",links:"আমাদের খুঁজুন ▾"},
     cards:{
       about:{h:"আমাদের সম্পর্কে",p:"আমরা কারা — কোথায় যাচ্ছি।",a:"দেখুন →"},
@@ -286,7 +322,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"যোগাযোগ:",visitors:"দর্শক",total:"মোট"}
   },
 
-  id:{ title:"Pembawa Obor", sub:"Terlihat tanpa bising. Dalam tanpa takut. Jalan cahaya, air, hati, dan hening.", note:"Tanpa spam. Tanpa drama. Hanya karya.",
+  id:{ title:"Pembawa Obor", sub:"Terlihat tanpa bising. Kedalaman tanpa takut. Jalan cahaya dan kasih.",
+heroFocus:"Kami memandang Hati Yesus — bukan diri kami sendiri.",
+heroKing:"Kami mengakui: Yesus adalah Tuhan.",
+ note:"Tanpa spam. Tanpa drama. Hanya karya.",
     nav:{start:"Mulai di sini",about:"Tentang kami",films:"Film & bab",impulses:"Renungan",workshop:"Bengkel",offers:"Penawaran",shop:"Toko",links:"Temukan kami ▾"},
     cards:{
       about:{h:"Tentang kami",p:"Siapa kami — dan ke mana kami melangkah.",a:"Lihat →"},
@@ -299,7 +338,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Kontak:",visitors:"Pengunjung",total:"Total"}
   },
 
-  fil:{ title:"Tagapagdala ng Sulo", sub:"Nakikita nang walang ingay. Lalím nang walang takot. Landas ng liwanag, tubig, puso, at katahimikan.", note:"Walang spam. Walang drama. Gawa lang.",
+  fil:{ title:"Tagapagdala ng Sulo", sub:"Nakikita nang walang ingay. Lalím nang walang takot. Landas ng liwanag at pag-ibig.",
+heroFocus:"Tumingin kami sa Puso ni Hesus — hindi sa aming sarili.",
+heroKing:"Ipinahahayag namin: Si Hesus ang Panginoon.",
+ note:"Walang spam. Walang drama. Gawa lang.",
     nav:{start:"Magsimula rito",about:"Tungkol sa amin",films:"Mga pelikula at kabanata",impulses:"Mga pagninilay",workshop:"Workshop",offers:"Mga alok",shop:"Tindahan",links:"Hanapin kami ▾"},
     cards:{
       about:{h:"Tungkol sa amin",p:"Sino kami — at saan papunta.",a:"Tingnan →"},
@@ -312,7 +354,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Kontak:",visitors:"Bisitá",total:"Kabuuan"}
   },
 
-  ja:{ title:"灯火を運ぶ者", sub:"騒がずに可視化。恐れずに深く。光と水と心と沈黙の道。", note:"スパムなし。ドラマなし。作品だけ。",
+  ja:{ title:"灯火を運ぶ者", sub:"騒がずに可視化。恐れずに深く。光と愛の道。",
+heroFocus:"私たちは自分たちではなく、イエスの御心に目を向けます。",
+heroKing:"私たちは告白します。イエスは主です。",
+ note:"スパムなし。ドラマなし。作品だけ。",
     nav:{start:"ここから",about:"私たちについて",films:"作品と章",impulses:"インパルス",workshop:"工房",offers:"案内",shop:"ショップ",links:"見つける ▾"},
     cards:{
       about:{h:"私たちについて",p:"私たちは誰か — どこへ向かうか。",a:"見る →"},
@@ -325,7 +370,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"連絡先：",visitors:"訪問者",total:"合計"}
   },
 
-  ko:{ title:"횃불을 든 이", sub:"소음 없이 드러남. 두려움 없이 깊어짐. 빛, 물, 마음, 침묵의 길.", note:"스팸 없음. 드라마 없음. 오직 작업.",
+  ko:{ title:"횃불을 든 이", sub:"소음 없이 드러남. 두려움 없이 깊어짐. 빛과 사랑의 길.",
+heroFocus:"우리는 우리 자신이 아니라 예수님의 성심을 바라봅니다.",
+heroKing:"우리는 고백합니다. 예수님은 주님이십니다.",
+ note:"스팸 없음. 드라마 없음. 오직 작업.",
     nav:{start:"여기서 시작",about:"소개",films:"영상과 장",impulses:"묵상",workshop:"작업실",offers:"안내",shop:"샵",links:"찾기 ▾"},
     cards:{
       about:{h:"소개",p:"우리가 누구인지 — 어디로 가는지.",a:"보기 →"},
@@ -338,7 +386,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"연락:",visitors:"방문자",total:"전체"}
   },
 
-  vi:{ title:"Người mang đuốc", sub:"Hiện diện không ồn ào. Chiều sâu không sợ hãi. Con đường ánh sáng, nước, trái tim và thinh lặng.", note:"Không spam. Không drama. Chỉ là công việc.",
+  vi:{ title:"Người mang đuốc", sub:"Hiện diện không ồn ào. Chiều sâu không sợ hãi. Con đường ánh sáng và tình yêu.",
+heroFocus:"Chúng tôi hướng nhìn về Trái Tim Chúa Giêsu — không nhìn vào chính mình.",
+heroKing:"Chúng tôi tuyên xưng: Chúa Giêsu là Chúa.",
+ note:"Không spam. Không drama. Chỉ là công việc.",
     nav:{start:"Bắt đầu",about:"Về chúng tôi",films:"Phim & chương",impulses:"Gợi ý",workshop:"Xưởng",offers:"Đề nghị",shop:"Cửa hàng",links:"Tìm chúng tôi ▾"},
     cards:{
       about:{h:"Về chúng tôi",p:"Chúng tôi là ai — đi về đâu.",a:"Xem →"},
@@ -351,7 +402,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Liên hệ:",visitors:"Khách",total:"Tổng"}
   },
 
-  ms:{ title:"Pembawa Obor", sub:"Keterlihatan tanpa bising. Kedalaman tanpa takut. Jalan cahaya, air, hati dan hening.", note:"Tiada spam. Tiada drama. Hanya karya.",
+  ms:{ title:"Pembawa Obor", sub:"Keterlihatan tanpa bising. Kedalaman tanpa takut. Jalan cahaya dan kasih.",
+heroFocus:"Kami memandang kepada Hati Yesus — bukan kepada diri kami sendiri.",
+heroKing:"Kami mengakui: Yesus adalah Tuhan.",
+ note:"Tiada spam. Tiada drama. Hanya karya.",
     nav:{start:"Mula di sini",about:"Tentang kami",films:"Filem & bab",impulses:"Renungan",workshop:"Bengkel",offers:"Tawaran",shop:"Kedai",links:"Cari kami ▾"},
     cards:{
       about:{h:"Tentang kami",p:"Siapa kami — dan ke mana kami menuju.",a:"Lihat →"},
@@ -364,7 +418,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Hubungi:",visitors:"Pelawat",total:"Jumlah"}
   },
 
-  ta:{ title:"தீப்பந்தம் ஏந்துபவர்", sub:"சத்தமில்லா தெரிவு. பயமில்லா ஆழம். ஒளி, நீர், இதயம், அமைதியின் பாதை.", note:"ஸ்பாம் இல்லை. ட்ராமா இல்லை. வேலை மட்டும்.",
+  ta:{ title:"தீப்பந்தம் ஏந்துபவர்", sub:"சத்தமில்லா தெரிவு. பயமில்லா ஆழம். ஒளி மற்றும் அன்பின் பாதை.",
+heroFocus:"நாங்கள் நம்மை அல்ல, இயேசுவின் இதயத்தை நோக்குகிறோம்.",
+heroKing:"நாங்கள் அறிக்கையிடுகிறோம்: இயேசு ஆண்டவர்.",
+ note:"ஸ்பாம் இல்லை. ட்ராமா இல்லை. வேலை மட்டும்.",
     nav:{start:"இங்கே தொடங்கு",about:"எங்களைப் பற்றி",films:"திரைப்படங்கள் & அத்தியாயங்கள்",impulses:"தூண்டுதல்கள்",workshop:"பணிமனை",offers:"சலுகைகள்",shop:"கடை",links:"எங்களை காணுங்கள் ▾"},
     cards:{
       about:{h:"எங்களைப் பற்றி",p:"நாங்கள் யார் — எங்கே செல்கிறோம்.",a:"பார் →"},
@@ -377,7 +434,10 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"தொடர்பு:",visitors:"வருகையாளர்",total:"மொத்தம்"}
   },
 
-  ku:{ title:"Fêkeldar", sub:"Bê dengî xuya bûn. Bê tirs kûr bûn. Riya ronahî, av, dil û bêdengî.", note:"Ne spam. Ne drama. Tenê kar.",
+  ku:{ title:"Fêkeldar", sub:"Bê dengî xuya bûn. Bê tirs kûr bûn. Riya ronahî û evînê.",
+heroFocus:"Em li Dilê Îsa dinêrin — ne li ser xwe.",
+heroKing:"Em îqrar dikin: Îsa Xwedê ye.",
+ note:"Ne spam. Ne drama. Tenê kar.",
     nav:{start:"Li vir dest pê bike",about:"Derbarê me de",films:"Fîlm û beş",impulses:"Impuls",workshop:"Werkstatt",offers:"Angebote",shop:"Shop",links:"Me bibîne ▾"},
     cards:{
       about:{h:"Derbarê me de",p:"Em kî ne — em diçin ku derê.",a:"Bixwîne →"},
