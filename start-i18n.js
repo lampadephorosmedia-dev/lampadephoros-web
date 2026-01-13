@@ -1,11 +1,15 @@
 /* FILE: start-i18n.js */
 window.START_I18N = {
-  de:{ title:"Der Fackelträger", sub:"Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Ein Weg aus Licht, Wasser, Herz und Stille.", note:"Kein Spam. Kein Drama. Nur Werk.",
-    nav:{start:"Beginne hier",about:"Über uns",films:"Filme & Kapitel",impulses:"Impulse",workshop:"Werkstatt",offers:"Angebote",shop:"Shop",links:"Hier findest du uns ▾"},
-    cards:{
+ de:{ title:"Der Fackelträger",
+  sub:"Sichtbarkeit ohne Lärm. Tiefe ohne Angst. Ein Weg aus Licht, Liebe – und dem Herzen Jesu.",
+  heroFocus:"Wir schauen auf das Herz-Jesu – nicht auf uns.",
+  heroKing:"Wir bekennen: Jesus ist der Herr.",
+  nav:{start:"Beginne hier",about:"Über uns",films:"Filme & Kapitel",impulses:"Impulse",workshop:"Werkstatt",offers:"Angebote",shop:"Shop",links:"Hier findest du uns ▾"},
+  cards:{
+
       about:{h:"Über uns",p:"Wer wir sind, warum es uns gibt – und wohin wir gehen.",a:"Zur Vorstellung →"},
       films:{h:"Filme",p:"Hauptwerke, Kapitel, kurze Schnitte – sauber sortiert.",a:"Zur Übersicht →"},
-      impulses:{h:"Impulse",p:"Kurze Texte, Voiceover-Auszüge, Gebete, Symbol-Deutung.",a:"Zu den Impulsen →"},
+      impulses:{h:"Impulse",p:"Kurze Texte, Gebete und Symbol-Deutung.",a:"Zu den Impulsen →"},
       workshop:{h:"Werkstatt",p:"Ein Blick hinter die Kulissen: Struktur, Rhythmus, Übergänge.",a:"Zur Werkstatt →"},
       offers:{h:"Angebote",p:"Pilgerreisen, Workshops, Vorträge und Busreisen zu besonderen Tagen.",a:"Zu den Angeboten →"},
       shop:{h:"Shop",p:"Merch von Anfang an: T-Shirts, Tassen & mehr – mit Logo.",a:"Zum Shop →"}
