@@ -21,11 +21,11 @@ fr:{ title:"Le Porteur de flambeau",
   heroFocus:"Nous regardons le Cœur de Jésus — pas nous-mêmes.",
   heroKing:"Nous confessons : Jésus est Seigneur.",
   note:"Pas de spam. Pas de drame. Juste l’essentiel.",
-    nav:{start:"Commencer ici",about:"À propos",films:"Films & chapitres",impulses:"Impulsions",workshop:"Atelier",offers:"Offres",shop:"Boutique",links:"Nous trouver ▾"},
+    nav:{start:"Commencer ici",about:"À propos",films:"Films & chapitres",impulses:"Réflexions",workshop:"Atelier",offers:"Offres",shop:"Boutique",links:"Nous trouver ▾"},
     cards:{
       about:{h:"À propos",p:"Qui nous sommes — et où nous allons.",a:"Découvrir →"},
       films:{h:"Films",p:"Œuvres, chapitres, versions courtes — rangées clairement.",a:"Voir →"},
-      impulses:{h:"Impulsions",p:"Textes courts, prières, symboles.",a:"Aller →"},
+      impulses:{h:"Réflexions",p:"Textes courts, prières, symboles.",a:"Aller →"},
       workshop:{h:"Atelier",p:"Derrière les coulisses : structure, rythme, transitions.",a:"Entrer →"},
       offers:{h:"Offres",p:"Pèlerinages, ateliers, conférences, voyages en bus.",a:"Voir →"},
       shop:{h:"Boutique",p:"Merch : t-shirts, mugs & plus — avec logo.",a:"Ouvrir →"}
