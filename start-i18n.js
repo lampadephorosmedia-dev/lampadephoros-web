@@ -25,7 +25,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"À propos",p:"Qui nous sommes — et où nous allons.",a:"Découvrir →"},
       films:{h:"Films",p:"Œuvres, chapitres, versions courtes — rangées clairement.",a:"Voir →"},
-      impulses:{h:"Impulsions",p:"Textes courts, prières, symboles.",a:"Aller →"},
+      impulses:{h:"Prières & méditations",p:"Textes courts, prières, symboles.",a:"Aller →"},
       workshop:{h:"Atelier",p:"Derrière les coulisses : structure, rythme, transitions.",a:"Entrer →"},
       offers:{h:"Offres",p:"Pèlerinages, ateliers, conférences, voyages en bus.",a:"Voir →"},
       shop:{h:"Boutique",p:"Merch : t-shirts, mugs & plus — avec logo.",a:"Ouvrir →"}
@@ -33,7 +33,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Contact :",visitors:"Visiteurs",total:"Total"}
   },
 
-  en:{ title:"The Torchbearer", sub:"Visibility without noise. Depth without fear. A path of light, water, heart, and silence.", note:"No spam. No drama. Just the work.",
+  en:{ title:"The Torchbearer", sub:"Visibility without noise. Depth without fear. A path of light and love.",
+      heroFocus:"We look to the Heart of Jesus — not to ourselves.",
+      heroKing:"We confess: Jesus is Lord.",
     nav:{start:"Start here",about:"About",films:"Films & chapters",impulses:"Reflections",workshop:"Workshop",offers:"Offers",shop:"Shop",links:"Find us ▾"},
     cards:{
       about:{h:"About",p:"Who we are — and where we’re going.",a:"Learn more →"},
@@ -46,7 +48,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Contact:",visitors:"Visitors",total:"Total"}
   },
 
-  pt:{ title:"O Portador da Tocha", sub:"Visibilidade sem ruído. Profundidade sem medo. Um caminho de luz, água, coração e silêncio.", note:"Sem spam. Sem drama. Só obra.",
+  pt:{ title:"O Portador da Tocha", sub:"Visibilidade sem ruído. Profundidade sem medo. Um caminho de luz e amor.",
+    heroFocus:"Olhamos para o Coração de Jesus — não para nós mesmos.",
+    heroKing:"Confessamos: Jesus é o Senhor.",
     nav:{start:"Começa aqui",about:"Sobre nós",films:"Filmes & capítulos",impulses:"Impulsos",workshop:"Bastidores",offers:"Ofertas",shop:"Loja",links:"Encontra-nos ▾"},
     cards:{
       about:{h:"Sobre nós",p:"Quem somos — e para onde vamos.",a:"Ver →"},
@@ -59,7 +63,9 @@ fr:{ title:"Le Porteur de flambeau",
     footer:{contact:"Contacto:",visitors:"Visitantes",total:"Total"}
   },
 
-  it:{ title:"Il Portatore della Fiaccola", sub:"Visibilità senza rumore. Profondità senza paura. Un cammino di luce, acqua, cuore e silenzio.", note:"Niente spam. Niente drama. Solo opera.",
+  it:{ title:"Il Portatore della Fiaccola", sub:"Visibilità senza rumore. Profondità senza paura. Un cammino di luce e amore.",
+      heroFocus:"Guardiamo al Cuore di Gesù — non a noi stessi.",
+      heroKing:"Confessiamo: Gesù è il Signore.",
     nav:{start:"Inizia qui",about:"Chi siamo",films:"Film & capitoli",impulses:"Spunti",workshop:"Laboratorio",offers:"Offerte",shop:"Shop",links:"Dove trovarci ▾"},
     cards:{
       about:{h:"Chi siamo",p:"Chi siamo — e dove andiamo.",a:"Scopri →"},
