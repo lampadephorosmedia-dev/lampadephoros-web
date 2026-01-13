@@ -9,7 +9,7 @@ window.START_I18N = {
 
       about:{h:"Über uns",p:"Wer wir sind, warum es uns gibt – und wohin wir gehen.",a:"Zur Vorstellung →"},
       films:{h:"Filme",p:"Hauptwerke, Kapitel, kurze Schnitte – sauber sortiert.",a:"Zur Übersicht →"},
-      impulses:{h:"Impulse",p:"Kurze Texte, Gebete und Symbol-Deutung.",a:"Zu den Impulsen →"},
+      impulses:{h:"Gebete & Meditationen",p:"Kurze Texte, Gebete und Symbol-Deutung.",a:"Zu den Impulsen →"},
       workshop:{h:"Werkstatt",p:"Ein Blick hinter die Kulissen: Struktur, Rhythmus, Übergänge.",a:"Zur Werkstatt →"},
       offers:{h:"Angebote",p:"Pilgerreisen, Workshops, Vorträge und Busreisen zu besonderen Tagen.",a:"Zu den Angeboten →"},
       shop:{h:"Shop",p:"Merch von Anfang an: T-Shirts, Tassen & mehr – mit Logo.",a:"Zum Shop →"}
