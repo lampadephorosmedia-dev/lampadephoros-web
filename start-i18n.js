@@ -16,8 +16,11 @@ window.START_I18N = {
     },
     footer:{contact:"Kontakt:",visitors:"Besucher",total:"Gesamt"}
   },
-
-  fr:{ title:"Le Porteur de flambeau", sub:"Visibilité sans bruit. Profondeur sans peur. Un chemin de lumière, d’eau, de cœur et de silence.", note:"Pas de spam. Pas de drama. Juste l’œuvre.",
+fr:{ title:"Le Porteur de flambeau",
+  sub:"Visibilité sans bruit. Profondeur sans peur. Un chemin de lumière et d’amour.",
+  heroFocus:"Nous regardons le Cœur de Jésus — pas nous-mêmes.",
+  heroKing:"Nous confessons : Jésus est Seigneur.",
+  note:"Pas de spam. Pas de drame. Juste l’essentiel.",
     nav:{start:"Commencer ici",about:"À propos",films:"Films & chapitres",impulses:"Impulsions",workshop:"Atelier",offers:"Offres",shop:"Boutique",links:"Nous trouver ▾"},
     cards:{
       about:{h:"À propos",p:"Qui nous sommes — et où nous allons.",a:"Découvrir →"},
