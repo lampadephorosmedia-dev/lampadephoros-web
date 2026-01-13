@@ -40,7 +40,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"About",p:"Who we are — and where we’re going.",a:"Learn more →"},
       films:{h:"Films",p:"Main works, chapters, short cuts — clearly organized.",a:"Explore →"},
-      impulses:{h:"Reflections",p:"Short texts, prayers, symbols.",a:"Go →"},
+      impulses:{h:"Prayers & Meditations",p:"Short texts, prayers, symbols.",a:"Go →"},
       workshop:{h:"Workshop",p:"Behind the scenes: structure, rhythm, transitions.",a:"Enter →"},
       offers:{h:"Offers",p:"Pilgrimages, workshops, talks, bus trips.",a:"See →"},
       shop:{h:"Shop",p:"Merch: shirts, mugs & more — with logo.",a:"Open →"}
@@ -55,7 +55,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"Sobre nós",p:"Quem somos — e para onde vamos.",a:"Ver →"},
       films:{h:"Filmes",p:"Obras, capítulos, versões curtas — bem organizadas.",a:"Explorar →"},
-      impulses:{h:"Impulsos",p:"Textos curtos, orações, símbolos.",a:"Ir →"},
+      impulses:{h:"Orações & meditações",p:"Textos curtos, orações, símbolos.",a:"Ir →"},
       workshop:{h:"Bastidores",p:"Por trás: estrutura, ritmo, transições.",a:"Entrar →"},
       offers:{h:"Ofertas",p:"Peregrinações, workshops, palestras, viagens.",a:"Ver →"},
       shop:{h:"Loja",p:"Merch: t-shirts, canecas & mais — com logo.",a:"Abrir →"}
@@ -70,7 +70,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"Chi siamo",p:"Chi siamo — e dove andiamo.",a:"Scopri →"},
       films:{h:"Film",p:"Opere, capitoli, versioni brevi — ordinate.",a:"Vai →"},
-      impulses:{h:"Spunti",p:"Testi brevi, preghiere, simboli.",a:"Apri →"},
+      impulses:{h:"Preghiere & meditazioni",p:"Testi brevi, preghiere, simboli.",a:"Apri →"},
       workshop:{h:"Laboratorio",p:"Dietro le quinte: struttura, ritmo, transizioni.",a:"Entra →"},
       offers:{h:"Offerte",p:"Pellegrinaggi, workshop, conferenze, viaggi.",a:"Vedi →"},
       shop:{h:"Shop",p:"Merch: magliette, tazze & altro — con logo.",a:"Apri →"}
@@ -83,7 +83,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"Sobre nosotros",p:"Quiénes somos — y hacia dónde vamos.",a:"Ver →"},
       films:{h:"Películas",p:"Obras, capítulos, versiones cortas — ordenadas.",a:"Explorar →"},
-      impulses:{h:"Impulsos",p:"Textos cortos, oraciones, símbolos.",a:"Ir →"},
+      impulses:{h:"Oraciones & meditaciones",p:"Textos cortos, oraciones, símbolos.",a:"Ir →"},
       workshop:{h:"Taller",p:"Detrás: estructura, ritmo, transiciones.",a:"Entrar →"},
       offers:{h:"Ofertas",p:"Peregrinaciones, talleres, charlas, viajes.",a:"Ver →"},
       shop:{h:"Tienda",p:"Merch: camisetas, tazas y más — con logo.",a:"Abrir →"}
