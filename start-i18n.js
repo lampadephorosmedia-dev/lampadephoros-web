@@ -9,7 +9,7 @@ window.START_I18N = {
 
       about:{h:"Über uns",p:"Wer wir sind, warum es uns gibt – und wohin wir gehen.",a:"Zur Vorstellung →"},
       films:{h:"Filme",p:"Hauptwerke, Kapitel, kurze Schnitte – sauber sortiert.",a:"Zur Übersicht →"},
-      impulses:{h:"Gebete & Meditationen",p:"Kurze Texte, Gebete und Symbol-Deutung.",a:"Zu den Impulsen →"},
+      impulses:{h:"Impulse",p:"Kurze Texte, Gebete und Symbol-Deutung.",a:"Zu den Impulsen →"},
       workshop:{h:"Werkstatt",p:"Ein Blick hinter die Kulissen: Struktur, Rhythmus, Übergänge.",a:"Zur Werkstatt →"},
       offers:{h:"Angebote",p:"Pilgerreisen, Workshops, Vorträge und Busreisen zu besonderen Tagen.",a:"Zu den Angeboten →"},
       shop:{h:"Shop",p:"Merch von Anfang an: T-Shirts, Tassen & mehr – mit Logo.",a:"Zum Shop →"}
@@ -25,7 +25,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"À propos",p:"Qui nous sommes — et où nous allons.",a:"Découvrir →"},
       films:{h:"Films",p:"Œuvres, chapitres, versions courtes — rangées clairement.",a:"Voir →"},
-      impulses:{h:"Prières & méditations",p:"Textes courts, prières, symboles.",a:"Aller →"},
+      impulses:{h:"Impulsions",p:"Textes courts, prières, symboles.",a:"Aller →"},
       workshop:{h:"Atelier",p:"Derrière les coulisses : structure, rythme, transitions.",a:"Entrer →"},
       offers:{h:"Offres",p:"Pèlerinages, ateliers, conférences, voyages en bus.",a:"Voir →"},
       shop:{h:"Boutique",p:"Merch : t-shirts, mugs & plus — avec logo.",a:"Ouvrir →"}
@@ -40,7 +40,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"About",p:"Who we are — and where we’re going.",a:"Learn more →"},
       films:{h:"Films",p:"Main works, chapters, short cuts — clearly organized.",a:"Explore →"},
-      impulses:{h:"Prayers & Meditations",p:"Short texts, prayers, symbols.",a:"Go →"},
+      impulses:{h:"Reflections",p:"Short texts, prayers, symbols.",a:"Go →"},
       workshop:{h:"Workshop",p:"Behind the scenes: structure, rhythm, transitions.",a:"Enter →"},
       offers:{h:"Offers",p:"Pilgrimages, workshops, talks, bus trips.",a:"See →"},
       shop:{h:"Shop",p:"Merch: shirts, mugs & more — with logo.",a:"Open →"}
@@ -55,7 +55,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"Sobre nós",p:"Quem somos — e para onde vamos.",a:"Ver →"},
       films:{h:"Filmes",p:"Obras, capítulos, versões curtas — bem organizadas.",a:"Explorar →"},
-      impulses:{h:"Orações & meditações",p:"Textos curtos, orações, símbolos.",a:"Ir →"},
+      impulses:{h:"Impulsos",p:"Textos curtos, orações, símbolos.",a:"Ir →"},
       workshop:{h:"Bastidores",p:"Por trás: estrutura, ritmo, transições.",a:"Entrar →"},
       offers:{h:"Ofertas",p:"Peregrinações, workshops, palestras, viagens.",a:"Ver →"},
       shop:{h:"Loja",p:"Merch: t-shirts, canecas & mais — com logo.",a:"Abrir →"}
@@ -70,7 +70,7 @@ fr:{ title:"Le Porteur de flambeau",
     cards:{
       about:{h:"Chi siamo",p:"Chi siamo — e dove andiamo.",a:"Scopri →"},
       films:{h:"Film",p:"Opere, capitoli, versioni brevi — ordinate.",a:"Vai →"},
-      impulses:{h:"Preghiere & meditazioni",p:"Testi brevi, preghiere, simboli.",a:"Apri →"},
+      impulses:{h:"Impulsos",p:"Testi brevi, preghiere, simboli.",a:"Apri →"},
       workshop:{h:"Laboratorio",p:"Dietro le quinte: struttura, ritmo, transizioni.",a:"Entra →"},
       offers:{h:"Offerte",p:"Pellegrinaggi, workshop, conferenze, viaggi.",a:"Vedi →"},
       shop:{h:"Shop",p:"Merch: magliette, tazze & altro — con logo.",a:"Apri →"}
